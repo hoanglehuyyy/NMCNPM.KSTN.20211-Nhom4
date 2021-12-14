@@ -20,7 +20,7 @@ public class HoKhauRepositoryImpl implements  HoKhauRepository {
             conn = DbUtil.getInstance().getConnection();
             pstmt = conn.prepareStatement(SQLCommand.HO_KHAU_QUERY_TONG_THUONG_TRU);
             rs = pstmt.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 tongHoKhauThuongTru = rs.getInt(1);
             }
         } catch (SQLException e) {
