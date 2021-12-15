@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanlyhokhau.HelloController">
+   <children>
+      <TableView fx:id="table" layoutX="150.0" layoutY="191.0" prefHeight="338.0" prefWidth="491.0" style="-fx-background-color: #FFFF8D;">
+        <columns>
+          <TableColumn fx:id="id_ho_khauCol" prefWidth="117.0" text="Mã hộ khẩu" />
+          <TableColumn fx:id="name_ho_khauCol" prefWidth="172.0" text="Họ tên chủ hộ" />
+            <TableColumn fx:id="address_ho_khauCol" prefWidth="210.0" text="Địa chỉ" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#delete" text="Xoá hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#show" text="Xem hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#change" text="Sửa hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#tach" text="Tách hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#chuyen" text="Chuyển hộ khẩu" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+      <TextField fx:id="search_ho_khau" layoutX="150.0" layoutY="143.0" onAction="#search_hk" prefHeight="25.0" prefWidth="245.0" promptText="search" style="-fx-background-color: #FFFF8D;" />
+      <Button layoutX="667.0" layoutY="191.0" mnemonicParsing="false" onAction="#add" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #FFFF8D;" text="Thêm hộ khẩu">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <ComboBox fx:id="comboBox" layoutX="408.0" layoutY="143.0" onAction="#search_all" prefHeight="25.0" prefWidth="127.0" promptText="Search" style="-fx-background-color: #FFFF8D;" />
+      <Pane prefHeight="82.0" prefWidth="800.0" style="-fx-background-color: #FFFF8D;">
+         <children>
+            <Label layoutX="273.0" layoutY="16.0" text="Quản lý hộ khẩu">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
