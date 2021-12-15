@@ -8,18 +8,18 @@ import javafx.stage.Stage;
 
 public class tachHK {
     @FXML
-    private TextField now_name_ho_khau;
+    private TextField now_id_chu_ho;
     @FXML
     private TextField id_ho_khau;
     @FXML
     private TextField new_address_ho_khau;
     @FXML
-    private TextField new_name_ho_khau;
+    private TextField new_id_chu_ho;
     @FXML
     private TextField new_id_ho_khau;
 
     public void tach_hk(Hokhau hk){
-        now_name_ho_khau.setText(hk.getName_ho_khau());
+        now_id_chu_ho.setText(String.valueOf(hk.getId_chu_ho()));
         id_ho_khau.setText(String.valueOf(hk.getId_ho_khau()));
     }
 

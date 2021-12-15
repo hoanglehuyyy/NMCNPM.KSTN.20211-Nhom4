@@ -13,15 +13,19 @@ import java.io.IOException;
 
 public class addHK {
     @FXML
-    private TextField id_text;
+    private TextField id_ho_khau_text;
     @FXML
-    private TextField name_text;
+    private TextField id_chu_ho_text;
     @FXML
-    private TextField address_text;
+    private TextField address_ho_khau_text;
     @FXML
-    private TextField birth_text;
+    private TextField thanhpho_text;
     @FXML
-    private TextField cmt_text;
+    private TextField quanhuyen_text;
+    @FXML
+    private TextField phuongxa_text;
+    @FXML
+    private TextField ngaytao_text;
 
 //    public void save(ActionEvent event){
 //        int id_add = Integer.parseInt(id_text.getText());

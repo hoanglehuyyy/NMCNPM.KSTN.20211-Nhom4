@@ -9,19 +9,27 @@ import javafx.stage.Stage;
 
 public class chuyenHK {
     @FXML
-    private TextField id_chuyen;
+    private TextField id_ho_khau_chuyen;
     @FXML
-    private TextField name_chuyen;
+    private TextField id_chu_ho_chuyen;
     @FXML
     private TextField address_chuyen;
     @FXML
     private TextField new_address_chuyen;
     @FXML
+    private TextField thanhpho_chuyen;
+    @FXML
+    private TextField quanhuyen_chuyen;
+    @FXML
+    private TextField phuongxa_chuyen;
+    @FXML
+    private TextField ngaychuyenden_chuyen;
+    @FXML
     private TextArea reason_chuyen;
 
     public void chuyen_hk(Hokhau hk){
-        id_chuyen.setText(String.valueOf(hk.getId_ho_khau()));
-        name_chuyen.setText(hk.getName_ho_khau());
+        id_ho_khau_chuyen.setText(String.valueOf(hk.getId_ho_khau()));
+        id_chu_ho_chuyen.setText(String.valueOf(hk.getId_chu_ho()));
         address_chuyen.setText(hk.getAddress_ho_khau());
     }
 

@@ -28,10 +28,22 @@ public class HelloController implements Initializable{
     private TableColumn<Hokhau, Integer> id_ho_khauCol;
 
     @FXML
-    private TableColumn<Hokhau, String> name_ho_khauCol;
+    private TableColumn<Hokhau, Integer> id_chu_ho_khauCol;
 
     @FXML
     private TableColumn<Hokhau, String> address_ho_khauCol;
+
+    @FXML
+    private TableColumn<Hokhau, String> thanhpho_ho_khauCol;
+
+    @FXML
+    private TableColumn<Hokhau, String> quanhuyen_ho_khauCol;
+
+    @FXML
+    private TableColumn<Hokhau, String> phuongxa_ho_khauCol;
+
+    @FXML
+    private TableColumn<Hokhau, String> ngaytao_ho_khauCol;
 
     @FXML
     private TextField search_ho_khau;
@@ -39,13 +51,15 @@ public class HelloController implements Initializable{
     @FXML
     private ComboBox<String> comboBox;
 
-    private ObservableList<String> list_combo_box = FXCollections.observableArrayList("All","Mã hộ khẩu","Địa chỉ","Họ tên chủ hộ");
+    private ObservableList<String> list_combo_box = FXCollections.observableArrayList("All","Mã hộ khẩu","Mã chủ hộ","Địa chỉ");
 
 
     private ObservableList<Hokhau> hokhauList;
 
     private ObservableList<Hokhau> searchList;
 
+
+    //checked//
     public void search_all(ActionEvent event){
         String sc = comboBox.getValue();
         if(sc.equals("All")){
@@ -56,6 +70,7 @@ public class HelloController implements Initializable{
         }
     }
 
+    //checked//
     public void search_hk(ActionEvent event){
         searchList.clear();
         String search_text = search_ho_khau.getText().trim().toLowerCase(); ;
@@ -93,18 +108,28 @@ public class HelloController implements Initializable{
             }
             table.setItems(searchList);
         }
-        else if(sc.equals("Họ tên chủ hộ")){
+        else if(sc.equals("Mã chủ hộ")){
             for(Hokhau a : hokhauList){
-                if((a.getName_ho_khau().toLowerCase()).contains(search_text)){
-                    Hokhau clone_hk = new Hokhau();
-                    clone_hk.copy_hk(a);
-                    searchList.add(clone_hk);
+                try{
+                    if(a.getId_chu_ho() == Integer.parseInt(search_text)){
+                        Hokhau clone_hk = new Hokhau();
+                        clone_hk.copy_hk(a);
+                        searchList.add(clone_hk);
+                    }
+                }catch(NumberFormatException e){
+                    Alert m = new Alert(Alert.AlertType.INFORMATION);
+                    m.setTitle("Alert!");
+                    m.setHeaderText("Không thoả mãn trường dữ liệu!");
+                    m.setContentText("Mời nhập lại!");
+                    m.show();
+                    return;
                 }
+
             }
             table.setItems(searchList);
         }
     }
-
+    //checked//
     public void add(ActionEvent event) throws IOException {
         Parent them_ho_khau = FXMLLoader.load(getClass().getResource("them-ho-khau.fxml"));
         Scene scene = new Scene(them_ho_khau);
@@ -114,7 +139,7 @@ public class HelloController implements Initializable{
         stage.setScene(scene);
         stage.show();
     }
-
+    //checked//
     public void delete(ActionEvent event){
         Hokhau hk = table.getSelectionModel().getSelectedItem();
         if (hk == null) {
@@ -154,6 +179,7 @@ public class HelloController implements Initializable{
 
     }
 
+    //checked//
     public void show(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("show-ho-khau.fxml"));
@@ -177,6 +203,7 @@ public class HelloController implements Initializable{
         stage.show();
     }
 
+    //checked//
     public void change(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("change-ho-khau.fxml"));
@@ -200,6 +227,7 @@ public class HelloController implements Initializable{
         stage.show();
     }
 
+    //checked//
     public void tach(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("tach-ho-khau.fxml"));
@@ -223,6 +251,7 @@ public class HelloController implements Initializable{
         stage.show();
     }
 
+    //checked//
     public void chuyen(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("chuyen-ho-khau.fxml"));
@@ -255,24 +284,21 @@ public class HelloController implements Initializable{
 
     private void initCol(){
         id_ho_khauCol.setCellValueFactory(new PropertyValueFactory<Hokhau,Integer>("id_ho_khau"));
-        name_ho_khauCol.setCellValueFactory(new PropertyValueFactory<Hokhau,String>("name_ho_khau"));
+        id_chu_ho_khauCol.setCellValueFactory(new PropertyValueFactory<Hokhau,Integer>("id_chu_ho"));
         address_ho_khauCol.setCellValueFactory(new PropertyValueFactory<Hokhau,String>("address_ho_khau"));
     }
 
     private void loadData(){
         hokhauList = FXCollections.observableArrayList(
-                new Hokhau(1,"Trinh Tung Duong","Thanh Hoa","20/03/2001","12345"),
-                new Hokhau(2,"Nguyen Van Thanh","Ninh Binh","20/03/2001","12345"),
-                new Hokhau(3,"Vo Thuc Khanh Huyen","Quang Tri","20/03/2001","12345"),
-                new Hokhau(4,"Le Huy Hoang","Nam Dinh","20/03/2001","12345"),
-                new Hokhau(5,"Ho Anh","Quang Tri","20/03/2001","12345"),
-                new Hokhau(6,"Nguyen Trong Bang","Quang Tri","20/03/2001","12345"),
-                new Hokhau(7,"Ta Huu Binh","Hai Duong","20/03/2001","12345"),
-                new Hokhau(8,"Cao Nhu Dat","Nam Dinh","20/03/2001","12345"),
-                new Hokhau(9,"Le Anh Duc","Thanh Hoa","20/03/2001","12345"),
-                new Hokhau(10,"Vu Quang Truong","Hung Yen","20/03/2001","12345"),
-                new Hokhau(11,"Nguyen Ngoc Bao","Hung Yen","20/03/2001","12345"),
-                new Hokhau(12,"Nguyen Hai Duong","Phu Tho","20/03/2001","12345")
+                new Hokhau(1,10,"127B Duong A","Thanh Hoa","15-12-2021"),
+                new Hokhau(2,20,"128B Duong A","Nam Dinh","P","Q","15-12-2021"),
+                new Hokhau(3,30,"129B Duong A","Hung Yen","X","Y","15-12-2021"),
+                new Hokhau(4,40,"127B Duong A","Hung Yen","15-12-2021"),
+                new Hokhau(5,50,"129B Duong X","Quang Tri","15-12-2021"),
+                new Hokhau(6,60,"130B Duong X","Hai Duong","Z","W","15-12-2021"),
+                new Hokhau(7,70,"131B Duong A","Phu Tho","15-12-2021"),
+                new Hokhau(8,80,"131C Duong A","Thanh Hoa","15-12-2021")
+
         );
         searchList = FXCollections.observableArrayList();
         table.setItems(hokhauList);

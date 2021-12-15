@@ -17,7 +17,7 @@
       <TableView fx:id="table" layoutX="150.0" layoutY="191.0" prefHeight="338.0" prefWidth="491.0" style="-fx-background-color: #FFFF8D;">
         <columns>
           <TableColumn fx:id="id_ho_khauCol" prefWidth="117.0" text="Mã hộ khẩu" />
-          <TableColumn fx:id="name_ho_khauCol" prefWidth="172.0" text="Họ tên chủ hộ" />
+          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="172.0" text="Mã chủ hộ" />
             <TableColumn fx:id="address_ho_khauCol" prefWidth="210.0" text="Địa chỉ" />
         </columns>
          <contextMenu>

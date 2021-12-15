@@ -7,34 +7,46 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.quanlyhokhau.showHK">
    <children>
-      <Label layoutX="52.0" layoutY="81.0" prefHeight="17.0" prefWidth="115.0" text="Mã hộ khẩu:" textFill="#ffff8d">
+      <Label layoutX="52.0" layoutY="44.0" prefHeight="17.0" prefWidth="115.0" text="Mã hộ khẩu:" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="52.0" layoutY="162.0" prefHeight="17.0" prefWidth="115.0" text="Họ tên chủ hộ:" textFill="#ffff8d">
+      <Label layoutX="52.0" layoutY="119.0" prefHeight="17.0" prefWidth="115.0" text="Địa chỉ" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="52.0" layoutY="119.0" prefHeight="17.0" prefWidth="115.0" text="Địa chỉ:" textFill="#ffff8d">
+      <Label layoutX="52.0" layoutY="81.0" prefHeight="17.0" prefWidth="115.0" text="Mã chủ hộ" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="52.0" layoutY="203.0" prefHeight="17.0" prefWidth="115.0" text="Ngày sinh chủ hộ:" textFill="#ffff8d">
+      <Label layoutX="52.0" layoutY="154.0" prefHeight="17.0" prefWidth="115.0" text="Thành/Tỉnh" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="52.0" layoutY="244.0" prefHeight="17.0" prefWidth="115.0" text="Số cmt chủ hộ:" textFill="#ffff8d">
+      <Label layoutX="52.0" layoutY="195.0" prefHeight="17.0" prefWidth="115.0" text="Quận/Huyện" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="id_label" layoutX="238.0" layoutY="81.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="address_label" layoutX="238.0" layoutY="119.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="name_label" layoutX="238.0" layoutY="162.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="birth_label" layoutX="238.0" layoutY="203.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="cmt_label" layoutX="238.0" layoutY="244.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
+      <Label fx:id="id_chu_ho_label" layoutX="224.0" layoutY="81.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
+      <Label fx:id="address_label" layoutX="224.0" layoutY="119.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
+      <Label fx:id="thanhpho_label" layoutX="224.0" layoutY="154.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
+      <Label fx:id="quanhuyen_label" layoutX="224.0" layoutY="195.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
+      <Label fx:id="phuongxa_label" layoutX="224.0" layoutY="236.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
       <Button layoutX="497.0" layoutY="338.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #FFFF8D;" text="Close">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
+      <Label layoutX="52.0" layoutY="236.0" text="Phường/Xã" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="270.0" text="Ngày tạo" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="id_ho_khau_label" layoutX="224.0" layoutY="44.0" text="Label" textFill="#ffff8d" />
+      <Label fx:id="ngaytao_label" layoutX="224.0" layoutY="270.0" text="Label" textFill="#ffff8d" />
    </children>
 </AnchorPane>

@@ -8,22 +8,14 @@ import javafx.stage.Stage;
 
 public class changeHK {
     @FXML
-    private TextField id_change;
+    private TextField id_ho_khau_change;
     @FXML
-    private TextField name_change;
-    @FXML
-    private TextField address_change;
-    @FXML
-    private TextField birth_change;
-    @FXML
-    private TextField cmt_change;
+    private TextField id_chu_ho_change;
+
 
     public void change_hk(Hokhau hk){
-        id_change.setText(String.valueOf(hk.getId_ho_khau()));
-        name_change.setText(hk.getName_ho_khau());
-        address_change.setText(hk.getAddress_ho_khau());
-        birth_change.setText(hk.getBirth_ho_khau());
-        cmt_change.setText(hk.getCmt_ho_khau());
+        id_ho_khau_change.setText(String.valueOf(hk.getId_ho_khau()));
+        id_chu_ho_change.setText(String.valueOf(hk.getId_chu_ho()));
     }
 
     public void save_button(ActionEvent e){
