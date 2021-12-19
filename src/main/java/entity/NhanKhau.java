@@ -1,21 +1,12 @@
 package entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.util.Date;
 
-import java.time.LocalDate;
-
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class NhanKhau {
-    private Integer idNhanKhau;
+    private int id;
     private String hoTen;
     private String biDanh;
-    private LocalDate ngaySinh;
+    private String ngaySinh;
     private String noiSinh;
     private String gioiTinh;
     private String nguyenQuan;
@@ -24,9 +15,73 @@ public class NhanKhau {
     private String quocTich;
     private String ngheNghiep;
     private String noiLamViec;
-    private int cmnd;
-    private LocalDate ngayCap;
-    private LocalDate chuyenDenNgay;
+    private String CMND;
+    private Date ngayCap;
+    private Date chuyenDenNgay;
     private String noiThuongTruTruoc;
     private String trangThai;
+
+
+    public NhanKhau(int id, String hoTen,String ngaySinh, String gioiTinh, String CMND, String trangThai) {
+        this.id=id;
+        this.hoTen=hoTen;
+        this.ngaySinh=ngaySinh;
+        this.gioiTinh=gioiTinh;
+        this.CMND=CMND;
+        this.trangThai=trangThai;
+
+
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id=id;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        this.hoTen=hoTen;
+    }
+
+    public String getNgaySinh() {
+        return ngaySinh;
+    }
+
+    public void setNgaySinh(String ngaySinh) {
+        this.ngaySinh=ngaySinh;
+    }
+
+    public String getGioiTinh() {
+        return gioiTinh;
+    }
+
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh=gioiTinh;
+    }
+
+    public String getCMND() {
+        return CMND;
+    }
+
+    public void setCMND(String CMND) {
+        this.CMND=CMND;
+    }
+
+    public String getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(String trangThai) {
+        this.trangThai=trangThai;
+    }
+
+
 }
