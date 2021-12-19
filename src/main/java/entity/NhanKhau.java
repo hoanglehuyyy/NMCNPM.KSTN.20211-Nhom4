@@ -1,7 +1,16 @@
 package entity;
 
-import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.time.LocalDate;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class NhanKhau {
     private int id;
     private String hoTen;
@@ -21,7 +30,6 @@ public class NhanKhau {
     private String noiThuongTruTruoc;
     private String trangThai;
 
-
     public NhanKhau(int id, String hoTen,String ngaySinh, String gioiTinh, String CMND, String trangThai) {
         this.id=id;
         this.hoTen=hoTen;
@@ -29,59 +37,6 @@ public class NhanKhau {
         this.gioiTinh=gioiTinh;
         this.CMND=CMND;
         this.trangThai=trangThai;
-
-
     }
-
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id=id;
-    }
-
-    public String getHoTen() {
-        return hoTen;
-    }
-
-    public void setHoTen(String hoTen) {
-        this.hoTen=hoTen;
-    }
-
-    public String getNgaySinh() {
-        return ngaySinh;
-    }
-
-    public void setNgaySinh(String ngaySinh) {
-        this.ngaySinh=ngaySinh;
-    }
-
-    public String getGioiTinh() {
-        return gioiTinh;
-    }
-
-    public void setGioiTinh(String gioiTinh) {
-        this.gioiTinh=gioiTinh;
-    }
-
-    public String getCMND() {
-        return CMND;
-    }
-
-    public void setCMND(String CMND) {
-        this.CMND=CMND;
-    }
-
-    public String getTrangThai() {
-        return trangThai;
-    }
-
-    public void setTrangThai(String trangThai) {
-        this.trangThai=trangThai;
-    }
-
 
 }
