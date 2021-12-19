@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="730.0" prefWidth="1048.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller_themNK">
+   <children>
+      <TextField layoutX="122.0" layoutY="120.0" prefHeight="31.0" prefWidth="280.0" />
+      <TextField layoutX="120.0" layoutY="183.0" prefHeight="31.0" prefWidth="280.0" />
+      <TextField layoutX="120.0" layoutY="310.0" prefHeight="31.0" prefWidth="280.0" />
+      <TextField layoutX="120.0" layoutY="432.0" prefHeight="31.0" prefWidth="280.0" />
+      <TextField layoutX="120.0" layoutY="510.0" prefHeight="31.0" prefWidth="280.0" />
+      <TextField layoutX="695.0" layoutY="120.0" prefHeight="31.0" prefWidth="310.0" />
+      <TextField layoutX="695.0" layoutY="183.0" prefHeight="31.0" prefWidth="310.0" />
+      <TextField layoutX="696.0" layoutY="246.0" prefHeight="31.0" prefWidth="310.0" />
+      <TextField layoutX="696.0" layoutY="310.0" prefHeight="31.0" prefWidth="310.0" />
+      <TextField layoutX="695.0" layoutY="432.0" prefHeight="31.0" prefWidth="310.0" />
+      <TextField layoutX="120.0" layoutY="578.0" prefHeight="31.0" prefWidth="280.0" />
+      <TextField layoutX="120.0" layoutY="647.0" prefHeight="31.0" prefWidth="280.0" />
+      <Label layoutX="27.0" layoutY="251.0" text="Ngày sinh" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="30.0" layoutY="125.0" text="Họ tên " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="30.0" layoutY="188.0" text="Bí danh" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="32.0" layoutY="314.0" text="Nơi sinh" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="31.0" layoutY="374.0" text="Giới tính" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="15.0" layoutY="437.0" text="Nguyên quán" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="25.0" layoutY="515.0" text="Dân tộc" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="22.0" layoutY="583.0" text="Tôn giáo" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="5.0" layoutY="652.0" text="Nơi thường trú" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="571.0" layoutY="125.0" text="Quốc tịch" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="549.0" layoutY="188.0" text="Nghề nghiệp" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="552.0" layoutY="251.0" text="Nơi làm việc" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="571.0" layoutY="314.0" text="CMND" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="561.0" layoutY="375.0" text="Ngày cấp" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="566.0" layoutY="437.0" text="Nơi cấp" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="566.0" layoutY="515.0" text="Chuyển đến ngày" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="569.0" layoutY="583.0" text="Trạng thái" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="431.0" layoutY="668.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="1019.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="1019.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="1019.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="1019.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="1019.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="1019.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="1019.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <Text fill="#e10c0c" layoutX="901.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)" />
+      <RadioButton layoutX="123.0" layoutY="374.0" mnemonicParsing="false" text="Nam " textFill="WHITE" />
+      <RadioButton layoutX="245.0" layoutY="375.0" mnemonicParsing="false" text="Nữ" textFill="WHITE" />
+      <SplitMenuButton layoutX="697.0" layoutY="578.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="196.0" text="Chọn trạng thái">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Thường trú" />
+          <MenuItem mnemonicParsing="false" text="Tạm trú" />
+            <MenuItem mnemonicParsing="false" text="Tạm vắng" />
+        </items>
+      </SplitMenuButton>
+      <Button layoutX="619.0" layoutY="673.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" text="Xác nhận" />
+      <Button layoutX="809.0" layoutY="673.0" mnemonicParsing="false" onAction="#goBack" prefHeight="31.0" prefWidth="116.0" text="Back" />
+      <Text fill="#e10f0f" layoutX="110.0" layoutY="712.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Ghi chú : CMND là Chứng minh nhân dân">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></Text>
+      <DatePicker layoutX="696.0" layoutY="370.0" prefHeight="31.0" prefWidth="310.0" />
+      <DatePicker layoutX="120.0" layoutY="246.0" prefHeight="31.0" prefWidth="280.0" />
+      <DatePicker layoutX="695.0" layoutY="510.0" prefHeight="31.0" prefWidth="310.0" />
+      <Pane layoutX="170.0" layoutY="27.0" prefHeight="68.0" prefWidth="739.0" style="-fx-background-color: #FFFF8D; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="250.0" layoutY="12.0" prefHeight="45.0" prefWidth="446.0" text="Thêm nhân khẩu" textFill="#2f333d">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

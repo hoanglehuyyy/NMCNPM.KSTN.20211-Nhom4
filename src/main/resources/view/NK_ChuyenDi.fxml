@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="596.0" prefWidth="918.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller_chuyenNK">
+   <children>
+      <Label layoutX="72.0" layoutY="342.0" text="Ghi chú :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="53.0" layoutY="278.0" text="Nơi chuyển đến" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="53.0" layoutY="212.0" text="Ngày chuyển đi" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <TextField layoutX="205.0" layoutY="273.0" prefHeight="31.0" prefWidth="336.0" />
+      <TextField layoutX="205.0" layoutY="207.0" prefHeight="31.0" prefWidth="336.0" />
+      <TextArea layoutX="205.0" layoutY="342.0" prefHeight="154.0" prefWidth="336.0" />
+      <Text fill="WHITE" layoutX="53.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID nhân khẩu" wrappingWidth="131.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Label fx:id="idLabel" layoutX="205.0" layoutY="106.0" prefHeight="31.0" prefWidth="131.0" text="Label" textFill="WHITE" />
+      <Label fx:id="hoTenLabel" layoutX="205.0" layoutY="155.0" text="Label" textFill="WHITE" />
+      <Text fill="WHITE" layoutX="77.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Họ tên ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Button layoutX="205.0" layoutY="535.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Xác nhận" />
+      <Button layoutX="380.0" layoutY="535.0" mnemonicParsing="false" onAction="#goBack_chuyenNK" prefHeight="31.0" prefWidth="113.0" text="Back" />
+      <Pane layoutX="101.0" layoutY="23.0" prefHeight="68.0" prefWidth="739.0" style="-fx-background-color: #FFFF8D; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="169.0" layoutY="12.0" prefHeight="45.0" prefWidth="446.0" text="Khai báo chuyển nhân khẩu" textFill="#2f333d">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

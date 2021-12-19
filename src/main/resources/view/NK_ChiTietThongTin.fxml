@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="728.0" prefWidth="972.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller_thongTinNK">
+   <children>
+      <Label fx:id="hoTenLabel" layoutX="158.0" layoutY="134.0" prefHeight="21.0" prefWidth="374.0" textFill="WHITE" />
+      <Label layoutX="168.0" layoutY="665.0" prefHeight="21.0" prefWidth="388.0" />
+      <Label layoutX="145.0" layoutY="198.0" prefHeight="21.0" prefWidth="374.0" />
+      <Label layoutX="149.0" layoutY="324.0" prefHeight="21.0" prefWidth="365.0" />
+      <Label fx:id="gioiTinhLabel" layoutX="144.0" layoutY="385.0" prefHeight="21.0" prefWidth="374.0" />
+      <Label layoutX="148.0" layoutY="447.0" prefHeight="21.0" prefWidth="365.0" />
+      <Label layoutX="132.0" layoutY="525.0" prefHeight="21.0" prefWidth="374.0" />
+      <Label layoutX="140.0" layoutY="592.0" prefHeight="21.0" prefWidth="358.0" />
+      <Label layoutX="158.0" layoutY="662.0" prefHeight="21.0" prefWidth="374.0" />
+      <Label layoutX="744.0" layoutY="593.0" prefHeight="21.0" prefWidth="251.0" />
+      <Label layoutX="743.0" layoutY="134.0" prefHeight="21.0" prefWidth="251.0" />
+      <Label layoutX="724.0" layoutY="198.0" prefHeight="21.0" prefWidth="290.0" />
+      <Label layoutX="729.0" layoutY="261.0" prefHeight="21.0" prefWidth="281.0" />
+      <Label layoutX="736.0" layoutY="385.0" prefHeight="21.0" prefWidth="290.0" />
+      <Label layoutX="741.0" layoutY="447.0" prefHeight="21.0" prefWidth="281.0" />
+      <Label layoutX="745.0" layoutY="525.0" prefHeight="21.0" prefWidth="281.0" />
+      <Button layoutX="679.0" layoutY="676.0" mnemonicParsing="false" onAction="#goBack_thongtinNK" prefHeight="31.0" prefWidth="214.0" text="Back " />
+      <Label layoutX="643.0" layoutY="593.0" text="Trạng thái" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="642.0" layoutY="525.0" text="Chuyển đến ngày" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="643.0" layoutY="447.0" text="Nơi cấp" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="646.0" layoutY="385.0" text="Ngày cấp" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="647.0" layoutY="325.0" text="CMND" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="650.0" layoutY="261.0" text="Nơi làm việc" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="648.0" layoutY="198.0" text="Nghề nghiệp" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="645.0" layoutY="135.0" text="Quốc tịch" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="662.0" text="Nơi thường trú" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="592.0" text="Tôn giáo" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="75.0" layoutY="525.0" text="Dân tộc" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="447.0" text="Nguyên quán" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="385.0" text="Giới tính" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="79.0" layoutY="325.0" text="Nơi sinh" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="76.0" layoutY="198.0" text="Bí danh" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="83.0" layoutY="134.0" text="Họ tên " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="74.0" layoutY="261.0" text="Ngày sinh" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Pane layoutX="150.0" layoutY="23.0" prefHeight="68.0" prefWidth="739.0" style="-fx-background-color: #FFFF8D; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="169.0" layoutY="12.0" prefHeight="45.0" prefWidth="446.0" text="Thông tin chi tiết nhân khẩu" textFill="#2f333d">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
