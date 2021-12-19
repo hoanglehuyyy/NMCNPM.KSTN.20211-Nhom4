@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="721.0" prefWidth="746.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller_quanLyTamVang">
+   <children>
+      <Button layoutX="212.0" layoutY="620.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="104.0" text="Xác nhận" />
+      <Text fill="WHITE" layoutX="100.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Họ tên ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <Label fx:id="idLabel" layoutX="216.0" layoutY="127.0" prefHeight="31.0" prefWidth="131.0" text="Label" textFill="WHITE" />
+      <Text fill="WHITE" layoutX="50.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID người tạm vắng" wrappingWidth="149.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Text>
+      <TextField layoutX="207.0" layoutY="249.0" prefHeight="31.0" prefWidth="336.0" />
+      <Label layoutX="70.0" layoutY="254.0" text="Nơi tạm trú" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="82.0" layoutY="339.0" text="Từ ngày" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="76.0" layoutY="406.0" text="Đến ngày" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="hoTenLabel" layoutX="212.0" layoutY="186.0" text="Label" textFill="WHITE" />
+      <DatePicker layoutX="210.0" layoutY="401.0" />
+      <DatePicker layoutX="209.0" layoutY="334.0" />
+      <Label layoutX="90.0" layoutY="474.0" text="Lý do" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <TextArea layoutX="208.0" layoutY="474.0" prefHeight="121.0" prefWidth="336.0" />
+      <Pane layoutX="43.0" layoutY="37.0" prefHeight="61.0" prefWidth="637.0" style="-fx-background-color: #FFFF8D; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="177.0" layoutY="8.0" prefHeight="45.0" prefWidth="446.0" text="Khai báo tạm vắng" textFill="#2f333d">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
