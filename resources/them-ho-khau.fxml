@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addHK">
+   <children>
+      <Label layoutX="39.0" layoutY="84.0" prefHeight="17.0" prefWidth="93.0" text="Mã chủ hộ" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="39.0" layoutY="127.0" prefHeight="17.0" prefWidth="93.0" text="Địa chỉ" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="id_chu_ho_text" layoutX="185.0" layoutY="80.0" prefHeight="25.0" prefWidth="321.0" promptText="Họ tên chủ hộ" style="-fx-background-color: #FFFF8D;" />
+      <TextField fx:id="address_ho_khau_text" layoutX="185.0" layoutY="123.0" prefHeight="25.0" prefWidth="321.0" promptText="Địa chỉ" style="-fx-background-color: #FFFF8D;" />
+      <Button layoutX="465.0" layoutY="393.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #FFFF8D;" text="Close">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Label layoutX="39.0" layoutY="173.0" text="Thành phố/Tỉnh" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="39.0" layoutY="213.0" prefHeight="17.0" prefWidth="93.0" text="Quận/Huyện" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="thanhpho_text" layoutX="185.0" layoutY="169.0" prefHeight="25.0" prefWidth="321.0" promptText="Thành phố/Tỉnh" style="-fx-background-color: #FFFF8D;" />
+      <TextField fx:id="quanhuyen_text" layoutX="185.0" layoutY="209.0" prefHeight="25.0" prefWidth="321.0" promptText="Quận/Huyện" style="-fx-background-color: #FFFF8D;" />
+      <Button layoutX="406.0" layoutY="393.0" mnemonicParsing="false" onAction="#save" style="-fx-background-color: #FFFF8D;" text="Save">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Label layoutX="39.0" layoutY="253.0" text="Phường/Xã" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phuongxa_text" layoutX="185.0" layoutY="249.0" prefHeight="25.0" prefWidth="321.0" promptText="Phường/Xã" style="-fx-background-color: #ffff8d;" />
+      <Label layoutX="39.0" layoutY="294.0" text="Ngày tạo" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ngaytao_text" layoutX="185.0" layoutY="290.0" prefHeight="25.0" prefWidth="321.0" promptText="Ngày tạo" style="-fx-background-color: #ffff8d;" />
+      <TextField layoutX="185.0" layoutY="334.0" prefHeight="25.0" prefWidth="321.0" promptText="Trạng thái" style="-fx-background-color: #ffff8d;" />
+      <Label layoutX="39.0" layoutY="338.0" text="Trạng thái" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
