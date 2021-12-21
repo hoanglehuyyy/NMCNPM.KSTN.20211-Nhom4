@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeController">
+   <children>
+      <Label layoutX="401.0" text="Thống kê" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="hoKhauMode" layoutX="48.0" layoutY="159.0" onMouseClicked="#hoKhauModeClick">
+         <children>
+            <ImageView fitHeight="134.0" fitWidth="139.0" layoutX="54.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/ho_khau.png" />
+               </image></ImageView>
+            <TextField alignment="CENTER" layoutX="20.0" layoutY="150.0" prefHeight="54.0" prefWidth="242.0" style="-fx-background-color: 0; -fx-text-inner-color: #E8E8E8;" text="Thống kê hộ khẩu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font></TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="nhanKhauMode" layoutX="361.0" layoutY="159.0" onMouseClicked="#nhanKhauModeClick">
+         <children>
+            <ImageView fitHeight="134.0" fitWidth="134.0" layoutX="56.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/nhan_khau.png" />
+               </image>
+            </ImageView>
+            <TextField alignment="CENTER" layoutX="-21.0" layoutY="150.0" prefHeight="54.0" prefWidth="276.0" style="-fx-background-color: 0; -fx-text-inner-color: #E8E8E8;" text="Thống kê nhân khẩu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="phanThuongMode" layoutX="687.0" layoutY="161.0" onMouseClicked="#phanThuongModeClick">
+         <children>
+            <ImageView fitHeight="124.0" fitWidth="134.0" layoutX="91.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/phan_thuong.png" />
+               </image>
+            </ImageView>
+            <TextField alignment="CENTER" layoutX="-37.0" layoutY="150.0" prefHeight="54.0" prefWidth="305.0" style="-fx-background-color: 0; -fx-text-inner-color: #E8E8E8;" text="Thống kê phần thưởng" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

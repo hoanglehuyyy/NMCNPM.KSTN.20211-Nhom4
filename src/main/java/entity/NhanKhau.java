@@ -25,8 +25,8 @@ public class NhanKhau {
     private String ngheNghiep;
     private String noiLamViec;
     private String CMND;
-    private Date ngayCap;
-    private Date chuyenDenNgay;
+    private LocalDate ngayCap;
+    private LocalDate chuyenDenNgay;
     private String noiThuongTruTruoc;
     private String trangThai;
 

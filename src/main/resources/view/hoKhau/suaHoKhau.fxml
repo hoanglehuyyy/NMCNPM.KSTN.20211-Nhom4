@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="664.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.SuaHoKhauController">
+   <children>
+      <Label layoutX="63.0" layoutY="125.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="62.0" layoutY="155.0" />
+      <Label layoutX="62.0" layoutY="191.0" text="Mã chủ hộ:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Button layoutX="470.0" layoutY="631.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Button layoutX="334.0" layoutY="631.0" mnemonicParsing="false" onAction="#save_button" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <TableView layoutX="62.0" layoutY="322.0" prefHeight="302.0" prefWidth="476.0">
+        <columns>
+          <TableColumn prefWidth="126.0" text="Họ và tên" />
+          <TableColumn prefWidth="157.0" text="Ngày sinh" />
+            <TableColumn prefWidth="192.0" text="Quan hệ với chủ hộ" />
+        </columns>
+      </TableView>
+      <Button layoutX="62.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: #F1D4A7;" text="Thêm nhân khẩu">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="id_ho_khau_change" layoutX="195.0" layoutY="122.0" prefHeight="25.0" prefWidth="253.0" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="id_chu_ho_change" layoutX="195.0" layoutY="188.0" prefHeight="25.0" prefWidth="253.0" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Label layoutX="134.0" layoutY="6.0" text="Chỉnh sửa thông tin hộ khẩu" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

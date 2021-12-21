@@ -20,4 +20,5 @@ public class DipDacBiet {
     private Float tien05;
     private Float tien614;
     private Float tien1517;
+    private Integer soNguoiChuaTraoThuong;
 }

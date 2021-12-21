@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Setter
@@ -18,7 +19,7 @@ public class HoKhau {
     private String quanHuyen;
     private String phuongXa;
     private String diachi;
-    private LocalDate ngayTao;
+    private Date ngayTao;
     private String trangThai;
 }
 

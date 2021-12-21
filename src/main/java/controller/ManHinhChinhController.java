@@ -4,16 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
-import repository.HoKhauRepository;
-import repository.HoKhauRepositoryImpl;
-import repository.NhanKhauRepository;
-import repository.NhanKhauRepositoryImpl;
 import view.Main;
 
 import java.io.IOException;
@@ -69,7 +65,7 @@ public class ManHinhChinhController implements Initializable {
         resetButtonBackground();
         nhanKhauButton.setStyle("-fx-background-color: #757C95;");
 
-        Pane trangChuPane =  FXMLLoader.load(Main.class.getResource("nhanKhau.fxml"));
+        Pane trangChuPane =  FXMLLoader.load(getClass().getResource("/view/nhanKhau/nhanKhau.fxml"));
         mainPane.getChildren().add(trangChuPane);
     }
 
@@ -77,7 +73,7 @@ public class ManHinhChinhController implements Initializable {
         resetButtonBackground();
         hoKhauButton.setStyle("-fx-background-color: #757C95;");
 
-        Pane trangChuPane =  FXMLLoader.load(Main.class.getResource("hoKhau.fxml"));
+        Pane trangChuPane =  FXMLLoader.load(getClass().getResource("/view/hoKhau/hoKhau.fxml"));
         mainPane.getChildren().add(trangChuPane);
     }
 
@@ -85,7 +81,7 @@ public class ManHinhChinhController implements Initializable {
         resetButtonBackground();
         phanThuongButton.setStyle("-fx-background-color: #757C95;");
 
-        Pane trangChuPane =  FXMLLoader.load(Main.class.getResource("phanThuong.fxml"));
+        Parent trangChuPane =  FXMLLoader.load(getClass().getResource("/view/phanThuong/phanThuong.fxml"));
         mainPane.getChildren().add(trangChuPane);
     }
 
@@ -93,7 +89,7 @@ public class ManHinhChinhController implements Initializable {
         resetButtonBackground();
         thongKeButton.setStyle("-fx-background-color: #757C95;");
 
-        Pane trangChuPane =  FXMLLoader.load(Main.class.getResource("thongKe.fxml"));
+        Parent trangChuPane =  FXMLLoader.load(getClass().getResource("/view/thongKe/thongKe.fxml"));
         mainPane.getChildren().add(trangChuPane);
     }
 

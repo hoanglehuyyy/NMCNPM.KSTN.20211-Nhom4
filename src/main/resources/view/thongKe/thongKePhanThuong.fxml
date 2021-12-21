@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKePhanThuongController">
+    <children>
+        <Pane prefHeight="66.0" prefWidth="977.0" style="-fx-background-color: #FFFFC9;">
+            <children>
+                <ImageView fx:id="hoKhauBackIcon" fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/back.png" />
+                    </image>
+                </ImageView>
+            <Label layoutX="326.0" layoutY="12.0" text="Thống kê phần thưởng" textFill="#332a99">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+        <AnchorPane layoutX="28.0" layoutY="312.0" prefHeight="321.0" prefWidth="739.0">
+            <children>
+                <TableView fx:id="dipHSGTable" layoutX="-14.0" layoutY="188.0" prefHeight="359.0" prefWidth="739.0" style="-fx-border-color: #C0811F;" AnchorPane.bottomAnchor="-23.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="idDipHSGCol" prefWidth="75.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Dịp" />
+                        <TableColumn fx:id="namDipHSGCol" prefWidth="76.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Năm" />
+                        <TableColumn fx:id="soNguoiDipHSGCol" prefWidth="145.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên dịp trao thưởng" />
+                        <TableColumn fx:id="moTaDipHSGCol" prefWidth="157.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Số người nhận thưởng" />
+                  <TableColumn fx:id="moTaDipHSGCol1" prefWidth="106.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tổng số tiền" />
+                  <TableColumn fx:id="moTaDipHSGCol11" prefWidth="178.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Số người chưa trao thưởng" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+        <Label layoutX="28.0" layoutY="148.0" text="Loại dịp:" textFill="#f8f1f1">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font></Label>
+        <ChoiceBox layoutX="137.0" layoutY="151.0" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #FFFFC9;" />
+        <Label layoutX="28.0" layoutY="205.0" prefHeight="30.0" prefWidth="121.0" text="Năm:     Từ" textFill="#f8f1f1">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+      <TextField layoutX="302.0" layoutY="198.0" prefHeight="44.0" prefWidth="63.0">
+         <font>
+            <Font size="20.0" />
+         </font></TextField>
+      <TextField layoutX="149.0" layoutY="198.0" prefHeight="44.0" prefWidth="63.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="235.0" layoutY="205.0" text="đến" textFill="#f2eaea">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="469.0" layoutY="205.0" prefHeight="30.0" prefWidth="121.0" text="Số tiền:" textFill="#f8f1f1">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="560.0" layoutY="198.0" prefHeight="44.0" prefWidth="148.0" promptText="0 VNĐ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button layoutX="794.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #F7E7CE;" text="Tra cứu">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="794.0" layoutY="416.0" mnemonicParsing="false" style="-fx-background-color: #F7E7CE;" text="Xuất file">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+    </children>
+</Pane>
