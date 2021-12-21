@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.tachHK">
+   <children>
+      <Label layoutX="81.0" layoutY="74.0" prefHeight="17.0" prefWidth="113.0" text="Mã hộ khẩu:" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TableView layoutX="48.0" layoutY="361.0" prefHeight="200.0" prefWidth="291.0" style="-fx-background-color: #FFFF8D;">
+        <columns>
+          <TableColumn prefWidth="107.0" text="Họ tên" />
+          <TableColumn prefWidth="115.0" text="Ngày sinh" />
+            <TableColumn prefWidth="68.0" text="Quan hệ với chủ hộ" />
+        </columns>
+      </TableView>
+      <Label layoutX="81.0" layoutY="144.0" prefHeight="17.0" prefWidth="113.0" text="Mã hộ khẩu mới" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="81.0" layoutY="180.0" prefHeight="17.0" prefWidth="113.0" text="Địa chỉ:" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="81.0" layoutY="217.0" prefHeight="17.0" prefWidth="113.0" text="Mã chủ hộ mới:" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="new_id_ho_khau" layoutX="275.0" layoutY="140.0" prefHeight="25.0" prefWidth="430.0" promptText="Mã hộ khẩu mới" style="-fx-background-color: #FFFF8D;" />
+      <TextField fx:id="new_address_ho_khau" layoutX="275.0" layoutY="176.0" prefHeight="25.0" prefWidth="430.0" promptText="Địa chỉ" style="-fx-background-color: #FFFF8D;" />
+      <TextField fx:id="new_id_chu_ho" layoutX="275.0" layoutY="213.0" prefHeight="25.0" prefWidth="430.0" promptText="Chủ hộ mới" style="-fx-background-color: #FFFF8D;" />
+      <Button layoutX="384.0" layoutY="417.0" mnemonicParsing="false" style="-fx-background-color: #FFFF8D;" text="&gt;&gt;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="384.0" layoutY="461.0" mnemonicParsing="false" style="-fx-background-color: #FFFF8D;" text="&lt;&lt;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TableView layoutX="462.0" layoutY="361.0" prefHeight="200.0" prefWidth="291.0" style="-fx-background-color: #FFFF8D;">
+        <columns>
+          <TableColumn prefWidth="143.0" text="Họ tên " />
+            <TableColumn prefWidth="147.0" text="Ngày sinh" />
+        </columns>
+      </TableView>
+      <Label layoutX="81.0" layoutY="109.0" prefHeight="17.0" prefWidth="113.0" text="Mã chủ hộ hiện tại:" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="now_id_chu_ho" layoutX="275.0" layoutY="105.0" prefHeight="25.0" prefWidth="430.0" promptText="Chủ hộ hiện tại" style="-fx-background-color: #FFFF8D;" />
+      <Label layoutX="48.0" layoutY="331.0" text="Chọn người sang hộ khẩu mới" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="462.0" layoutY="331.0" text="Những người ở hộ khẩu mới" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Button layoutX="701.0" layoutY="590.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #FFFF8D;" text="Cancel">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="638.0" layoutY="590.0" mnemonicParsing="false" onAction="#save_button" style="-fx-background-color: #FFFF8D;" text="Save">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TextField fx:id="id_ho_khau" layoutX="275.0" layoutY="70.0" prefHeight="25.0" prefWidth="430.0" promptText="Mã hộ khẩu" style="-fx-background-color: #FFFF8D;" />
+   </children>
+</AnchorPane>
