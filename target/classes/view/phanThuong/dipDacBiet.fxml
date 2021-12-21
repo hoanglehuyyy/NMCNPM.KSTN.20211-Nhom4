@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.DipDacBietController">
+   <content>
+      <Pane fx:id="ddbMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;">
+          <children>
+              <Pane prefHeight="66.0" prefWidth="1449.0" style="-fx-background-color: #FFFFC9;">
+                  <children>
+                      <ImageView fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backMouseClick" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../image/back.png" />
+                          </image>
+                      </ImageView>
+                  <Label layoutX="486.0" layoutY="12.0" text="Quản lý phần thưởng dịp đặc biệt" textFill="#332a99">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  </children>
+              </Pane>
+              <Pane layoutX="86.0" layoutY="136.0" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
+                  <children>
+                      <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="551.0" onMouseClicked="#ddbSearchClick" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../image/search.png" />
+                          </image>
+                      </ImageView>
+                      <TextField fx:id="ddbSerachText" layoutX="24.0" onKeyPressed="#ddbSearchEnter" prefHeight="50.0" prefWidth="319.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
+                          <font>
+                              <Font size="15.0" />
+                          </font>
+                      </TextField>
+                      <ComboBox fx:id="ddbComboBox" layoutX="346.0" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+                  </children>
+              </Pane>
+              <AnchorPane layoutX="28.0" layoutY="223.0" prefHeight="410.0" prefWidth="1038.0">
+                  <children>
+                      <TableView fx:id="ddbTable" layoutX="-14.0" layoutY="188.0" prefHeight="359.0" prefWidth="739.0" style="-fx-border-color: #C0811F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                              <TableColumn fx:id="ddbIDCol" editable="false" prefWidth="75.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Dịp" />
+                        <TableColumn fx:id="ddbTenCol" editable="false" prefWidth="302.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên dịp" />
+                              <TableColumn fx:id="ddbNamCol" editable="false" prefWidth="77.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Năm" />
+                              <TableColumn fx:id="ddbSoNguoiCol" editable="false" prefWidth="188.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Số người chưa trao thưởng" />
+                              <TableColumn fx:id="ddbMoTaCol" editable="false" prefWidth="394.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
+                          </columns>
+                      </TableView>
+                  </children>
+              </AnchorPane>
+              <Button layoutX="805.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#createDip" prefHeight="50.0" style="-fx-background-color: #F7E7CE;" text="Tạo dịp trao thưởng mới">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+              </Button>
+          </children>
+      </Pane>
+   </content>
+</ScrollPane>

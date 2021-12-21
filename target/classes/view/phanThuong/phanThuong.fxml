@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="phanThuongPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.PhanThuongController">
+   <children>
+      <Label layoutX="289.0" text="Quản lý phần thưởng" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="40.0" />
+         </font>
+      </Label>
+      <Pane layoutX="126.0" layoutY="123.0" prefHeight="290.0" prefWidth="340.0">
+         <children>
+            <ImageView fitHeight="276.0" fitWidth="269.0" layoutX="36.0" nodeOrientation="INHERIT" onMouseClicked="#hsgClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/HSG.png" />
+               </image></ImageView>
+            <TextField alignment="CENTER" editable="false" layoutY="222.0" prefHeight="54.0" prefWidth="340.0" style="-fx-background-color: 0; -fx-text-inner-color: WHITE;" text="Phần thưởng học sinh giỏi">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="573.0" layoutY="123.0" prefHeight="290.0" prefWidth="340.0">
+         <children>
+            <ImageView fitHeight="220.0" fitWidth="216.0" layoutX="65.0" layoutY="29.0" onMouseClicked="#dipDacBietOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/dip_dac_biet.png" />
+               </image></ImageView>
+            <TextField alignment="CENTER" layoutY="222.0" prefWidth="340.0" style="-fx-background-color: 0; -fx-text-inner-color: WHITE;" text="Phần thưởng dịp đặc biệt">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</Pane>

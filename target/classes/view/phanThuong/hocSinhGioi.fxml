@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.HocSinhGioiController">
+    <content>
+        <Pane fx:id="hsgMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;">
+            <children>
+                <Pane prefHeight="66.0" prefWidth="1449.0" style="-fx-background-color: #FFFFC9;">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../image/back.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="480.0" layoutY="11.0" text="Quản lý phần thưởng học sinh giỏi" textFill="#332a99">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane layoutX="163.0" layoutY="136.0" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="551.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../image/search.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="searchText" layoutX="24.0" onKeyPressed="#searchEnter" prefHeight="50.0" prefWidth="319.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </TextField>
+                        <ComboBox fx:id="comboBox" layoutX="346.0" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+                    </children>
+                </Pane>
+                <AnchorPane layoutX="56.0" layoutY="223.0" prefHeight="410.0" prefWidth="1031.0">
+                    <children>
+                        <TableView fx:id="hsgTable" layoutX="-14.0" layoutY="188.0" onMouseClicked="#xemChiTietDip" prefHeight="359.0" prefWidth="739.0" style="-fx-border-color: #C0811F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columns>
+                                <TableColumn fx:id="hsgIDCol" editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Dịp" />
+                                <TableColumn fx:id="hsgNamCol" editable="false" prefWidth="76.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Năm" />
+                                <TableColumn fx:id="hsgSoNguoiCol" editable="false" prefWidth="205.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Số người chưa trao thưởng" />
+                                <TableColumn fx:id="hsgMoTaCol" prefWidth="673.0" sortable="false" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
+                            </columns>
+                            <contextMenu>
+                                <ContextMenu>
+                                    <items>
+                                        <MenuItem mnemonicParsing="False" onAction="#themMinhChung" text="Thêm minh chứng nhận thưởng" />
+                                        <MenuItem mnemonicParsing="False" onAction="#xoaDip" text="Xóa dịp trao thưởng" />
+                                    </items>
+                                </ContextMenu>
+                            </contextMenu>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <Button layoutX="826.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#createDip" prefHeight="50.0" style="-fx-background-color: #F7E7CE;" text="Tạo dịp trao thưởng mới">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </content>
+</ScrollPane>
