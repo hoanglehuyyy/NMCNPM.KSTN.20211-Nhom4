@@ -65,12 +65,13 @@ public class NhanKhauController implements Initializable {
 
 
     public void changScenceThemNhanKhau(ActionEvent e) throws IOException {
-        Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
         FXMLLoader loader= new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/nhanKhau/NK_ThemNhanKhau.fxml"));
         Parent nhanKhauView=loader.load();
-        Scene scene= new Scene(nhanKhauView);
+        Scene scene= new Scene(nhanKhauView, 1280, 600);
         stage.setScene(scene);
+        stage.show();
     }
 
 
@@ -167,7 +168,7 @@ public class NhanKhauController implements Initializable {
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("QUẢN LÝ TẠM TRÚ");
-        Scene scene = new Scene(tamVangNK);
+        Scene scene = new Scene(tamVangNK, 1280, 600);
         stage.setScene(scene);
         stage.show();
     }

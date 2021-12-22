@@ -57,7 +57,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextArea fx:id="reason_chuyen" layoutX="245.0" layoutY="511.0" prefHeight="142.0" prefWidth="320.0" promptText="Lí do chuyển đi" style="-fx-background-color: #FFFF8D;" />
+      <TextArea fx:id="reason_chuyen" layoutX="245.0" layoutY="511.0" prefHeight="142.0" prefWidth="320.0" promptText="Lí do chuyển đi" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;" />
       <Button layoutX="834.0" layoutY="609.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -94,7 +94,7 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <DatePicker layoutX="777.0" layoutY="425.0" prefHeight="37.0" />
+      <DatePicker layoutX="777.0" layoutY="425.0" prefHeight="37.0" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;" />
       <TextField fx:id="phuongxa_chuyen" layoutX="254.0" layoutY="425.0" prefHeight="37.0" prefWidth="255.0" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="16.0" />

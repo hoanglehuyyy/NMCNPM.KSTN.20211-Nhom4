@@ -5,16 +5,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKePhanThuongController">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKePhanThuongController">
     <children>
-        <Pane prefHeight="66.0" prefWidth="977.0" style="-fx-background-color: #FFFFC9;">
+        <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #FFFFC9;">
             <children>
                 <ImageView fx:id="hoKhauBackIcon" fitHeight="50.0" fitWidth="153.0" layoutY="9.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../image/back.png" />
                     </image>
                 </ImageView>
-            <Label layoutX="326.0" layoutY="12.0" text="Thống kê phần thưởng" textFill="#332a99">
+            <Label layoutX="364.0" layoutY="12.0" text="Thống kê phần thưởng" textFill="#332a99">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -39,17 +39,17 @@
             <font>
                 <Font name="System Bold" size="20.0" />
             </font></Label>
-        <ChoiceBox layoutX="137.0" layoutY="151.0" prefHeight="25.0" prefWidth="231.0" style="-fx-background-color: #FFFFC9;" />
+        <ChoiceBox layoutX="137.0" layoutY="145.0" prefHeight="37.0" prefWidth="231.0" style="-fx-background-color: #FFFFC9;" />
         <Label layoutX="28.0" layoutY="205.0" prefHeight="30.0" prefWidth="121.0" text="Năm:     Từ" textFill="#f8f1f1">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-      <TextField layoutX="302.0" layoutY="198.0" prefHeight="44.0" prefWidth="63.0">
+      <TextField layoutX="302.0" layoutY="198.0" prefHeight="44.0" prefWidth="63.0" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="20.0" />
          </font></TextField>
-      <TextField layoutX="149.0" layoutY="198.0" prefHeight="44.0" prefWidth="63.0">
+      <TextField layoutX="149.0" layoutY="198.0" prefHeight="44.0" prefWidth="63.0" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="20.0" />
          </font>
@@ -64,7 +64,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField layoutX="560.0" layoutY="198.0" prefHeight="44.0" prefWidth="148.0" promptText="0 VNĐ">
+      <TextField layoutX="560.0" layoutY="198.0" prefHeight="44.0" prefWidth="148.0" promptText="0 VNĐ" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="20.0" />
          </font>

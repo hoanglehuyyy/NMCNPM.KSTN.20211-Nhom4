@@ -2,13 +2,26 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="704.0" prefWidth="1569.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManHinhChinhController">
+<BorderPane fx:id="borderPane" prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManHinhChinhController">
    <left>
-      <VBox prefHeight="669.0" prefWidth="220.0" style="-fx-background-color: #FFFF8D;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="668.0" prefWidth="220.0" style="-fx-background-color: #FFFF8D;" BorderPane.alignment="CENTER">
          <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/home.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </children>
+            </AnchorPane>
             <Button fx:id="trangChuButton" mnemonicParsing="false" onAction="#trangChuButtonOnAction" prefHeight="70.0" prefWidth="232.0" style="-fx-background-color: #757C95;" text="Trang chủ" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
@@ -41,7 +54,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="thongKeButton" mnemonicParsing="false" onAction="#thongKeButtonOnAction" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #2F333D;" text="Thống kê" textFill="WHITE">
+            <Button fx:id="thongKeButton" mnemonicParsing="false" onAction="#thongKeButtonOnAction" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #2F333D;" text="Thống kê" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -49,9 +62,9 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Pane prefHeight="271.0" prefWidth="220.0">
+            <Pane prefHeight="234.0" prefWidth="220.0">
                <children>
-                  <Button fx:id="dangXuatButton" layoutX="64.0" layoutY="211.0" mnemonicParsing="false" onAction="#dangXuatButtonOnAction" style="-fx-background-color: #2F333D; -fx-background-radius: 50;" text="Đăng xuất" textFill="WHITE">
+                  <Button fx:id="dangXuatButton" layoutX="64.0" layoutY="63.0" mnemonicParsing="false" onAction="#dangXuatButtonOnAction" style="-fx-background-color: #2F333D; -fx-background-radius: 50;" text="Đăng xuất" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -62,9 +75,9 @@
       </VBox>
    </left>
    <top>
-      <Pane prefHeight="67.0" prefWidth="1043.0" style="-fx-background-color: #FFFF8D;" BorderPane.alignment="CENTER">
+      <Pane fx:id="tieuDePane" prefHeight="70.0" prefWidth="1043.0" style="-fx-background-color: #FFFF8D;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="572.0" layoutY="11.0" prefHeight="45.0" prefWidth="262.0" text="Quản lý khu phố" textFill="#2f333d">
+            <Label fx:id="tieuDeText" layoutX="572.0" layoutY="11.0" prefHeight="45.0" prefWidth="262.0" text="Quản lý khu phố" textFill="#2f333d">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -73,6 +86,6 @@
       </Pane>
    </top>
    <center>
-      <Pane fx:id="mainPane" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #FFFFC9;" BorderPane.alignment="CENTER" />
+      <Pane fx:id="mainPane" style="-fx-background-color: #FFFFC9;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

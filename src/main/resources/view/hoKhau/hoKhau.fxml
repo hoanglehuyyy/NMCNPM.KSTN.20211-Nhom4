@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.HoKhauController">
+<AnchorPane prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.HoKhauController">
    <children>
-      <Label layoutX="297.0" text="Quản lý thông tin hộ khẩu" textFill="#f8f3f3">
+      <Label layoutX="405.0" layoutY="14.0" text="Quản lý thông tin hộ khẩu" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -29,9 +29,9 @@
        </Pane>
       <TableView fx:id="table" layoutX="58.0" layoutY="191.0" prefHeight="338.0" prefWidth="656.0">
         <columns>
-          <TableColumn fx:id="id_ho_khauCol" prefWidth="117.0" text="Mã hộ khẩu" />
-          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="172.0" text="Mã chủ hộ" />
-            <TableColumn fx:id="address_ho_khauCol" prefWidth="366.0" text="Địa chỉ" />
+          <TableColumn fx:id="id_ho_khauCol" prefWidth="117.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã hộ khẩu" />
+          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="172.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã chủ hộ" />
+            <TableColumn fx:id="address_ho_khauCol" prefWidth="366.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ" />
         </columns>
          <contextMenu>
             <ContextMenu>
@@ -45,7 +45,7 @@
             </ContextMenu>
          </contextMenu>
       </TableView>
-      <Button layoutX="747.0" layoutY="191.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #F1D4A7;" text="Thêm hộ khẩu">
+      <Button layoutX="774.0" layoutY="191.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #F1D4A7;" text="Thêm hộ khẩu">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>

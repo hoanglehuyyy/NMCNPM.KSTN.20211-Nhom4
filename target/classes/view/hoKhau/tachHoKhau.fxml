@@ -12,9 +12,9 @@
          </font></Label>
       <TableView layoutX="54.0" layoutY="452.0" prefHeight="200.0" prefWidth="349.0">
         <columns>
-          <TableColumn prefWidth="107.0" text="Họ tên" />
-          <TableColumn prefWidth="115.0" text="Ngày sinh" />
-            <TableColumn prefWidth="126.0" text="Quan hệ với chủ hộ" />
+          <TableColumn prefWidth="107.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên" />
+          <TableColumn prefWidth="115.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
+            <TableColumn prefWidth="126.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
         </columns>
       </TableView>
       <Label layoutX="563.0" layoutY="166.0" text="Mã hộ khẩu mới:" textFill="#f8f3f3">
@@ -51,8 +51,8 @@
          </font></Button>
       <TableView layoutX="542.0" layoutY="451.0" prefHeight="200.0" prefWidth="291.0">
         <columns>
-          <TableColumn prefWidth="143.0" text="Họ tên " />
-            <TableColumn prefWidth="147.0" text="Ngày sinh" />
+          <TableColumn prefWidth="143.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên " />
+            <TableColumn prefWidth="147.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
         </columns>
       </TableView>
       <Label layoutX="83.0" layoutY="171.0" text="Mã chủ hộ hiện tại:" textFill="#f8f3f3">
@@ -86,6 +86,16 @@
       <Label layoutX="456.0" text="Tách hộ khẩu" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="599.0" layoutY="88.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="#e3d910">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="83.0" layoutY="88.0" text="Nhập đầy đủ các trường thông tin cần thiết:" textFill="#e3d910">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
    </children>

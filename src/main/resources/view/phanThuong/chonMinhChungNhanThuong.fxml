@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChonMinhChungNhanThuongController">
+   <content>
+      <Pane prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
+         <children>
+            <Label layoutX="240.0" layoutY="14.0" text="Thêm minh chứng nhận thưởng" textFill="#fcf9f9">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="92.0" text="Năm học :" textFill="#f2eded">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="nam" layoutX="135.0" layoutY="92.0" textFill="#f2eded">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="149.0" text="Chọn nhân khẩu phù hợp để trao thưởng :" textFill="#daf209">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Pane layoutX="135.0" layoutY="234.0" prefHeight="50.0" prefWidth="555.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="506.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/search.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="searchText" layoutX="24.0" onKeyPressed="#searchEnter" prefHeight="50.0" prefWidth="319.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="comboBox" layoutX="346.0" prefHeight="49.0" prefWidth="153.0" promptText="Trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+               </children>
+            </Pane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+            <TableView layoutX="63.0" layoutY="308.0" prefHeight="281.0" prefWidth="723.0">
+              <columns>
+                <TableColumn prefWidth="96.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Nhân khẩu" />
+                <TableColumn prefWidth="132.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên nhân khẩu" />
+                  <TableColumn prefWidth="132.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
+                  <TableColumn prefWidth="362.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </content>
+</ScrollPane>

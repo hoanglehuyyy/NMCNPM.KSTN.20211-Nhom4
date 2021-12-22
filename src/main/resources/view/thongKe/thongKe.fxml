@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeController">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeController">
    <children>
-      <Label layoutX="401.0" text="Thống kê" textFill="#f8f3f3">
+      <Label layoutX="524.0" layoutY="14.0" text="Thống kê" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="40.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="hoKhauMode" layoutX="48.0" layoutY="159.0" onMouseClicked="#hoKhauModeClick">
+      <AnchorPane fx:id="hoKhauMode" layoutX="155.0" layoutY="195.0" onMouseClicked="#hoKhauModeClick">
          <children>
             <ImageView fitHeight="134.0" fitWidth="139.0" layoutX="54.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -24,9 +24,9 @@
                </font></TextField>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="nhanKhauMode" layoutX="361.0" layoutY="159.0" onMouseClicked="#nhanKhauModeClick">
+      <AnchorPane fx:id="nhanKhauMode" layoutX="456.0" layoutY="195.0" onMouseClicked="#nhanKhauModeClick">
          <children>
-            <ImageView fitHeight="134.0" fitWidth="134.0" layoutX="56.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="134.0" fitWidth="134.0" layoutX="71.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/nhan_khau.png" />
                </image>
@@ -38,7 +38,7 @@
             </TextField>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="phanThuongMode" layoutX="687.0" layoutY="161.0" onMouseClicked="#phanThuongModeClick">
+      <AnchorPane fx:id="phanThuongMode" layoutX="757.0" layoutY="197.0" onMouseClicked="#phanThuongModeClick">
          <children>
             <ImageView fitHeight="124.0" fitWidth="134.0" layoutX="91.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>

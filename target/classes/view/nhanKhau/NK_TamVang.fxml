@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="721.0" prefWidth="746.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.QuanLyTamVangController">
+<AnchorPane prefHeight="636.0" prefWidth="746.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.QuanLyTamVangController">
    <children>
       <Button layoutX="260.0" layoutY="536.0" mnemonicParsing="false" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
          <font>
@@ -22,7 +22,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Text>
-      <TextField layoutX="261.0" layoutY="212.0" prefHeight="31.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9;" />
+      <TextField layoutX="261.0" layoutY="212.0" prefHeight="37.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9;" />
       <Label layoutX="50.0" layoutY="212.0" text="Nơi tạm trú:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -39,13 +39,13 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <DatePicker layoutX="260.0" layoutY="327.0" />
-      <DatePicker layoutX="260.0" layoutY="273.0" />
+      <DatePicker layoutX="260.0" layoutY="327.0" prefHeight="37.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+      <DatePicker layoutX="260.0" layoutY="273.0" prefHeight="37.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
       <Label layoutX="49.0" layoutY="384.0" text="Lý do:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <TextArea layoutX="261.0" layoutY="384.0" prefHeight="121.0" prefWidth="336.0" />
+      <TextArea layoutX="261.0" layoutY="384.0" prefHeight="121.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
       <Label alignment="CENTER" layoutX="241.0" layoutY="7.0" prefHeight="45.0" prefWidth="284.0" text="Khai báo tạm vắng" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />

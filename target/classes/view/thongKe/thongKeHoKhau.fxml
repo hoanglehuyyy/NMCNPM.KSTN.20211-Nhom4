@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeHoKhauController">
+<Pane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeHoKhauController">
     <children>
-        <Pane prefHeight="66.0" prefWidth="977.0" style="-fx-background-color: #FFFFC9;">
+        <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #FFFFC9;">
             <children>
                 <TextField alignment="CENTER" editable="false" layoutX="260.0" layoutY="1.0" prefHeight="38.0" prefWidth="523.0" style="-fx-background-color: 0; -fx-text-inner-color: #332A99;" text="Thống kê hộ khẩu">
                     <font>
@@ -91,12 +91,12 @@
                 </TableView>
             </children>
         </AnchorPane>
-      <Button layoutX="842.0" layoutY="327.0" mnemonicParsing="false" prefWidth="108.0" text="Tra cứu">
+      <Button layoutX="842.0" layoutY="327.0" mnemonicParsing="false" prefWidth="108.0" style="-fx-background-color: #F7E7CE;" text="Tra cứu">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="842.0" layoutY="394.0" mnemonicParsing="false" prefWidth="108.0" text="Xuất file">
+      <Button layoutX="842.0" layoutY="394.0" mnemonicParsing="false" prefWidth="108.0" style="-fx-background-color: #F7E7CE;" text="Xuất file">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

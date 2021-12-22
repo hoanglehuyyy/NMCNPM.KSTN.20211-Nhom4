@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="1076.0" prefWidth="1098.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChiTietHocSinhGioiController">
+<ScrollPane prefHeight="1076.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChiTietHocSinhGioiController">
    <content>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1075.0" prefWidth="1106.0" style="-fx-background-color: #2F333D;">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1075.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
          <children>
             <Label fx:id="tieuDe" layoutX="185.0" layoutY="7.0" text="Chi tiết phần thưởng học sinh giỏi năm" textFill="#f8f3f3">
                <font>
@@ -139,12 +139,12 @@
                   </TextField>
                </children>
             </Pane>
-            <Button layoutX="612.0" layoutY="981.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận thay đổi" fx:id="xacNhanButton">
+            <Button layoutX="750.0" layoutY="981.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận thay đổi" fx:id="xacNhanButton">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="huyButton" layoutX="859.0" layoutY="981.0" mnemonicParsing="false" onMouseClicked="#huyClick" style="-fx-background-color: #F1D4A7;" text="Hủy">
+            <Button fx:id="huyButton" layoutX="980.0" layoutY="981.0" mnemonicParsing="false" onMouseClicked="#huyClick" style="-fx-background-color: #F1D4A7;" text="Hủy">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -169,20 +169,20 @@
                   <ComboBox fx:id="comboBox" layoutX="478.0" prefHeight="49.0" prefWidth="160.0" promptText="Trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
                </children>
             </Pane>
-            <Button layoutX="56.0" layoutY="981.0" mnemonicParsing="false" style="-fx-background-color: #F1D4A7;" text="Thêm minh chứng nhận thưởng">
+            <Button layoutX="51.0" layoutY="981.0" mnemonicParsing="false" style="-fx-background-color: #F1D4A7;" text="Thêm minh chứng nhận thưởng">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
             <TableView layoutX="51.0" layoutY="646.0" prefHeight="312.0" prefWidth="996.0">
               <columns>
-                <TableColumn prefWidth="98.0" text="ID Nhân khẩu" />
-                <TableColumn prefWidth="178.0" text="Tên nhân khẩu" />
-                  <TableColumn prefWidth="142.0" text="Thành tích đạt được" />
-                  <TableColumn prefWidth="259.0" text="Trường " />
-                  <TableColumn prefWidth="64.0" text="Lớp" />
-                  <TableColumn prefWidth="134.0" text="Minh chứng" />
-                  <TableColumn prefWidth="120.0" text="Kiểm tra" />
+                <TableColumn prefWidth="98.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Nhân khẩu" />
+                <TableColumn prefWidth="178.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên nhân khẩu" />
+                  <TableColumn prefWidth="142.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Thành tích đạt được" />
+                  <TableColumn prefWidth="259.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Trường " />
+                  <TableColumn prefWidth="64.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Lớp" />
+                  <TableColumn prefWidth="134.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Minh chứng" />
+                  <TableColumn prefWidth="120.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Kiểm tra" />
               </columns>
             </TableView>
          </children>

@@ -4,71 +4,95 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="750.0" prefWidth="600.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.XemHoKhauController">
+<AnchorPane prefHeight="750.0" prefWidth="838.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.XemHoKhauController">
    <children>
-      <Label layoutX="150.0" text="Xem thông tin hộ khẩu" textFill="#f8f3f3">
+      <Label layoutX="202.0" layoutY="14.0" text="Xem thông tin hộ khẩu" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="68.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
+      <Label layoutX="54.0" layoutY="99.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="53.0" layoutY="143.0" text="Địa chỉ:" textFill="#f8f3f3">
+      <Label layoutX="54.0" layoutY="146.0" text="Địa chỉ:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="53.0" layoutY="105.0" text="Mã chủ hộ:" textFill="#f8f3f3">
+      <Label layoutX="421.0" layoutY="100.0" text="Mã chủ hộ:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="53.0" layoutY="178.0" text="Thành/Tỉnh:" textFill="#f8f3f3">
+      <Label layoutX="56.0" layoutY="194.0" text="Tỉnh/Thành phố:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="53.0" layoutY="219.0" text="Quận/Huyện:" textFill="#f8f3f3">
+      <Label layoutX="421.0" layoutY="195.0" text="Quận/Huyện:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="id_chu_ho_label" layoutX="225.0" layoutY="105.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="address_label" layoutX="225.0" layoutY="143.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="thanhpho_label" layoutX="225.0" layoutY="178.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="quanhuyen_label" layoutX="225.0" layoutY="219.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="phuongxa_label" layoutX="225.0" layoutY="260.0" prefHeight="17.0" prefWidth="177.0" text="Label" textFill="#ffff8d" />
-      <Button layoutX="500.0" layoutY="718.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Close">
+      <Label fx:id="id_chu_ho_label" layoutX="586.0" layoutY="103.0" text="Label" textFill="#ffff8d">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="address_label" layoutX="245.0" layoutY="149.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="thanhpho_label" layoutX="245.0" layoutY="197.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="quanhuyen_label" layoutX="586.0" layoutY="197.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="phuongxa_label" layoutX="245.0" layoutY="252.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Button layoutX="596.0" layoutY="660.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Đóng">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Label layoutX="53.0" layoutY="260.0" text="Phường/Xã:" textFill="#f8f3f3">
+      <Label layoutX="56.0" layoutY="248.0" text="Phường/Xã:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="294.0" text="Ngày tạo:" textFill="#f8f3f3">
+      <Label layoutX="428.0" layoutY="250.0" text="Ngày tạo:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="id_ho_khau_label" layoutX="225.0" layoutY="68.0" text="Label" textFill="#ffff8d" />
-      <Label fx:id="ngaytao_label" layoutX="225.0" layoutY="294.0" text="Label" textFill="#ffff8d" />
-      <TableView layoutX="55.0" layoutY="400.0" prefHeight="298.0" prefWidth="492.0">
+      <Label fx:id="id_ho_khau_label" layoutX="245.0" layoutY="102.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="ngaytao_label" layoutX="586.0" layoutY="251.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TableView layoutX="54.0" layoutY="406.0" prefHeight="298.0" prefWidth="492.0">
         <columns>
-          <TableColumn prefWidth="150.0" text="Họ và tên" />
-          <TableColumn prefWidth="167.0" text="Ngày sinh" />
-            <TableColumn prefWidth="174.0" text="Quan hệ với chủ hộ" />
+          <TableColumn prefWidth="150.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
+          <TableColumn prefWidth="167.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
+            <TableColumn prefWidth="174.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
         </columns>
       </TableView>
-      <Label layoutX="55.0" layoutY="366.0" text="Nhân khẩu trong hộ khẩu" textFill="#f8f3f3">
+      <Label layoutX="56.0" layoutY="360.0" text="Nhân khẩu trong hộ khẩu:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="330.0" text="Trạng thái:" textFill="#f8f3f3">
+      <Label layoutX="54.0" layoutY="299.0" text="Trạng thái:" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="trangthai_label" layoutX="225.0" layoutY="330.0" text="Label" textFill="#ffff8d" />
+      <Label fx:id="trangthai_label" layoutX="245.0" layoutY="302.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
    </children>
 </AnchorPane>

@@ -20,13 +20,6 @@ public class ThemNhanKhauController {
 //    }
     public void goBack(ActionEvent e) throws IOException {
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/nhanKhau/manHinhChinh.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-
-        //stage.setTitle("ThemNhanKhau");
-        stage.setScene(scene);
-        stage.setMaximized(true);
-        stage.show();
+        stage.close();
     }
 }

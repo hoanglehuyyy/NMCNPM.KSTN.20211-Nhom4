@@ -80,7 +80,7 @@ public class HocSinhGioiController implements Initializable {
 
     @SneakyThrows
     public void themMinhChung(ActionEvent actionEvent) {
-        Parent p = FXMLLoader.load(getClass().getResource("/view/phanThuong/minhChungNhanThuong.fxml"));
+        Parent p = FXMLLoader.load(getClass().getResource("/view/phanThuong/chonMinhChungNhanThuong.fxml"));
         Scene scene = new Scene(p);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -97,7 +97,7 @@ public class HocSinhGioiController implements Initializable {
                 Parent p = loader.load();
                 ChiTietHocSinhGioiController chiTiet = loader.getController();
                 chiTiet.setDipHocSinhGioi(dipHocSinhGioi);
-                Scene scene = new Scene(p, 1106, 700);
+                Scene scene = new Scene(p, 1100, 600);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.setX(10);

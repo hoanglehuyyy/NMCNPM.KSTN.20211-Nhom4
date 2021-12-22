@@ -18,9 +18,9 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <TextField layoutX="233.0" layoutY="278.0" prefHeight="31.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9;" />
-      <TextField layoutX="233.0" layoutY="212.0" prefHeight="31.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9;" />
-      <TextArea layoutX="233.0" layoutY="342.0" prefHeight="154.0" prefWidth="336.0" />
+      <TextField layoutX="233.0" layoutY="278.0" prefHeight="37.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9;" />
+      <TextField layoutX="233.0" layoutY="212.0" prefHeight="37.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9;" />
+      <TextArea layoutX="233.0" layoutY="342.0" prefHeight="154.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
       <Text fill="WHITE" layoutX="53.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID nhân khẩu:" wrappingWidth="131.0">
          <font>
             <Font name="System Bold" size="20.0" />

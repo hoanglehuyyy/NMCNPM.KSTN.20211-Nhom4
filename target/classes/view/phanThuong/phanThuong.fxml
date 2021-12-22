@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane fx:id="phanThuongPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="681.0" prefWidth="1449.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.PhanThuongController">
+<Pane fx:id="phanThuongPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.PhanThuongController">
    <children>
-      <Label layoutX="289.0" text="Quản lý phần thưởng" textFill="#f8f3f3">
+      <Label layoutX="408.0" layoutY="14.0" text="Quản lý phần thưởng" textFill="#f8f3f3">
          <font>
-            <Font name="System Bold" size="40.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Pane layoutX="126.0" layoutY="123.0" prefHeight="290.0" prefWidth="340.0">
+      <Pane layoutX="188.0" layoutY="149.0" prefHeight="290.0" prefWidth="340.0">
          <children>
             <ImageView fitHeight="276.0" fitWidth="269.0" layoutX="36.0" nodeOrientation="INHERIT" onMouseClicked="#hsgClick" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,7 +25,7 @@
             </TextField>
          </children>
       </Pane>
-      <Pane layoutX="573.0" layoutY="123.0" prefHeight="290.0" prefWidth="340.0">
+      <Pane layoutX="603.0" layoutY="149.0" prefHeight="290.0" prefWidth="340.0">
          <children>
             <ImageView fitHeight="220.0" fitWidth="216.0" layoutX="65.0" layoutY="29.0" onMouseClicked="#dipDacBietOnAction" pickOnBounds="true" preserveRatio="true">
                <image>
