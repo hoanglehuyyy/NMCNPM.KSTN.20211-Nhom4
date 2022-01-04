@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="679.0" prefWidth="710.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.KhaiTuController">
+   <children>
+      <DatePicker layoutX="187.0" layoutY="327.0" prefHeight="37.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+      <Label fx:id="hoTenLabel" layoutX="274.0" layoutY="193.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="50.0" layoutY="325.0" text="Ngày mất:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="50.0" layoutY="384.0" text="Lý do mất:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="50.0" layoutY="250.0" text="Họ tên người khai báo:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <TextField layoutX="293.0" layoutY="250.0" prefHeight="37.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9;" />
+      <Text fill="WHITE" layoutX="50.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID người mất:" wrappingWidth="131.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Text>
+      <Label fx:id="idLabel" layoutX="274.0" layoutY="140.0" prefHeight="31.0" prefWidth="131.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Text fill="WHITE" layoutX="48.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Họ tên người mất:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Text>
+      <Button layoutX="181.0" layoutY="581.0" mnemonicParsing="false" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <TextArea layoutX="187.0" layoutY="384.0" prefHeight="174.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+      <Label alignment="CENTER" layoutX="132.0" prefHeight="45.0" prefWidth="446.0" text="Khai báo thông tin người mất" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="328.0" layoutY="581.0" mnemonicParsing="false" style="-fx-background-color: #F7E7CE;" text="Hủy">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

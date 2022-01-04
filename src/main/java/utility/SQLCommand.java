@@ -25,8 +25,20 @@ public class SQLCommand {
     // dip_dac_biet
 
     // dip_hoc_sinh_gioi
+    public static String HOC_SINH_GIOI_QUERY_BANG_DIP = "SELECT d.*, a.soNguoi \n" +
+            "FROM dip_hoc_sinh_gioi d,\n" +
+            "(SELECT d.idDip, COUNT(c.idNhanKhau) soNguoi FROM dip_hoc_sinh_gioi d LEFT JOIN chi_tiet_dip_hoc_sinh_gioi c\n" +
+            " ON (d.idDip = c.idDip and c.kiemtra = 0)\n" +
+            " GROUP BY d.idDip) a\n" +
+            "WHERE d.idDip = a.idDip";
 
     // chi_tiet_dip_dac_biet
+    public static String DIP_DAC_BIET_QUERY_BANG_DIP = "SELECT d.*, a.soNguoi \n" +
+            "FROM dip_dac_biet d,\n" +
+            "(SELECT d.idDip, COUNT(c.idNhanKhau) soNguoi FROM dip_dac_biet d LEFT JOIN chi_tiet_dip_dac_biet c\n" +
+            " ON (d.idDip = c.idDip and c.kiemtra = 0)\n" +
+            " GROUP BY d.idDip) a\n" +
+            "WHERE d.idDip = a.idDip";
 
     // chi_tiet_dip_hoc_sinh_gioi
 }

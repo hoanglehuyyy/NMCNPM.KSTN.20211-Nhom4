@@ -19,4 +19,5 @@ public class DipHocSinhGioi {
     private Float tienDacBiet;
     private Float tienGioi;
     private Float tienKha;
+    private Integer soNguoiChuaTraoThuong;
 }

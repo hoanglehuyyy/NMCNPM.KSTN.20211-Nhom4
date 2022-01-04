@@ -12,4 +12,12 @@ module com.example.nmcnpm_team4 {
     exports view;
     exports controller;
     exports entity;
+    exports controller.phanThuong;
+    opens controller.phanThuong to javafx.fxml;
+    exports controller.thongKe;
+    opens controller.thongKe to javafx.fxml;
+    exports controller.nhanKhau;
+    opens controller.nhanKhau to javafx.fxml;
+    exports controller.hoKhau;
+    opens controller.hoKhau to javafx.fxml;
 }

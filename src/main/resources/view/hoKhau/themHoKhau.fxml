@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="568.0" prefWidth="1000.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ThemHoKhauController">
+   <children>
+      <Label layoutX="43.0" layoutY="156.0" text="Mã chủ hộ:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="43.0" layoutY="221.0" text="Địa chỉ:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="id_chu_ho_text" layoutX="227.0" layoutY="153.0" prefHeight="37.0" prefWidth="202.0" promptText="Họ tên chủ hộ" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="address_ho_khau_text" layoutX="227.0" layoutY="218.0" prefHeight="37.0" prefWidth="525.0" promptText="Địa chỉ" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Button layoutX="362.0" layoutY="501.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Label layoutX="43.0" layoutY="295.0" text="Thành phố/Tỉnh:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="519.0" layoutY="300.0" text="Quận/Huyện:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="thanhpho_text" layoutX="227.0" layoutY="291.0" prefHeight="37.0" prefWidth="202.0" promptText="Thành phố/Tỉnh" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="quanhuyen_text" layoutX="686.0" layoutY="297.0" prefHeight="37.0" prefWidth="231.0" promptText="Quận/Huyện" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Button layoutX="227.0" layoutY="501.0" mnemonicParsing="false" onAction="#save" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Label layoutX="43.0" layoutY="363.0" text="Phường/Xã:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="phuongxa_text" layoutX="227.0" layoutY="359.0" prefHeight="37.0" prefWidth="202.0" promptText="Phường/Xã" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Label layoutX="519.0" layoutY="363.0" text="Ngày tạo:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ngaytao_text" layoutX="686.0" layoutY="359.0" prefHeight="37.0" prefWidth="231.0" promptText="Ngày tạo" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField layoutX="227.0" layoutY="428.0" prefHeight="37.0" prefWidth="202.0" promptText="Trạng thái" style="-fx-background-color: #FFFFC9;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Label layoutX="43.0" layoutY="432.0" text="Trạng thái:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="427.0" text="Thêm hộ khẩu" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="79.0" text="Điền đầy đủ các trường thông tin cần thiết:" textFill="#e3d910">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="557.0" layoutY="156.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="#e3d910">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

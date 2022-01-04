@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1223.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TrangChuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TrangChuController">
    <children>
       <VBox layoutX="108.0" layoutY="87.0" prefHeight="424.0" prefWidth="853.0" style="-fx-background-color: #2F333D;">
          <children>
@@ -109,7 +109,7 @@
                   </Pane>
                </children>
             </HBox>
-            <HBox layoutX="10.0" layoutY="250.0" prefHeight="120.0" prefWidth="853.0">
+            <HBox layoutX="10.0" layoutY="250.0" prefHeight="120.0" prefWidth="0.0">
                <children>
                   <Pane prefHeight="90.0" prefWidth="160.0" style="-fx-background-color: #2F333D; -fx-background-radius: 20;">
                      <HBox.margin>
