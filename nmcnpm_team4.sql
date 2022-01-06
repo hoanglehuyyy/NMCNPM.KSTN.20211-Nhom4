@@ -30,14 +30,13 @@ CREATE TABLE nhan_khau(
                           quocTich NVARCHAR(255) NOT NULL,
                           ngheNghiep NVARCHAR(255),
                           noiLamViec VARCHAR(255),
-                          cmnd INT,
+                          cmnd VARCHAR(255),
                           ngayCap DATE,
                           chuyenDenNgay DATE,
                           noiThuongTruTruoc NVARCHAR(255),
-                          trangThai NVARCHAR(255) NOT NULL,
+                          trangThai NVARCHAR(255),
                           CONSTRAINT PK_nhan_khau PRIMARY KEY(idNhanKhau),
-                          CONSTRAINT CHK_nhan_khau_gioi_tinh CHECK (gioiTinh IN (N'Nam', N'Nữ')),
-                          CONSTRAINT CHK_nhan_khau_trang_thai CHECK (trangThai IN (N'Thường trú', N'Tạm trú', N'Tạm vắng', N'Đã mất', N'Đã chuyển đi'))
+                          CONSTRAINT CHK_nhan_khau_gioi_tinh CHECK (gioiTinh IN (N'Nam', N'Nữ')))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO nhan_khau(hoTen, biDanh, ngaySinh, noiSinh, gioiTinh, nguyenQuan, danToc, tonGiao, quocTich, ngheNghiep, noiLamViec, cmnd, ngayCap, chuyenDenNgay, noiThuongTruTruoc, trangThai) VALUES
@@ -130,8 +129,7 @@ CREATE TABLE tam_tru(
                         idNhanKhau INT NOT NULL,
                         noiThuongTru NVARCHAR(255) NOT NULL,
                         noiTamTru NVARCHAR(255) NOT NULL,
-                        tuNgay DATE NOT NULL,
-                        denNgay DATE NOT NULL,
+                        tuNgay DATE NOT NULL,                      
                         lyDo NVARCHAR(255),
                         CONSTRAINT PK_tam_tru PRIMARY KEY(id),
                         CONSTRAINT FK_tam_tru_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
@@ -146,7 +144,6 @@ CREATE TABLE tam_vang(
                          idNhanKhau INT NOT NULL,
                          noiTamTru NVARCHAR(255) NOT NULL,
                          tuNgay DATE NOT NULL,
-                         denNgay DATE NOT NULL,
                          lyDo NVARCHAR(255),
                          CONSTRAINT PK_tam_vang PRIMARY KEY(id),
                          CONSTRAINT FK_tam_vang_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
