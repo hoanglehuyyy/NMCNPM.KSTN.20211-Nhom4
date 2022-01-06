@@ -1,71 +1,298 @@
-package entity;
+package controller.nhanKhau;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import entity.NhanKhau;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import lombok.SneakyThrows;
+import utility.DbUtil;
 
-import java.sql.Date;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static javafx.fxml.FXMLLoader.load;
+import static utility.SQLCommand.NHAN_KHAU_QUERY_LAY_THONG_TIN;
+
+public class NhanKhauController implements Initializable {
+    @FXML
+    private TableView<NhanKhau>table;
+    @FXML
+    private TableColumn<NhanKhau,Integer>  idColumn;
+    @FXML
+    private TableColumn<NhanKhau,String>  hoTenColumn;
+    @FXML
+    private TableColumn<NhanKhau,String>  ngaySinhColumn;
+    @FXML
+    private TableColumn<NhanKhau,String>  gioiTinhColumn;
+    @FXML
+    private TableColumn<NhanKhau,String>  CMNDColumn;
+    @FXML
+    private TableColumn<NhanKhau,String>  trangThaiColumn;
+    @FXML
+    private Button themNhanKhau;
+    @FXML
+    private ComboBox truongTraCuuF;
+    @FXML
+    private TextField duLieuF;
+    @FXML
+    private ImageView confirmF;
+    @FXML
+    ObservableList<NhanKhau>  nhanKhauList = FXCollections.observableArrayList();
+    private String query = null;
+    private String query_hoTen=null;
+    private String query_CMND=null;
+    private String query_trangThai=null;
+    private String query_nguyenQuan=null;
+    Connection connection = null ;
+    PreparedStatement preparedStatement = null ;
+    ResultSet resultSet = null ;
+    NhanKhau nhanKhau = null ;
+    private String truongTraCuu=null;
+    private String duLieuTraCuu=null;
+
+    @FXML
+    private void Select(ActionEvent event) {
+        truongTraCuu = truongTraCuuF.getSelectionModel().getSelectedItem().toString();
+
+    }
+    @SneakyThrows
+    @FXML
+    private void findF(MouseEvent event) {
+
+        try {
+            nhanKhauList.clear();
+            duLieuTraCuu=duLieuF.getText();
+            query_hoTen="SELECT * FROM `nhan_khau` WHERE hoTen like '%" + duLieuTraCuu+"%'";
+            query_CMND="SELECT * FROM `nhan_khau` WHERE cmnd like '%" + duLieuTraCuu+"%'";
+            query_trangThai="SELECT * FROM `nhan_khau` WHERE trangThai like '%" + duLieuTraCuu+"%'";
+            query_nguyenQuan="SELECT * FROM `nhan_khau` WHERE nguyenQuan like '%" + duLieuTraCuu+"%'";
+            if(truongTraCuu=="Họ tên"){
+                preparedStatement = connection.prepareStatement(query_hoTen);
+            } else if(truongTraCuu=="Chứng minh nhân dân"){
+                preparedStatement = connection.prepareStatement(query_CMND);
+            }else if(truongTraCuu=="Trạng thái"){
+                preparedStatement = connection.prepareStatement(query_trangThai);
+            }else if(truongTraCuu=="Nguyên quán"){
+                preparedStatement = connection.prepareStatement(query_nguyenQuan);
+            }
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                String bieuDienNgaySinh = resultSet.getString("ngaySinh").substring(8)+"-"+resultSet.getString("ngaySinh").substring(5,7)+"-"+resultSet.getString("ngaySinh").substring(0,4);
+                nhanKhauList.add(new NhanKhau(
+                        resultSet.getInt("idNhanKhau"),
+                        resultSet.getString("hoTen"),
+                        bieuDienNgaySinh,
+                        resultSet.getString("gioiTinh"),
+                        resultSet.getString("CMND"),
+                        resultSet.getString("trangThai")));
+                table.setItems(nhanKhauList);
+
+            }
 
 
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class NhanKhau {
-    private int id;
-    private String hoTen;
-    private String biDanh;
-    private Date ngaySinh;
-    private String noiSinh;
-    private String gioiTinh;
-    private String nguyenQuan;
-    private String danToc;
-    private String tonGiao;
-    private String quocTich;
-    private String ngheNghiep;
-    private String noiLamViec;
-    private String CMND;
-    private Date ngayCap;
-    private Date chuyenDenNgay;
-    private String noiThuongTruTruoc;
-    private String trangThai;
-    private String bieuDienNgaySinh;
+        } catch (SQLException ex) {
+            Logger.getLogger(NhanKhauController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-
-
-    public NhanKhau(int id, String hoTen, String bieuDienNgaySinh, String gioiTinh, String CMND, String trangThai) {
-        this.id = id;
-        this.hoTen = hoTen;
-        this.bieuDienNgaySinh = bieuDienNgaySinh;
-        this.gioiTinh = gioiTinh;
-        this.CMND = CMND;
-        this.trangThai = trangThai;
     }
 
-    public int getId() {
-        return id;
+    @FXML
+    private void refreshTable() {
+        try {
+            nhanKhauList.clear();
+
+
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_LAY_THONG_TIN);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                String bieuDienNgaySinh = resultSet.getString("ngaySinh").substring(8)+"-"+resultSet.getString("ngaySinh").substring(5,7)+"-"+resultSet.getString("ngaySinh").substring(0,4);
+                nhanKhauList.add(new NhanKhau(
+                        resultSet.getInt("idNhanKhau"),
+                        resultSet.getString("hoTen"),
+                        bieuDienNgaySinh,
+                        resultSet.getString("gioiTinh"),
+                        resultSet.getString("CMND"),
+                        resultSet.getString("trangThai")));
+                table.setItems(nhanKhauList);
+
+            }
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(NhanKhauController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+    }
+    private void loadData() throws SQLException {
+        connection = DbUtil.getInstance().getConnection();
+        refreshTable();
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        hoTenColumn.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
+        ngaySinhColumn.setCellValueFactory(new PropertyValueFactory<>("bieuDienNgaySinh"));
+        gioiTinhColumn.setCellValueFactory(new PropertyValueFactory<>("gioiTinh"));
+        CMNDColumn.setCellValueFactory(new PropertyValueFactory<>("CMND"));
+        trangThaiColumn.setCellValueFactory(new PropertyValueFactory<>("trangThai"));
+        table.setItems(nhanKhauList);
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @SneakyThrows
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> listTruongTraCuu = FXCollections.observableArrayList("Họ tên","Chứng minh nhân dân","Trạng thái","Nguyên quán");
+        truongTraCuuF.setItems(listTruongTraCuu);
 
-    public String getHoTen() {
-        return hoTen;
-    }
-
-
-    public String getBieuDienNgaySinh() {
-        return bieuDienNgaySinh;
+        loadData();
     }
 
 
-    public String getTrangThai() {
-        return trangThai;
+
+    public void changScenceThemNhanKhau(ActionEvent e) throws IOException {
+
+        Parent parent = load(getClass().getResource("/view/nhanKhau/themNhanKhau.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.UTILITY);
+        stage.show();
     }
 
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
+
+
+    public void detailNhanKhau(ActionEvent e) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/nhanKhau/chiTietNhanKhau.fxml"));
+        Parent thongTinNK = loader.load();
+        ThongTinNhanKhauController controller = loader.getController();
+        NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        controller.setNhanKhau(selected);
+        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("Thông tin nhân khẩu");
+        Scene scene = new Scene(thongTinNK);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
+    public void chinhSuaNK(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/nhanKhau/chinhSuaNhanKhau.fxml"));
+        Parent chinhSuaNKView = loader.load();
+        ChinhSuaNhanKhauController controller = loader.getController();
+        NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        controller.setChinhSuaNK(selected);
+        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("CHỈNH SỬA NHÂN KHẨU");
+        Scene scene = new Scene(chinhSuaNKView);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    public void XoaNK(ActionEvent e) throws IOException {
+        try {
+            nhanKhau = table.getSelectionModel().getSelectedItem();
+
+            connection = DbUtil.getInstance().getConnection();
+            query = "DELETE FROM `nhan_khau` WHERE idNhanKHau ="+nhanKhau.getId();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+            refreshTable();
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(NhanKhauController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+
+
+
+    public void chuyenNK() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/nhanKhau/chuyenNhanKhau.fxml"));
+        Parent chinhSuaNKView = loader.load();
+        ChuyenNhanKhauController controller = loader.getController();
+        NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        controller.setChuyenNhanKhau(selected);
+        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("CHUYỂN NHÂN KHẨU");
+        Scene scene = new Scene(chinhSuaNKView);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void tamVang() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/nhanKhau/tamVang.fxml"));
+        Parent tamVangNK = loader.load();
+        QuanLyTamVangController controller = loader.getController();
+        NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        controller.setTamVang(selected);
+        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("QUẢN LÝ TẠM VẮNG");
+        Scene scene = new Scene(tamVangNK);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void khaiTu() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/nhanKhau/khaiTu.fxml"));
+        Parent khaiTuNK = loader.load();
+        KhaiTuController controller = loader.getController();
+        NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        controller.setKhaiTu(selected);
+        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("KHAI TỬ");
+        Scene scene = new Scene(khaiTuNK);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void tamTru() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/nhanKhau/tamTru.fxml"));
+        Parent tamTruNK = loader.load();
+        TamTruController controller = loader.getController();
+        NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        controller.setTamTru(selected);
+        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("QUẢN LÝ TẠM TRÚ");
+        Scene scene = new Scene(tamTruNK, 1280, 600);
+        stage.setScene(scene);
+        stage.show();
     }
 }
+
