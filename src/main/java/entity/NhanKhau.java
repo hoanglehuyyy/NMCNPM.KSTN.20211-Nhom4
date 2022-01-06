@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
-import java.time.LocalDate;
+
 
 @Setter
 @Getter
@@ -30,22 +30,42 @@ public class NhanKhau {
     private Date chuyenDenNgay;
     private String noiThuongTruTruoc;
     private String trangThai;
+    private String bieuDienNgaySinh;
 
 
-    public NhanKhau(int id,String hoTen, Date ngaySinh, String noiSinh, String gioiTinh, String nguyenQuan, String danToc, String tonGiao, String quocTich) {
+
+    public NhanKhau(int id, String hoTen, String bieuDienNgaySinh, String gioiTinh, String CMND, String trangThai) {
         this.id = id;
         this.hoTen = hoTen;
-        this.ngaySinh = ngaySinh;
-        this.noiSinh = noiSinh;
+        this.bieuDienNgaySinh = bieuDienNgaySinh;
         this.gioiTinh = gioiTinh;
-        this.nguyenQuan = nguyenQuan;
-        this.danToc = danToc;
-        this.tonGiao = tonGiao;
-        this.quocTich = quocTich;
+        this.CMND = CMND;
+        this.trangThai = trangThai;
     }
 
-    public boolean sosanh(HoKhauNhanKhau a){
-        if(this.id == a.getIdNhanKhau()) return true;
-        return false;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+
+    public String getBieuDienNgaySinh() {
+        return bieuDienNgaySinh;
+    }
+
+
+    public String getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
 }
