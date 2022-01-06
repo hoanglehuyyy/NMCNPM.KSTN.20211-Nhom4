@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="788.0" prefWidth="1062.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.ChinhSuaNhanKhauController">
+   <children>
+      <AnchorPane prefHeight="796.0" prefWidth="1062.0" style="-fx-background-color: #2F333D;">
+         <children>
+            <Label layoutX="324.0" layoutY="14.0" prefHeight="45.0" prefWidth="446.0" text="Chỉnh sửa thông tin nhân khẩu" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <TextField fx:id="hoTenLabel" layoutX="162.0" layoutY="99.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="biDanhLabel" layoutX="159.0" layoutY="172.0" prefHeight="31.0" prefWidth="282.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="noiSinhLabel" layoutX="162.0" layoutY="317.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="nguyenQuanLabel" layoutX="162.0" layoutY="458.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="danTocLabel" layoutX="162.0" layoutY="530.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="quocTichLabel" layoutX="701.0" layoutY="99.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="ngheNghiepLabel" layoutX="701.0" layoutY="172.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="noiLamViecLabel" layoutX="701.0" layoutY="245.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="CMNDLabel" layoutX="701.0" layoutY="319.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="tonGiaoLabel" layoutX="701.0" layoutY="530.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="noiThuongTruTruocLabel" layoutX="31.0" layoutY="659.0" prefHeight="37.0" prefWidth="1010.0" style="-fx-background-color: #FFFFC9;" />
+            <Label layoutX="33.0" layoutY="245.0" text="Ngày sinh:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="32.0" layoutY="99.0" text="Họ tên:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="32.0" layoutY="172.0" text="Bí danh:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="33.0" layoutY="319.0" text="Nơi sinh:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="31.0" layoutY="389.0" text="Giới tính:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="16.0" layoutY="459.0" text="Nguyên quán:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="32.0" layoutY="531.0" text="Dân tộc:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="574.0" layoutY="531.0" text="Tôn giáo:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="32.0" layoutY="603.0" prefHeight="30.0" prefWidth="419.0" text="Nơi thường trú trước khi chuyển đến:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="570.0" layoutY="99.0" text="Quốc tịch:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="547.0" layoutY="172.0" text="Nghề nghiệp:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="557.0" layoutY="246.0" text="Nơi làm việc:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="584.0" layoutY="320.0" text="CMND:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="564.0" layoutY="389.0" text="Ngày cấp:" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="530.0" layoutY="459.0" text="Chuyển đến ngày" textFill="#f8f3f3">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Text fill="#e3d910" layoutX="494.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text fill="#e3d910" layoutX="494.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text fill="#e3d910" layoutX="494.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text fill="#e3d910" layoutX="494.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text fill="#e3d910" layoutX="494.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text fill="#e3d910" layoutX="494.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text fill="#e3d910" layoutX="1019.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text fill="#e3d910" layoutX="1019.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Button layoutX="584.0" layoutY="729.0" mnemonicParsing="false" onMouseClicked="#save_ChinhSua" prefHeight="44.0" prefWidth="122.0" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Button>
+            <Button layoutX="809.0" layoutY="729.0" mnemonicParsing="false" onAction="#goBack_chinhSuaNK" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: #F1D4A7;" text="Hủy">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Button>
+            <DatePicker fx:id="ngaySinhLabel" layoutX="162.0" layoutY="245.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+            <DatePicker fx:id="ngayCapLabel" layoutX="701.0" layoutY="389.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+            <DatePicker fx:id="chuyenDenNgayLabel" layoutX="701.0" layoutY="459.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+            <ComboBox fx:id="combGioiTinh" layoutX="162.0" layoutY="389.0" onAction="#selectGioiTinh" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
+            <Text fill="#e3d910" layoutX="75.0" layoutY="737.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#e3d910" layoutX="129.0" layoutY="781.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CMND là Chứng minh nhân dân">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
