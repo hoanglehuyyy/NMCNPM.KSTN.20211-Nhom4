@@ -8,7 +8,8 @@ public class SQLCommand {
     public static String NHAN_KHAU_QUERY_TONG_THUONG_TRU = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'" + Variable.NHAN_KHAU_THUONG_TRU + "'";
     public static String NHAN_KHAU_QUERY_TONG_TAM_TRU = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'" + Variable.NHAN_KHAU_TAM_TRU + "'";
     public static String NHAN_KHAU_QUERY_TONG_TAM_VANG = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'" + Variable.NHAN_KHAU_TAM_VANG + "'";
-
+    public static String NHAN_KHAU_QUERY_LAY_THONG_TIN = "SELECT * FROM nhan_khau ";
+    public static String XOA_NHAN_KHAU = "DELETE FROM `student` WHERE id  =";
     // ho_khau
     public static String HO_KHAU_QUERY_TONG_THUONG_TRU = "SELECT COUNT(*) FROM ho_khau WHERE trangThai = N'" + Variable.HO_KHAU_THUONG_TRU + "'";
 
