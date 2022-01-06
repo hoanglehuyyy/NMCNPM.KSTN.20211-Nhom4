@@ -36,17 +36,6 @@ public class HoKhauController implements Initializable {
     @FXML
     private TableColumn<HoKhau, String> address_ho_khauCol;
 
-    @FXML
-    private TableColumn<HoKhau, String> thanhpho_ho_khauCol;
-
-    @FXML
-    private TableColumn<HoKhau, String> quanhuyen_ho_khauCol;
-
-    @FXML
-    private TableColumn<HoKhau, String> phuongxa_ho_khauCol;
-
-    @FXML
-    private TableColumn<HoKhau, String> ngaytao_ho_khauCol;
 
     @FXML
     private TextField search_ho_khau;
@@ -55,7 +44,6 @@ public class HoKhauController implements Initializable {
     private ComboBox<String> comboBox;
 
     private ObservableList<String> list_combo_box = FXCollections.observableArrayList("All","Mã hộ khẩu","Mã chủ hộ","Địa chỉ");
-
 
     private ObservableList<HoKhau> hokhauList = FXCollections.observableArrayList();
 
@@ -79,9 +67,6 @@ public class HoKhauController implements Initializable {
         }
     }
 
-    //checked//
-    public void search_hk(ActionEvent event){
-    }
     //checked//
     public void add(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -123,6 +108,9 @@ public class HoKhauController implements Initializable {
         alert1.setHeaderText("Notification");
 
         if(result.get().getButtonData() == ButtonBar.ButtonData.YES){
+            int idHoKhau = hk.getIdHoKhau();
+            delete_hknk(idHoKhau);
+            delete_hk(idHoKhau);
             hokhauList.remove(hk);
             alert1.setContentText("Successful");
             alert1.show();
@@ -132,6 +120,30 @@ public class HoKhauController implements Initializable {
             alert1.show();
         }
 
+    }
+
+    private void delete_hknk(int a){
+        String qu = "DELETE FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(qu);
+            pstmt.setInt(1,a);
+            pstmt.executeUpdate();
+        } catch (SQLException ee){
+            ee.printStackTrace();
+        }
+    }
+
+    private void delete_hk(int a){
+        String qu = "DELETE FROM `ho_khau` WHERE idHoKhau = ?";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(qu);
+            pstmt.setInt(1,a);
+            pstmt.executeUpdate();
+        } catch (SQLException ee){
+            ee.printStackTrace();
+        }
     }
 
     //checked//
@@ -238,9 +250,9 @@ public class HoKhauController implements Initializable {
     }
 
     private void initCol(){
-        id_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,Integer>("id_ho_khau"));
-        id_chu_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,Integer>("id_chu_ho"));
-        address_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,String>("address_ho_khau"));
+        id_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,Integer>("idHoKhau"));
+        id_chu_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,Integer>("idChuHo"));
+        address_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,String>("diachi"));
     }
 
     private void loadData(){
@@ -261,7 +273,7 @@ public class HoKhauController implements Initializable {
                 Date ngaytao_hk =  rs.getDate("ngayTao");
                 String trangthai_hk = rs.getString("trangThai");
 
-                hokhauList.add(new HoKhau(id_hk,id_chu_ho_hk,address_hk,thanhpho_hk,quanhuyen_hk,phuongxa_hk,ngaytao_hk,trangthai_hk));
+                hokhauList.add(new HoKhau(id_hk,id_chu_ho_hk,thanhpho_hk,quanhuyen_hk,phuongxa_hk,address_hk,ngaytao_hk,trangthai_hk));
 
             }
         } catch (SQLException e) {
@@ -271,7 +283,76 @@ public class HoKhauController implements Initializable {
         comboBox.setItems(list_combo_box);
     }
 
-
     public void searchClick(MouseEvent mouseEvent) {
+        searchList.clear();
+        String search_text = search_ho_khau.getText().trim().toLowerCase(); ;
+        String sc = comboBox.getValue();
+        try{
+            if(sc.equals("All")){
+                return;
+            }
+            else if(sc.equals("Mã hộ khẩu")){
+                for(HoKhau a : hokhauList){
+                    try{
+                        if(a.getIdHoKhau() == Integer.parseInt(search_text)){
+                            HoKhau clone_hk = new HoKhau();
+                            clone_hk.copy_hk(a);
+                            searchList.add(clone_hk);
+                        }
+                    }catch(NumberFormatException e){
+                        Alert m = new Alert(Alert.AlertType.INFORMATION);
+                        m.setTitle("Alert!");
+                        m.setHeaderText("Không thoả mãn trường dữ liệu!");
+                        m.setContentText("Mời nhập lại!");
+                        m.show();
+                        return;
+                    }
+
+                }
+                table.setItems(searchList);
+            }
+            else if(sc.equals("Địa chỉ")){
+                for(HoKhau a : hokhauList){
+                    if((a.getDiachi().toLowerCase()).contains(search_text)){
+                        HoKhau clone_hk = new HoKhau();
+                        clone_hk.copy_hk(a);
+                        searchList.add(clone_hk);
+                    }
+                }
+                table.setItems(searchList);
+            }
+            else if(sc.equals("Mã chủ hộ")){
+                for(HoKhau a : hokhauList){
+                    try{
+                        if(a.getIdChuHo() == Integer.parseInt(search_text)){
+                            HoKhau clone_hk = new HoKhau();
+                            clone_hk.copy_hk(a);
+                            searchList.add(clone_hk);
+                        }
+                    }catch(NumberFormatException e){
+                        Alert m = new Alert(Alert.AlertType.INFORMATION);
+                        m.setTitle("Alert!");
+                        m.setHeaderText("Không thoả mãn trường dữ liệu!");
+                        m.setContentText("Mời nhập lại!");
+                        m.show();
+                        return;
+                    }
+
+                }
+                table.setItems(searchList);
+            }
+        }catch(NullPointerException ex){
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Alert!");
+            m.setHeaderText("Chưa chọn trường tìm kiếm!");
+            m.setContentText("Mời chọn lại!");
+            m.show();
+            return;
+        }
+
+    }
+
+    public void refresh_button(ActionEvent e){
+        loadData();
     }
 }

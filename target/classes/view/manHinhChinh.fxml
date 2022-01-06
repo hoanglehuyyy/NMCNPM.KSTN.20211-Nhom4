@@ -12,7 +12,7 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="118.0" fitWidth="116.0" layoutX="47.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" layoutX="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/home.png" />
                      </image>
@@ -64,7 +64,7 @@
             </Button>
             <Pane prefHeight="234.0" prefWidth="220.0">
                <children>
-                  <Button fx:id="dangXuatButton" layoutX="64.0" layoutY="139.0" mnemonicParsing="false" onAction="#dangXuatButtonOnAction" style="-fx-background-color: #2F333D; -fx-background-radius: 50;" text="Đăng xuất" textFill="WHITE">
+                  <Button fx:id="dangXuatButton" layoutX="64.0" layoutY="63.0" mnemonicParsing="false" onAction="#dangXuatButtonOnAction" style="-fx-background-color: #2F333D; -fx-background-radius: 50;" text="Đăng xuất" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -74,6 +74,17 @@
          </children>
       </VBox>
    </left>
+   <top>
+      <Pane fx:id="tieuDePane" prefHeight="70.0" prefWidth="1043.0" style="-fx-background-color: #FFFF8D;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="tieuDeText" layoutX="572.0" layoutY="11.0" prefHeight="45.0" prefWidth="262.0" text="Quản lý khu phố" textFill="#2f333d">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
    <center>
       <Pane fx:id="mainPane" style="-fx-background-color: #FFFFC9;" BorderPane.alignment="CENTER" />
    </center>

@@ -19,6 +19,7 @@ import view.Main;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
 public class NhanKhauController implements Initializable {
@@ -49,8 +50,7 @@ public class NhanKhauController implements Initializable {
         //nhanKhauList=nhanKhauRepository.danhSachNhanKhau();
         //print(nhanKhauList);
         nhanKhauList=FXCollections.observableArrayList(
-                new NhanKhau(1, "Nguyen Thanh", "31/03/2001", "Nam", "0123456","thuong tru"),
-                new NhanKhau(2, "Le Hoang", "31/03/2001", "Nam", "0111156","thuong tru")
+
         );
         idColumn.setCellValueFactory(new PropertyValueFactory<NhanKhau, Integer>("id"));
         hoTenColumn.setCellValueFactory(new PropertyValueFactory<NhanKhau, String>("hoTen"));

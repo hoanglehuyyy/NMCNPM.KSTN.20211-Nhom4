@@ -7,16 +7,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import view.Main;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ManHinhChinhController implements Initializable {
+
+    @FXML
+    private BorderPane borderPane;
+
+    @FXML
+    private Pane tieuDePane;
+
+    @FXML
+    private Label tieuDeText;
 
     @FXML
     private Button trangChuButton;
@@ -46,6 +61,11 @@ public class ManHinhChinhController implements Initializable {
         mainPane.getChildren().add(trangChuPane);
     }
 
+    public void xoaTieuDe() {
+        tieuDePane.getChildren().clear();
+        borderPane.getChildren().remove(tieuDePane);
+    }
+
     public void resetButtonBackground() {
         trangChuButton.setStyle("-fx-background-color: #2F333D;");
         nhanKhauButton.setStyle("-fx-background-color: #2F333D;");
@@ -56,6 +76,11 @@ public class ManHinhChinhController implements Initializable {
     }
 
     public void trangChuButtonOnAction(ActionEvent event) throws IOException {
+        borderPane.setTop(tieuDePane);
+        tieuDePane.getChildren().clear();
+        tieuDePane.getChildren().add(tieuDeText);
+        tieuDeText.setLayoutX(572);
+        tieuDeText.setLayoutY(11);
         resetButtonBackground();
         trangChuButton.setStyle("-fx-background-color: #757C95;");
 
@@ -64,6 +89,7 @@ public class ManHinhChinhController implements Initializable {
     }
 
     public void nhanKhauButtonOnAction(ActionEvent event) throws IOException {
+        xoaTieuDe();
         resetButtonBackground();
         nhanKhauButton.setStyle("-fx-background-color: #757C95;");
 
@@ -72,6 +98,7 @@ public class ManHinhChinhController implements Initializable {
     }
 
     public void hoKhauButtonOnAction(ActionEvent event) throws IOException {
+        xoaTieuDe();
         resetButtonBackground();
         hoKhauButton.setStyle("-fx-background-color: #757C95;");
 
@@ -80,6 +107,7 @@ public class ManHinhChinhController implements Initializable {
     }
 
     public void phanThuongButtonOnAction(ActionEvent event) throws IOException {
+        xoaTieuDe();
         resetButtonBackground();
         phanThuongButton.setStyle("-fx-background-color: #757C95;");
 
@@ -88,6 +116,7 @@ public class ManHinhChinhController implements Initializable {
     }
 
     public void thongKeButtonOnAction(ActionEvent event) throws IOException {
+        xoaTieuDe();
         resetButtonBackground();
         thongKeButton.setStyle("-fx-background-color: #757C95;");
 
@@ -103,7 +132,7 @@ public class ManHinhChinhController implements Initializable {
 
         stage.setTitle("Đăng nhập");
         stage.setScene(scene);
-        stage.setMaximized(false);
+        stage.setMaximized(true);
         stage.show();
     }
 }

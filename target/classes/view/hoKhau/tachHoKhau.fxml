@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="729.0" prefWidth="1100.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.TachHoKhauController">
+<AnchorPane prefHeight="729.0" prefWidth="1100.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.TachHoKhauController">
    <children>
       <Label layoutX="83.0" layoutY="235.0" text="Mã hộ khẩu hiện tại:" textFill="#f8f3f3">
          <font>
@@ -96,6 +100,22 @@
       <Label layoutX="83.0" layoutY="88.0" text="Nhập đầy đủ các trường thông tin cần thiết:" textFill="#e3d910">
          <font>
             <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="911.0" layoutY="178.0" text="Label" />
+      <Label layoutX="913.0" layoutY="166.0" text="(*)" textFill="#e3d910">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="913.0" layoutY="232.0" text="(*)" textFill="#e3d910">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="913.0" layoutY="290.0" text="(*)" textFill="#e3d910">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
    </children>

@@ -229,16 +229,3 @@ INSERT INTO chi_tiet_dip_hoc_sinh_gioi(idDip, idNhanKhau, truong, lop, nhom, min
                                                                                                      (1, 2, N'Trường tiểu học Chu Văn An', 2, 1, '', 1),
                                                                                                      (2, 1, N'Trường THCS Chu Văn An', 7, 2, '', 1),
                                                                                                      (2, 2, N'Trường tiểu học Chu Văn An', 2, 1, '', 1);
-
--- 13. Khai tử
-CREATE TABLE khai_tu(
-            idNguoiMat INT NOT NULL,
-            idNguoiKhai INT NOT NULL,
-            ngayKhai DATE NOT NULL,
-            ngayMat DATE NOT NULL,
-            liDoMat NVARCHAR(255),
-            CONSTRAINT  PK_khai_tu PRIMARY KEY(idNguoiMat)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO khai_tu(idNguoiMat, idNguoiKhai, ngayKhai, ngayMat, liDoMat) VALUES
-(12, 5, '2020-10-10', '2020-10-1', 'Bệnh tim');

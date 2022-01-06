@@ -5,12 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
+
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class HoKhauNhanKhau {
     private Integer idHoKhau;
     private Integer idNhanKhau;
     private String quanHeChuHo;
+    private String hoTen;
+    private Date ngaySinh;
+
+    public HoKhauNhanKhau(Integer idHoKhau, Integer idNhanKhau, String quanHeChuHo, String hoTen, Date ngaySinh) {
+        this.idHoKhau = idHoKhau;
+        this.idNhanKhau = idNhanKhau;
+        this.quanHeChuHo = quanHeChuHo;
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+    }
 }
