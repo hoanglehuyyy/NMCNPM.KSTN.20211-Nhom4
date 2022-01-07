@@ -283,7 +283,7 @@ public class NhanKhauController implements Initializable {
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("KHAI TỬ");
-        Scene scene = new Scene(khaiTuNK);
+        Scene scene = new Scene(khaiTuNK, 1100, 700);
         stage.setScene(scene);
         stage.show();
     }
@@ -298,7 +298,7 @@ public class NhanKhauController implements Initializable {
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("QUẢN LÝ TẠM TRÚ");
-        Scene scene = new Scene(tamTruNK, 1280, 600);
+        Scene scene = new Scene(tamTruNK);
         stage.setScene(scene);
         stage.show();
     }
