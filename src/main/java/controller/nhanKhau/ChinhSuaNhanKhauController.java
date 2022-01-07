@@ -66,11 +66,13 @@ public class ChinhSuaNhanKhauController  {
     String gioiTinhC=null;
 
 
+
     public void setChinhSuaNK(NhanKhau nk){
         id_NK=nk.getId();
         ObservableList<String> listGioiTinh2 = FXCollections.observableArrayList("Nam","Nữ");
         combGioiTinh.setItems(listGioiTinh2);
         loadData();
+
 
     }
 
@@ -91,7 +93,7 @@ public class ChinhSuaNhanKhauController  {
 
 
         if (hoTen.isEmpty() || ngaySinh.isEmpty() || quocTich.isEmpty() || tonGiao.isEmpty()||
-                danToc.isEmpty()||noiSinh.isEmpty()||nguyenQuan.isEmpty()||gioiTinhC==null) {
+                danToc.isEmpty()||noiSinh.isEmpty()||nguyenQuan.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Nhập các trường dữ liệu bắt buộc");
@@ -135,6 +137,7 @@ public class ChinhSuaNhanKhauController  {
                     noiSinhLabel.setText(resultSet.getString("noiSinh"));
 
                     combGioiTinh.getSelectionModel().select(resultSet.getString("gioiTinh"));
+                    gioiTinhC=resultSet.getString("gioiTinh");
                     nguyenQuanLabel.setText(resultSet.getString("nguyenQuan"));
                     danTocLabel.setText(resultSet.getString("danToc"));
                     tonGiaoLabel.setText(resultSet.getString("tonGiao"));
