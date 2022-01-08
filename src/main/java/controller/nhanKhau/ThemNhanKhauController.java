@@ -95,7 +95,7 @@ public class ThemNhanKhauController implements Initializable {
 
 
         if (hoTen.isEmpty() || ngaySinh==null || quocTich.isEmpty() || tonGiao.isEmpty()||
-                danToc.isEmpty()||noiSinh.isEmpty()||nguyenQuan.isEmpty()||gioiTinhC==null) {
+                danToc.isEmpty()||noiSinh.isEmpty()||nguyenQuan.isEmpty()||gioiTinhC==null||gioiTinhC=="") {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Nhập các trường dữ liệu bắt buộc");
@@ -109,6 +109,7 @@ public class ThemNhanKhauController implements Initializable {
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Thêm thành công");
             alert_TC.showAndWait();
+            gioiTinhC="";
 
         }
 
@@ -125,6 +126,7 @@ public class ThemNhanKhauController implements Initializable {
         hoTenF.setText(null);
         biDanhF.setText(null);
         ngaySinhF.setValue(null);
+        comb.setValue(null);
         noiSinhF.setText(null);
         nguyenQuanF.setText(null);
         danTocF.setText(null);
@@ -253,6 +255,8 @@ public class ThemNhanKhauController implements Initializable {
         }
 
     }
+
+
 
 
 

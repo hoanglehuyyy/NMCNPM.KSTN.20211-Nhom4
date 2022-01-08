@@ -14,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import lombok.SneakyThrows;
 import utility.DbUtil;
 
@@ -28,7 +27,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static javafx.fxml.FXMLLoader.load;
 import static utility.SQLCommand.NHAN_KHAU_QUERY_LAY_THONG_TIN;
 
 public class NhanKhauController implements Initializable {
@@ -171,11 +169,21 @@ public class NhanKhauController implements Initializable {
 
     public void changScenceThemNhanKhau(ActionEvent e) throws IOException {
 
-        Parent parent = load(getClass().getResource("/view/nhanKhau/themNhanKhau.fxml"));
-        Scene scene = new Scene(parent);
+//        Parent parent = load(getClass().getResource("/view/nhanKhau/themNhanKhau.fxml"));
+//        Scene scene = new Scene(parent);
+//        Stage stage = new Stage();
+//        stage.setScene(scene);
+//        stage.initStyle(StageStyle.UTILITY);
+//        stage.show();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/nhanKhau/themNhanKhau.fxml"));
+        Parent thongTinNK = loader.load();
+
         Stage stage = new Stage();
+//        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("Thông tin nhân khẩu");
+        Scene scene = new Scene(thongTinNK);
         stage.setScene(scene);
-        stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
 
@@ -275,7 +283,7 @@ public class NhanKhauController implements Initializable {
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("KHAI TỬ");
-        Scene scene = new Scene(khaiTuNK);
+        Scene scene = new Scene(khaiTuNK, 1100, 700);
         stage.setScene(scene);
         stage.show();
     }
@@ -290,7 +298,7 @@ public class NhanKhauController implements Initializable {
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("QUẢN LÝ TẠM TRÚ");
-        Scene scene = new Scene(tamTruNK, 1280, 600);
+        Scene scene = new Scene(tamTruNK);
         stage.setScene(scene);
         stage.show();
     }
