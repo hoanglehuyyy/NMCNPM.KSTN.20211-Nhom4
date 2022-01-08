@@ -24,17 +24,8 @@ public class ThongKeController {
     }
 
     public void phanThuongModeClick(MouseEvent mouseEvent) throws IOException {
-        Pane phanThuongPane = FXMLLoader.load(getClass().getResource("/view/thongKe/thongKePhanThuong.fxml"));
+        Pane phanThuongPane = FXMLLoader.load(getClass().getResource("/view/thongKe/thongKeChon.fxml"));
         mainPane.getChildren().add(phanThuongPane);
-    }
-
-    public void backHoKhauMouseClick(MouseEvent mouseEvent) {
-    }
-
-    public void backNhanKhauMouseClick(MouseEvent mouseEvent) {
-    }
-
-    public void backMouseClick(MouseEvent mouseEvent) {
     }
 }
 

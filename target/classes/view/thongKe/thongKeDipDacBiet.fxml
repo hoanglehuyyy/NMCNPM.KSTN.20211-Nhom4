@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="dipDacBietMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeDipDacBietController">
+    <children>
+        <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #FFFFC9;">
+            <children>
+                <ImageView fx:id="backIcon" fitHeight="50.0" fitWidth="153.0" layoutX="25.0" layoutY="8.0" onMouseClicked="#backClick" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/back.png" />
+                    </image>
+                </ImageView>
+            <Label layoutX="436.0" layoutY="10.0" text="Thống kê dịp đặc biệt" textFill="#332a99">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+      <TableView fx:id="bangDB" layoutX="104.0" layoutY="230.0" onMouseClicked="#xemThongKe" prefHeight="440.0" prefWidth="412.0">
+         <columns>
+            <TableColumn fx:id="idDip" editable="false" prefWidth="61.0" sortable="false" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Dịp" />
+            <TableColumn fx:id="nam" editable="false" prefWidth="97.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Năm" />
+            <TableColumn fx:id="ten" editable="false" prefWidth="141.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên dịp" />
+            <TableColumn fx:id="moTa" editable="false" prefWidth="113.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
+         </columns>
+      </TableView>
+      <TextField fx:id="namTimNoiDung" layoutX="103.0" layoutY="152.0" prefHeight="25.0" prefWidth="163.0" />
+      <Label layoutX="102.0" layoutY="122.0" text="Năm" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="102.0" layoutY="192.0" text="Bảng tìm dịp đặc biệt" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="457.0" layoutY="190.0" mnemonicParsing="false" onAction="#tim" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #F1D4A7;" text="Tìm">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Pane fx:id="thongKeChiTietDB" layoutX="514.0" layoutY="158.0" prefHeight="562.0" prefWidth="617.0">
+         <children>
+            <Label layoutX="36.0" layoutY="355.0" prefHeight="21.0" prefWidth="129.0" text="Tổng tiền đã chi:" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="391.0" prefHeight="21.0" prefWidth="129.0" text="Số người đã trao:" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="424.0" prefHeight="21.0" prefWidth="129.0" text="Số hộ đã trao:" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="267.0" layoutY="391.0" prefHeight="21.0" prefWidth="149.0" text="Số người chưa trao:" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="267.0" layoutY="424.0" prefHeight="21.0" prefWidth="149.0" text="Số hộ chưa trao:" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="tongTienDB" layoutX="173.0" layoutY="355.0" prefHeight="21.0" prefWidth="90.0" text="800000" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="nguoiDaTraoDB" layoutX="173.0" layoutY="391.0" prefHeight="21.0" prefWidth="63.0" text="7" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="hoDaTraoDB" layoutX="173.0" layoutY="424.0" prefHeight="21.0" prefWidth="63.0" text="8" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="nguoiChuaTraoDB" layoutX="416.0" layoutY="391.0" prefHeight="21.0" prefWidth="63.0" text="7" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="hoChuaTraoDB" layoutX="416.0" layoutY="424.0" prefHeight="21.0" prefWidth="63.0" text="7" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="321.0" text="Năm:" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="namLabel" layoutX="173.0" layoutY="321.0" text="2021" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Pane layoutX="32.0" layoutY="72.0" prefHeight="200.0" prefWidth="572.0" style="-fx-background-color: #ffff8d;">
+               <children>
+                  <Label layoutX="12.0" layoutY="36.0" text="0-5 tuổi" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="13.0" layoutY="85.0" text="6-14 tuổi" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="7.0" layoutY="131.0" text="15-17 tuổi" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Line endX="27.0" endY="132.0" layoutX="80.0" layoutY="68.0" startX="27.0" startY="-68.0" />
+                  <Line endX="27.0" endY="132.0" layoutX="330.0" layoutY="68.0" startX="27.0" startY="-68.0" />
+                  <Label fx:id="t05" layoutX="123.0" layoutY="36.0" text="10 quyển vở" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t614" layoutX="123.0" layoutY="85.0" text="10 quyển vở" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t1517" layoutX="123.0" layoutY="131.0" text="10 quyển vở" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t05Tien" layoutX="366.0" layoutY="36.0" prefHeight="30.0" prefWidth="90.0" text="100000" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t614Tien" layoutX="366.0" layoutY="85.0" prefHeight="30.0" prefWidth="90.0" text="100000" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t1517Tien" layoutX="366.0" layoutY="131.0" prefHeight="30.0" prefWidth="90.0" text="100000" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Line endX="27.0" endY="132.0" layoutX="440.0" layoutY="68.0" startX="27.0" startY="-68.0" />
+                  <Label layoutX="502.0" layoutY="36.0" text="người" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t05Nguoi" layoutX="478.0" layoutY="36.0" text="7" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="502.0" layoutY="85.0" text="người" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t614Nguoi" layoutX="478.0" layoutY="85.0" text="7" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="502.0" layoutY="131.0" text="người" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="t1517Nguoi" layoutX="478.0" layoutY="131.0" text="7" textFill="#2f333d">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="tongTienHSG1" layoutX="264.0" layoutY="355.0" prefHeight="21.0" prefWidth="90.0" text="VNĐ" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="268.0" layoutY="321.0" text="Tên dịp:" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="tenLabel" layoutX="405.0" layoutY="321.0" text="Tết trung thu" textFill="#ffff8d">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField fx:id="tenDipNoiDung" layoutX="293.0" layoutY="152.0" prefHeight="25.0" prefWidth="221.0" />
+      <Label layoutX="293.0" layoutY="122.0" text="Tên dịp" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>

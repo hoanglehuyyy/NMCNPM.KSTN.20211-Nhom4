@@ -25,5 +25,4 @@ public class PhanThuongController {
         phanThuongPane.getChildren().clear();
         phanThuongPane.getChildren().add(dipDacBietPane);
     }
-
 }

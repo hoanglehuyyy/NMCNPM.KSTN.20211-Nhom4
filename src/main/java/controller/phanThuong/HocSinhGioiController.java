@@ -17,7 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
-import repository.HocSinhGioiImpl;
+import repository.HocSinhGioiRepositoryImpl;
 import utility.Variable;
 
 import java.net.URL;
@@ -43,7 +43,7 @@ public class HocSinhGioiController implements Initializable {
     private TableColumn<DipHocSinhGioi, String> hsgMoTaCol;
 
     ObservableList<String> truongTraCuu = FXCollections.observableArrayList(Variable.ID_DIP, Variable.NAM_HOC);
-    HocSinhGioiImpl hocSinhGioiImpl = new HocSinhGioiImpl();
+    HocSinhGioiRepositoryImpl hocSinhGioiImpl = new HocSinhGioiRepositoryImpl();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

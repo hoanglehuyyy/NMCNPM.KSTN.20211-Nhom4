@@ -20,4 +20,6 @@ module com.example.nmcnpm_team4 {
     opens controller.nhanKhau to javafx.fxml;
     exports controller.hoKhau;
     opens controller.hoKhau to javafx.fxml;
+    exports entity.VO;
+    opens entity.VO to javafx.fxml;
 }

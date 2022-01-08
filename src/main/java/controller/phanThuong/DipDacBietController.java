@@ -1,7 +1,6 @@
 package controller.phanThuong;
 
 import entity.DipDacBiet;
-import entity.DipHocSinhGioi;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
-import repository.DipDacBietImpl;
+import repository.DipDacBietRepositoryImpl;
 import utility.Variable;
 
 import java.net.URL;
@@ -43,7 +42,7 @@ public class DipDacBietController implements Initializable {
     private TableColumn<DipDacBiet, String> ddbMoTaCol;
 
     ObservableList<String> truongTraCuu = FXCollections.observableArrayList(Variable.ID_DIP,Variable.TEN_DIP ,Variable.NAM_HOC);
-    DipDacBietImpl dipDacBietImpl = new DipDacBietImpl();
+    DipDacBietRepositoryImpl dipDacBietImpl = new DipDacBietRepositoryImpl();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

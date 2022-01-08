@@ -14,7 +14,9 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Đăng nhập");
         stage.setScene(scene);
-        stage.setMaximized(true);
+        stage.setResizable(false);
+        stage.setWidth(500);
+        stage.setHeight(350);
         stage.show();
     }
 

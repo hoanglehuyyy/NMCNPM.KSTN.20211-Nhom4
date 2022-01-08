@@ -7,7 +7,7 @@
 
 <Pane fx:id="phanThuongPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.PhanThuongController">
    <children>
-      <Label layoutX="408.0" layoutY="14.0" text="Quản lý phần thưởng" textFill="#f8f3f3">
+      <Label layoutX="439.0" layoutY="14.0" text="Quản lý phần thưởng" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
