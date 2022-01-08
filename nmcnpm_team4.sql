@@ -36,7 +36,7 @@ CREATE TABLE nhan_khau(
                           noiThuongTruTruoc NVARCHAR(255),
                           trangThai NVARCHAR(255),
                           CONSTRAINT PK_nhan_khau PRIMARY KEY(idNhanKhau),
-                          CONSTRAINT CHK_nhan_khau_gioi_tinh CHECK (gioiTinh IN (N'Nam', N'Nữ')))
+                          CONSTRAINT CHK_nhan_khau_gioi_tinh CHECK (gioiTinh IN (N'Nam', N'Nữ'))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO nhan_khau(hoTen, biDanh, ngaySinh, noiSinh, gioiTinh, nguyenQuan, danToc, tonGiao, quocTich, ngheNghiep, noiLamViec, cmnd, ngayCap, chuyenDenNgay, noiThuongTruTruoc, trangThai) VALUES
@@ -65,7 +65,7 @@ CREATE TABLE ho_khau(
                         ngayTao DATE NOT NULL,
                         trangThai NVARCHAR(255) NOT NULL,
                         CONSTRAINT PK_ho_khau PRIMARY KEY(idHoKhau),
-                        CONSTRAINT FK_ho_khau_nhan_khau FOREIGN KEY(idChuHo) REFERENCES nhan_khau(idNhanKhau),
+                        CONSTRAINT FK_ho_khau_nhan_khau FOREIGN KEY(idChuHo) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE,
                         CONSTRAINT CHK_ho_khau_trang_thai CHECK (trangThai IN (N'Thường trú', N'Đã chuyển đi'))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -82,8 +82,8 @@ CREATE TABLE ho_khau_nhan_khau(
                                   idNhanKhau INT NOT NULL ,
                                   quanHeChuHo NVARCHAR(255) NOT NULL,
                                   CONSTRAINT PK_ho_khau_nhan_khau PRIMARY KEY (idHoKhau, idNhanKhau),
-                                  CONSTRAINT FK_ho_khau_nhan_khau_ho_khau FOREIGN KEY(idHoKhau) REFERENCES ho_khau(idHoKhau),
-                                  CONSTRAINT FK_ho_khau_nhan_khau_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
+                                  CONSTRAINT FK_ho_khau_nhan_khau_ho_khau FOREIGN KEY(idHoKhau) REFERENCES ho_khau(idHoKhau) ON DELETE CASCADE,
+                                  CONSTRAINT FK_ho_khau_nhan_khau_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO ho_khau_nhan_khau(idHoKhau, idNhanKhau, quanHeChuHo) VALUES
@@ -103,7 +103,7 @@ CREATE TABLE chuyen_nhan_khau(
                                  noiChuyenDen NVARCHAR(255) NOT NULL,
                                  ghiChu NVARCHAR(255),
                                  CONSTRAINT PK_chuyen_nhan_khau PRIMARY KEY (id),
-                                 CONSTRAINT FK_chuyen_nhan_khau_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
+                                 CONSTRAINT FK_chuyen_nhan_khau_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO chuyen_nhan_khau(idNhanKhau, ngayChuyenDi, noiChuyenDen, ghiChu) VALUES
@@ -117,7 +117,7 @@ CREATE TABLE chuyen_ho_khau(
                                noiChuyenDen NVARCHAR(255) NOT NULL,
                                ghiChu NVARCHAR(255),
                                CONSTRAINT PK_chuyen_ho_khau PRIMARY KEY(id),
-                               CONSTRAINT FK_chuyen_ho_khau_ho_khau FOREIGN KEY(idHoKhau) REFERENCES ho_khau(idHoKhau)
+                               CONSTRAINT FK_chuyen_ho_khau_ho_khau FOREIGN KEY(idHoKhau) REFERENCES ho_khau(idHoKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO chuyen_ho_khau(idHoKhau, ngayChuyenDi, noiChuyenDen, ghiChu) VALUES
@@ -129,10 +129,11 @@ CREATE TABLE tam_tru(
                         idNhanKhau INT NOT NULL,
                         noiThuongTru NVARCHAR(255) NOT NULL,
                         noiTamTru NVARCHAR(255) NOT NULL,
-                        tuNgay DATE NOT NULL,                      
+                        tuNgay DATE NOT NULL,
+                        denNgay DATE NOT NULL,
                         lyDo NVARCHAR(255),
                         CONSTRAINT PK_tam_tru PRIMARY KEY(id),
-                        CONSTRAINT FK_tam_tru_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
+                        CONSTRAINT FK_tam_tru_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO tam_tru(idNhanKhau, noiThuongTru, noiTamTru, tuNgay, denNgay, lyDo) VALUES
@@ -144,9 +145,10 @@ CREATE TABLE tam_vang(
                          idNhanKhau INT NOT NULL,
                          noiTamTru NVARCHAR(255) NOT NULL,
                          tuNgay DATE NOT NULL,
+                         denNgay DATE NOT NULL,
                          lyDo NVARCHAR(255),
                          CONSTRAINT PK_tam_vang PRIMARY KEY(id),
-                         CONSTRAINT FK_tam_vang_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
+                         CONSTRAINT FK_tam_vang_nhan_khau FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO tam_vang(idNhanKhau, noiTamTru, tuNgay, denNgay, lyDo) VALUES
@@ -197,8 +199,8 @@ CREATE TABLE chi_tiet_dip_dac_biet(
                                       nhom INT NOT NULL,
                                       kiemtra INT NOT NULL,
                                       CONSTRAINT PK_chi_tiet_dip_dac_biet PRIMARY KEY(idDip, idNhanKhau),
-                                      CONSTRAINT FK_chi_tiet_dip_dac_biet_dip_dac_biet FOREIGN KEY(idDip) REFERENCES dip_dac_biet(idDip),
-                                      CONSTRAINT FK_chi_tiet_dip_dac_biet FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
+                                      CONSTRAINT FK_chi_tiet_dip_dac_biet_dip_dac_biet FOREIGN KEY(idDip) REFERENCES dip_dac_biet(idDip) ON DELETE CASCADE,
+                                      CONSTRAINT FK_chi_tiet_dip_dac_biet FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO chi_tiet_dip_dac_biet(idDip, idNhanKhau, nhom, kiemtra) VALUES
@@ -217,8 +219,8 @@ CREATE TABLE chi_tiet_dip_hoc_sinh_gioi(
                                            minhChung NVARCHAR(255) NOT NULL,
                                            kiemtra INT NOT NULL,
                                            CONSTRAINT PK_chi_tiet_dip_hoc_sinh_gioi PRIMARY KEY(idDip, idNhanKhau),
-                                           CONSTRAINT FK_chi_tiet_dip_hoc_sinh_gioi_dip_hoc_sinh_gioi FOREIGN KEY(idDip) REFERENCES dip_hoc_sinh_gioi(idDip),
-                                           CONSTRAINT FK_chi_tiet_dip_hoc_sinh_gioi FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau)
+                                           CONSTRAINT FK_chi_tiet_dip_hoc_sinh_gioi_dip_hoc_sinh_gioi FOREIGN KEY(idDip) REFERENCES dip_hoc_sinh_gioi(idDip) ON DELETE CASCADE,
+                                           CONSTRAINT FK_chi_tiet_dip_hoc_sinh_gioi FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO chi_tiet_dip_hoc_sinh_gioi(idDip, idNhanKhau, truong, lop, nhom, minhChung, kiemtra) VALUES
