@@ -32,4 +32,6 @@ public class HoKhauNhanKhau {
         this.hoTen = hoTen;
         this.ngaySinh = ngaySinh;
     }
+
+    public HoKhauNhanKhau(){}
 }
