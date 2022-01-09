@@ -3,8 +3,10 @@ package controller.nhanKhau;
 import entity.NhanKhau;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import utility.DbUtil;
 
@@ -76,6 +78,9 @@ public class ChuyenNhanKhauController {
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Chuyển nhân khẩu thành công");
             alert_TC.showAndWait();
+            final Node source = (Node) event.getSource();
+            final Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
 
         }
 
