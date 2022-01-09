@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="820.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.ThemNhanKhauController">
+<ScrollPane prefHeight="807.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.ThemNhanKhauController">
    <content>
-      <AnchorPane prefHeight="840.0" prefWidth="1097.0" style="-fx-background-color: #2F333D;">
+      <AnchorPane prefHeight="806.0" prefWidth="1078.0" style="-fx-background-color: #2F333D;">
          <children>
             <TextField fx:id="hoTenF" layoutX="150.0" layoutY="103.0" prefHeight="37.0" prefWidth="309.0" style="-fx-background-color: #FFFFC9;">
                <font>
@@ -159,7 +159,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="#e3d910" layoutX="476.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+            <Text fill="#e3d910" layoutX="476.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
                <font>
                   <Font size="20.0" />
                </font>
@@ -183,11 +183,11 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>
-            <Button layoutX="860.0" layoutY="727.0" mnemonicParsing="false" onMouseClicked="#huy" style="-fx-background-color: #F1D4A7;" text="Hủy">
+            <Button layoutX="860.0" layoutY="726.0" mnemonicParsing="false" onMouseClicked="#huy" prefHeight="45.0" prefWidth="85.0" style="-fx-background-color: #F1D4A7;" text="Hủy">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>
-            <Text fill="#e3d910" layoutX="147.0" layoutY="793.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CMND là Chứng minh nhân dân">
+            <Text fill="#e3d910" layoutX="161.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CMND là Chứng minh nhân dân">
                <font>
                   <Font name="System Italic" size="20.0" />
                </font>
@@ -200,7 +200,7 @@
                   <Font name="System Bold" size="30.0" />
                </font>
               </Label>
-            <Text fill="#e3d910" layoutX="71.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
+            <Text fill="#e3d910" layoutX="71.0" layoutY="742.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
                <font>
                   <Font name="System Italic" size="20.0" />
                </font>
