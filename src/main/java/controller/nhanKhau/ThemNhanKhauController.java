@@ -6,11 +6,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import utility.DbUtil;
 
@@ -105,11 +107,17 @@ public class ThemNhanKhauController implements Initializable {
             getQuery();
             insert();
             clean();
+
+            // do what you have to do
+
             Alert alert_TC = new Alert(Alert.AlertType.CONFIRMATION);
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Thêm thành công");
             alert_TC.showAndWait();
             gioiTinhC="";
+            final Node source = (Node) event.getSource();
+            final Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
 
         }
 
@@ -120,6 +128,7 @@ public class ThemNhanKhauController implements Initializable {
          gioiTinhC = comb.getSelectionModel().getSelectedItem().toString();
 
     }
+
 
     @FXML
     private void clean() {
@@ -191,7 +200,7 @@ public class ThemNhanKhauController implements Initializable {
 
     private void insert() {
 
-        String trangThaiMacDinh=null;
+        String trangThaiMacDinh="";
 
 
         try {
@@ -200,7 +209,7 @@ public class ThemNhanKhauController implements Initializable {
             preparedStatement.setString(1, hoTenF.getText());
 
             if (biDanhF.getText()=="" ){
-                preparedStatement.setString(2, null);
+                preparedStatement.setString(2, "");
             }else{
                 preparedStatement.setString(2, biDanhF.getText());
             }
@@ -212,19 +221,19 @@ public class ThemNhanKhauController implements Initializable {
             preparedStatement.setString(8, tonGiaoF.getText());
             preparedStatement.setString(9, quocTichF.getText());
             if (ngheNghiepF.getText()=="" ){
-                preparedStatement.setString(10, null);
+                preparedStatement.setString(10, "");
             }else{
                 preparedStatement.setString(10, ngheNghiepF.getText());
             }
 
             if (noiLamViecF.getText()=="" ){
-                preparedStatement.setString(11, null);
+                preparedStatement.setString(11, "");
             }else{
                 preparedStatement.setString(11, noiLamViecF.getText());
             }
 
             if (CMNDF.getText()=="" ){
-                preparedStatement.setString(12, null);
+                preparedStatement.setString(12, "");
             }else{
                 preparedStatement.setString(12, CMNDF.getText());
             }
