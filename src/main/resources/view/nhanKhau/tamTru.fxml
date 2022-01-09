@@ -5,10 +5,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="727.0" prefWidth="732.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.TamTruController">
+<AnchorPane prefHeight="771.0" prefWidth="740.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.TamTruController">
    <children>
-      <TextArea fx:id="lyDoF" layoutX="250.0" layoutY="439.0" prefHeight="121.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
-      <Label layoutX="60.0" layoutY="439.0" text="Lý do:" textFill="WHITE">
+      <TextArea fx:id="lyDoF" layoutX="250.0" layoutY="505.0" prefHeight="121.0" prefWidth="336.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+      <Label layoutX="69.0" layoutY="505.0" text="Lý do:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -38,7 +38,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Text>
-      <Button layoutX="250.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#save_tamTru" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
+      <Button layoutX="248.0" layoutY="653.0" mnemonicParsing="false" onMouseClicked="#save_tamTru" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -52,7 +52,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="393.0" layoutY="580.0" mnemonicParsing="false" onMouseClicked="#huy" style="-fx-background-color: #F7E7CE;" text="Hủy">
+      <Button layoutX="418.0" layoutY="653.0" mnemonicParsing="false" onMouseClicked="#huy" style="-fx-background-color: #F7E7CE;" text="Hủy">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -72,10 +72,16 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="#e3d910" layoutX="55.0" layoutY="670.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
+      <Text fill="#e3d910" layoutX="43.0" layoutY="731.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Text>
+      <Label layoutX="60.0" layoutY="424.0" text="Đến ngày :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="denNgayF" layoutX="249.0" layoutY="424.0" prefHeight="37.0" prefWidth="201.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
    </children>
 </AnchorPane>
