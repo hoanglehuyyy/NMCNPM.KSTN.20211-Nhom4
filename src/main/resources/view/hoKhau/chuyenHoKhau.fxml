@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="744.0" prefWidth="1146.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ChuyenHoKhauController">
+<AnchorPane prefHeight="744.0" prefWidth="1146.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ChuyenHoKhauController">
    <children>
-      <Label layoutX="355.0" layoutY="6.0" text="Chuyển hộ khẩu đi nơi khác" textFill="#f8f3f3">
+      <Label layoutX="394.0" layoutY="8.0" text="Chuyển hộ khẩu đi nơi khác" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -25,7 +29,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="580.0" layoutY="148.0" text="Mã chủ hộ:" textFill="#f8f3f3">
+      <Label layoutX="580.0" layoutY="148.0" text="Họ tên chủ hộ:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -37,32 +41,23 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="39.0" layoutY="511.0" text="Lí do chuyển đi:" textFill="#f8f3f3">
+      <Label layoutX="39.0" layoutY="511.0" text="Ghi chú:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <TextField fx:id="id_ho_khau_chuyen" layoutX="254.0" layoutY="145.0" prefHeight="37.0" prefWidth="134.0" promptText="Mã hộ khẩu" style="-fx-background-color: #FFFFC9;">
+      <TextField fx:id="dia_chi_chuyen_den_cd" layoutX="254.0" layoutY="286.0" prefHeight="37.0" prefWidth="670.0" promptText="Địa chỉ chuyển đến" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField fx:id="id_chu_ho_chuyen" layoutX="777.0" layoutY="145.0" prefHeight="37.0" prefWidth="146.0" promptText="Mã chủ hộ" style="-fx-background-color: #FFFFC9;">
+      <TextArea fx:id="li_do_cd" layoutX="169.0" layoutY="511.0" prefHeight="182.0" prefWidth="425.0" promptText="Ghi chú" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;">
          <font>
             <Font size="16.0" />
-         </font></TextField>
-      <TextField fx:id="address_chuyen" layoutX="254.0" layoutY="222.0" prefHeight="37.0" prefWidth="670.0" promptText="Địa chỉ hiện tại" style="-fx-background-color: #FFFFC9;">
-         <font>
-            <Font size="16.0" />
-         </font></TextField>
-      <TextField fx:id="new_address_chuyen" layoutX="254.0" layoutY="286.0" prefHeight="37.0" prefWidth="670.0" promptText="Địa chỉ chuyển đến" style="-fx-background-color: #FFFFC9;">
-         <font>
-            <Font size="16.0" />
-         </font></TextField>
-      <TextArea fx:id="reason_chuyen" layoutX="245.0" layoutY="511.0" prefHeight="142.0" prefWidth="320.0" promptText="Lí do chuyển đi" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;" />
-      <Button layoutX="834.0" layoutY="609.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
+         </font></TextArea>
+      <Button layoutX="879.0" layoutY="649.0" mnemonicParsing="false" onAction="#huy_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button layoutX="665.0" layoutY="609.0" mnemonicParsing="false" onAction="#save_button" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
+      <Button layoutX="729.0" layoutY="649.0" mnemonicParsing="false" onAction="#xac_nhan_button" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -86,57 +81,57 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="thanhpho_chuyen" layoutX="254.0" layoutY="354.0" prefHeight="37.0" prefWidth="255.0" style="-fx-background-color: #FFFFC9;">
+      <TextField fx:id="tinh_thanh_cd" layoutX="254.0" layoutY="354.0" prefHeight="37.0" prefWidth="255.0" promptText="Tỉnh/Thành phố mới" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextField fx:id="quanhuyen_chuyen" layoutX="777.0" layoutY="355.0" prefHeight="37.0" prefWidth="268.0" style="-fx-background-color: #FFFFC9;">
+      <TextField fx:id="quan_huyen_cd" layoutX="777.0" layoutY="355.0" prefHeight="37.0" prefWidth="268.0" promptText="Quận/Huyện mới" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <DatePicker layoutX="777.0" layoutY="425.0" prefHeight="37.0" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;" />
-      <TextField fx:id="phuongxa_chuyen" layoutX="254.0" layoutY="425.0" prefHeight="37.0" prefWidth="255.0" style="-fx-background-color: #FFFFC9;">
+      <DatePicker fx:id="ngay_chuyen_den_datepicker" layoutX="777.0" layoutY="425.0" onAction="#ngaychuyenden_datepicker" prefHeight="37.0" prefWidth="268.0" promptText="Ngày chuyển đến" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;" />
+      <TextField fx:id="phuong_xa_cd" layoutX="254.0" layoutY="425.0" prefHeight="37.0" prefWidth="255.0" promptText="Phường/Xã mới" style="-fx-background-color: #FFFFC9;">
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <Label layoutX="411.0" layoutY="148.0" text="(*)" textFill="#e3d910">
+      <Label layoutX="950.0" layoutY="289.0" text="(*)" textFill="#e3d910">
          <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="951.0" layoutY="289.0" text="(*)" textFill="#e3d910">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="951.0" layoutY="226.0" text="(*)" textFill="#e3d910">
-         <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="530.0" layoutY="359.0" text="(*)" textFill="#e3d910">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="951.0" layoutY="148.0" text="(*)" textFill="#e3d910">
+      <Label layoutX="1064.0" layoutY="359.0" text="(*)" textFill="#e3d910">
          <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="1076.0" layoutY="359.0" text="(*)" textFill="#e3d910">
-         <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="530.0" layoutY="429.0" text="(*)" textFill="#e3d910">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1029.0" layoutY="429.0" text="(*)" textFill="#e3d910">
+      <Label layoutX="1064.0" layoutY="429.0" text="(*)" textFill="#e3d910">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ma_ho_khau_chuyendi" layoutX="254.0" layoutY="148.0" text="Label" textFill="#e3d910">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ho_ten_chu_ho_chuyendi" layoutX="767.0" layoutY="148.0" text="Label" textFill="#e3d910">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="dia_chi_hien_tai_chuyendi" layoutX="254.0" layoutY="225.0" text="Label" textFill="#e3d910">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
    </children>

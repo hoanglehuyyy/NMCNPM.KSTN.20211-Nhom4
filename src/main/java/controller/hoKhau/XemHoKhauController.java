@@ -43,9 +43,13 @@ public class XemHoKhauController implements Initializable {
     @FXML
     private TableColumn<HoKhauNhanKhau,String> hotenNhanKhau;
     @FXML
-    private TableColumn<HoKhauNhanKhau, String> ngaysinhNhanKhau;
+    private TableColumn<HoKhauNhanKhau, Date> ngaysinhNhanKhau;
     @FXML
     private TableColumn<HoKhauNhanKhau, String> quanheChuHo;
+    @FXML
+    private TableColumn<HoKhauNhanKhau, Integer> idNhanKhau;
+    @FXML
+    private TableColumn<HoKhauNhanKhau, String> cmndNhanKhau;
 
     private ObservableList<HoKhauNhanKhau> list = FXCollections.observableArrayList();
 
@@ -93,14 +97,16 @@ public class XemHoKhauController implements Initializable {
 
     private void initCol(){
         hotenNhanKhau.setCellValueFactory(new PropertyValueFactory<HoKhauNhanKhau,String>("hoTen"));
-        ngaysinhNhanKhau.setCellValueFactory(new PropertyValueFactory<HoKhauNhanKhau,String>("ngaySinh"));
+        ngaysinhNhanKhau.setCellValueFactory(new PropertyValueFactory<HoKhauNhanKhau,Date>("ngaySinh"));
         quanheChuHo.setCellValueFactory(new PropertyValueFactory<HoKhauNhanKhau,String>("quanHeChuHo"));
+        idNhanKhau.setCellValueFactory(new PropertyValueFactory<HoKhauNhanKhau,Integer>("idNhanKhau"));
+        cmndNhanKhau.setCellValueFactory(new PropertyValueFactory<HoKhauNhanKhau,String>("cmnd"));
     }
 
     private void loadData(){
         list.clear();
         int idHoKhau = Integer.parseInt(id_ho_khau_label.getText());
-        String qu = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.hoTen, nk.ngaySinh FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
+        String qu = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.hoTen, nk.ngaySinh, nk.cmnd FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
 
         try {
             conn = DbUtil.getInstance().getConnection();
@@ -113,8 +119,9 @@ public class XemHoKhauController implements Initializable {
                 String c = rs.getString("quanHeChuHo");
                 String d = rs.getString("hoTen");
                 Date e = rs.getDate("ngaySinh");
+                String f = rs.getString("cmnd");
 
-                HoKhauNhanKhau h = new HoKhauNhanKhau(a,b,c,d,e);
+                HoKhauNhanKhau h = new HoKhauNhanKhau(a,b,c,d,e,f);
                 list.add(h);
             }
         } catch (SQLException e) {

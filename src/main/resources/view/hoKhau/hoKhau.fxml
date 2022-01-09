@@ -33,14 +33,17 @@
                        <Font size="15.0" />
                    </font>
                </TextField>
-               <ComboBox fx:id="comboBox" layoutX="346.0" onAction="#search_all" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+               <ComboBox fx:id="comboBox" layoutX="346.0" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
            </children>
        </Pane>
       <TableView fx:id="table" layoutX="58.0" layoutY="191.0" prefHeight="338.0" prefWidth="656.0">
         <columns>
-          <TableColumn fx:id="id_ho_khauCol" prefWidth="117.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã hộ khẩu" />
-          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="172.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã chủ hộ" />
-            <TableColumn fx:id="address_ho_khauCol" prefWidth="366.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ" />
+          <TableColumn fx:id="id_ho_khauCol" prefWidth="94.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã hộ khẩu" />
+          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="93.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã chủ hộ" />
+            <TableColumn fx:id="hoten_chu_hoCol" prefWidth="118.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên chủ hộ" />
+            <TableColumn fx:id="address_ho_khauCol" prefWidth="167.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ" />
+            <TableColumn fx:id="ngay_taoCol" prefWidth="93.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày tạo" />
+            <TableColumn fx:id="trang_thaiCol" prefWidth="90.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Trạng thái" />
         </columns>
          <contextMenu>
             <ContextMenu>
@@ -50,6 +53,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#change" text="Sửa hộ khẩu" />
                   <MenuItem mnemonicParsing="false" onAction="#tach" text="Tách hộ khẩu" />
                   <MenuItem mnemonicParsing="false" onAction="#chuyen" text="Chuyển hộ khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#xem_lich_su" text="Xem lịch sử chuyển đi" />
               </items>
             </ContextMenu>
          </contextMenu>

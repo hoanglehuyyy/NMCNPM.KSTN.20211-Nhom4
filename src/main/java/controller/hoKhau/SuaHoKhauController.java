@@ -40,11 +40,13 @@ public class SuaHoKhauController implements Initializable {
     }
 
     @FXML
-    private TextField tinhthanh_change;
+    private Label diachi_change;
     @FXML
-    private TextField quanhuyen_change;
+    private Label tinhthanh_change;
     @FXML
-    private TextField phuongxa_change;
+    private Label quanhuyen_change;
+    @FXML
+    private Label phuongxa_change;
     @FXML
     private Label hoten_chu_ho_change;
 
@@ -68,13 +70,13 @@ public class SuaHoKhauController implements Initializable {
     @FXML
     private TableColumn<NhanKhau,Date> ngaySinhNhanKhau_search;
     @FXML
-    private TableColumn<NhanKhau,String> nguyenQuanNhanKhau_search;
+    private TableColumn<NhanKhau,String> CMNDNhanKhau_search;
     @FXML
     private TextField hoten_search;
     @FXML
     private TextField ngaysinh_search;
     @FXML
-    private TextField nguyenquan_search;
+    private TextField CMND_search;
     @FXML
     private TextField quanhe_choose;
 
@@ -95,30 +97,40 @@ public class SuaHoKhauController implements Initializable {
         tinhthanh_change.setText(hk.getTinhThanhPho());
         quanhuyen_change.setText(hk.getQuanHuyen());
         phuongxa_change.setText(hk.getPhuongXa());
+        diachi_change.setText(hk.getDiachi());
 
         loadData();
         hoten_chu_ho_change();
     }
 
     public void save_button(ActionEvent e){
+        int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
+
+        update_nk_before_delete(idHoKhau);
+        update_ch_before_delete(idHoKhau);
         clear_hknk();
         change_inf_hk();
         change_inf_hknk();
+        update_ch_after_change(idHoKhau);
+        update_nk_after_change(idHoKhau);
+
+        Alert m = new Alert(Alert.AlertType.INFORMATION);
+        m.setTitle("Thông báo!");
+        m.setHeaderText("Sửa hộ khẩu thành công");
+        m.show();
+
         close_button(e);
     }
 
     private void change_inf_hk(){
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "UPDATE `ho_khau` SET idChuHo = ?, tinhThanhPho = ?, quanHuyen = ?, phuongXa = ? WHERE idHoKhau = ?";
+        String qu = "UPDATE `ho_khau` SET idChuHo = ? WHERE idHoKhau = ?";
 
         try {
             conn = DbUtil.getInstance().getConnection();
             pstmt = conn.prepareStatement(qu);
             pstmt.setInt(1,this.getId_chu_ho_new());
-            pstmt.setString(2,tinhthanh_change.getText());
-            pstmt.setString(3,quanhuyen_change.getText());
-            pstmt.setString(4,phuongxa_change.getText());
-            pstmt.setInt(5,idHoKhau);
+            pstmt.setInt(2,idHoKhau);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -126,10 +138,63 @@ public class SuaHoKhauController implements Initializable {
 
     }
 
+    private void update_nk_before_delete(int a){
+        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(qu);
+            pstmt.setString(1,"");
+            pstmt.setInt(2,a);
+            pstmt.executeUpdate();
+        } catch (SQLException ee){
+            ee.printStackTrace();
+        }
+    }
+
+    private void update_nk_after_change(int a){
+        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(qu);
+            pstmt.setString(1,"Thường trú");
+            pstmt.setInt(2,a);
+            pstmt.executeUpdate();
+        } catch (SQLException ee){
+            ee.printStackTrace();
+        }
+    }
+
+    private void update_ch_before_delete(int a){
+        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(qu);
+            pstmt.setString(1,"");
+            pstmt.setInt(2,a);
+            pstmt.executeUpdate();
+        } catch (SQLException ee){
+            ee.printStackTrace();
+        }
+    }
+
+    private void update_ch_after_change(int a){
+        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(qu);
+            pstmt.setString(1,"Thường trú");
+            pstmt.setInt(2,a);
+            pstmt.executeUpdate();
+        } catch (SQLException ee){
+            ee.printStackTrace();
+        }
+    }
+
     private void change_inf_hknk(){
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
         String qu = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
         for(HoKhauNhanKhau a : list){
+            
             try {
                 conn = DbUtil.getInstance().getConnection();
                 pstmt = conn.prepareStatement(qu);
@@ -152,7 +217,7 @@ public class SuaHoKhauController implements Initializable {
         NhanKhau c = nk_table_search.getSelectionModel().getSelectedItem();
         if(c == null){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Chưa chọn nhân khẩu");
             m.setContentText("Vui lòng chọn lại");
             m.show();
@@ -161,8 +226,8 @@ public class SuaHoKhauController implements Initializable {
         for(HoKhauNhanKhau i : list){
             if(c.sosanh(i)){
                 Alert m = new Alert(Alert.AlertType.INFORMATION);
-                m.setTitle("Alert!");
-                m.setHeaderText("Nhân khẩu đã tồn tại");
+                m.setTitle("Thông báo!");
+                m.setHeaderText("Nhân khẩu đã được thêm");
                 m.setContentText("Vui lòng chọn lại");
                 m.show();
                 return;
@@ -170,15 +235,15 @@ public class SuaHoKhauController implements Initializable {
         }
         if(c.getId() == this.getId_chu_ho_new()){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
-            m.setHeaderText("Trùng với chủ hộ");
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Nhân khẩu trùng với chủ hộ");
             m.setContentText("Vui lòng chọn lại");
             m.show();
             return;
         }
         if(check_nhan_khau_exist_hk(c) || check_nhan_khau_exist_nk(c)){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Nhân khẩu đã thuộc một hộ khẩu khác");
             m.setContentText("Vui lòng chọn lại");
             m.show();
@@ -186,19 +251,20 @@ public class SuaHoKhauController implements Initializable {
         }
         if(quanhe_choose.getText().equals("")){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Thiếu trường quan hệ với chủ hộ");
             m.setContentText("Vui lòng nhập lại");
             m.show();
             return;
         }
+
         int fake = Integer.parseInt(id_ho_khau_change.getText());
-        int f2 = this.getId_chu_ho_new();
-        HoKhauNhanKhau new_hknk = new HoKhauNhanKhau(fake,f2,quanhe_choose.getText(),c.getHoTen(),c.getNgaySinh());
+        HoKhauNhanKhau new_hknk = new HoKhauNhanKhau(fake,c.getId(),quanhe_choose.getText(),c.getHoTen(),c.getNgaySinh(),c.getCMND());
         list.add(new_hknk);
         nk_table.setItems(list);
+
         Alert m = new Alert(Alert.AlertType.INFORMATION);
-        m.setTitle("Alert!");
+        m.setTitle("Thông báo!");
         m.setHeaderText("Thêm thành công nhân khẩu");
         m.show();
         return;
@@ -248,7 +314,7 @@ public class SuaHoKhauController implements Initializable {
         HoKhauNhanKhau a = nk_table.getSelectionModel().getSelectedItem();
         if(a == null){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Không có nhân khẩu nào được chọn");
             m.setContentText("Vui lòng chọn lại");
             m.show();
@@ -256,17 +322,32 @@ public class SuaHoKhauController implements Initializable {
         }
         if(quanhe_choose.getText().equals("")){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Thiếu trường quan hệ với chủ hộ");
             m.setContentText("Vui lòng nhập lại");
             m.show();
             return;
         }
-        HoKhauNhanKhau b = new HoKhauNhanKhau(a.getIdHoKhau(),a.getIdNhanKhau(),quanhe_choose.getText(),a.getHoTen(),a.getNgaySinh());
-        list.remove(a);
-        list.add(b);
+
+        ObservableList<HoKhauNhanKhau> f = FXCollections.observableArrayList();
+        int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
+        for(HoKhauNhanKhau i : list){
+            if(i.getIdNhanKhau() == a.getIdNhanKhau()){
+                HoKhauNhanKhau b = new HoKhauNhanKhau(idHoKhau,i.getIdNhanKhau(),quanhe_choose.getText(),i.getHoTen(),i.getNgaySinh(),i.getCmnd());
+                f.add(b);
+            }
+            else {
+                HoKhauNhanKhau b = new HoKhauNhanKhau(idHoKhau,i.getIdNhanKhau(),i.getQuanHeChuHo(),i.getHoTen(),i.getNgaySinh(),i.getCmnd());
+                f.add(b);
+            }
+        }
+
+        list.clear();
+        list.addAll(f);
+        nk_table.setItems(list);
+
         Alert m = new Alert(Alert.AlertType.INFORMATION);
-        m.setTitle("Alert!");
+        m.setTitle("Thông báo!");
         m.setHeaderText("Sửa thành công nhân khẩu");
         m.show();
         return;
@@ -276,10 +357,13 @@ public class SuaHoKhauController implements Initializable {
         list_nk_search.clear();
         String search_hovaten = hoten_search.getText().trim().toLowerCase();
         String search_ngaysinh = ngaysinh_search.getText().trim().toLowerCase();
-        String search_nguyenquan = nguyenquan_search.getText().trim().toLowerCase();
+        String search_CMND = CMND_search.getText().trim().toLowerCase();
         for(NhanKhau a : list_nk){
-            if((a.getHoTen().trim().toLowerCase()).contains(search_hovaten) && (String.valueOf(a.getNgaySinh()).trim().toLowerCase()).contains(search_ngaysinh) && (a.getNguyenQuan().trim().toLowerCase()).contains(search_nguyenquan)){
-                NhanKhau b = new NhanKhau(a.getId(),a.getHoTen(),a.getNgaySinh(),a.getNoiSinh(),a.getGioiTinh(),a.getNguyenQuan(),a.getDanToc(),a.getTonGiao(),a.getQuocTich());
+            if(a.getCMND() == null){
+                a.setCMND("");
+            }
+            if((a.getHoTen().trim().toLowerCase()).contains(search_hovaten) && (String.valueOf(a.getNgaySinh()).trim().toLowerCase()).contains(search_ngaysinh) && (a.getCMND().trim().toLowerCase()).contains(search_CMND)){
+                NhanKhau b = new NhanKhau(a.getId(),a.getHoTen(),a.getNgaySinh(),a.getNoiSinh(),a.getGioiTinh(),a.getCMND(),a.getDanToc(),a.getTonGiao(),a.getQuocTich(),a.getTrangThai());
                 list_nk_search.add(b);
             }
 
@@ -291,7 +375,7 @@ public class SuaHoKhauController implements Initializable {
         NhanKhau a = nk_table_search.getSelectionModel().getSelectedItem();
         if(a == null){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Chưa chọn nhân khẩu");
             m.setContentText("Vui lòng chọn lại");
             m.show();
@@ -299,8 +383,8 @@ public class SuaHoKhauController implements Initializable {
         }
         if(check_nhan_khau_exist_hk(a) || check_nhan_khau_exist_nk(a)){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
-            m.setHeaderText("Nhân khẩu đã tồn tại");
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Nhân khẩu đã thuộc hộ khẩu khác");
             m.setContentText("Vui lòng chọn lại");
             m.show();
             return;
@@ -309,7 +393,7 @@ public class SuaHoKhauController implements Initializable {
         id_chu_ho_change.setText(String.valueOf(this.getId_chu_ho_new()));
         hoten_chu_ho_change.setText(a.getHoTen());
         Alert m = new Alert(Alert.AlertType.INFORMATION);
-        m.setTitle("Alert!");
+        m.setTitle("Thông báo!");
         m.setHeaderText("Chọn chủ hộ thành công");
         m.show();
         return;
@@ -319,15 +403,16 @@ public class SuaHoKhauController implements Initializable {
         HoKhauNhanKhau a = nk_table.getSelectionModel().getSelectedItem();
         if(a == null){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Không có nhân khẩu nào được chọn");
             m.setContentText("Vui lòng chọn lại");
             m.show();
             return;
         }
         list.remove(a);
+        nk_table.setItems(list);
         Alert m = new Alert(Alert.AlertType.INFORMATION);
-        m.setTitle("Alert!");
+        m.setTitle("Thông báo!");
         m.setHeaderText("Đã xoá thành công");
         m.show();
         return;
@@ -345,13 +430,13 @@ public class SuaHoKhauController implements Initializable {
         quanheChuHo.setCellValueFactory(new PropertyValueFactory<HoKhauNhanKhau,String>("quanHeChuHo"));
         hotenNhanKhau_search.setCellValueFactory(new PropertyValueFactory<NhanKhau,String>("hoTen"));
         ngaySinhNhanKhau_search.setCellValueFactory(new PropertyValueFactory<NhanKhau,Date>("ngaySinh"));
-        nguyenQuanNhanKhau_search.setCellValueFactory(new PropertyValueFactory<NhanKhau,String>("nguyenQuan"));
+        CMNDNhanKhau_search.setCellValueFactory(new PropertyValueFactory<NhanKhau,String>("CMND"));
     }
 
     private void loadData(){
         list.clear();
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.hoTen, nk.ngaySinh FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
+        String qu = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.cmnd, nk.hoTen, nk.ngaySinh FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
 
         try {
             conn = DbUtil.getInstance().getConnection();
@@ -364,8 +449,9 @@ public class SuaHoKhauController implements Initializable {
                 String c = rs.getString("quanHeChuHo");
                 String d = rs.getString("hoTen");
                 Date e = rs.getDate("ngaySinh");
+                String f = rs.getString("cmnd");
 
-                HoKhauNhanKhau h = new HoKhauNhanKhau(a,b,c,d,e);
+                HoKhauNhanKhau h = new HoKhauNhanKhau(a,b,c,d,e,f);
                 list.add(h);
             }
         } catch (SQLException e) {
@@ -388,12 +474,13 @@ public class SuaHoKhauController implements Initializable {
                 Date ngaySinh = rs.getDate("ngaySinh");
                 String noiSinh = rs.getString("noiSinh");
                 String gioiTinh = rs.getString("gioiTinh");
-                String nguyenQuan = rs.getString("nguyenQuan");
+                String CMND = rs.getString("cmnd");
                 String danToc = rs.getString("danToc");
                 String tonGiao = rs.getString("tonGiao");
                 String quocTich = rs.getString("quocTich");
+                String trangThai = rs.getString("trangThai");
 
-                list_nk.add(new NhanKhau(idNhanKhau,hoTen,ngaySinh,noiSinh,gioiTinh,nguyenQuan,danToc,tonGiao,quocTich));
+                list_nk.add(new NhanKhau(idNhanKhau,hoTen,ngaySinh,noiSinh,gioiTinh,CMND,danToc,tonGiao,quocTich,trangThai));
             }
         } catch (SQLException e) {
             e.printStackTrace();

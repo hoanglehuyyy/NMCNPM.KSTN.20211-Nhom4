@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Setter
@@ -14,7 +15,9 @@ import java.time.LocalDate;
 public class ChuyenHoKhau {
     private Integer id;
     private Integer idHoKhau;
-    private LocalDate ngayChuyenDi;
+    private Date ngayChuyenDi;
     private String noiChuyenDen;
     private String ghiChu;
+
+
 }

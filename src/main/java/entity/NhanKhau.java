@@ -31,8 +31,26 @@ public class NhanKhau {
     private String noiThuongTruTruoc;
     private String trangThai;
     private String bieuDienNgaySinh;
-    
-    
+
+
+    public NhanKhau(int id,String hoTen, Date ngaySinh, String noiSinh, String gioiTinh, String CMND, String danToc, String tonGiao, String quocTich, String trangThai) {
+        this.id = id;
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+        this.noiSinh = noiSinh;
+        this.gioiTinh = gioiTinh;
+        this.CMND = CMND;
+        this.danToc = danToc;
+        this.tonGiao = tonGiao;
+        this.quocTich = quocTich;
+        this.trangThai = trangThai;
+    }
+
+    public boolean sosanh(HoKhauNhanKhau a){
+        if(this.id == a.getIdNhanKhau()) return true;
+        return false;
+    }
+
     public NhanKhau(int id, String hoTen, String bieuDienNgaySinh, String gioiTinh, String CMND, String trangThai) {
         this.id = id;
         this.hoTen = hoTen;
@@ -55,10 +73,6 @@ public class NhanKhau {
         this.quocTich = quocTich;
     }
 
-    public boolean sosanh(HoKhauNhanKhau a){
-        if(this.id == a.getIdNhanKhau()) return true;
-        return false;
-    }
     public int getId() {
         return id;
     }

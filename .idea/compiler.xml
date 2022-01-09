@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="nmcnpm_team4" target="14" />
+      <module name="nmcnpm_team4" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

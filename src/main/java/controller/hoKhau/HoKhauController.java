@@ -36,6 +36,15 @@ public class HoKhauController implements Initializable {
     @FXML
     private TableColumn<HoKhau, String> address_ho_khauCol;
 
+    @FXML
+    private TableColumn<HoKhau, String> hoten_chu_hoCol;
+
+    @FXML
+    private TableColumn<HoKhau, Date> ngay_taoCol;
+
+    @FXML
+    private TableColumn<HoKhau, String> trang_thaiCol;
+
 
     @FXML
     private TextField search_ho_khau;
@@ -43,7 +52,7 @@ public class HoKhauController implements Initializable {
     @FXML
     private ComboBox<String> comboBox;
 
-    private ObservableList<String> list_combo_box = FXCollections.observableArrayList("All","Mã hộ khẩu","Mã chủ hộ","Địa chỉ");
+    private ObservableList<String> list_combo_box = FXCollections.observableArrayList("Địa chỉ","Tên chủ hộ","Trạng thái","Ngày tạo");
 
     private ObservableList<HoKhau> hokhauList = FXCollections.observableArrayList();
 
@@ -56,16 +65,6 @@ public class HoKhauController implements Initializable {
     private CallableStatement cstmt = null;
     private Connection conn = null;
 
-    //checked//
-    public void search_all(ActionEvent event){
-        String sc = comboBox.getValue();
-        if(sc.equals("All")){
-            table.setItems(hokhauList);
-        }
-        else{
-            return;
-        }
-    }
 
     //checked//
     public void add(ActionEvent event) throws IOException {
@@ -75,16 +74,40 @@ public class HoKhauController implements Initializable {
         Scene scene = new Scene(them_ho_khau);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Add");
+        stage.setTitle("Thêm hộ khẩu");
         stage.setScene(scene);
         stage.show();
     }
+
+    public void xem_lich_su(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/hoKhau/lichSuChuyenDi.fxml"));
+        Parent lich_su_scene = loader.load();
+        lichSuChuyenDiController controller = loader.getController();
+        HoKhau hk = table.getSelectionModel().getSelectedItem();
+        if (hk == null) {
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Không hộ khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        controller.lich_su_chuyen_di(hk);
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setTitle("Lịch sử chuyển đi");
+        Scene scene = new Scene(lich_su_scene);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     //checked//
     public void delete(ActionEvent event){
         HoKhau hk = table.getSelectionModel().getSelectedItem();
         if (hk == null) {
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Không hộ khẩu nào được chọn.");
             m.setContentText("Vui lòng chọn lại.");
             m.show();
@@ -92,9 +115,9 @@ public class HoKhauController implements Initializable {
         }
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete");
-        alert.setHeaderText("Do you want to delete?");
-        alert.setContentText("Choose your option:");
+        alert.setTitle("Xoá");
+        alert.setHeaderText("Bạn có muốn xoá không?");
+        alert.setContentText("Yes or No:");
 
         ButtonType buttonYes = new ButtonType("Yes",ButtonBar.ButtonData.YES);
         ButtonType buttonNo = new ButtonType("No",ButtonBar.ButtonData.NO);
@@ -104,26 +127,26 @@ public class HoKhauController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
 
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-        alert1.setTitle("Message");
-        alert1.setHeaderText("Notification");
+        alert1.setTitle("Thông báo!");
 
         if(result.get().getButtonData() == ButtonBar.ButtonData.YES){
             int idHoKhau = hk.getIdHoKhau();
-            delete_hknk(idHoKhau);
+            update_nk_after_delete(idHoKhau);
+            update_ch_after_delete(idHoKhau);
             delete_hk(idHoKhau);
             hokhauList.remove(hk);
-            alert1.setContentText("Successful");
+            alert1.setContentText("Thành công");
             alert1.show();
         }
         else if(result.get().getButtonData() == ButtonBar.ButtonData.NO){
-            alert1.setContentText("Failed");
+            alert1.setContentText("Thất bại");
             alert1.show();
         }
 
     }
 
-    private void delete_hknk(int a){
-        String qu = "DELETE FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?";
+    private void delete_hk(int a){
+        String qu = "DELETE FROM `ho_khau` WHERE idHoKhau = ?";
         try {
             conn = DbUtil.getInstance().getConnection();
             pstmt = conn.prepareStatement(qu);
@@ -134,12 +157,26 @@ public class HoKhauController implements Initializable {
         }
     }
 
-    private void delete_hk(int a){
-        String qu = "DELETE FROM `ho_khau` WHERE idHoKhau = ?";
+    private void update_nk_after_delete(int a){
+        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
         try {
             conn = DbUtil.getInstance().getConnection();
             pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,a);
+            pstmt.setString(1,"");
+            pstmt.setInt(2,a);
+            pstmt.executeUpdate();
+        } catch (SQLException ee){
+            ee.printStackTrace();
+        }
+    }
+
+    private void update_ch_after_delete(int a){
+        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+        try {
+            conn = DbUtil.getInstance().getConnection();
+            pstmt = conn.prepareStatement(qu);
+            pstmt.setString(1,"");
+            pstmt.setInt(2,a);
             pstmt.executeUpdate();
         } catch (SQLException ee){
             ee.printStackTrace();
@@ -155,8 +192,16 @@ public class HoKhauController implements Initializable {
         HoKhau hk = table.getSelectionModel().getSelectedItem();
         if (hk == null) {
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Không hộ khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        if (hk.getTrangThai().equals("Đã chuyển đi")){
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Hộ khẩu không còn ở đây.");
             m.setContentText("Vui lòng chọn lại.");
             m.show();
             return;
@@ -164,7 +209,7 @@ public class HoKhauController implements Initializable {
         controller.show_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Show");
+        stage.setTitle("Xem hộ khẩu");
         Scene scene = new Scene(show_ho_khau);
         stage.setScene(scene);
         stage.show();
@@ -179,8 +224,16 @@ public class HoKhauController implements Initializable {
         HoKhau hk = table.getSelectionModel().getSelectedItem();
         if (hk == null) {
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Không hộ khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        if (hk.getTrangThai().equals("Đã chuyển đi")){
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Hộ khẩu không còn ở đây.");
             m.setContentText("Vui lòng chọn lại.");
             m.show();
             return;
@@ -188,7 +241,7 @@ public class HoKhauController implements Initializable {
         controller.change_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Change");
+        stage.setTitle("Sửa hộ khẩu");
         Scene scene = new Scene(change_ho_khau);
         stage.setScene(scene);
         stage.show();
@@ -203,8 +256,16 @@ public class HoKhauController implements Initializable {
         HoKhau hk = table.getSelectionModel().getSelectedItem();
         if (hk == null) {
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Không hộ khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        if (hk.getTrangThai().equals("Đã chuyển đi")){
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Hộ khẩu không còn ở đây.");
             m.setContentText("Vui lòng chọn lại.");
             m.show();
             return;
@@ -212,7 +273,7 @@ public class HoKhauController implements Initializable {
         controller.tach_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Tach");
+        stage.setTitle("Tách hộ khẩu");
         Scene scene = new Scene(tach_ho_khau);
         stage.setScene(scene);
         stage.show();
@@ -227,8 +288,16 @@ public class HoKhauController implements Initializable {
         HoKhau hk = table.getSelectionModel().getSelectedItem();
         if (hk == null) {
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Không hộ khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        if (hk.getTrangThai().equals("Đã chuyển đi")){
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Hộ khẩu không còn ở đây.");
             m.setContentText("Vui lòng chọn lại.");
             m.show();
             return;
@@ -236,7 +305,7 @@ public class HoKhauController implements Initializable {
         controller.chuyen_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("Chuyen");
+        stage.setTitle("Chuyển hộ khẩu");
         Scene scene = new Scene(chuyen_ho_khau);
         stage.setScene(scene);
         stage.show();
@@ -253,11 +322,14 @@ public class HoKhauController implements Initializable {
         id_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,Integer>("idHoKhau"));
         id_chu_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,Integer>("idChuHo"));
         address_ho_khauCol.setCellValueFactory(new PropertyValueFactory<HoKhau,String>("diachi"));
+        hoten_chu_hoCol.setCellValueFactory(new PropertyValueFactory<HoKhau,String>("hotenChuho"));
+        ngay_taoCol.setCellValueFactory(new PropertyValueFactory<HoKhau,Date>("ngayTao"));
+        trang_thaiCol.setCellValueFactory(new PropertyValueFactory<HoKhau,String>("trangThai"));
     }
 
     private void loadData(){
         hokhauList.clear();
-        String qu = "SELECT * FROM `ho_khau`";
+        String qu = "SELECT hk.*, nk.hoTen FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuHo = nk.idNhanKhau";
 
         try {
             conn = DbUtil.getInstance().getConnection();
@@ -272,8 +344,9 @@ public class HoKhauController implements Initializable {
                 String phuongxa_hk = rs.getString("phuongXa");
                 Date ngaytao_hk =  rs.getDate("ngayTao");
                 String trangthai_hk = rs.getString("trangThai");
+                String hoten = rs.getString("hoTen");
 
-                hokhauList.add(new HoKhau(id_hk,id_chu_ho_hk,thanhpho_hk,quanhuyen_hk,phuongxa_hk,address_hk,ngaytao_hk,trangthai_hk));
+                hokhauList.add(new HoKhau(id_hk,id_chu_ho_hk,hoten,thanhpho_hk,quanhuyen_hk,phuongxa_hk,address_hk,ngaytao_hk,trangthai_hk));
 
             }
         } catch (SQLException e) {
@@ -288,30 +361,7 @@ public class HoKhauController implements Initializable {
         String search_text = search_ho_khau.getText().trim().toLowerCase(); ;
         String sc = comboBox.getValue();
         try{
-            if(sc.equals("All")){
-                return;
-            }
-            else if(sc.equals("Mã hộ khẩu")){
-                for(HoKhau a : hokhauList){
-                    try{
-                        if(a.getIdHoKhau() == Integer.parseInt(search_text)){
-                            HoKhau clone_hk = new HoKhau();
-                            clone_hk.copy_hk(a);
-                            searchList.add(clone_hk);
-                        }
-                    }catch(NumberFormatException e){
-                        Alert m = new Alert(Alert.AlertType.INFORMATION);
-                        m.setTitle("Alert!");
-                        m.setHeaderText("Không thoả mãn trường dữ liệu!");
-                        m.setContentText("Mời nhập lại!");
-                        m.show();
-                        return;
-                    }
-
-                }
-                table.setItems(searchList);
-            }
-            else if(sc.equals("Địa chỉ")){
+            if(sc.equals("Địa chỉ")){
                 for(HoKhau a : hokhauList){
                     if((a.getDiachi().toLowerCase()).contains(search_text)){
                         HoKhau clone_hk = new HoKhau();
@@ -321,29 +371,39 @@ public class HoKhauController implements Initializable {
                 }
                 table.setItems(searchList);
             }
-            else if(sc.equals("Mã chủ hộ")){
+            else if(sc.equals("Tên chủ hộ")){
                 for(HoKhau a : hokhauList){
-                    try{
-                        if(a.getIdChuHo() == Integer.parseInt(search_text)){
-                            HoKhau clone_hk = new HoKhau();
-                            clone_hk.copy_hk(a);
-                            searchList.add(clone_hk);
-                        }
-                    }catch(NumberFormatException e){
-                        Alert m = new Alert(Alert.AlertType.INFORMATION);
-                        m.setTitle("Alert!");
-                        m.setHeaderText("Không thoả mãn trường dữ liệu!");
-                        m.setContentText("Mời nhập lại!");
-                        m.show();
-                        return;
+                    if((a.getHotenChuho().toLowerCase()).contains(search_text)){
+                        HoKhau clone_hk = new HoKhau();
+                        clone_hk.copy_hk(a);
+                        searchList.add(clone_hk);
                     }
-
+                }
+                table.setItems(searchList);
+            }
+            else if(sc.equals("Trạng thái")){
+                for(HoKhau a : hokhauList){
+                    if((a.getTrangThai().toLowerCase()).contains(search_text)){
+                        HoKhau clone_hk = new HoKhau();
+                        clone_hk.copy_hk(a);
+                        searchList.add(clone_hk);
+                    }
+                }
+                table.setItems(searchList);
+            }
+            else if(sc.equals("Ngày tạo")){
+                for(HoKhau a : hokhauList){
+                    if((String.valueOf(a.getNgayTao())).contains(search_text)){
+                        HoKhau clone_hk = new HoKhau();
+                        clone_hk.copy_hk(a);
+                        searchList.add(clone_hk);
+                    }
                 }
                 table.setItems(searchList);
             }
         }catch(NullPointerException ex){
             Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Alert!");
+            m.setTitle("Thông báo!");
             m.setHeaderText("Chưa chọn trường tìm kiếm!");
             m.setContentText("Mời chọn lại!");
             m.show();

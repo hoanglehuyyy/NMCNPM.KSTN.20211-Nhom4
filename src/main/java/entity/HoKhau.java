@@ -12,6 +12,7 @@ import java.time.LocalDate;
 public class HoKhau {
     private Integer idHoKhau;
     private Integer idChuHo;
+    private String hotenChuho;
     private String tinhThanhPho;
     private String quanHuyen;
     private String phuongXa;
@@ -86,9 +87,19 @@ public class HoKhau {
     public HoKhau(){
 
     }
-    public HoKhau(Integer idHoKhau, Integer idChuHo, String tinhThanhPho, String quanHuyen, String phuongXa, String diachi, Date ngayTao, String trangThai) {
+
+    public String getHotenChuho() {
+        return hotenChuho;
+    }
+
+    public void setHotenChuho(String hotenChuho) {
+        this.hotenChuho = hotenChuho;
+    }
+
+    public HoKhau(Integer idHoKhau, Integer idChuHo, String hotenChuho, String tinhThanhPho, String quanHuyen, String phuongXa, String diachi, Date ngayTao, String trangThai) {
         this.idHoKhau = idHoKhau;
         this.idChuHo = idChuHo;
+        this.hotenChuho = hotenChuho;
         this.tinhThanhPho = tinhThanhPho;
         this.quanHuyen = quanHuyen;
         this.phuongXa = phuongXa;
@@ -96,9 +107,11 @@ public class HoKhau {
         this.ngayTao = ngayTao;
         this.trangThai = trangThai;
     }
+
     public void copy_hk(HoKhau a){
         this.idHoKhau = a.getIdChuHo();
         this.idChuHo = a.getIdChuHo();
+        this.hotenChuho = a.getHotenChuho();
         this.tinhThanhPho = a.getTinhThanhPho();
         this.quanHuyen = a.getQuanHuyen();
         this.phuongXa = a.getPhuongXa();

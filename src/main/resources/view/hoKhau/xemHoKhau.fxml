@@ -76,11 +76,13 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <TableView fx:id="nk_table" layoutX="54.0" layoutY="406.0" prefHeight="298.0" prefWidth="492.0">
+      <TableView fx:id="nk_table" layoutX="54.0" layoutY="406.0" prefHeight="298.0" prefWidth="499.0">
         <columns>
-          <TableColumn fx:id="hotenNhanKhau" prefWidth="150.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
-          <TableColumn fx:id="ngaysinhNhanKhau" prefWidth="167.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
-            <TableColumn fx:id="quanheChuHo" prefWidth="174.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
+            <TableColumn fx:id="idNhanKhau" prefWidth="86.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Id" />
+          <TableColumn fx:id="hotenNhanKhau" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
+          <TableColumn fx:id="ngaysinhNhanKhau" prefWidth="112.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
+            <TableColumn fx:id="cmndNhanKhau" prefWidth="75.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
+            <TableColumn fx:id="quanheChuHo" prefWidth="122.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
         </columns>
       </TableView>
       <Label layoutX="56.0" layoutY="360.0" text="Nhân khẩu trong hộ khẩu:" textFill="#f8f3f3">
