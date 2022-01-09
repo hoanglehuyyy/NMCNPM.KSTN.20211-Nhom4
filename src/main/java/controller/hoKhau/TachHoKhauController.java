@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
 
 import java.net.URL;
@@ -81,6 +82,9 @@ public class TachHoKhauController implements Initializable {
     private PreparedStatement pstmt = null;
     private CallableStatement cstmt = null;
     private Connection conn = null;
+
+    //Repo:
+    static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
 
     public void ngaytaomoi_datepicker(ActionEvent e){
         LocalDate a = ngay_tao_moi_datepicker.getValue();
@@ -350,211 +354,64 @@ public class TachHoKhauController implements Initializable {
     //B1: update trang thai nhan khau trong hk_hien_tai:
 
     private void update_nk_hk_hien_tai(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_nk_hk_hien_tai(a);
     }
 
     //B2: update trang thai chu ho trong hk_hien_tai:
 
     private void update_ch_hk_hien_tai(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_ch_hk_hien_tai(a);
     }
 
     //B3: cap nhat chu ho cho hk_hien_tai:
 
     private void update_id_ch_hien_tai(int a){
-        int idChuHo = 0;
-        String qu = "UPDATE `ho_khau` SET idChuHo = ? WHERE idHoKhau = ?";
-
-        for(HoKhauNhanKhau x : list_hk_hien_tai){
-            if(x.getQuanHeChuHo().equals("Chủ hộ")){
-                idChuHo = x.getIdNhanKhau();
-                break;
-            }
-        }
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idChuHo);
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        HoKhauRepo.update_id_ch_hien_tai(a,this.list_hk_hien_tai);
     }
 
     //B4: xoa tat ca thanh vien trong ho khau hien tai:
 
     private void delete_all_nk_from_hk_hien_tai(int a){
-        String qu = "DELETE FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,a);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        HoKhauRepo.delete_all_nk_from_hk_hien_tai(a);
     }
 
     //B5: them thanh vien moi vao ho khau hien tai:
     private void insert_all_nk_to_hk_hien_tai(int a){
-        String qu = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
-        for(HoKhauNhanKhau t : list_hk_hien_tai){
-            if(t.getQuanHeChuHo().equals("Chủ hộ")){
-                continue;
-            }
-            try {
-                conn = DbUtil.getInstance().getConnection();
-                pstmt = conn.prepareStatement(qu);
-                pstmt.setInt(1,a);
-                pstmt.setInt(2,t.getIdNhanKhau());
-                pstmt.setString(3,t.getQuanHeChuHo());
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        HoKhauRepo.insert_all_nk_to_hk_hien_tai(a,this.list_hk_hien_tai);
     }
 
     //B6: thay đổi trạng thái thành viên mới:
     private void update_all_nk_from_hk_hien_tai(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_all_nk_from_hk_hien_tai(a);
     }
 
     //B7: thay đổi trạng thái chủ hộ mới:
     private void update_ch_from_hk_hien_tai(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_ch_from_hk_hien_tai(a);
     }
 
     //B8: Tạo hộ khẩu mới:
     private void create_new_hk(){
-        int idChuHo = 0;
-        for(HoKhauNhanKhau i : list_hk_moi){
-            if(i.getQuanHeChuHo().equals("Chủ hộ")){
-                idChuHo = i.getIdNhanKhau();
-                break;
-            }
-        }
-        String qu = "INSERT INTO ho_khau(idChuHo, tinhThanhPho, quanHuyen, phuongXa, diaChi, ngayTao, trangThai) VALUES (?,?,?,?,?,?,?)";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idChuHo);
-            pstmt.setString(2,tinh_thanh_moi.getText());
-            pstmt.setString(3,quan_huyen_moi.getText());
-            pstmt.setString(4,phuong_xa_moi.getText());
-            pstmt.setString(5,dia_chi_moi.getText());
-            pstmt.setDate(6,Date.valueOf(this.NTMgetText()));
-            pstmt.setString(7,"Thường trú");
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.create_new_hk(this.list_hk_moi,tinh_thanh_moi.getText(),quan_huyen_moi.getText(),phuong_xa_moi.getText(),dia_chi_moi.getText(),Date.valueOf(this.NTMgetText()));
     }
 
     //B9: Lấy idHoKhau của hộ khẩu mới:
     private int id_new_HoKhau(){
-        String qu = "SELECT idHoKhau FROM `ho_khau` ORDER BY idHoKhau DESC";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            rs = pstmt.executeQuery();
-            while (rs.next()){
-                int a = rs.getInt("idHoKhau");
-                return a;
-            }
-        } catch (SQLException ee){
-            ee.printStackTrace();
-            return 0;
-        }
-        return 0;
+        return HoKhauRepo.id_new_HoKhau();
     }
 
     //B10: Thêm nhân khẩu vào hộ khẩu mới:
     private void insert_all_nk_to_hk_moi(int a){
-        String qu = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
-        for(HoKhauNhanKhau x : list_hk_moi){
-            if(x.getQuanHeChuHo().equals("Chủ hộ")){
-                continue;
-            }
-            try {
-                conn = DbUtil.getInstance().getConnection();
-                pstmt = conn.prepareStatement(qu);
-                pstmt.setInt(1,a);
-                pstmt.setInt(2,x.getIdNhanKhau());
-                pstmt.setString(3,x.getQuanHeChuHo());
-                pstmt.executeUpdate();
-            } catch (SQLException ee){
-                ee.printStackTrace();
-            }
-        }
+        HoKhauRepo.insert_all_nk_to_hk_moi(a,this.list_hk_moi);
     }
 
     //B11: Thay đổi trạng thái chủ hộ mới:
     private void update_new_ch(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_new_ch(a);
     }
     //B12: Thay đổi trạng thái nhân khẩu mới:
     private void update_new_nk(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_new_nk(a);
     }
 
     @Override
@@ -579,55 +436,15 @@ public class TachHoKhauController implements Initializable {
 
     private void loadDataNK(){
         int idHoKhau = Integer.parseInt(ma_ho_khau_hien_tai.getText());
-        String qu = "SELECT a.idNhanKhau,a.quanHeChuHo,b.hoTen,b.ngaySinh FROM `ho_khau_nhan_khau` a, `nhan_khau` b WHERE a.idNhanKhau = b.idNhanKhau and a.idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int m = rs.getInt("idNhanKhau");
-                String n = rs.getString("quanHeChuHo");
-                String p = rs.getString("hoTen");
-                Date q = rs.getDate("ngaySinh");
-
-                HoKhauNhanKhau x = new HoKhauNhanKhau(m,n,p,q);
-                list_hk_hien_tai.add(x);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        list_hk_hien_tai.addAll(HoKhauRepo.loadDataNKTachHKController(idHoKhau));
         hk_hien_tai_tab.setItems(list_hk_hien_tai);
 
     }
 
     private void loadDataCH(){
         int idHoKhau = Integer.parseInt(ma_ho_khau_hien_tai.getText());
-        String qu = "SELECT b.idNhanKhau,b.hoTen,b.ngaySinh FROM `ho_khau` a, `nhan_khau` b WHERE a.idChuHo = b.idNhanKhau and a.idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int m = rs.getInt("idNhanKhau");
-                String p = rs.getString("hoTen");
-                Date q = rs.getDate("ngaySinh");
-
-                HoKhauNhanKhau x = new HoKhauNhanKhau(m,"Chủ hộ",p,q);
-                list_hk_hien_tai.add(x);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        list_hk_hien_tai.add(HoKhauRepo.loadDataCHTachHKController(idHoKhau));
         hk_hien_tai_tab.setItems(list_hk_hien_tai);
     }
 
-    private void load_list_HKM(){
-        hk_moi_tab.setItems(list_hk_moi);
-    }
 }

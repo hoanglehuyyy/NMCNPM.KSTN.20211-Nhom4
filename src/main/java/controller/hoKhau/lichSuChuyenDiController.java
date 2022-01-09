@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
 
 import java.net.URL;
@@ -46,6 +47,9 @@ public class lichSuChuyenDiController implements Initializable {
     private CallableStatement cstmt = null;
     private Connection conn = null;
 
+    //Repo:
+    static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
+
     public void lich_su_chuyen_di(HoKhau hk){
         ma_ho_khau.setText(String.valueOf(hk.getIdHoKhau()));
         ho_ten_chu_ho.setText(hk.getHotenChuho());
@@ -72,27 +76,8 @@ public class lichSuChuyenDiController implements Initializable {
 
     private void loadData(){
         int idHoKhau = Integer.parseInt(ma_ho_khau.getText());
-        String qu = "SELECT * FROM `chuyen_ho_khau` WHERE idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()){
-                int a = rs.getInt("id");
-                int b = rs.getInt("idHoKhau");
-                Date c = rs.getDate("ngayChuyenDi");
-                String d = rs.getString("noiChuyenDen");
-                String e = rs.getString("ghiChu");
-
-                ChuyenHoKhau x = new ChuyenHoKhau(a,b,c,d,e);
-                list.add(x);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        list.clear();
+        list.addAll(HoKhauRepo.loadData(idHoKhau));
         lich_su_chuyen_di_tab.setItems(list);
     }
 }

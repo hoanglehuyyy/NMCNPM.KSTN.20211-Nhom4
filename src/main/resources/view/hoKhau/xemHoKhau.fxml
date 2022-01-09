@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="636.0" prefWidth="838.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.XemHoKhauController">
+<AnchorPane prefHeight="750.0" prefWidth="838.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.XemHoKhauController">
    <children>
       <Label layoutX="202.0" layoutY="14.0" text="Xem thông tin hộ khẩu" textFill="#f8f3f3">
          <font>
@@ -30,7 +30,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="416.0" layoutY="252.0" prefHeight="30.0" prefWidth="133.0" text="Quận/Huyện:" textFill="#f8f3f3">
+      <Label layoutX="416.0" layoutY="248.0" prefHeight="30.0" prefWidth="133.0" text="Quận/Huyện:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -46,7 +46,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="quanhuyen_label" layoutX="586.0" layoutY="252.0" text="Label" textFill="#ffff8d">
+      <Label fx:id="quanhuyen_label" layoutX="586.0" layoutY="248.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -54,7 +54,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Button layoutX="586.0" layoutY="554.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Đóng">
+      <Button layoutX="596.0" layoutY="660.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Đóng">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -63,7 +63,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="413.0" layoutY="303.0" text="Ngày tạo:" textFill="#f8f3f3">
+      <Label layoutX="416.0" layoutY="299.0" text="Ngày tạo:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -72,11 +72,11 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label fx:id="ngaytao_label" layoutX="586.0" layoutY="303.0" text="Label" textFill="#ffff8d">
+      <Label fx:id="ngaytao_label" layoutX="586.0" layoutY="299.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <TableView fx:id="nk_table" layoutX="54.0" layoutY="406.0" prefHeight="192.0" prefWidth="499.0">
+      <TableView fx:id="nk_table" layoutX="54.0" layoutY="406.0" prefHeight="298.0" prefWidth="499.0">
         <columns>
             <TableColumn fx:id="idNhanKhau" prefWidth="86.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Id" />
           <TableColumn fx:id="hotenNhanKhau" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
@@ -99,7 +99,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="413.0" layoutY="194.0" text="Họ tên chủ hộ:" textFill="#f8f3f3">
+      <Label layoutX="416.0" layoutY="194.0" text="Họ tên chủ hộ:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

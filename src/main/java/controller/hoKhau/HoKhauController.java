@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
 import view.Main;
 
@@ -58,13 +59,8 @@ public class HoKhauController implements Initializable {
 
     private ObservableList<HoKhau> searchList = FXCollections.observableArrayList();
 
-    //database//
-    private ResultSet rs = null;
-    private Statement stmt = null;
-    private PreparedStatement pstmt = null;
-    private CallableStatement cstmt = null;
-    private Connection conn = null;
-
+    //repo:
+    static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
 
     //checked//
     public void add(ActionEvent event) throws IOException {
@@ -74,6 +70,7 @@ public class HoKhauController implements Initializable {
         Scene scene = new Scene(them_ho_khau);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.setTitle("Thêm hộ khẩu");
         stage.setScene(scene);
         stage.show();
@@ -96,6 +93,7 @@ public class HoKhauController implements Initializable {
         controller.lich_su_chuyen_di(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.setTitle("Lịch sử chuyển đi");
         Scene scene = new Scene(lich_su_scene);
         stage.setScene(scene);
@@ -146,41 +144,15 @@ public class HoKhauController implements Initializable {
     }
 
     private void delete_hk(int a){
-        String qu = "DELETE FROM `ho_khau` WHERE idHoKhau = ?";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.delete_hk(a);
     }
 
     private void update_nk_after_delete(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_nk_after_delete(a);
     }
 
     private void update_ch_after_delete(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_ch_after_delete(a);
     }
 
     //checked//
@@ -201,6 +173,7 @@ public class HoKhauController implements Initializable {
         controller.show_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.setTitle("Xem hộ khẩu");
         Scene scene = new Scene(show_ho_khau);
         stage.setScene(scene);
@@ -233,6 +206,7 @@ public class HoKhauController implements Initializable {
         controller.change_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.setTitle("Sửa hộ khẩu");
         Scene scene = new Scene(change_ho_khau);
         stage.setScene(scene);
@@ -265,6 +239,7 @@ public class HoKhauController implements Initializable {
         controller.tach_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.setTitle("Tách hộ khẩu");
         Scene scene = new Scene(tach_ho_khau);
         stage.setScene(scene);
@@ -297,6 +272,7 @@ public class HoKhauController implements Initializable {
         controller.chuyen_hk(hk);
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
+        stage.setResizable(false);
         stage.setTitle("Chuyển hộ khẩu");
         Scene scene = new Scene(chuyen_ho_khau);
         stage.setScene(scene);
@@ -307,7 +283,7 @@ public class HoKhauController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initCol();
-        loadData();
+        loadDataHKController();
     }
 
     private void initCol(){
@@ -319,31 +295,9 @@ public class HoKhauController implements Initializable {
         trang_thaiCol.setCellValueFactory(new PropertyValueFactory<HoKhau,String>("trangThai"));
     }
 
-    private void loadData(){
+    private void loadDataHKController(){
         hokhauList.clear();
-        String qu = "SELECT hk.*, nk.hoTen FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuHo = nk.idNhanKhau";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int id_hk = rs.getInt("idHoKhau");
-                int id_chu_ho_hk = rs.getInt("idChuHo");
-                String address_hk = rs.getString("diaChi");
-                String thanhpho_hk = rs.getString("tinhThanhPho");
-                String quanhuyen_hk = rs.getString("quanHuyen");
-                String phuongxa_hk = rs.getString("phuongXa");
-                Date ngaytao_hk =  rs.getDate("ngayTao");
-                String trangthai_hk = rs.getString("trangThai");
-                String hoten = rs.getString("hoTen");
-
-                hokhauList.add(new HoKhau(id_hk,id_chu_ho_hk,hoten,thanhpho_hk,quanhuyen_hk,phuongxa_hk,address_hk,ngaytao_hk,trangthai_hk));
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        hokhauList.addAll(HoKhauRepo.loadDataHKController());
         table.setItems(hokhauList);
         comboBox.setItems(list_combo_box);
     }
@@ -405,6 +359,6 @@ public class HoKhauController implements Initializable {
     }
 
     public void refresh_button(ActionEvent e){
-        loadData();
+        loadDataHKController();
     }
 }

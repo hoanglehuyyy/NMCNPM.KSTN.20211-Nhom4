@@ -64,6 +64,52 @@ public class SQLCommand {
             "      GROUP BY(hk.idHoKhau)) temp\n" +
             "GROUP BY soLuong";
 
+    public static String HO_KHAU_QUERY_DELETE_HK = "DELETE FROM `ho_khau` WHERE idHoKhau = ?";
+    public static String HO_KHAU_QUERY_UPDATE_NK_AFTER_DELETE = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_CH_AFTER_DELETE = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_LOADDATAHOKHAUCONTROLLER = "SELECT hk.*, nk.hoTen FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuHo = nk.idNhanKhau";
+    public static String HO_KHAU_QUERY_CHECK_CHU_HO = "SELECT * FROM `ho_khau`";
+    public static String HO_KHAU_QUERY_XAC_NHAN_BUTTON = "INSERT INTO ho_khau(idChuHo, tinhThanhPho, quanHuyen, phuongXa, diaChi, ngayTao, trangThai) VALUES (?,?,?,?,?,?,?)";
+    public static String HO_KHAU_QUERY_IDHOKHAU_MOI_NHAT = "SELECT idHoKhau FROM `ho_khau` ORDER BY idHoKhau DESC";
+    public static String HO_KHAU_QUERY_UPDATE_NK_AFTER_ADD = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_CH_AFTER_ADD = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_LOADDATATHEMHOKHAUCONTROLLER = "SELECT * FROM `nhan_khau`";
+    public static String HO_KHAU_QUERY_HOTEN_CHU_HO = "SELECT nk.hoTen FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuho = nk.idNhanKhau and hk.idHoKhau = ?";
+    public static String HO_KHAU_QUERY_LOADDATAXEMHOKHAUCONTROLLER = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.hoTen, nk.ngaySinh, nk.cmnd FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
+    public static String HO_KHAU_QUERY_CHANGE_INF_HK = "UPDATE `ho_khau` SET idChuHo = ? WHERE idHoKhau = ?";
+    public static String HO_KHAU_QUERY_UPDATE_NK_BEFORE_DELETE = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_NK_AFTER_CHANGE = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_CH_BEFORE_DELETE = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_CH_AFTER_CHANGE = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_CHECK_NHAN_KHAU_EXIST_HK = "SELECT * FROM `ho_khau` WHERE idHoKhau != ?";
+    public static String HO_KHAU_QUERY_LOADDATASUAHKCONTROLLER = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.cmnd, nk.hoTen, nk.ngaySinh FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
+    public static String HO_KHAU_QUERY_LOADNKSUAHKCONTROLLER = "SELECT * FROM `nhan_khau`";
+    public static String HO_KHAU_QUERY_HOTEN_CHU_HO_CHANGE_INT = "SELECT nk.hoTen, nk.idNhanKhau FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuho = nk.idNhanKhau and hk.idHoKhau = ?";
+    public static String HO_KHAU_QUERY_HOTEN_CHU_HO_CHANGE_STRING = "SELECT nk.hoTen, nk.idNhanKhau FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuho = nk.idNhanKhau and hk.idHoKhau = ?";
+    public static String HO_KHAU_QUERY_CHECK_NHAN_KHAU_EXIST_NK = "SELECT * FROM `ho_khau_nhan_khau`";
+    public static String HO_KHAU_QUERY_THEMNHANKHAU = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
+    public static String HO_KHAU_QUERY_CHANGE_INF_HKNK = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
+    public static String HO_KHAU_QUERY_CHECK_NHAN_KHAU_EXIST_NK_1 = "SELECT * FROM `ho_khau_nhan_khau` WHERE idHoKhau != ?";
+    public static String HO_KHAU_QUERY_CLEAR_HKNK = "DELETE FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?";
+    public static String HO_KHAU_QUERY_UPDATE_NK_HK_HIEN_TAI = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_CH_HK_HIEN_TAI = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_ID_CH_HIEN_TAI = "UPDATE `ho_khau` SET idChuHo = ? WHERE idHoKhau = ?";
+    public static String HO_KHAU_QUERY_DELETE_ALL_NK_FROM_HK_HIEN_TAI = "DELETE FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?";
+    public static String HO_KHAU_QUERY_INSERT_ALL_NK_TO_HK_HIEN_TAI = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
+    public static String HO_KHAU_QUERY_UPDATE_ALL_NK_FROM_HK_HIEN_TAI = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_CH_FROM_HK_HIEN_TAI = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_CREATE_NEW_HK = "INSERT INTO ho_khau(idChuHo, tinhThanhPho, quanHuyen, phuongXa, diaChi, ngayTao, trangThai) VALUES (?,?,?,?,?,?,?)";
+    public static String HO_KHAU_QUERY_ID_NEW_HOKHAU = "SELECT idHoKhau FROM `ho_khau` ORDER BY idHoKhau DESC";
+    public static String HO_KHAU_QUERY_INSERT_ALL_NK_TO_HK_MOI = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
+    public static String HO_KHAU_QUERY_UPDATE_NEW_CH = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_UPDATE_NEW_NK = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
+    public static String HO_KHAU_QUERY_LOADDATANKTACHHKCONTROLLER = "SELECT a.idNhanKhau,a.quanHeChuHo,b.hoTen,b.ngaySinh FROM `ho_khau_nhan_khau` a, `nhan_khau` b WHERE a.idNhanKhau = b.idNhanKhau and a.idHoKhau = ?";
+    public static String HO_KHAU_QUERY_LOADDATACHTACHHKCONTROLLER = "SELECT b.idNhanKhau,b.hoTen,b.ngaySinh FROM `ho_khau` a, `nhan_khau` b WHERE a.idChuHo = b.idNhanKhau and a.idHoKhau = ?";
+    public static String HO_KHAU_QUERY_CHUYEN_HO_KHAU = "INSERT INTO `chuyen_ho_khau`(idHoKhau, ngayChuyenDi, noiChuyenDen, ghiChu) VALUES (?,?,?,?)";
+    public static String HO_KHAU_QUERY_UPDATE_TRANGTHAI_HOKHAU = "UPDATE `ho_khau` SET diaChi = ?, tinhThanhPho = ?, quanHuyen = ?, phuongXa = ?,trangThai = ? WHERE idHoKhau = ? ";
+    public static String HO_KHAU_QUERY_UPDATE_TRANGTHAI_NHANKHAU = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?) ";
+    public static String HO_KHAU_QUERY_UPDATE_TRANGTHAI_CHUHO = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuho FROM `ho_khau` WHERE idHoKhau = ?) ";
+    public static String HO_KHAU_QUERY_LOADDATA = "SELECT * FROM `chuyen_ho_khau` WHERE idHoKhau = ?";
     // ho_khau_nhan_khau
 
     // chuyen_ho_khau

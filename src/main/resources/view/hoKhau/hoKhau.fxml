@@ -13,31 +13,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1224.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.HoKhauController">
+<AnchorPane prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.HoKhauController">
    <children>
       <Label layoutX="405.0" layoutY="14.0" text="Quản lý thông tin hộ khẩu" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-       <Pane layoutX="188.0" layoutY="160.0" prefHeight="50.0" prefWidth="656.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
+       <Pane layoutX="114.0" layoutY="157.0" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
            <children>
-               <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="606.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="551.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
                    <image>
                        <Image url="@../../image/search.png" />
                    </image>
                </ImageView>
-               <TextField fx:id="search_ho_khau" layoutX="14.0" prefHeight="50.0" prefWidth="275.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
+               <TextField fx:id="search_ho_khau" layoutX="51.0" prefHeight="50.0" prefWidth="275.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
                    <font>
                        <Font size="15.0" />
                    </font>
                </TextField>
-               <ComboBox fx:id="comboBox" layoutX="383.0" layoutY="1.0" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+               <ComboBox fx:id="comboBox" layoutX="346.0" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
            </children>
        </Pane>
-      <TableView fx:id="table" layoutX="188.0" layoutY="230.0" prefHeight="338.0" prefWidth="656.0">
+      <TableView fx:id="table" layoutX="58.0" layoutY="230.0" prefHeight="338.0" prefWidth="656.0">
         <columns>
           <TableColumn fx:id="id_ho_khauCol" prefWidth="94.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã hộ khẩu" />
           <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="93.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã chủ hộ" />
@@ -59,19 +58,19 @@
             </ContextMenu>
          </contextMenu>
       </TableView>
-      <Button layoutX="927.0" layoutY="230.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #F1D4A7;" text="Thêm hộ khẩu">
+      <Button layoutX="759.0" layoutY="230.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #F1D4A7;" text="Thêm hộ khẩu">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button layoutX="927.0" layoutY="306.0" mnemonicParsing="false" onAction="#refresh_button" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #F1D4A7;" text="Tải lại bảng">
+      <Button layoutX="759.0" layoutY="306.0" mnemonicParsing="false" onAction="#refresh_button" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: #F1D4A7;" text="Tải lại bảng">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Text fill="#d7ca13" layoutX="188.0" layoutY="625.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*) Với mỗi một hộ khẩu, chọn chuột phải để hiện các phím chức năng" wrappingWidth="721.00390625">
+      <Label layoutX="58.0" layoutY="94.0" text="**Để sử dụng chức năng, vui lòng chọn hộ khẩu và ấn chuột phải**" textFill="#e3d910">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
-      </Text>
+      </Label>
    </children>
 </AnchorPane>

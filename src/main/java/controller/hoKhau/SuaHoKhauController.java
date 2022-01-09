@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
 
 import java.io.IOException;
@@ -84,12 +85,9 @@ public class SuaHoKhauController implements Initializable {
 
     private ObservableList<NhanKhau> list_nk_search = FXCollections.observableArrayList();
 
-    //database//
-    private ResultSet rs = null;
-    private Statement stmt = null;
-    private PreparedStatement pstmt = null;
-    private CallableStatement cstmt = null;
-    private Connection conn = null;
+    //Repo:
+    static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
+
     //function:
     public void change_hk(HoKhau hk){
         id_ho_khau_change.setText(String.valueOf(hk.getIdHoKhau()));
@@ -109,8 +107,8 @@ public class SuaHoKhauController implements Initializable {
         update_nk_before_delete(idHoKhau);
         update_ch_before_delete(idHoKhau);
         clear_hknk();
-        change_inf_hk();
-        change_inf_hknk();
+        change_inf_hk(idHoKhau,this.getId_chu_ho_new());
+        change_inf_hknk(idHoKhau,this.list);
         update_ch_after_change(idHoKhau);
         update_nk_after_change(idHoKhau);
 
@@ -122,90 +120,28 @@ public class SuaHoKhauController implements Initializable {
         close_button(e);
     }
 
-    private void change_inf_hk(){
-        int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "UPDATE `ho_khau` SET idChuHo = ? WHERE idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,this.getId_chu_ho_new());
-            pstmt.setInt(2,idHoKhau);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+    private void change_inf_hk(int a,int b){
+        HoKhauRepo.change_inf_hk(a,b);
     }
 
     private void update_nk_before_delete(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_nk_before_delete(a);
     }
 
     private void update_nk_after_change(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_nk_after_change(a);
     }
 
     private void update_ch_before_delete(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_ch_before_delete(a);
     }
 
     private void update_ch_after_change(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_ch_after_change(a);
     }
 
-    private void change_inf_hknk(){
-        int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
-        for(HoKhauNhanKhau a : list){
-            
-            try {
-                conn = DbUtil.getInstance().getConnection();
-                pstmt = conn.prepareStatement(qu);
-                pstmt.setInt(1,idHoKhau);
-                pstmt.setInt(2,a.getIdNhanKhau());
-                pstmt.setString(3,a.getQuanHeChuHo());
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+    private void change_inf_hknk(int x,ObservableList<HoKhauNhanKhau> list){
+        HoKhauRepo.change_inf_hknk(x,list);
     }
 
     public void close_button(ActionEvent e){
@@ -272,42 +208,12 @@ public class SuaHoKhauController implements Initializable {
 
     private boolean check_nhan_khau_exist_nk(NhanKhau a){
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "SELECT * FROM `ho_khau_nhan_khau` WHERE idHoKhau != ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int x = rs.getInt("idNhanKhau");
-                if(a.getId() == x) return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return false;
+        return HoKhauRepo.check_nhan_khau_exist_nk_1(a,idHoKhau);
     }
 
     private boolean check_nhan_khau_exist_hk(NhanKhau a){
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "SELECT * FROM `ho_khau` WHERE idHoKhau != ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int x = rs.getInt("idChuHo");
-                if(a.getId() == x) return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return false;
+        return HoKhauRepo.check_nhan_khau_exist_hk(a,idHoKhau);
     }
 
     public void change_button(ActionEvent e) throws IOException {
@@ -449,89 +355,24 @@ public class SuaHoKhauController implements Initializable {
     private void loadData(){
         list.clear();
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.cmnd, nk.hoTen, nk.ngaySinh FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int a = rs.getInt("idHoKhau");
-                int b = rs.getInt("idNhanKhau");
-                String c = rs.getString("quanHeChuHo");
-                String d = rs.getString("hoTen");
-                Date e = rs.getDate("ngaySinh");
-                String f = rs.getString("cmnd");
-
-                HoKhauNhanKhau h = new HoKhauNhanKhau(a,b,c,d,e,f);
-                list.add(h);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        list.addAll(HoKhauRepo.loadDataSuaHKController(idHoKhau));
         nk_table.setItems(list);
     }
 
     private void loadNK(){
         list_nk.clear();
-        String qu = "SELECT * FROM `nhan_khau`";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int idNhanKhau = rs.getInt("idNhanKhau");
-                String hoTen = rs.getString("hoTen");
-                Date ngaySinh = rs.getDate("ngaySinh");
-                String noiSinh = rs.getString("noiSinh");
-                String gioiTinh = rs.getString("gioiTinh");
-                String CMND = rs.getString("cmnd");
-                String danToc = rs.getString("danToc");
-                String tonGiao = rs.getString("tonGiao");
-                String quocTich = rs.getString("quocTich");
-                String trangThai = rs.getString("trangThai");
-
-                list_nk.add(new NhanKhau(idNhanKhau,hoTen,ngaySinh,noiSinh,gioiTinh,CMND,danToc,tonGiao,quocTich,trangThai));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        list_nk.addAll(HoKhauRepo.loadNKSuaHKController());
         nk_table_search.setItems(list_nk);
     }
 
     private void hoten_chu_ho_change(){
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "SELECT nk.hoTen, nk.idNhanKhau FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuho = nk.idNhanKhau and hk.idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                String a = rs.getString("hoTen");
-                int b = rs.getInt("idNhanKhau");
-                hoten_chu_ho_change.setText(a);
-                this.setId_chu_ho_new(b);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        this.setId_chu_ho_new(HoKhauRepo.hoten_chu_ho_change_int(idHoKhau));
+        hoten_chu_ho_change.setText(HoKhauRepo.hoten_chu_ho_change_string(idHoKhau));
     }
 
     private void clear_hknk(){
         int idHoKhau = Integer.parseInt(id_ho_khau_change.getText());
-        String qu = "DELETE FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        HoKhauRepo.clear_hknk(idHoKhau);
     }
 }

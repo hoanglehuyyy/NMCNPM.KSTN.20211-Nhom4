@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
 
 import java.sql.*;
@@ -68,6 +69,9 @@ public class ChuyenHoKhauController {
     private CallableStatement cstmt = null;
     private Connection conn = null;
 
+    //Repo:
+    static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
+
     public String getNgay_chuyen_den() {
         return ngay_chuyen_den;
     }
@@ -107,91 +111,42 @@ public class ChuyenHoKhauController {
 
     private void chuyen_ho_khau(){
         int idHoKhau = Integer.parseInt(ma_ho_khau_chuyendi.getText());
-        String qu = "INSERT INTO `chuyen_ho_khau`(idHoKhau, ngayChuyenDi, noiChuyenDen, ghiChu) VALUES (?,?,?,?)";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            pstmt.setDate(2,Date.valueOf(this.getNgay_chuyen_den()));
-            pstmt.setString(3,dia_chi_chuyen_den_cd.getText());
-            pstmt.setString(4,li_do_cd.getText());
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        HoKhauRepo.chuyen_ho_khau(idHoKhau,Date.valueOf(this.getNgay_chuyen_den()),dia_chi_chuyen_den_cd.getText(),li_do_cd.getText());
     }
 
     private boolean check_thuong_tru(){
-        if((tinh_thanh_cd.getText().trim().toLowerCase()).equals(this.getTinh_thanh_string().trim().toLowerCase())) return true;
-        if((quan_huyen_cd.getText().trim().toLowerCase()).equals(this.getQuan_huyen_string().trim().toLowerCase())) return true;
-        if((phuong_xa_cd.getText().trim().toLowerCase()).equals(this.getPhuong_xa_string().trim().toLowerCase())) return true;
+        if((tinh_thanh_cd.getText().trim().toLowerCase()).equals(this.getTinh_thanh_string().trim().toLowerCase())
+                && (quan_huyen_cd.getText().trim().toLowerCase()).equals(this.getQuan_huyen_string().trim().toLowerCase())
+                && (phuong_xa_cd.getText().trim().toLowerCase()).equals(this.getPhuong_xa_string().trim().toLowerCase())) return true;
         return  false;
     }
 
     private void update_trangthai_hokhau(){
         int idHoKhau = Integer.parseInt(ma_ho_khau_chuyendi.getText());
-        String qu = "UPDATE `ho_khau` SET diaChi = ?, tinhThanhPho = ?, quanHuyen = ?, phuongXa = ?,trangThai = ? WHERE idHoKhau = ? ";
-
         String trang_thai = "Đã chuyển đi";
         if(check_thuong_tru()){
             trang_thai = "Thường trú";
         }
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,dia_chi_chuyen_den_cd.getText());
-            pstmt.setString(2,tinh_thanh_cd.getText());
-            pstmt.setString(3,quan_huyen_cd.getText());
-            pstmt.setString(4,phuong_xa_cd.getText());
-            pstmt.setString(5,trang_thai);
-            pstmt.setInt(6,idHoKhau);
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        HoKhauRepo.update_trangthai_hokhau(dia_chi_chuyen_den_cd.getText(),tinh_thanh_cd.getText(),quan_huyen_cd.getText(),phuong_xa_cd.getText(),trang_thai,idHoKhau);
     }
 
     private void update_trangthai_nhankhau(){
         int idHoKhau = Integer.parseInt(ma_ho_khau_chuyendi.getText());
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?) ";
-
         String trang_thai = "Đã chuyển đi";
         if(check_thuong_tru()){
             trang_thai = "Thường trú";
         }
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,trang_thai);
-            pstmt.setInt(2,idHoKhau);
-            pstmt.executeUpdate();
+        HoKhauRepo.update_trangthai_nhankhau(trang_thai,idHoKhau);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     private void update_trangthai_chuho(){
         int idHoKhau = Integer.parseInt(ma_ho_khau_chuyendi.getText());
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuho FROM `ho_khau` WHERE idHoKhau = ?) ";
-
         String trang_thai = "Đã chuyển đi";
         if(check_thuong_tru()){
             trang_thai = "Thường trú";
         }
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,trang_thai);
-            pstmt.setInt(2,idHoKhau);
-            pstmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        HoKhauRepo.update_trangthai_chuho(trang_thai,idHoKhau);
     }
 
     public void xac_nhan_button(ActionEvent e){
@@ -216,4 +171,6 @@ public class ChuyenHoKhauController {
 
         huy_button(e);
     }
+
+
 }

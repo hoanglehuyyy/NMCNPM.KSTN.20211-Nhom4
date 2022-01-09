@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
 
 import java.net.URL;
@@ -63,12 +64,8 @@ public class XemHoKhauController implements Initializable {
         this.hoten_chu_ho_hold = hoten_chu_ho_hold;
     }
 
-    //database//
-    private ResultSet rs = null;
-    private Statement stmt = null;
-    private PreparedStatement pstmt = null;
-    private CallableStatement cstmt = null;
-    private Connection conn = null;
+    //Repo:
+    static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
 
     public void show_hk(HoKhau hk){
         id_ho_khau_label.setText(String.valueOf(hk.getIdHoKhau()));
@@ -80,8 +77,8 @@ public class XemHoKhauController implements Initializable {
         ngaytao_label.setText(String.valueOf(hk.getNgayTao()));
         trangthai_label.setText(hk.getTrangThai());
         loadData();
-        hoten_chu_ho();
-        hoten_chu_ho_label.setText(hoten_chu_ho_hold);
+        hoten_chu_ho(Integer.parseInt(id_ho_khau_label.getText()));
+        hoten_chu_ho_label.setText(this.getHoten_chu_ho_hold());
     }
 
     public void close_button(ActionEvent e){
@@ -92,7 +89,6 @@ public class XemHoKhauController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initCol();
-//        loadData();
     }
 
     private void initCol(){
@@ -106,47 +102,11 @@ public class XemHoKhauController implements Initializable {
     private void loadData(){
         list.clear();
         int idHoKhau = Integer.parseInt(id_ho_khau_label.getText());
-        String qu = "SELECT hknk.idHoKhau, hknk.idNhanKhau, hknk.quanHeChuHo, nk.hoTen, nk.ngaySinh, nk.cmnd FROM `ho_khau_nhan_khau` hknk, `nhan_khau` nk WHERE hknk.idNhanKhau = nk.idNhanKhau and hknk.idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int a = rs.getInt("idHoKhau");
-                int b = rs.getInt("idNhanKhau");
-                String c = rs.getString("quanHeChuHo");
-                String d = rs.getString("hoTen");
-                Date e = rs.getDate("ngaySinh");
-                String f = rs.getString("cmnd");
-
-                HoKhauNhanKhau h = new HoKhauNhanKhau(a,b,c,d,e,f);
-                list.add(h);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        list.addAll(HoKhauRepo.loadDataXemHoKhauController(idHoKhau));
         nk_table.setItems(list);
-
     }
 
-    private void hoten_chu_ho(){
-
-        int idHoKhau = Integer.parseInt(id_ho_khau_label.getText());
-        String qu = "SELECT nk.hoTen FROM `ho_khau` hk, `nhan_khau` nk WHERE hk.idChuho = nk.idNhanKhau and hk.idHoKhau = ?";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,idHoKhau);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                String a = rs.getString("hoTen");
-                this.setHoten_chu_ho_hold(a);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    private void hoten_chu_ho(int a){
+        this.setHoten_chu_ho_hold(HoKhauRepo.hoten_chu_ho(a));
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import repository.HoKhauRepositoryImpl;
 import utility.DbUtil;
 
 import java.io.IOException;
@@ -86,12 +87,9 @@ public class ThemHoKhauController implements Initializable {
     @FXML
     private Label ho_ten_chu_ho_duoc_chon;
 
-    //database//
-    private ResultSet rs = null;
-    private Statement stmt = null;
-    private PreparedStatement pstmt = null;
-    private CallableStatement cstmt = null;
-    private Connection conn = null;
+    //Repo:
+
+    static HoKhauRepositoryImpl HoKhauRepo = new HoKhauRepositoryImpl();
 
     public int getId_chu_ho() {
         return id_chu_ho;
@@ -107,23 +105,7 @@ public class ThemHoKhauController implements Initializable {
     }
 
     private boolean check_chu_ho(NhanKhau a){
-        String qu = "SELECT * FROM `ho_khau`";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int idChuHo = rs.getInt("idChuHo");
-                if(idChuHo == a.getId()) return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        return false;
-
+        return HoKhauRepo.check_chu_ho(a);
     }
 
     public void chon_chu_ho_button(ActionEvent e) throws IOException {
@@ -162,9 +144,23 @@ public class ThemHoKhauController implements Initializable {
             m.show();
             return;
         }
+
         this.id_chu_ho = a.getId();
         ma_chu_ho_duoc_chon.setText(String.valueOf(a.getId()));
         ho_ten_chu_ho_duoc_chon.setText(a.getHoTen());
+
+        ObservableList<HoKhauNhanKhau> fx = FXCollections.observableArrayList();
+        for(HoKhauNhanKhau i : hknk_list){
+            if(i.getIdNhanKhau() == this.getId_chu_ho()){
+                continue;
+            }
+            HoKhauNhanKhau t = new HoKhauNhanKhau(i.getIdHoKhau(),i.getIdNhanKhau(),i.getQuanHeChuHo(),i.getHoTen(),i.getNgaySinh(),i.getCmnd());
+            fx.add(t);
+        }
+        hknk_list.clear();
+        hknk_list.addAll(fx);
+        nk_table.setItems(hknk_list);
+
         Alert me = new Alert(Alert.AlertType.INFORMATION);
         me.setTitle("Alert!");
         me.setHeaderText("Chọn chủ hộ thành công.");
@@ -184,22 +180,7 @@ public class ThemHoKhauController implements Initializable {
     }
 
     private boolean check_nhan_khau_exist_nk(int a){
-
-        String qu = "SELECT * FROM `ho_khau_nhan_khau`";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int x = rs.getInt("idNhanKhau");
-                if(a == x) return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return false;
+        return HoKhauRepo.check_nhan_khau_exist_nk(a);
     }
 
     public void xac_nhan_button(ActionEvent e) throws IOException {
@@ -212,25 +193,10 @@ public class ThemHoKhauController implements Initializable {
             return;
         }
 
-        String qu = "INSERT INTO ho_khau(idChuHo, tinhThanhPho, quanHuyen, phuongXa, diaChi, ngayTao, trangThai) VALUES (?,?,?,?,?,?,?)";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setInt(1,id_chu_ho);
-            pstmt.setString(2,thanhpho_text.getText());
-            pstmt.setString(3,quanhuyen_text.getText());
-            pstmt.setString(4,phuongxa_text.getText());
-            pstmt.setString(5,address_ho_khau_text.getText());
-            pstmt.setDate(6,Date.valueOf(this.NTgetText()));
-            pstmt.setString(7,"Thường trú");
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.xac_nhan_button(id_chu_ho,thanhpho_text.getText(),quanhuyen_text.getText(),phuongxa_text.getText(),address_ho_khau_text.getText(),Date.valueOf(this.NTgetText()),"Thường trú");
 
         int idHoKhau = idHoKhau_moi_nhat();
-        themNhanKhau(idHoKhau);
+        themNhanKhau(idHoKhau,this.hknk_list);
         update_nk_after_add(idHoKhau);
         update_ch_after_add(idHoKhau);
 
@@ -243,64 +209,19 @@ public class ThemHoKhauController implements Initializable {
     }
 
     private int idHoKhau_moi_nhat(){
-        String qu = "SELECT idHoKhau FROM `ho_khau` ORDER BY idHoKhau DESC";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            rs = pstmt.executeQuery();
-            while (rs.next()){
-                int a = rs.getInt("idHoKhau");
-                return a;
-            }
-        } catch (SQLException ee){
-            ee.printStackTrace();
-            return 0;
-        }
-        return 0;
+        return HoKhauRepo.idHoKhau_moi_nhat();
     }
 
-    private void themNhanKhau(int a){
-        String qu = "INSERT INTO `ho_khau_nhan_khau` VALUES (?,?,?)";
-        for(HoKhauNhanKhau x : hknk_list){
-            try {
-                conn = DbUtil.getInstance().getConnection();
-                pstmt = conn.prepareStatement(qu);
-                pstmt.setInt(1,a);
-                pstmt.setInt(2,x.getIdNhanKhau());
-                pstmt.setString(3,x.getQuanHeChuHo());
-                pstmt.executeUpdate();
-            } catch (SQLException ee){
-                ee.printStackTrace();
-            }
-        }
-
+    private void themNhanKhau(int a, ObservableList<HoKhauNhanKhau> f){
+        HoKhauRepo.themNhanKhau(a,f);
     }
 
     private void update_nk_after_add(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_nk_after_add(a);
     }
 
     private void update_ch_after_add(int a){
-        String qu = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuHo FROM `ho_khau` WHERE idHoKhau = ?)";
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            pstmt.setString(1,"Thường trú");
-            pstmt.setInt(2,a);
-            pstmt.executeUpdate();
-        } catch (SQLException ee){
-            ee.printStackTrace();
-        }
+        HoKhauRepo.update_ch_after_add(a);
     }
 
     public void tim_button(ActionEvent e) throws IOException {
@@ -467,29 +388,7 @@ public class ThemHoKhauController implements Initializable {
     }
     private void loadData(){
         dsnk.clear();
-        String qu = "SELECT * FROM `nhan_khau`";
-
-        try {
-            conn = DbUtil.getInstance().getConnection();
-            pstmt = conn.prepareStatement(qu);
-            rs = pstmt.executeQuery();
-            while(rs.next()) {
-                int idNhanKhau = rs.getInt("idNhanKhau");
-                String hoTen = rs.getString("hoTen");
-                Date ngaySinh = rs.getDate("ngaySinh");
-                String noiSinh = rs.getString("noiSinh");
-                String gioiTinh = rs.getString("gioiTinh");
-                String CMND = rs.getString("cmnd");
-                String danToc = rs.getString("danToc");
-                String tonGiao = rs.getString("tonGiao");
-                String quocTich = rs.getString("quocTich");
-                String trangThai = rs.getString("trangThai");
-
-                dsnk.add(new NhanKhau(idNhanKhau,hoTen,ngaySinh,noiSinh,gioiTinh,CMND,danToc,tonGiao,quocTich,trangThai));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        dsnk.addAll(HoKhauRepo.loadDataThemHKController());
         nhankhauTab.setItems(dsnk);
     }
 }
