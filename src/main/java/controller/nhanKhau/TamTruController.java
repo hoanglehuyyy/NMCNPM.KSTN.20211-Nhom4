@@ -2,8 +2,10 @@ package controller.nhanKhau;
 
 import entity.NhanKhau;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import utility.DbUtil;
 
@@ -12,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +30,8 @@ public class TamTruController {
     private TextField noiOTruocKiaF;
     @FXML
     private DatePicker tuNgayF;
+    @FXML
+    private DatePicker denNgayF;
     @FXML
     private TextArea lyDoF;
     String query = null;
@@ -57,10 +62,10 @@ public class TamTruController {
         connection = DbUtil.getInstance().getConnection();
         String noiTamTru = noiTamTruF.getText();
         String noiOTruocKia = noiOTruocKiaF.getText();
-        String tuNgay = String.valueOf(tuNgayF.getValue());
+        LocalDate tuNgay = tuNgayF.getValue();
         String lyDo=lyDoF.getText();
 
-        if (noiTamTru.isEmpty() || tuNgay.isEmpty() ||noiOTruocKia.isEmpty() ) {
+        if (noiTamTru.isEmpty() || tuNgay==null ||noiOTruocKia.isEmpty() ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Nhập các trường dữ liệu bắt buộc");
@@ -75,6 +80,9 @@ public class TamTruController {
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Khai báo thành công");
             alert_TC.showAndWait();
+            final Node source = (Node) event.getSource();
+            final Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
 
         }
 
@@ -84,6 +92,7 @@ public class TamTruController {
     private void clean() {
         noiTamTruF.setText(null);
         tuNgayF.setValue(null);
+        denNgayF.setValue(null);
         lyDoF.setText(null);
         noiOTruocKiaF.setText(null);
 
@@ -95,6 +104,7 @@ public class TamTruController {
         tuNgayF.setValue(null);
         lyDoF.setText(null);
         noiOTruocKiaF.setText(null);
+        denNgayF.setValue(null);
 
 
     }
@@ -109,7 +119,7 @@ public class TamTruController {
         query = "UPDATE `nhan_khau` SET " +
 
                 "`trangThai`=?  WHERE idNhanKhau  = '"+nhanKhauId+"'";
-        query_insert="INSERT INTO `tam_tru`( `idNhanKhau`, `noiThuongTru`, `noiTamTru`, `tuNgay`, `lyDo`) VALUES (?,?,?,?,?)";
+        query_insert="INSERT INTO `tam_tru`( `idNhanKhau`, `noiThuongTru`, `noiTamTru`, `tuNgay`,`denNgay`, `lyDo`) VALUES (?,?,?,?,?,?)";
 
     }
 
@@ -136,7 +146,12 @@ public class TamTruController {
             preparedStatement.setString(2, noiTamTruF.getText());
             preparedStatement.setString(3, noiOTruocKiaF.getText());
             preparedStatement.setString(4, String.valueOf(tuNgayF.getValue()));
-            preparedStatement.setString(5, lyDoF.getText());
+            if (denNgayF.getValue()==null ){
+                preparedStatement.setString(5, null);
+            }else{
+                preparedStatement.setString(5, String.valueOf(denNgayF.getValue()));
+            }
+            preparedStatement.setString(6, lyDoF.getText());
 
             preparedStatement.execute();
 
