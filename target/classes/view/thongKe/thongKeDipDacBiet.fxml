@@ -35,7 +35,7 @@
             <TableColumn fx:id="moTa" editable="false" prefWidth="113.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
          </columns>
       </TableView>
-      <TextField fx:id="namTimNoiDung" layoutX="103.0" layoutY="152.0" prefHeight="25.0" prefWidth="163.0" />
+      <TextField fx:id="namTimNoiDung" layoutX="103.0" layoutY="152.0" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: #FFFFC9;" />
       <Label layoutX="102.0" layoutY="122.0" text="Năm" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
@@ -212,7 +212,7 @@
             </Label>
          </children>
       </Pane>
-      <TextField fx:id="tenDipNoiDung" layoutX="293.0" layoutY="152.0" prefHeight="25.0" prefWidth="221.0" />
+      <TextField fx:id="tenDipNoiDung" layoutX="293.0" layoutY="152.0" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: #FFFFC9;" />
       <Label layoutX="293.0" layoutY="122.0" text="Tên dịp" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />

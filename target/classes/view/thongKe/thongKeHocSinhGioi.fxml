@@ -34,7 +34,7 @@
             <TableColumn fx:id="moTa" editable="false" prefWidth="161.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
          </columns>
       </TableView>
-      <TextField fx:id="namTimNoiDung" layoutX="93.0" layoutY="142.0" prefHeight="25.0" prefWidth="229.0" />
+      <TextField fx:id="namTimNoiDung" layoutX="93.0" layoutY="142.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: #FFFFC9;" />
       <Label layoutX="93.0" layoutY="113.0" text="Năm học" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />

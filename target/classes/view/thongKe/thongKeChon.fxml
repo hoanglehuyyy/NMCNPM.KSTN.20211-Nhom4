@@ -63,7 +63,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="nam" layoutX="287.0" layoutY="425.0" prefHeight="25.0" prefWidth="163.0" />
+      <TextField fx:id="nam" layoutX="287.0" layoutY="425.0" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: #FFFFC9;" />
       <Label layoutX="287.0" layoutY="393.0" text="Năm" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
