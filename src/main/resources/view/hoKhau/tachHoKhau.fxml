@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -21,6 +23,14 @@
           <TableColumn fx:id="ngaysinh_hien_tai_col" prefWidth="97.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
             <TableColumn fx:id="quanhe_hien_tai_col" prefWidth="156.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#chon_ch_hien_tai" text="Chọn chủ hộ" />
+                <MenuItem mnemonicParsing="false" onAction="#sua_quanhe_hientai" text="Sửa quan hệ" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
       <Label layoutX="83.0" layoutY="237.0" text="Địa chỉ mới:" textFill="#f8f3f3">
          <font>
@@ -44,6 +54,14 @@
             <TableColumn fx:id="ngaysinh_moi_col" prefWidth="92.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
             <TableColumn fx:id="quanhe_moi_col" prefWidth="163.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#chon_ch_moi" text="Chọn chủ hộ" />
+                  <MenuItem mnemonicParsing="false" onAction="#sua_quanhe_moi" text="Sửa quan hệ" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
       </TableView>
       <Label layoutX="83.0" layoutY="136.0" text="Mã chủ hộ hiện tại:" textFill="#f8f3f3">
          <font>
@@ -161,26 +179,6 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="329.0" layoutY="673.0" mnemonicParsing="false" onAction="#chon_ch_hien_tai" style="-fx-background-color: #F1D4A7;" text="Chọn chủ hộ">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="790.0" layoutY="673.0" mnemonicParsing="false" onAction="#chon_ch_moi" style="-fx-background-color: #F1D4A7;" text="Chọn chủ hộ">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="275.0" layoutY="673.0" mnemonicParsing="false" onAction="#sua_quanhe_hientai" prefHeight="25.0" prefWidth="39.0" style="-fx-background-color: #F1D4A7;" text="Sửa">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="737.0" layoutY="673.0" mnemonicParsing="false" onAction="#sua_quanhe_moi" prefHeight="25.0" prefWidth="39.0" style="-fx-background-color: #F1D4A7;" text="Sửa">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
       <DatePicker fx:id="ngay_tao_moi_datepicker" layoutX="788.0" layoutY="347.0" onAction="#ngaytaomoi_datepicker" prefHeight="25.0" prefWidth="235.0" promptText="Ngày tạo" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
    </children>
 </AnchorPane>
