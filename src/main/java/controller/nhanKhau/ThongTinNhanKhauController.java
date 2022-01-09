@@ -170,5 +170,6 @@ public class ThongTinNhanKhauController {
               stage.setScene(scene);
        }
 
+       
 
 }
