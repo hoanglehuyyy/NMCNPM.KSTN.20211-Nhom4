@@ -56,7 +56,7 @@
                              <Font size="15.0" />
                          </font>
                      </TextField>
-                     <ComboBox fx:id="truongTraCuuF" layoutX="445.0" onAction="#Select" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+                     <ComboBox fx:id="truongTraCuuF" layoutX="417.0" onAction="#Select" prefHeight="49.0" prefWidth="231.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
                  </children>
              </Pane>
             <Text fill="#d7ca13" layoutX="70.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*) Với mỗi một nhân khẩu, chọn chuột phải để hiện các phím chức năng" wrappingWidth="721.00390625">
