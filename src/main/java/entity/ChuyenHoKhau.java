@@ -18,5 +18,4 @@ public class ChuyenHoKhau {
     private Date ngayChuyenDi;
     private String noiChuyenDen;
     private String ghiChu;
-
 }

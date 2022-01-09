@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="697.0" prefWidth="1253.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.SuaHoKhauController">
+<AnchorPane prefHeight="637.0" prefWidth="1253.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.SuaHoKhauController">
    <children>
       <Label layoutX="66.0" layoutY="119.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
          <font>
@@ -24,11 +24,11 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Button layoutX="1115.0" layoutY="625.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
+      <Button layoutX="1115.0" layoutY="570.0" mnemonicParsing="false" onAction="#close_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button layoutX="987.0" layoutY="625.0" mnemonicParsing="false" onAction="#save_button" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
+      <Button layoutX="987.0" layoutY="570.0" mnemonicParsing="false" onAction="#save_button" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -37,22 +37,22 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="230.0" prefHeight="30.0" prefWidth="157.0" text="Tỉnh/Thành phố:" textFill="#f8f3f3">
+      <Label layoutX="68.0" layoutY="200.0" prefHeight="30.0" prefWidth="157.0" text="Tỉnh/Thành phố:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="68.0" layoutY="296.0" text="Phường/Xã:" textFill="#f8f3f3">
+      <Label layoutX="68.0" layoutY="245.0" text="Phường/Xã:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="564.0" layoutY="230.0" text="Quận/Huyện:" textFill="#f8f3f3">
+      <Label layoutX="494.0" layoutY="200.0" text="Quận/Huyện:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="nk_table" layoutX="806.0" layoutY="406.0" prefHeight="189.0" prefWidth="374.0">
+      <TableView fx:id="nk_table" layoutX="806.0" layoutY="357.0" prefHeight="189.0" prefWidth="374.0">
         <columns>
           <TableColumn fx:id="hotenNhanKhau" prefWidth="107.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
           <TableColumn fx:id="ngaysinhNhanKhau" prefWidth="106.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
@@ -82,7 +82,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TableView fx:id="nk_table_search" layoutX="82.0" layoutY="406.0" prefHeight="189.0" prefWidth="374.0">
+      <TableView fx:id="nk_table_search" layoutX="67.0" layoutY="357.0" prefHeight="189.0" prefWidth="374.0">
         <columns>
           <TableColumn fx:id="hotenNhanKhau_search" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
           <TableColumn fx:id="ngaySinhNhanKhau_search" prefWidth="109.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
@@ -97,41 +97,41 @@
             </ContextMenu>
          </contextMenu>
       </TableView>
-      <TextField fx:id="hoten_search" layoutX="496.0" layoutY="394.0" prefHeight="25.0" prefWidth="275.0" promptText="Họ và tên " style="-fx-background-color: #FFFFC9;" />
-      <TextField fx:id="ngaysinh_search" layoutX="496.0" layoutY="461.0" prefHeight="25.0" prefWidth="275.0" promptText="Ngày sinh" style="-fx-background-color: #FFFFC9;" />
-      <TextField fx:id="CMND_search" layoutX="496.0" layoutY="529.0" prefHeight="25.0" prefWidth="275.0" promptText="CMND" style="-fx-background-color: #FFFFC9;" />
-      <Label layoutX="82.0" layoutY="365.0" text="Bảng tìm nhân khẩu" textFill="#ffff8d">
+      <TextField fx:id="hoten_search" layoutX="481.0" layoutY="345.0" prefHeight="25.0" prefWidth="275.0" promptText="Họ và tên " style="-fx-background-color: #FFFFC9;" />
+      <TextField fx:id="ngaysinh_search" layoutX="481.0" layoutY="412.0" prefHeight="25.0" prefWidth="275.0" promptText="Ngày sinh" style="-fx-background-color: #FFFFC9;" />
+      <TextField fx:id="CMND_search" layoutX="481.0" layoutY="480.0" prefHeight="25.0" prefWidth="275.0" promptText="CMND" style="-fx-background-color: #FFFFC9;" />
+      <Label layoutX="67.0" layoutY="316.0" text="Bảng tìm nhân khẩu" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="806.0" layoutY="365.0" text="Bảng nhân khẩu của hộ khẩu" textFill="#ffff8d">
+      <Label layoutX="806.0" layoutY="327.0" text="Bảng nhân khẩu của hộ khẩu" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="397.0" layoutY="360.0" mnemonicParsing="false" onAction="#search_button" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #F1D4A7;" text="Tìm">
+      <Button layoutX="382.0" layoutY="311.0" mnemonicParsing="false" onAction="#search_button" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #F1D4A7;" text="Tìm">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <TextField fx:id="quanhe_choose" layoutX="497.0" layoutY="595.0" prefHeight="25.0" prefWidth="275.0" promptText="Quan hệ với chủ hộ" style="-fx-background-color: #FFFFC9;" />
-      <Label layoutX="498.0" layoutY="365.0" text="Họ và tên:" textFill="#ffff8d">
+      <TextField fx:id="quanhe_choose" layoutX="482.0" layoutY="546.0" prefHeight="25.0" prefWidth="275.0" promptText="Quan hệ với chủ hộ" style="-fx-background-color: #FFFFC9;" />
+      <Label layoutX="483.0" layoutY="316.0" text="Họ và tên:" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="496.0" layoutY="432.0" text="Ngày sinh:" textFill="#ffff8d">
+      <Label layoutX="481.0" layoutY="383.0" text="Ngày sinh:" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="496.0" layoutY="501.0" text="CMND:" textFill="#ffff8d">
+      <Label layoutX="481.0" layoutY="452.0" text="CMND:" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="494.0" layoutY="567.0" text="Quan hệ với chủ hộ:" textFill="#ffff8d">
+      <Label layoutX="479.0" layoutY="518.0" text="Quan hệ với chủ hộ:" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -141,27 +141,27 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="tinhthanh_change" layoutX="252.0" layoutY="230.0" text="Label" textFill="#ffff8d">
+      <Label fx:id="tinhthanh_change" layoutX="252.0" layoutY="200.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="phuongxa_change" layoutX="252.0" layoutY="296.0" text="Label" textFill="#ffff8d">
+      <Label fx:id="phuongxa_change" layoutX="252.0" layoutY="245.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="quanhuyen_change" layoutX="733.0" layoutY="230.0" text="Label" textFill="#ffff8d">
+      <Label fx:id="quanhuyen_change" layoutX="667.0" layoutY="200.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="175.0" text="Địa chỉ:" textFill="#f8f3f3">
+      <Label layoutX="66.0" layoutY="160.0" text="Địa chỉ:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="diachi_change" layoutX="252.0" layoutY="175.0" text="Label" textFill="#ffff8d">
+      <Label fx:id="diachi_change" layoutX="252.0" layoutY="160.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
