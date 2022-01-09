@@ -5,11 +5,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import utility.DbUtil;
 
@@ -107,6 +109,9 @@ public class ChinhSuaNhanKhauController  {
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Chỉnh sửa thành công");
             alert_TC.showAndWait();
+            final Node source = (Node) event.getSource();
+            final Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
 
         }
 
