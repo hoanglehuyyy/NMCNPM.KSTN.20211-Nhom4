@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="684.0" prefWidth="746.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.QuanLyTamVangController">
+<AnchorPane prefHeight="743.0" prefWidth="754.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.QuanLyTamVangController">
    <children>
-      <Button layoutX="235.0" layoutY="545.0" mnemonicParsing="false" onMouseClicked="#save" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
+      <Button layoutX="231.0" layoutY="615.0" mnemonicParsing="false" onMouseClicked="#save" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -37,17 +37,17 @@
             <Font name="System Bold" size="18.0" />
          </font></Label>
       <DatePicker fx:id="tuNgayF" layoutX="219.0" layoutY="307.0" prefHeight="37.0" prefWidth="259.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
-      <Label layoutX="49.0" layoutY="384.0" text="Lý do:" textFill="WHITE">
+      <Label layoutX="56.0" layoutY="455.0" text="Lý do:" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <TextArea fx:id="lyDoF" layoutX="217.0" layoutY="384.0" prefHeight="121.0" prefWidth="380.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
-      <Label alignment="CENTER" layoutX="241.0" layoutY="7.0" prefHeight="45.0" prefWidth="284.0" text="Khai báo tạm vắng" textFill="#f8f3f3">
+      <TextArea fx:id="lyDoF" layoutX="217.0" layoutY="455.0" prefHeight="121.0" prefWidth="380.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+      <Label alignment="CENTER" layoutX="231.0" layoutY="27.0" prefHeight="45.0" prefWidth="284.0" text="Khai báo tạm vắng" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="407.0" layoutY="545.0" mnemonicParsing="false" onMouseClicked="#huy" style="-fx-background-color: #F7E7CE;" text="Hủy">
+      <Button layoutX="407.0" layoutY="615.0" mnemonicParsing="false" onMouseClicked="#huy" style="-fx-background-color: #F7E7CE;" text="Hủy">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -62,10 +62,16 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="#e3d910" layoutX="65.0" layoutY="648.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
+      <Text fill="#e3d910" layoutX="57.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Text>
+      <Label layoutX="37.0" layoutY="382.0" text="Đến ngày:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="denNgayF" layoutX="216.0" layoutY="382.0" prefHeight="37.0" prefWidth="259.0" style="-fx-background-color: FFFFC9; -fx-control-inner-background: FFFFC9;" />
    </children>
 </AnchorPane>
