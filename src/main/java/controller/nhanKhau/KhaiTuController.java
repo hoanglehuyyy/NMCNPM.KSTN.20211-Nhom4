@@ -6,10 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import utility.DbUtil;
 
@@ -92,14 +94,14 @@ public class KhaiTuController implements Initializable {
             query_hoTen="SELECT * FROM `nhan_khau` WHERE hoTen like '%" + duLieuTraCuu+"%'";
             query_CMND="SELECT * FROM `nhan_khau` WHERE cmnd like '%" + duLieuTraCuu+"%'";
             query_trangThai="SELECT * FROM `nhan_khau` WHERE trangThai like '%" + duLieuTraCuu+"%'";
-            query_nguyenQuan="SELECT * FROM `nhan_khau` WHERE nguyenQuan like '%" + duLieuTraCuu+"%'";
+            query_nguyenQuan="SELECT * FROM `nhan_khau` WHERE ngaySinh like '%" + duLieuTraCuu+"%'";
             if(truongTraCuu=="Họ tên"){
                 preparedStatement = connection.prepareStatement(query_hoTen);
             } else if(truongTraCuu=="Chứng minh nhân dân"){
                 preparedStatement = connection.prepareStatement(query_CMND);
             }else if(truongTraCuu=="Trạng thái"){
                 preparedStatement = connection.prepareStatement(query_trangThai);
-            }else if(truongTraCuu=="Nguyên quán"){
+            }else if(truongTraCuu=="Ngày sinh"){
                 preparedStatement = connection.prepareStatement(query_nguyenQuan);
             }
 
@@ -145,6 +147,7 @@ public class KhaiTuController implements Initializable {
 
 
 
+
         if (ngayMat==null||ngayKhaiBao==null || hoTenNguoiKhaiBao.isEmpty() ||idNguoiKhaiBao==-1||idNguoiMat==-1) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -161,6 +164,9 @@ public class KhaiTuController implements Initializable {
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Thêm thành công");
             alert_TC.showAndWait();
+            final Node source = (Node) event.getSource();
+            final Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
 
         }
 
@@ -168,7 +174,7 @@ public class KhaiTuController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> listTruongTraCuu = FXCollections.observableArrayList("Họ tên","Chứng minh nhân dân","Trạng thái","Nguyên quán");
+        ObservableList<String> listTruongTraCuu = FXCollections.observableArrayList("Họ tên","Chứng minh nhân dân","Trạng thái","Ngày sinh");
         truongTraCuuF.setItems(listTruongTraCuu);
         loadData();
 
@@ -215,12 +221,12 @@ public class KhaiTuController implements Initializable {
     private void loadData() throws SQLException {
         connection = DbUtil.getInstance().getConnection();
         refreshTable();
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
         hoTenColumn.setCellValueFactory(new PropertyValueFactory<>("hoTen"));
         ngaySinhColumn.setCellValueFactory(new PropertyValueFactory<>("bieuDienNgaySinh"));
         gioiTinhColumn.setCellValueFactory(new PropertyValueFactory<>("gioiTinh"));
         CMNDColumn.setCellValueFactory(new PropertyValueFactory<>("CMND"));
-        trangThaiColumn.setCellValueFactory(new PropertyValueFactory<>("trangThai"));
+
         table.setItems(nhanKhauList2);
     }
     private void getQuery() {
