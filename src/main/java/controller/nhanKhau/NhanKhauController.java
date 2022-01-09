@@ -1,5 +1,6 @@
 package controller.nhanKhau;
 
+import entity.HoKhau;
 import entity.NhanKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +29,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static utility.SQLCommand.HO_KHAU_QUERY_LAY_THONG_TIN;
 import static utility.SQLCommand.NHAN_KHAU_QUERY_LAY_THONG_TIN;
 
 public class NhanKhauController implements Initializable {
@@ -55,6 +57,8 @@ public class NhanKhauController implements Initializable {
     private ImageView confirmF;
     @FXML
     ObservableList<NhanKhau>  nhanKhauList = FXCollections.observableArrayList();
+    @FXML
+    private ObservableList<HoKhau> hokhauList = FXCollections.observableArrayList();
     private String query = null;
     private String query_hoTen=null;
     private String query_CMND=null;
@@ -66,6 +70,7 @@ public class NhanKhauController implements Initializable {
     NhanKhau nhanKhau = null ;
     private String truongTraCuu=null;
     private String duLieuTraCuu=null;
+    private int id_NK;
 
     @FXML
     private void Select(ActionEvent event) {
@@ -227,25 +232,45 @@ public class NhanKhauController implements Initializable {
 
     public void XoaNK(ActionEvent e) throws IOException {
         try {
+            int flag=0;
+            NhanKhau userlist = table.getSelectionModel().getSelectedItem();
+            id_NK=userlist.getId();
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Xóa nhân khẩu");
-            alert.setHeaderText("Bạn có thực sự muốn xóa nhân khẩu này ?");
-            alert.setContentText("Việc xóa nhân khẩu sẽ làm mất tất cả các dữ liệu liên quan đến nhân khẩu.");
-            Optional<ButtonType> option = alert.showAndWait();
 
-            if (option.get() == null) {
 
-            } else if (option.get() == ButtonType.OK) {
-                nhanKhau = table.getSelectionModel().getSelectedItem();
+            connection = DbUtil.getInstance().getConnection();
+            preparedStatement = connection.prepareStatement(HO_KHAU_QUERY_LAY_THONG_TIN);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                if(resultSet.getInt("idChuHo")==id_NK) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setHeaderText(null);
+                    alert.setContentText("Bạn đang xóa một chủ hộ, vui lòng đổi chủ hộ trước khi xóa!");
+                    alert.showAndWait();
+                    flag=1;
+                 }
+            }
+            if(flag==0){
 
-                connection = DbUtil.getInstance().getConnection();
-                query = "DELETE FROM `nhan_khau` WHERE idNhanKHau ="+nhanKhau.getId();
-                preparedStatement = connection.prepareStatement(query);
-                preparedStatement.execute();
-                refreshTable();
-            } else if (option.get() == ButtonType.CANCEL) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Xóa nhân khẩu");
+                alert.setHeaderText("Bạn có thực sự muốn xóa nhân khẩu này ?");
+                alert.setContentText("Việc xóa nhân khẩu sẽ làm mất tất cả các dữ liệu liên quan đến nhân khẩu.");
+                Optional<ButtonType> option = alert.showAndWait();
 
+                if (option.get() == null) {
+
+                } else if (option.get() == ButtonType.OK) {
+                    nhanKhau = table.getSelectionModel().getSelectedItem();
+
+                    connection = DbUtil.getInstance().getConnection();
+                    query = "DELETE FROM `nhan_khau` WHERE idNhanKHau ="+nhanKhau.getId();
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.execute();
+                    refreshTable();
+                } else if (option.get() == ButtonType.CANCEL) {
+
+                }
             }
 
 
