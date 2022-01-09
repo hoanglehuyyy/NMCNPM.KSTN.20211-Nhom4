@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="888.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.KhaiTuController">
+<ScrollPane prefHeight="797.0" prefWidth="1162.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.KhaiTuController">
    <content>
-      <AnchorPane prefHeight="873.0" prefWidth="1165.0" style="-fx-background-color: #2F333D;">
+      <AnchorPane prefHeight="779.0" prefWidth="1142.0" style="-fx-background-color: #2F333D;">
          <children>
             <DatePicker fx:id="ngayMatF" layoutX="249.0" layoutY="141.0" prefHeight="37.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
             <Label fx:id="hoTenLabel" layoutX="238.0" layoutY="84.0" prefHeight="30.0" prefWidth="358.0" text="Label" textFill="WHITE">
@@ -21,12 +21,12 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="63.0" layoutY="224.0" text="Lý do mất:" textFill="WHITE">
+            <Label layoutX="600.0" layoutY="146.0" text="Lý do mất:" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="30.0" layoutY="408.0" text="Người khai báo" textFill="WHITE">
+            <Label layoutX="667.0" layoutY="473.0" text="Người khai báo :" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -36,12 +36,12 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <Button layoutX="796.0" layoutY="829.0" mnemonicParsing="false" onMouseClicked="#save_khaiTu" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
+            <Button layoutX="824.0" layoutY="652.0" mnemonicParsing="false" onMouseClicked="#save_khaiTu" style="-fx-background-color: #F7E7CE;" text="Xác nhận">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <TextArea fx:id="lyDoF" layoutX="249.0" layoutY="224.0" prefHeight="161.0" prefWidth="400.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+            <TextArea fx:id="lyDoF" layoutX="724.0" layoutY="141.0" prefHeight="161.0" prefWidth="400.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
             <Label alignment="CENTER" layoutX="398.0" layoutY="14.0" prefHeight="45.0" prefWidth="446.0" text="Khai báo thông tin người mất" textFill="#f8f3f3">
                <font>
                   <Font name="System Bold" size="30.0" />
@@ -57,7 +57,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Text>
-            <Pane layoutX="269.0" layoutY="471.0" prefHeight="50.0" prefWidth="705.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
+            <Pane layoutX="269.0" layoutY="347.0" prefHeight="50.0" prefWidth="705.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
                <children>
                   <ImageView fx:id="confirmF" fitHeight="50.0" fitWidth="53.0" layoutX="656.0" onMouseClicked="#findF" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -72,17 +72,15 @@
                   <ComboBox fx:id="truongTraCuuF" layoutX="445.0" onAction="#Select_KT" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
                </children>
             </Pane>
-            <TableView fx:id="table" layoutX="249.0" layoutY="544.0" onMouseClicked="#handleClickTableView" prefHeight="270.0" prefWidth="828.0">
+            <TableView fx:id="table" layoutX="36.0" layoutY="438.0" onMouseClicked="#handleClickTableView" prefHeight="270.0" prefWidth="580.0">
                <columns>
-                  <TableColumn fx:id="idColumn" prefWidth="107.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID nhân khẩu" />
-                  <TableColumn fx:id="hoTenColumn" prefWidth="198.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên" />
-                  <TableColumn fx:id="ngaySinhColumn" prefWidth="109.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh " />
-                  <TableColumn fx:id="gioiTinhColumn" prefWidth="111.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Giới tính" />
-                  <TableColumn fx:id="CMNDColumn" minWidth="0.0" prefWidth="160.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
-                  <TableColumn fx:id="trangThaiColumn" prefWidth="140.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Trạng thái" />
+                  <TableColumn fx:id="hoTenColumn" prefWidth="182.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên" />
+                  <TableColumn fx:id="ngaySinhColumn" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh " />
+                  <TableColumn fx:id="gioiTinhColumn" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Giới tính" />
+                  <TableColumn fx:id="CMNDColumn" minWidth="0.0" prefWidth="190.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
                </columns>
             </TableView>
-            <Label fx:id="nguoiKhaiBaoF" layoutX="253.0" layoutY="404.0" prefHeight="38.0" prefWidth="327.0" text="Label" textFill="WHITE">
+            <Label fx:id="nguoiKhaiBaoF" layoutX="854.0" layoutY="469.0" prefHeight="38.0" prefWidth="327.0" text="Label" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
@@ -91,36 +89,36 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Text fill="#d0da08" layoutX="1058.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+            <Text fill="#d0da08" layoutX="1124.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Label layoutX="30.0" layoutY="471.0" prefHeight="45.0" prefWidth="250.0" text="Tra cứu người khai báo :" textFill="#fcfcfc">
+            <Label layoutX="19.0" layoutY="349.0" prefHeight="45.0" prefWidth="250.0" text="Tra cứu người khai báo :" textFill="#fcfcfc">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="ngaySinhKB" layoutX="759.0" layoutY="404.0" prefHeight="21.0" prefWidth="127.0" text="Label" textFill="WHITE">
+            <Label fx:id="ngaySinhKB" layoutX="861.0" layoutY="558.0" prefHeight="21.0" prefWidth="127.0" text="Label" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Label>
-            <Label layoutX="621.0" layoutY="404.0" prefHeight="21.0" prefWidth="122.0" text="Ngày sinh : " textFill="WHITE">
+            <Label layoutX="667.0" layoutY="558.0" prefHeight="21.0" prefWidth="122.0" text="Ngày sinh : " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="621.0" layoutY="144.0" text="Ngày khai báo : " textFill="WHITE">
+            <Label layoutX="36.0" layoutY="256.0" text="Ngày khai báo : " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Text fill="#ecf800" layoutX="1084.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
+            <Text fill="#ecf800" layoutX="517.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(*)">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <DatePicker fx:id="ngayKhaiBaoF" layoutX="830.0" layoutY="139.0" prefHeight="39.0" prefWidth="218.0" style="-fx-background-color: #FFFFC9;" />
+            <DatePicker fx:id="ngayKhaiBaoF" layoutX="249.0" layoutY="251.0" prefHeight="39.0" prefWidth="218.0" style="-fx-background-color: #FFFFC9;" />
          </children>
       </AnchorPane>
    </content>
