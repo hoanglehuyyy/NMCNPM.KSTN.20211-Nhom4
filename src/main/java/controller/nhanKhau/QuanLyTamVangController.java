@@ -3,8 +3,10 @@ package controller.nhanKhau;
 import entity.NhanKhau;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import utility.DbUtil;
 
@@ -13,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +29,8 @@ public class QuanLyTamVangController implements Initializable {
     private TextField noiTamTruF;
     @FXML
     private DatePicker tuNgayF;
+    @FXML
+    private DatePicker denNgayF;
     @FXML
     private TextArea lyDoF;
     String query = null;
@@ -53,10 +58,11 @@ public class QuanLyTamVangController implements Initializable {
 
         connection = DbUtil.getInstance().getConnection();
         String noiTamTru = noiTamTruF.getText();
-        String tuNgay = String.valueOf(tuNgayF.getValue());
+        LocalDate tuNgay = tuNgayF.getValue();
         String lyDo=lyDoF.getText();
 
-        if (noiTamTru.isEmpty() || tuNgay.isEmpty()  ) {
+
+        if (noiTamTru.isEmpty() || tuNgay==null  ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Nhập các trường dữ liệu bắt buộc");
@@ -71,6 +77,9 @@ public class QuanLyTamVangController implements Initializable {
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Khai báo thành công");
             alert_TC.showAndWait();
+            final Node source = (Node) event.getSource();
+            final Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
 
         }
 
@@ -80,6 +89,7 @@ public class QuanLyTamVangController implements Initializable {
     private void clean() {
         noiTamTruF.setText(null);
         tuNgayF.setValue(null);
+        denNgayF.setValue(null);
         lyDoF.setText(null);
 
 
@@ -88,6 +98,7 @@ public class QuanLyTamVangController implements Initializable {
     private void huy(MouseEvent event) {
         noiTamTruF.setText(null);
         tuNgayF.setValue(null);
+        denNgayF.setValue(null);
         lyDoF.setText(null);
 
 
@@ -103,7 +114,7 @@ public class QuanLyTamVangController implements Initializable {
             query = "UPDATE `nhan_khau` SET " +
 
                     "`trangThai`=?  WHERE idNhanKhau  = '"+nhanKhauId+"'";
-           query_insert="INSERT INTO `tam_vang`( `idNhanKhau`, `noiTamTru`, `tuNgay`, `lyDo`) VALUES (?,?,?,?)";
+           query_insert="INSERT INTO `tam_vang`( `idNhanKhau`, `noiTamTru`, `tuNgay`,`denNgay`, `lyDo`) VALUES (?,?,?,?,?)";
 
     }
 
@@ -129,7 +140,12 @@ public class QuanLyTamVangController implements Initializable {
             preparedStatement.setInt(1, nhanKhauId);
             preparedStatement.setString(2, noiTamTruF.getText());
             preparedStatement.setString(3, String.valueOf(tuNgayF.getValue()));
-            preparedStatement.setString(4, lyDoF.getText());
+            if (denNgayF.getValue()==null ){
+                preparedStatement.setString(4, null);
+            }else{
+                preparedStatement.setString(4, String.valueOf(denNgayF.getValue()));
+            }
+            preparedStatement.setString(5, lyDoF.getText());
 
             preparedStatement.execute();
 
