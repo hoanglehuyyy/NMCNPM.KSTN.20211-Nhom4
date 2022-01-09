@@ -8,28 +8,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="744.0" prefWidth="1146.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ChuyenHoKhauController">
+<AnchorPane prefHeight="702.0" prefWidth="1146.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ChuyenHoKhauController">
    <children>
-      <Label layoutX="394.0" layoutY="8.0" text="Chuyển hộ khẩu đi nơi khác" textFill="#f8f3f3">
+      <Label layoutX="394.0" layoutY="25.0" text="Chuyển hộ khẩu đi nơi khác" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="81.0" text="Nhập đầy đủ các trường thông tin cần thiết:" textFill="#e3d910">
+      <Label layoutX="39.0" layoutY="96.0" text="Nhập đầy đủ các trường thông tin cần thiết:" textFill="#e3d910">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="639.0" layoutY="81.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="#e3d910">
+      <Label layoutX="641.0" layoutY="96.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="#e3d910">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="38.0" layoutY="148.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
+      <Label layoutX="38.0" layoutY="178.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="580.0" layoutY="148.0" text="Họ tên chủ hộ:" textFill="#f8f3f3">
+      <Label layoutX="580.0" layoutY="178.0" text="Họ tên chủ hộ:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -41,7 +41,7 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="39.0" layoutY="511.0" text="Ghi chú:" textFill="#f8f3f3">
+      <Label layoutX="39.0" layoutY="496.0" text="Ghi chú:" textFill="#f8f3f3">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -49,15 +49,15 @@
          <font>
             <Font size="16.0" />
          </font></TextField>
-      <TextArea fx:id="li_do_cd" layoutX="169.0" layoutY="511.0" prefHeight="182.0" prefWidth="425.0" promptText="Ghi chú" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;">
+      <TextArea fx:id="li_do_cd" layoutX="169.0" layoutY="496.0" prefHeight="182.0" prefWidth="425.0" promptText="Ghi chú" style="-fx-control-inner-background: #FFFFC9; -fx-background-color: #FFFFC9;">
          <font>
             <Font size="16.0" />
          </font></TextArea>
-      <Button layoutX="879.0" layoutY="649.0" mnemonicParsing="false" onAction="#huy_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
+      <Button layoutX="878.0" layoutY="634.0" mnemonicParsing="false" onAction="#huy_button" style="-fx-background-color: #F1D4A7;" text="Hủy">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button layoutX="729.0" layoutY="649.0" mnemonicParsing="false" onAction="#xac_nhan_button" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
+      <Button layoutX="728.0" layoutY="634.0" mnemonicParsing="false" onAction="#xac_nhan_button" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
@@ -119,17 +119,17 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="ma_ho_khau_chuyendi" layoutX="254.0" layoutY="148.0" text="Label" textFill="#e3d910">
+      <Label fx:id="ma_ho_khau_chuyendi" layoutX="254.0" layoutY="178.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="ho_ten_chu_ho_chuyendi" layoutX="767.0" layoutY="148.0" text="Label" textFill="#e3d910">
+      <Label fx:id="ho_ten_chu_ho_chuyendi" layoutX="770.0" layoutY="178.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="dia_chi_hien_tai_chuyendi" layoutX="254.0" layoutY="225.0" text="Label" textFill="#e3d910">
+      <Label fx:id="dia_chi_hien_tai_chuyendi" layoutX="254.0" layoutY="225.0" text="Label" textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

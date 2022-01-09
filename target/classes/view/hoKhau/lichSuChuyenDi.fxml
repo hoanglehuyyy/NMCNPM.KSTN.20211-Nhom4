@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="605.0" prefWidth="965.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.lichSuChuyenDiController">
+   <children>
+      <TableView fx:id="lich_su_chuyen_di_tab" layoutX="88.0" layoutY="173.0" prefHeight="332.0" prefWidth="790.0">
+        <columns>
+          <TableColumn fx:id="id_chuyendi_col" prefWidth="75.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID" />
+          <TableColumn fx:id="idHoKhau_chuyendi_col" prefWidth="82.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã Hộ Khẩu" />
+            <TableColumn fx:id="ngaychuyendi_chuyendi_col" prefWidth="110.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày chuyển đi" />
+            <TableColumn fx:id="diachichuyenden_chuyendi_col" prefWidth="292.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ chuyến đến" />
+            <TableColumn fx:id="lido_chuyendi_col" prefWidth="230.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ghi chú" />
+        </columns>
+      </TableView>
+      <Label layoutX="361.0" layoutY="14.0" text="Lịch sử chuyển đi" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="431.0" layoutY="532.0" mnemonicParsing="false" onAction="#close_button" prefHeight="45.0" prefWidth="92.0" style="-fx-background-color: #F1D4A7;" text="Đóng">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="88.0" layoutY="116.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="431.0" layoutY="116.0" text="Họ tên chủ hộ:" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ma_ho_khau" layoutX="226.0" layoutY="116.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ho_ten_chu_ho" layoutX="590.0" layoutY="116.0" text="Label" textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

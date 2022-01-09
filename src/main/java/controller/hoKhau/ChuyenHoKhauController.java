@@ -216,6 +216,4 @@ public class ChuyenHoKhauController {
 
         huy_button(e);
     }
-
-
 }
