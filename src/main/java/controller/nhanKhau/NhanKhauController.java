@@ -23,6 +23,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,14 +82,14 @@ public class NhanKhauController implements Initializable {
             query_hoTen="SELECT * FROM `nhan_khau` WHERE hoTen like '%" + duLieuTraCuu+"%'";
             query_CMND="SELECT * FROM `nhan_khau` WHERE cmnd like '%" + duLieuTraCuu+"%'";
             query_trangThai="SELECT * FROM `nhan_khau` WHERE trangThai like '%" + duLieuTraCuu+"%'";
-            query_nguyenQuan="SELECT * FROM `nhan_khau` WHERE nguyenQuan like '%" + duLieuTraCuu+"%'";
+            query_nguyenQuan="SELECT * FROM `nhan_khau` WHERE ngaySinh like '%" + duLieuTraCuu+"%'";
             if(truongTraCuu=="Họ tên"){
                 preparedStatement = connection.prepareStatement(query_hoTen);
             } else if(truongTraCuu=="Chứng minh nhân dân"){
                 preparedStatement = connection.prepareStatement(query_CMND);
             }else if(truongTraCuu=="Trạng thái"){
                 preparedStatement = connection.prepareStatement(query_trangThai);
-            }else if(truongTraCuu=="Nguyên quán"){
+            }else if(truongTraCuu=="Ngày sinh"){
                 preparedStatement = connection.prepareStatement(query_nguyenQuan);
             }
 
@@ -159,7 +160,7 @@ public class NhanKhauController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> listTruongTraCuu = FXCollections.observableArrayList("Họ tên","Chứng minh nhân dân","Trạng thái","Nguyên quán");
+        ObservableList<String> listTruongTraCuu = FXCollections.observableArrayList("Họ tên","Chứng minh nhân dân","Trạng thái","Ngày sinh");
         truongTraCuuF.setItems(listTruongTraCuu);
 
         loadData();
@@ -185,6 +186,7 @@ public class NhanKhauController implements Initializable {
         Scene scene = new Scene(thongTinNK);
         stage.setScene(scene);
         stage.show();
+
     }
 
 
@@ -225,13 +227,27 @@ public class NhanKhauController implements Initializable {
 
     public void XoaNK(ActionEvent e) throws IOException {
         try {
-            nhanKhau = table.getSelectionModel().getSelectedItem();
 
-            connection = DbUtil.getInstance().getConnection();
-            query = "DELETE FROM `nhan_khau` WHERE idNhanKHau ="+nhanKhau.getId();
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.execute();
-            refreshTable();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Xóa nhân khẩu");
+            alert.setHeaderText("Bạn có thực sự muốn xóa nhân khẩu này ?");
+            alert.setContentText("Việc xóa nhân khẩu sẽ làm mất tất cả các dữ liệu liên quan đến nhân khẩu.");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get() == null) {
+
+            } else if (option.get() == ButtonType.OK) {
+                nhanKhau = table.getSelectionModel().getSelectedItem();
+
+                connection = DbUtil.getInstance().getConnection();
+                query = "DELETE FROM `nhan_khau` WHERE idNhanKHau ="+nhanKhau.getId();
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.execute();
+                refreshTable();
+            } else if (option.get() == ButtonType.CANCEL) {
+
+            }
+
 
 
         } catch (SQLException ex) {
