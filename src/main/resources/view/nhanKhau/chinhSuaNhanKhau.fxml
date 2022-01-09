@@ -14,17 +14,50 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <TextField fx:id="hoTenLabel" layoutX="162.0" layoutY="99.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="biDanhLabel" layoutX="159.0" layoutY="172.0" prefHeight="31.0" prefWidth="282.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="noiSinhLabel" layoutX="162.0" layoutY="317.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="nguyenQuanLabel" layoutX="162.0" layoutY="458.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="danTocLabel" layoutX="162.0" layoutY="530.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="quocTichLabel" layoutX="701.0" layoutY="99.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="ngheNghiepLabel" layoutX="701.0" layoutY="172.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="noiLamViecLabel" layoutX="701.0" layoutY="245.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="CMNDLabel" layoutX="701.0" layoutY="319.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="tonGiaoLabel" layoutX="701.0" layoutY="530.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;" />
-            <TextField fx:id="noiThuongTruTruocLabel" layoutX="31.0" layoutY="659.0" prefHeight="37.0" prefWidth="1010.0" style="-fx-background-color: #FFFFC9;" />
+            <TextField fx:id="hoTenLabel" layoutX="162.0" layoutY="99.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="biDanhLabel" layoutX="159.0" layoutY="172.0" prefHeight="31.0" prefWidth="282.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="noiSinhLabel" layoutX="162.0" layoutY="317.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="nguyenQuanLabel" layoutX="162.0" layoutY="458.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="danTocLabel" layoutX="162.0" layoutY="530.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="quocTichLabel" layoutX="701.0" layoutY="99.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="ngheNghiepLabel" layoutX="701.0" layoutY="172.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="noiLamViecLabel" layoutX="701.0" layoutY="245.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="CMNDLabel" layoutX="701.0" layoutY="319.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="tonGiaoLabel" layoutX="701.0" layoutY="530.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <TextField fx:id="noiThuongTruTruocLabel" layoutX="31.0" layoutY="659.0" prefHeight="37.0" prefWidth="1010.0" style="-fx-background-color: #FFFFC9;">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
             <Label layoutX="33.0" layoutY="245.0" text="Ngày sinh:" textFill="#f8f3f3">
                <font>
                   <Font name="System Bold" size="20.0" />
@@ -125,10 +158,10 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>
-            <DatePicker fx:id="ngaySinhLabel" layoutX="162.0" layoutY="245.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
-            <DatePicker fx:id="ngayCapLabel" layoutX="701.0" layoutY="389.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
-            <DatePicker fx:id="chuyenDenNgayLabel" layoutX="701.0" layoutY="459.0" prefHeight="31.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
-            <ComboBox fx:id="combGioiTinh" layoutX="162.0" layoutY="389.0" onAction="#selectGioiTinh" prefHeight="31.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
+            <DatePicker fx:id="ngaySinhLabel" layoutX="162.0" layoutY="245.0" prefHeight="37.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+            <DatePicker fx:id="ngayCapLabel" layoutX="701.0" layoutY="389.0" prefHeight="37.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+            <DatePicker fx:id="chuyenDenNgayLabel" layoutX="701.0" layoutY="459.0" prefHeight="37.0" prefWidth="304.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
+            <ComboBox fx:id="combGioiTinh" layoutX="162.0" layoutY="389.0" onAction="#selectGioiTinh" prefHeight="37.0" prefWidth="278.0" style="-fx-background-color: #FFFFC9;" />
             <Text fill="#e3d910" layoutX="75.0" layoutY="737.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập">
                <font>
                   <Font name="System Italic" size="20.0" />
