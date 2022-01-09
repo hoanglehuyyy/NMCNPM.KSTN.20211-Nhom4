@@ -19,5 +19,4 @@ public class ChuyenHoKhau {
     private String noiChuyenDen;
     private String ghiChu;
 
-
 }

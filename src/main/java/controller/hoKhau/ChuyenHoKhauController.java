@@ -209,6 +209,11 @@ public class ChuyenHoKhauController {
         update_trangthai_nhankhau();
         chuyen_ho_khau();
 
+        Alert m = new Alert(Alert.AlertType.INFORMATION);
+        m.setTitle("Thông báo!");
+        m.setHeaderText("Chuyển hộ khẩu thành công!");
+        m.show();
+
         huy_button(e);
     }
 

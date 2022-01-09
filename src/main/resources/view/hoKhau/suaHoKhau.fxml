@@ -84,14 +84,14 @@
       </Label>
       <TableView fx:id="nk_table_search" layoutX="354.0" layoutY="406.0" prefHeight="189.0" prefWidth="374.0">
         <columns>
-          <TableColumn fx:id="hotenNhanKhau_search" prefWidth="103.0" text="Họ và tên" />
-          <TableColumn fx:id="ngaySinhNhanKhau_search" prefWidth="109.0" text="Ngày sinh" />
-            <TableColumn fx:id="CMNDNhanKhau_search" prefWidth="161.0" text="CMND" />
+          <TableColumn fx:id="hotenNhanKhau_search" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
+          <TableColumn fx:id="ngaySinhNhanKhau_search" prefWidth="109.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
+            <TableColumn fx:id="CMNDNhanKhau_search" prefWidth="161.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
         </columns>
       </TableView>
-      <TextField fx:id="hoten_search" layoutX="37.0" layoutY="423.0" prefHeight="25.0" prefWidth="275.0" />
-      <TextField fx:id="ngaysinh_search" layoutX="37.0" layoutY="490.0" prefHeight="25.0" prefWidth="275.0" />
-      <TextField fx:id="CMND_search" layoutX="38.0" layoutY="559.0" prefHeight="25.0" prefWidth="275.0" />
+      <TextField fx:id="hoten_search" layoutX="37.0" layoutY="423.0" prefHeight="25.0" prefWidth="275.0" promptText="Họ và tên " style="-fx-background-color: #FFFFC9;" />
+      <TextField fx:id="ngaysinh_search" layoutX="37.0" layoutY="490.0" prefHeight="25.0" prefWidth="275.0" promptText="Ngày sinh" style="-fx-background-color: #FFFFC9;" />
+      <TextField fx:id="CMND_search" layoutX="38.0" layoutY="559.0" prefHeight="25.0" prefWidth="275.0" promptText="CMND" style="-fx-background-color: #FFFFC9;" />
       <Label layoutX="354.0" layoutY="365.0" text="Bảng tìm nhân khẩu" textFill="#ffff8d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
@@ -107,7 +107,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <TextField fx:id="quanhe_choose" layoutX="901.0" layoutY="318.0" prefHeight="25.0" prefWidth="275.0" />
+      <TextField fx:id="quanhe_choose" layoutX="901.0" layoutY="318.0" prefHeight="25.0" prefWidth="275.0" promptText="Quan hệ với chủ hộ" style="-fx-background-color: #FFFFC9;" />
       <Button layoutX="759.0" layoutY="513.0" mnemonicParsing="false" onAction="#change_button" prefHeight="31.0" prefWidth="112.0" style="-fx-background-color: #F1D4A7;" text="Sửa">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -133,7 +133,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="71.0" text="Chú ý: Nếu bạn muốn thay đổi chủ hộ, hãy chọn chủ hộ mới trước tiên" textFill="#e3d910">
+      <Label layoutX="59.0" layoutY="71.0" text="**Chú ý: Nếu bạn muốn thay đổi chủ hộ, hãy chọn chủ hộ mới trước tiên**" textFill="#e3d910">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

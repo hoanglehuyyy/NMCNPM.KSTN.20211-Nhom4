@@ -117,7 +117,7 @@ public class HoKhauController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Xoá");
         alert.setHeaderText("Bạn có muốn xoá không?");
-        alert.setContentText("Yes or No:");
+        alert.setContentText("Có hoặc Không:");
 
         ButtonType buttonYes = new ButtonType("Yes",ButtonBar.ButtonData.YES);
         ButtonType buttonNo = new ButtonType("No",ButtonBar.ButtonData.NO);
@@ -194,14 +194,6 @@ public class HoKhauController implements Initializable {
             Alert m = new Alert(Alert.AlertType.INFORMATION);
             m.setTitle("Thông báo!");
             m.setHeaderText("Không hộ khẩu nào được chọn.");
-            m.setContentText("Vui lòng chọn lại.");
-            m.show();
-            return;
-        }
-        if (hk.getTrangThai().equals("Đã chuyển đi")){
-            Alert m = new Alert(Alert.AlertType.INFORMATION);
-            m.setTitle("Thông báo!");
-            m.setHeaderText("Hộ khẩu không còn ở đây.");
             m.setContentText("Vui lòng chọn lại.");
             m.show();
             return;

@@ -139,9 +139,9 @@
       </Button>
       <TableView fx:id="nk_table" layoutX="715.0" layoutY="526.0" prefHeight="232.0" prefWidth="356.0">
         <columns>
-          <TableColumn fx:id="hoten_nk_Col" prefWidth="110.0" text="Họ và tên" />
-          <TableColumn fx:id="ngaysinh_nk_Col" prefWidth="100.0" text="Ngày sinh" />
-            <TableColumn fx:id="quanhe_nk_Col" prefWidth="145.0" text="Quan hệ với chủ hộ" />
+          <TableColumn fx:id="hoten_nk_Col" prefWidth="110.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
+          <TableColumn fx:id="ngaysinh_nk_Col" prefWidth="100.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
+            <TableColumn fx:id="quanhe_nk_Col" prefWidth="145.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
         </columns>
       </TableView>
       <Label layoutX="429.0" layoutY="708.0" text="Quan hệ với chủ hộ:" textFill="#e3d910">

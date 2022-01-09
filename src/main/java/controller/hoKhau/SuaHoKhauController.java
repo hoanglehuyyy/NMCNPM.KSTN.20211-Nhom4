@@ -392,6 +392,19 @@ public class SuaHoKhauController implements Initializable {
         this.setId_chu_ho_new(a.getId());
         id_chu_ho_change.setText(String.valueOf(this.getId_chu_ho_new()));
         hoten_chu_ho_change.setText(a.getHoTen());
+
+        ObservableList<HoKhauNhanKhau> f = FXCollections.observableArrayList();
+        for(HoKhauNhanKhau i : list){
+            if(i.getIdNhanKhau() == this.getId_chu_ho_new()){
+                continue;
+            }
+            HoKhauNhanKhau t = new HoKhauNhanKhau(i.getIdHoKhau(),i.getIdNhanKhau(),i.getQuanHeChuHo(),i.getHoTen(),i.getNgaySinh(),i.getCmnd());
+            f.add(t);
+        }
+        list.clear();
+        list.addAll(f);
+        nk_table.setItems(list);
+
         Alert m = new Alert(Alert.AlertType.INFORMATION);
         m.setTitle("Thông báo!");
         m.setHeaderText("Chọn chủ hộ thành công");

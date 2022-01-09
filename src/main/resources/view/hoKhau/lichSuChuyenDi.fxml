@@ -11,11 +11,11 @@
    <children>
       <TableView fx:id="lich_su_chuyen_di_tab" layoutX="88.0" layoutY="173.0" prefHeight="332.0" prefWidth="790.0">
         <columns>
-          <TableColumn fx:id="id_chuyendi_col" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="idHoKhau_chuyendi_col" prefWidth="82.0" text="Mã Hộ Khẩu" />
-            <TableColumn fx:id="ngaychuyendi_chuyendi_col" prefWidth="110.0" text="Ngày chuyển đi" />
-            <TableColumn fx:id="diachichuyenden_chuyendi_col" prefWidth="292.0" text="Địa chỉ chuyến đến" />
-            <TableColumn fx:id="lido_chuyendi_col" prefWidth="230.0" text="Ghi chú" />
+          <TableColumn fx:id="id_chuyendi_col" prefWidth="75.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID" />
+          <TableColumn fx:id="idHoKhau_chuyendi_col" prefWidth="82.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã Hộ Khẩu" />
+            <TableColumn fx:id="ngaychuyendi_chuyendi_col" prefWidth="110.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày chuyển đi" />
+            <TableColumn fx:id="diachichuyenden_chuyendi_col" prefWidth="292.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ chuyến đến" />
+            <TableColumn fx:id="lido_chuyendi_col" prefWidth="230.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ghi chú" />
         </columns>
       </TableView>
       <Label layoutX="361.0" layoutY="14.0" text="Lịch sử chuyển đi" textFill="#f8f3f3">
