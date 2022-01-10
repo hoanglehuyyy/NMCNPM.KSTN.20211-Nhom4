@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="1240.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ThemHoKhauController">
+<AnchorPane prefHeight="693.0" prefWidth="1240.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.ThemHoKhauController">
    <children>
       <Label layoutX="43.0" layoutY="124.0" text="Địa chỉ:" textFill="#f8f3f3">
          <font>
@@ -109,7 +109,7 @@
             <ContextMenu>
               <items>
                   <MenuItem mnemonicParsing="false" onAction="#chon_chu_ho_button" text="Chọn chủ hộ" />
-                  <MenuItem mnemonicParsing="false" onAction="#them_button" text="Thêm" />
+                  <MenuItem mnemonicParsing="false" onAction="#them_button" text="Thêm nhân khẩu" />
               </items>
             </ContextMenu>
          </contextMenu>
@@ -151,8 +151,8 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#sua_button" text="Sửa" />
-                  <MenuItem mnemonicParsing="false" onAction="#xoa_button" text="Xoá" />
+                <MenuItem mnemonicParsing="false" onAction="#sua_button" text="Sửa nhân khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#xoa_button" text="Xoá nhân khẩu" />
               </items>
             </ContextMenu>
          </contextMenu>
@@ -190,6 +190,11 @@
          </font>
       </Label>
       <Label fx:id="ho_ten_chu_ho_duoc_chon" layoutX="761.0" layoutY="193.0" text=". . ." textFill="#ffff8d">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="ho_ten_chu_ho_duoc_chon" layoutX="773.0" layoutY="305.0" text=". . . " textFill="#ffff8d">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
