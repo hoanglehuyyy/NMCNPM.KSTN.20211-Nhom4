@@ -9,60 +9,60 @@ public class SQLCommand {
     public static String NHAN_KHAU_QUERY_TONG_DA_CHUYEN_DI = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'Đã chuyển đi'";
     public static String NHAN_KHAU_QUERY_TONG_DA_MAT = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'Đã mất'";
     public static String NHAN_KHAU_QUERY_TONG_KHONG_XAC_DINH = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N''";
-//    public static String NHAN_KHAU_QUERY_TONG_TAM_TRU = "SELECT COUNT(*)\n" +
-//            "FROM nhan_khau nk, tam_tru tt\n" +
-//            "WHERE nk.idNhanKhau = tt.idNhanKhau\n" +
-//            "AND nk.trangThai = N'Tạm trú'\n" +
-//            "AND tt.denNgay > GETDATE()";
-//    public static String NHAN_KHAU_QUERY_TONG_TAM_VANG = "SELECT COUNT(*)\n" +
-//            "FROM nhan_khau nk, tam_vang tt\n" +
-//            "WHERE nk.idNhanKhau = tt.idNhanKhau\n" +
-//            "AND nk.trangThai = N'Tạm vắng'\n" +
-//            "AND tt.denNgay > GETDATE()";    public static String NHAN_KHAU_QUERY_LAY_THONG_TIN = "SELECT * FROM nhan_khau";
     public static String NHAN_KHAU_QUERY_TONG_TAM_TRU = "SELECT COUNT(*)\n" +
             "FROM nhan_khau nk, tam_tru tt\n" +
             "WHERE nk.idNhanKhau = tt.idNhanKhau\n" +
             "AND nk.trangThai = N'Tạm trú'\n" +
-            "AND tt.denNgay > NOW()";
+            "AND tt.denNgay > GETDATE()";
     public static String NHAN_KHAU_QUERY_TONG_TAM_VANG = "SELECT COUNT(*)\n" +
             "FROM nhan_khau nk, tam_vang tt\n" +
             "WHERE nk.idNhanKhau = tt.idNhanKhau\n" +
             "AND nk.trangThai = N'Tạm vắng'\n" +
-            "AND tt.denNgay > NOW()";    public static String NHAN_KHAU_QUERY_LAY_THONG_TIN = "SELECT * FROM nhan_khau";
+            "AND tt.denNgay > GETDATE()";    public static String NHAN_KHAU_QUERY_LAY_THONG_TIN = "SELECT * FROM nhan_khau";
+//    public static String NHAN_KHAU_QUERY_TONG_TAM_TRU = "SELECT COUNT(*)\n" +
+//            "FROM nhan_khau nk, tam_tru tt\n" +
+//            "WHERE nk.idNhanKhau = tt.idNhanKhau\n" +
+//            "AND nk.trangThai = N'Tạm trú'\n" +
+//            "AND tt.denNgay > NOW()";
+//    public static String NHAN_KHAU_QUERY_TONG_TAM_VANG = "SELECT COUNT(*)\n" +
+//            "FROM nhan_khau nk, tam_vang tt\n" +
+//            "WHERE nk.idNhanKhau = tt.idNhanKhau\n" +
+//            "AND nk.trangThai = N'Tạm vắng'\n" +
+//            "AND tt.denNgay > NOW()";    public static String NHAN_KHAU_QUERY_LAY_THONG_TIN = "SELECT * FROM nhan_khau";
 
     public static String NHAN_KHAU_QUERY_NAM = "SELECT COUNT(*) FROM nhan_khau WHERE gioiTinh = N'Nam'";
     public static String NHAN_KHAU_QUERY_NU = "SELECT COUNT(*) FROM nhan_khau WHERE gioiTinh = N'Nữ'";
 
-//    public static String NHAN_KHAU_QUERY_MAM_NON = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) <= 5";
-//    public static String NHAN_KHAU_QUERY_CAP_1 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 6 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 10";
-//    public static String NHAN_KHAU_QUERY_CAP_2 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 11 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 14";
-//    public static String NHAN_KHAU_QUERY_CAP_3 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 15 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 17";
-//    public static String NHAN_KHAU_QUERY_DO_TUOI_LAO_DONG = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 18 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 64";
-//    public static String NHAN_KHAU_QUERY_NGHI_HUU = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 65";
-    public static String NHAN_KHAU_QUERY_MAM_NON = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) <= 5";
-    public static String NHAN_KHAU_QUERY_CAP_1 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 6 AND YEAR(NOW()) - YEAR(ngaySinh) <= 10";
-    public static String NHAN_KHAU_QUERY_CAP_2 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 11 AND YEAR(NOW()) - YEAR(ngaySinh) <= 14";
-    public static String NHAN_KHAU_QUERY_CAP_3 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 15 AND YEAR(NOW()) - YEAR(ngaySinh) <= 17";
-    public static String NHAN_KHAU_QUERY_DO_TUOI_LAO_DONG = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 18 AND YEAR(NOW()) - YEAR(ngaySinh) <= 64";
-    public static String NHAN_KHAU_QUERY_NGHI_HUU = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 65";
+    public static String NHAN_KHAU_QUERY_MAM_NON = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) <= 5";
+    public static String NHAN_KHAU_QUERY_CAP_1 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 6 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 10";
+    public static String NHAN_KHAU_QUERY_CAP_2 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 11 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 14";
+    public static String NHAN_KHAU_QUERY_CAP_3 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 15 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 17";
+    public static String NHAN_KHAU_QUERY_DO_TUOI_LAO_DONG = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 18 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 64";
+    public static String NHAN_KHAU_QUERY_NGHI_HUU = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 65";
+//    public static String NHAN_KHAU_QUERY_MAM_NON = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) <= 5";
+//    public static String NHAN_KHAU_QUERY_CAP_1 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 6 AND YEAR(NOW()) - YEAR(ngaySinh) <= 10";
+//    public static String NHAN_KHAU_QUERY_CAP_2 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 11 AND YEAR(NOW()) - YEAR(ngaySinh) <= 14";
+//    public static String NHAN_KHAU_QUERY_CAP_3 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 15 AND YEAR(NOW()) - YEAR(ngaySinh) <= 17";
+//    public static String NHAN_KHAU_QUERY_DO_TUOI_LAO_DONG = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 18 AND YEAR(NOW()) - YEAR(ngaySinh) <= 64";
+//    public static String NHAN_KHAU_QUERY_NGHI_HUU = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(NOW()) - YEAR(ngaySinh) >= 65";
 
 
     // ho_khau
     public static String HO_KHAU_QUERY_TONG_THUONG_TRU = "SELECT COUNT(*) FROM ho_khau WHERE trangThai = N'Thường trú'";
     public static String HO_KHAU_QUERY_TONG_DA_CHUYEN_DI = "SELECT COUNT(*) FROM ho_khau WHERE trangThai = N'Đã chuyển đi'";
     public static String HO_KHAU_QUERY_LAY_THONG_TIN = "SELECT * FROM ho_khau";
-//    public static String HO_KHAU_QUERY_SO_LUONG_THANH_VIEN = "SELECT soLuong, COUNT(idHoKhau) AS soHoKhau\n" +
-//            "FROM (SELECT hk.idHoKhau, ISNULL(COUNT(hknk.idNhanKhau), 0) + 1 AS soLuong\n" +
-//            "\t\tFROM ho_khau hk\n" +
-//            "\t\tLEFT JOIN ho_khau_nhan_khau hknk ON hk.idHoKhau = hknk.idHoKhau\n" +
-//            "\t\tGROUP BY(hk.idHoKhau)) temp\n" +
-//            "GROUP BY soLuong";
     public static String HO_KHAU_QUERY_SO_LUONG_THANH_VIEN = "SELECT soLuong, COUNT(idHoKhau) AS soHoKhau\n" +
-            "FROM (SELECT hk.idHoKhau, IFNULL(COUNT(hknk.idNhanKhau), 0) + 1 AS soLuong\n" +
-            "      FROM ho_khau hk\n" +
-            "               LEFT JOIN ho_khau_nhan_khau hknk ON hk.idHoKhau = hknk.idHoKhau\n" +
-            "      GROUP BY(hk.idHoKhau)) temp\n" +
+            "FROM (SELECT hk.idHoKhau, ISNULL(COUNT(hknk.idNhanKhau), 0) + 1 AS soLuong\n" +
+            "\t\tFROM ho_khau hk\n" +
+            "\t\tLEFT JOIN ho_khau_nhan_khau hknk ON hk.idHoKhau = hknk.idHoKhau\n" +
+            "\t\tGROUP BY(hk.idHoKhau)) temp\n" +
             "GROUP BY soLuong";
+//    public static String HO_KHAU_QUERY_SO_LUONG_THANH_VIEN = "SELECT soLuong, COUNT(idHoKhau) AS soHoKhau\n" +
+//            "FROM (SELECT hk.idHoKhau, IFNULL(COUNT(hknk.idNhanKhau), 0) + 1 AS soLuong\n" +
+//            "      FROM ho_khau hk\n" +
+//            "               LEFT JOIN ho_khau_nhan_khau hknk ON hk.idHoKhau = hknk.idHoKhau\n" +
+//            "      GROUP BY(hk.idHoKhau)) temp\n" +
+//            "GROUP BY soLuong";
 
     public static String HO_KHAU_QUERY_DELETE_HK = "DELETE FROM `ho_khau` WHERE idHoKhau = ?";
     public static String HO_KHAU_QUERY_UPDATE_NK_AFTER_DELETE = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?)";
