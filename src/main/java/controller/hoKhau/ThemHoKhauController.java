@@ -199,6 +199,7 @@ public class ThemHoKhauController implements Initializable {
         themNhanKhau(idHoKhau,this.hknk_list);
         update_nk_after_add(idHoKhau);
         update_ch_after_add(idHoKhau);
+        update_chuyen_ho_khau(idHoKhau);
 
         Alert m = new Alert(Alert.AlertType.INFORMATION);
         m.setTitle("Thông báo!");
@@ -222,6 +223,10 @@ public class ThemHoKhauController implements Initializable {
 
     private void update_ch_after_add(int a){
         HoKhauRepo.update_ch_after_add(a);
+    }
+
+    private void update_chuyen_ho_khau(int a){
+        HoKhauRepo.chuyen_ho_khau(a,Date.valueOf(this.NTgetText()),address_ho_khau_text.getText(),"Tạo hộ khẩu mới");
     }
 
     public void tim_button(ActionEvent e) throws IOException {
