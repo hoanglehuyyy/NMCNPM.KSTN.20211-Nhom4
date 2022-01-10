@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="673.0" prefWidth="1107.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.TachHoKhauController">
+<AnchorPane prefHeight="673.0" prefWidth="1107.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.TachHoKhauController">
    <children>
       <Label layoutX="556.0" layoutY="88.0" text="Mã hộ khẩu hiện tại:" textFill="#f8f3f3">
          <font>
@@ -145,7 +145,7 @@
          </font>
       </Label>
       <TextField fx:id="tinh_thanh_moi" layoutX="289.0" layoutY="211.0" prefHeight="25.0" prefWidth="248.0" promptText="Tỉnh/Thành phố mới" style="-fx-background-color: #FFFFC9;" />
-      <TextField fx:id="quan_huyen_moi" layoutX="293.0" layoutY="256.0" prefHeight="25.0" prefWidth="248.0" promptText="Quận/Huyện mới" style="-fx-background-color: #FFFFC9;" />
+      <TextField fx:id="quan_huyen_moi" layoutX="289.0" layoutY="256.0" prefHeight="25.0" prefWidth="248.0" promptText="Quận/Huyện mới" style="-fx-background-color: #FFFFC9;" />
       <TextField fx:id="phuong_xa_moi" layoutX="788.0" layoutY="211.0" prefHeight="25.0" prefWidth="235.0" promptText="Phường/Xã mới" style="-fx-background-color: #FFFFC9;" />
       <Label layoutX="564.0" layoutY="208.0" text="(*)" textFill="#e3d910">
          <font>

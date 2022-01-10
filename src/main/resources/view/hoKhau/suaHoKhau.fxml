@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="637.0" prefWidth="1253.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.SuaHoKhauController">
+<AnchorPane prefHeight="637.0" prefWidth="1253.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.SuaHoKhauController">
    <children>
       <Label layoutX="66.0" layoutY="119.0" text="Mã hộ khẩu:" textFill="#f8f3f3">
          <font>
@@ -61,8 +61,8 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#change_button" text="Sửa" />
-                  <MenuItem mnemonicParsing="false" onAction="#delete_button" text="Xoá" />
+                <MenuItem mnemonicParsing="false" onAction="#change_button" text="Sửa nhân khẩu" />
+                  <MenuItem mnemonicParsing="false" onAction="#delete_button" text="Xoá nhân khẩu" />
               </items>
             </ContextMenu>
          </contextMenu>
@@ -92,7 +92,7 @@
             <ContextMenu>
               <items>
                   <MenuItem mnemonicParsing="false" onAction="#chon_chu_ho_button" text="Chọn chủ hộ" />
-                <MenuItem mnemonicParsing="false" onAction="#add_button" text="Thêm" />
+                <MenuItem mnemonicParsing="false" onAction="#add_button" text="Thêm nhân khẩu" />
               </items>
             </ContextMenu>
          </contextMenu>
