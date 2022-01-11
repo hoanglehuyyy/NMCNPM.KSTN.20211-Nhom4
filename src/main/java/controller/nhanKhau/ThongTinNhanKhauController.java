@@ -55,25 +55,15 @@ public class ThongTinNhanKhauController {
        @FXML
        Label trangThaiLabel;
        private int id_NK;
-       String query = null;
        Connection connection = null;
        ResultSet resultSet = null;
        PreparedStatement preparedStatement;
-       NhanKhau nhanKhau = null;
-
-
-
-
-
 
        public void setNhanKhau(NhanKhau nk)  {
 
               id_NK=nk.getId();
               clean();
               loadData();
-
-
-
 
        }
        @FXML
