@@ -242,12 +242,15 @@ public class ChinhSuaNhanKhauController  {
         }
 
     }
-
-
-
-    private void goBack_chinhSuaNK(ActionEvent e) throws IOException {
-        final Node source = (Node) e.getSource();
+    @FXML
+    private void huy(MouseEvent event) {
+        final Node source = (Node) event.getSource();
         final Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
+
+
     }
+
+
+
 }
