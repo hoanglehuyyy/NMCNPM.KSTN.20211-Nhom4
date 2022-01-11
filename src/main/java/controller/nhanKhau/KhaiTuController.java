@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static utility.SQLCommand.NHAN_KHAU_QUERY_LAY_THONG_TIN;
+import static utility.SQLCommand.*;
 
 public class KhaiTuController implements Initializable {
 
@@ -63,12 +63,7 @@ public class KhaiTuController implements Initializable {
     Label nguoiKhaiBaoF;
     @FXML
     Label ngaySinhKB;
-    private String query = null;
-    private String query_update = null;
-    private String query_hoTen=null;
-    private String query_CMND=null;
-    private String query_trangThai=null;
-    private String query_nguyenQuan=null;
+
     Connection connection = null ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
@@ -91,18 +86,20 @@ public class KhaiTuController implements Initializable {
         try {
             nhanKhauList2.clear();
             duLieuTraCuu=duLieuF.getText();
-            query_hoTen="SELECT * FROM `nhan_khau` WHERE hoTen like '%" + duLieuTraCuu+"%'";
-            query_CMND="SELECT * FROM `nhan_khau` WHERE cmnd like '%" + duLieuTraCuu+"%'";
-            query_trangThai="SELECT * FROM `nhan_khau` WHERE trangThai like '%" + duLieuTraCuu+"%'";
-            query_nguyenQuan="SELECT * FROM `nhan_khau` WHERE ngaySinh like '%" + duLieuTraCuu+"%'";
+
             if(truongTraCuu=="Họ tên"){
-                preparedStatement = connection.prepareStatement(query_hoTen);
+                preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_HOTEN+duLieuTraCuu+"%'");
             } else if(truongTraCuu=="Chứng minh nhân dân"){
-                preparedStatement = connection.prepareStatement(query_CMND);
+                preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_CMND+duLieuTraCuu+"%'");
             }else if(truongTraCuu=="Trạng thái"){
-                preparedStatement = connection.prepareStatement(query_trangThai);
+                preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_TRANGTHAI+duLieuTraCuu+"%'");
             }else if(truongTraCuu=="Ngày sinh"){
-                preparedStatement = connection.prepareStatement(query_nguyenQuan);
+                preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_NGAYSINH+duLieuTraCuu+"%'");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText(null);
+                alert.setContentText("Bạn cần chọn trường tra cứu");
+                alert.showAndWait();
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -156,11 +153,9 @@ public class KhaiTuController implements Initializable {
 
         } else {
 
-
-            getQuery();
             insert();
             update();
-            Alert alert_TC = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert_TC = new Alert(Alert.AlertType.INFORMATION);
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Thêm thành công");
             alert_TC.showAndWait();
@@ -229,20 +224,14 @@ public class KhaiTuController implements Initializable {
 
         table.setItems(nhanKhauList2);
     }
-    private void getQuery() {
-        query = "INSERT INTO `khai_tu`(`idNguoiMat`, `idNguoiKhai`, `ngayKhai`, `ngayMat`, `liDoMat`) VALUES (?,?,?,?,?)";
-        query_update = "UPDATE `nhan_khau` SET " +
 
-                "`trangThai`=?  WHERE idNhanKhau  = '"+idNguoiMat+"'";
-
-    }
     private void insert() {
 
 
 
         try {
 
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_INSERT_KHAITU);
             preparedStatement.setString(1, String.valueOf(idNguoiMat));
             preparedStatement.setString(2, String.valueOf(idNguoiKhaiBao));
             preparedStatement.setString(3,  String.valueOf(ngayKhaiBaoF.getValue()));
@@ -266,7 +255,7 @@ public class KhaiTuController implements Initializable {
 
         try {
 
-            preparedStatement = connection.prepareStatement(query_update);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_UPDATE_TRANGTHAI+idNguoiMat);
             preparedStatement.setString(1, "Đã mất");
 
             preparedStatement.execute();
