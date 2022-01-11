@@ -21,6 +21,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static utility.SQLCommand.NHAN_KHAU_QUERY_INSERT_CHUYENNHANKHAU;
+import static utility.SQLCommand.NHAN_KHAU_QUERY_UPDATE_TRANGTHAI;
+
 public class ChuyenNhanKhauController {
 
     @FXML
@@ -33,13 +36,8 @@ public class ChuyenNhanKhauController {
     private DatePicker ngayChuyenDiF;
     @FXML
     private TextArea ghiChuF;
-    String query = null;
-    String query_insert = null;
     Connection connection = null;
-    ResultSet resultSet = null;
     PreparedStatement preparedStatement;
-    NhanKhau nhanKhau = null;
-    private boolean update;
     int nhanKhauId;
 
     public void setChuyenNhanKhau(NhanKhau nk){
@@ -47,8 +45,6 @@ public class ChuyenNhanKhauController {
         hoTenLabel.setText((nk.getHoTen()));
         nhanKhauId=nk.getId();
     }
-
-
 
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -61,7 +57,6 @@ public class ChuyenNhanKhauController {
         connection = DbUtil.getInstance().getConnection();
         String noiChuyenDen = noiChuyenDenF.getText();
         LocalDate ngayChuyenDi = ngayChuyenDiF.getValue();
-        String ghiChu=ghiChuF.getText();
 
         if (noiChuyenDen.isEmpty() || ngayChuyenDi==null  ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -70,11 +65,10 @@ public class ChuyenNhanKhauController {
             alert.showAndWait();
 
         } else {
-            getQuery();
             update();
             insert();
             clean();
-            Alert alert_TC = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert_TC = new Alert(Alert.AlertType.INFORMATION);
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Chuyển nhân khẩu thành công");
             alert_TC.showAndWait();
@@ -97,26 +91,11 @@ public class ChuyenNhanKhauController {
 
     }
 
-
-    private void getQuery() {
-
-
-
-        //query = "INSERT INTO `nhan_khau`( `hoTen`, `biDanh`, `ngaySinh`, `noiSinh`, `gioiTinh`, `nguyenQuan`, `danToc`, `tonGiao`, `quocTich`, `ngheNghiep`, `noiLamViec`, `cmnd`, `ngayCap`, `chuyenDenNgay`, `noiThuongTruTruoc`, `trangThai`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-
-        query = "UPDATE `nhan_khau` SET " +
-
-                "`trangThai`=?  WHERE idNhanKhau  = '"+nhanKhauId+"'";
-        query_insert="INSERT INTO `chuyen_nhan_khau`( `idNhanKhau`, `ngayChuyenDi`, `noiChuyenDen`, `ghiChu`) VALUES (?,?,?,?)";
-
-    }
-
     private void update() {
 
         try {
 
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_UPDATE_TRANGTHAI+nhanKhauId);
             preparedStatement.setString(1, "Đã chuyển đi");
 
             preparedStatement.execute();
@@ -130,7 +109,7 @@ public class ChuyenNhanKhauController {
 
         try {
 
-            preparedStatement = connection.prepareStatement(query_insert);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_INSERT_CHUYENNHANKHAU);
             preparedStatement.setInt(1, nhanKhauId);
             preparedStatement.setString(2, String.valueOf(ngayChuyenDiF.getValue()));
             preparedStatement.setString(3, noiChuyenDenF.getText());
@@ -145,8 +124,8 @@ public class ChuyenNhanKhauController {
     }
 
     public void goBack_chuyenNK(ActionEvent e) throws IOException {
-        noiChuyenDenF.setText(null);
-        ngayChuyenDiF.setValue(null);
-        ghiChuF.setText(null);
+        final Node source = (Node) e.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }
