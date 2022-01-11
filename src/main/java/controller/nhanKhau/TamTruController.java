@@ -19,6 +19,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static utility.SQLCommand.NHAN_KHAU_QUERY_INSERT_TAMTRU;
+import static utility.SQLCommand.NHAN_KHAU_QUERY_UPDATE_TRANGTHAI;
+
 public class TamTruController {
     @FXML
     Label ngaySinhLabel;
@@ -43,10 +46,12 @@ public class TamTruController {
     private boolean update;
     int nhanKhauId;
 
+
     public void setTamTru(NhanKhau nk){
         ngaySinhLabel.setText(nk.getBieuDienNgaySinh());
         hoTenLabel.setText((nk.getHoTen()));
         nhanKhauId=nk.getId();
+
     }
 
 
@@ -63,6 +68,7 @@ public class TamTruController {
         String noiTamTru = noiTamTruF.getText();
         String noiOTruocKia = noiOTruocKiaF.getText();
         LocalDate tuNgay = tuNgayF.getValue();
+
         String lyDo=lyDoF.getText();
 
         if (noiTamTru.isEmpty() || tuNgay==null ||noiOTruocKia.isEmpty() ) {
@@ -72,17 +78,25 @@ public class TamTruController {
             alert.showAndWait();
 
         } else {
-            getQuery();
-            update();
-            insert();
-            clean();
-            Alert alert_TC = new Alert(Alert.AlertType.CONFIRMATION);
-            alert_TC.setHeaderText(null);
-            alert_TC.setContentText("Khai báo thành công");
-            alert_TC.showAndWait();
-            final Node source = (Node) event.getSource();
-            final Stage stage = (Stage) source.getScene().getWindow();
-            stage.close();
+
+            if (String.valueOf(tuNgay).compareTo(String.valueOf(denNgayF.getValue()))>0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Trường ĐẾN NGÀY phải có thời gian sau trường TỪ NGÀY ");
+                alert.showAndWait();
+            }else{
+                update();
+                insert();
+                clean();
+                Alert alert_TC = new Alert(Alert.AlertType.INFORMATION);
+                alert_TC.setHeaderText(null);
+                alert_TC.setContentText("Khai báo thành công");
+                alert_TC.showAndWait();
+                final Node source = (Node) event.getSource();
+                final Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
+            }
+
 
         }
 
@@ -100,34 +114,20 @@ public class TamTruController {
     }
     @FXML
     private void huy(MouseEvent event) {
-        noiTamTruF.setText(null);
-        tuNgayF.setValue(null);
-        lyDoF.setText(null);
-        noiOTruocKiaF.setText(null);
-        denNgayF.setValue(null);
+        final Node source = (Node) event.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
 
 
     }
 
-    private void getQuery() {
 
-
-
-        //query = "INSERT INTO `nhan_khau`( `hoTen`, `biDanh`, `ngaySinh`, `noiSinh`, `gioiTinh`, `nguyenQuan`, `danToc`, `tonGiao`, `quocTich`, `ngheNghiep`, `noiLamViec`, `cmnd`, `ngayCap`, `chuyenDenNgay`, `noiThuongTruTruoc`, `trangThai`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-
-        query = "UPDATE `nhan_khau` SET " +
-
-                "`trangThai`=?  WHERE idNhanKhau  = '"+nhanKhauId+"'";
-        query_insert="INSERT INTO `tam_tru`( `idNhanKhau`, `noiThuongTru`, `noiTamTru`, `tuNgay`,`denNgay`, `lyDo`) VALUES (?,?,?,?,?,?)";
-
-    }
 
     private void update() {
 
         try {
 
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_UPDATE_TRANGTHAI+nhanKhauId);
             preparedStatement.setString(1, "Tạm trú");
 
             preparedStatement.execute();
@@ -141,7 +141,7 @@ public class TamTruController {
 
         try {
 
-            preparedStatement = connection.prepareStatement(query_insert);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_INSERT_TAMTRU);
             preparedStatement.setInt(1, nhanKhauId);
             preparedStatement.setString(2, noiTamTruF.getText());
             preparedStatement.setString(3, noiOTruocKiaF.getText());
