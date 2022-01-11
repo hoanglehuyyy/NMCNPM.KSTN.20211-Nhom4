@@ -109,7 +109,7 @@ public class HoKhau {
     }
 
     public void copy_hk(HoKhau a){
-        this.idHoKhau = a.getIdChuHo();
+        this.idHoKhau = a.getIdHoKhau();
         this.idChuHo = a.getIdChuHo();
         this.hotenChuho = a.getHotenChuho();
         this.tinhThanhPho = a.getTinhThanhPho();

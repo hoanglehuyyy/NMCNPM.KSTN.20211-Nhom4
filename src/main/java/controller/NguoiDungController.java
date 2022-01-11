@@ -51,7 +51,9 @@ public class NguoiDungController {
 
                 stage.setTitle("Quản lý khu phố");
                 stage.setScene(scene);
-                stage.setMaximized(true);
+//                stage.setMaximized(true);
+                stage.setWidth(1400);
+                stage.setHeight(780);
                 stage.show();
             } else {
                 dangNhapThatBaiMessage.setText(Message.dangNhapThatBai);
