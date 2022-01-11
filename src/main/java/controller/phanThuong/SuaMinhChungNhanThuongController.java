@@ -109,12 +109,4 @@ public class SuaMinhChungNhanThuongController implements Initializable {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.close();
     }
-
-    @SneakyThrows
-    public void xemThongTinNhanKhau(MouseEvent mouseEvent) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/nhanKhau/chiTietNhanKhau.fxml"));
-        Parent p = loader.load();
-        ThongTinNhanKhauController t = loader.getController();
-    }
 }

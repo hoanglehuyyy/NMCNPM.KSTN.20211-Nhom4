@@ -70,6 +70,11 @@ public class ChinhSuaHocSinhGioiController {
                 alert.setHeaderText(Message.yeuCauNhapDungKieuDuLieu);
                 alert.show();
             }
+            else if (Integer.parseInt(tienDacBiet.getText()) <= Integer.parseInt(tienGioi.getText()) || Integer.parseInt(tienGioi.getText()) <= Integer.parseInt(tienKha.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(Message.yeuCauDoiTienThuong);
+                alert.show();
+            }
             else {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setHeaderText(Message.xacNhanThayDoiThongTinDip);

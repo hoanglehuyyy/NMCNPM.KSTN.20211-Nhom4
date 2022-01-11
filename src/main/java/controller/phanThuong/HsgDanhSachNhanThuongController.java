@@ -100,22 +100,6 @@ public class HsgDanhSachNhanThuongController implements Initializable {
     }
 
     @SneakyThrows
-    public void themMinhChung(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/phanThuong/chonMinhChungNhanThuong.fxml"));
-        Parent p = loader.load();
-        ChonMinhChungNhanThuongController c = loader.getController();
-        c.setDip(dipHocSinhGioi);
-        Scene scene = new Scene(p);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setOnHidden(windowEvent -> {
-            nhanKhauTable.setItems(hocSinhGioiImpl.bangNhanThuong(dipHocSinhGioi.getIdDip()));
-        });
-        stage.show();
-    }
-
-    @SneakyThrows
     public void suaMinhChung(ActionEvent actionEvent) {
         NhanKhauHocSinhGioi n = nhanKhauTable.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader();

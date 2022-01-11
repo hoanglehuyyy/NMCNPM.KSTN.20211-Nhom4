@@ -22,4 +22,5 @@ public class Message {
     public static String xacNhanXoaMinhChung = "Bạn có chắc chắn muốn xóa minh chứng này ?";
     public static String yeuCauDoiFileAnh = "File được chọn phải là file ảnh !!";
     public static String xacNhanSuaMinhChung = "Bạn có chắc chắn muốn thay đổi thông tin minh chứng này ?";
+    public static String yeuCauDoiTienThuong = "Tiền thưởng mức cao phải nhiều hơn tiền thưởng ở mức dưới";
 }

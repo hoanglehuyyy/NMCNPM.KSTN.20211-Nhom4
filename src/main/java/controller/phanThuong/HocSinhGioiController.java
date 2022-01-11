@@ -128,9 +128,9 @@ public class HocSinhGioiController implements Initializable {
     @SneakyThrows
     public void createDip(MouseEvent mouseEvent) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/phanThuong/taoDipHocSinhGioi.fxml"));
-        ScrollPane sp = loader.load();
+        Parent p = loader.load();
         TaoDipHocSinhGioiController t = loader.getController();
-        Stage stage = Utility.setStage(sp);
+        Stage stage = Utility.setStage(p);
         stage.setOnHidden(windowEvent -> {
             hsgTable.setItems(hocSinhGioiImpl.bangDipHocSinhGioi());
         });
@@ -174,8 +174,9 @@ public class HocSinhGioiController implements Initializable {
             DipHocSinhGioi dipHocSinhGioi = hsgTable.getSelectionModel().getSelectedItem();
             hocSinhGioiImpl.xoaDipHocSinhGioi(dipHocSinhGioi.getIdDip());
             hsgTable.setItems(hocSinhGioiImpl.bangDipHocSinhGioi());
+            alert.close();
             Alert newAleart = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(Message.thongBaoXoaDip);
+            newAleart.setHeaderText(Message.thongBaoXoaDip);
             newAleart.show();
         }
     }

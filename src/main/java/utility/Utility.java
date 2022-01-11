@@ -20,8 +20,9 @@ public class Utility {
         Scene scene = new Scene(p);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setX(10);
-        stage.setY(10);
+        stage.setX(20);
+        stage.setY(20);
+        stage.setResizable(false);
         stage.show();
         return stage;
     }
@@ -32,6 +33,7 @@ public class Utility {
         stage.setScene(scene);
         stage.setX(10);
         stage.setY(10);
+        stage.setResizable(false);
         stage.show();
         return stage;
     }

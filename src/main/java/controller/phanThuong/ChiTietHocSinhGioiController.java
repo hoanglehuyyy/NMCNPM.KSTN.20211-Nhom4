@@ -51,29 +51,6 @@ public class ChiTietHocSinhGioiController {
         moTa.setText(dipHocSinhGioi.getMoTa());
     }
 
-    @SneakyThrows
-    public void chinhSuaThongTin(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/phanThuong/chinhSuaHocSinhGioi.fxml"));
-        Parent p = loader.load();
-        ChinhSuaHocSinhGioiController c = loader.getController();
-        c.setThongTin(dipHocSinhGioi);
-        Stage stage = Utility.setStage(p);
-        stage.setOnHidden(windowEvent -> {
-            ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
-        });
-    }
-
-    @SneakyThrows
-    public void xemDanhSach(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/phanThuong/hsgDanhSachNhanThuong.fxml"));
-        Parent p = loader.load();
-        HsgDanhSachNhanThuongController h = loader.getController();
-        h.setDanhSach(dipHocSinhGioi);
-        Utility.setStage(p);
-    }
-
     public void quayLaiClick(MouseEvent mouseEvent) {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.close();

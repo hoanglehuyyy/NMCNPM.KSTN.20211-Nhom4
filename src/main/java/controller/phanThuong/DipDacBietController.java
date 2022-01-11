@@ -152,8 +152,11 @@ public class DipDacBietController implements Initializable {
 
     @SneakyThrows
     public void createDip(MouseEvent mouseEvent) {
-        ScrollPane sp = FXMLLoader.load(getClass().getResource("/view/phanThuong/taoDipDacBiet.fxml"));
-        Stage stage = Utility.setStage(sp);
+        Parent p = FXMLLoader.load(getClass().getResource("/view/phanThuong/taoDipDacBiet.fxml"));
+        Stage stage = Utility.setStage(p);
+        stage.setOnHidden(windowEvent -> {
+            ddbTable.setItems(dipDacBietImpl.bangDipDacBiet());
+        });
     }
 
     @SneakyThrows
@@ -165,6 +168,9 @@ public class DipDacBietController implements Initializable {
         ChiTietDipDacBietController c = loader.getController();
         c.setDipDacBiet(dipDacBietImpl.traCuuDipByTenNam(dip.getNam(), dip.getTen()));
         Stage stage = Utility.setStage(p);
+        stage.setOnHidden(windowEvent -> {
+            ddbTable.setItems(dipDacBietImpl.bangDipDacBiet());
+        });
     }
 
     public void xoaDip(ActionEvent actionEvent) {
@@ -177,9 +183,10 @@ public class DipDacBietController implements Initializable {
             dipDacBietImpl.xoaDipDacBiet(dipDacBiet.getIdDip());
             danhSachDip = dipDacBietImpl.bangDipDacBiet();
             ddbTable.setItems(danhSachDip);
+            alert.close();
             Alert newAleart = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(Message.thongBaoXoaDip);
-            alert.show();
+            newAleart.setHeaderText(Message.thongBaoXoaDip);
+            newAleart.show();
         }
     }
 
@@ -191,6 +198,9 @@ public class DipDacBietController implements Initializable {
         DdbDanhSachNhanThuongController d = loader.getController();
         d.setDanhSach(dip);
         Stage stage = Utility.setStage(p);
+        stage.setOnHidden(windowEvent -> {
+            ddbTable.setItems(dipDacBietImpl.bangDipDacBiet());
+        });
     }
 
     @SneakyThrows
@@ -202,5 +212,8 @@ public class DipDacBietController implements Initializable {
         ChinhSuaDipDacBietController c = loader.getController();
         c.setThongTin(dipDacBiet);
         Stage stage = Utility.setStage(p);
+        stage.setOnHidden(windowEvent -> {
+            ddbTable.setItems(dipDacBietImpl.bangDipDacBiet());
+        });
     }
 }

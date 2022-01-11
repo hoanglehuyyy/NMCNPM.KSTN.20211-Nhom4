@@ -4,151 +4,147 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChinhSuaHocSinhGioiController">
-    <content>
-        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="829.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
-            <children>
-                <Label fx:id="tieuDe" layoutX="169.0" layoutY="14.0" text="Chỉnh sửa thông tin phần thưởng năm " textFill="#f8f3f3">
-                    <font>
-                        <Font name="System Bold" size="30.0" />
-                    </font>
-                </Label>
-                <Label layoutX="669.0" layoutY="105.0" text="Ghi chú: (*) là các trường bắt buộc " textFill="#f7ff05">
-                    <font>
-                        <Font name="System Italic" size="20.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="56.0" layoutY="175.0" prefHeight="44.0" prefWidth="300.0">
-                    <children>
-                        <Label layoutY="8.0" text="Năm học:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label fx:id="namHoc" layoutX="113.0" layoutY="8.0" text="Năm học" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1268.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChinhSuaHocSinhGioiController">
+      <children>
+          <Label fx:id="tieuDe" layoutX="295.0" layoutY="14.0" text="Chỉnh sửa thông tin phần thưởng năm " textFill="#f8f3f3">
+              <font>
+                  <Font name="System Bold" size="30.0" />
+              </font>
+          </Label>
+          <Label layoutX="669.0" layoutY="105.0" text="Ghi chú: (*) là các trường bắt buộc " textFill="#f7ff05">
+              <font>
+                  <Font name="System Italic" size="20.0" />
+              </font>
+          </Label>
+          <Pane layoutX="56.0" layoutY="175.0" prefHeight="44.0" prefWidth="300.0">
+              <children>
+                  <Label layoutY="8.0" text="Năm học:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="238.0" prefHeight="44.0" prefWidth="1150.0">
-                    <children>
-                        <Label layoutY="8.0" text="Phần quà học sinh đặc biệt:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="tienDacBiet" layoutX="940.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                        <Label layoutX="1100.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="890.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="phanThuongDacBiet" layoutX="286.0" prefHeight="44.0" prefWidth="595.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="317.0" prefHeight="44.0" prefWidth="1150.0">
-                    <children>
-                        <Label layoutY="8.0" text="Phần quà học sinh giỏi:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="phanThuongGioi" layoutX="286.0" prefHeight="44.0" prefWidth="595.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                        <TextField fx:id="tienGioi" layoutX="940.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                        <Label layoutX="1100.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="890.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="394.0" prefHeight="44.0" prefWidth="1150.0">
-                    <children>
-                        <Label layoutY="8.0" text="Phần quà học sinh khá:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="phanThuongKha" layoutX="286.0" prefHeight="44.0" prefWidth="595.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                        <TextField fx:id="tienKha" layoutX="940.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                        <Label layoutX="1100.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="890.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="466.0" prefHeight="44.0" prefWidth="1124.0">
-                    <children>
-                        <Label layoutY="8.0" text="Mô tả:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="moTa" layoutX="88.0" prefHeight="44.0" prefWidth="1003.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                    </children>
-                </Pane>
-                <Button layoutX="836.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận thay đổi">
-                    <font>
-                        <Font name="System Bold" size="20.0" />
-                    </font>
-                </Button>
-                <Button layoutX="1079.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#huyClick" style="-fx-background-color: #F1D4A7;" text="Hủy">
-                    <font>
-                        <Font name="System Bold" size="20.0" />
-                    </font>
-                </Button>
-            <Label layoutX="56.0" layoutY="105.0" text="Điền đầy đủ các trường thông tin cần thiết:" textFill="#f7ff05">
+            <Label fx:id="namHoc" layoutX="113.0" layoutY="8.0" text="Năm học" textFill="#f7ff05">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
-            </children>
-        </Pane>
-    </content>
-</ScrollPane>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="238.0" prefHeight="44.0" prefWidth="1150.0">
+              <children>
+                  <Label layoutY="8.0" text="Phần quà học sinh đặc biệt:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <TextField fx:id="tienDacBiet" layoutX="940.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+                  <Label layoutX="1100.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
+                      <font>
+                          <Font size="20.0" />
+                      </font>
+                  </Label>
+                  <Label layoutX="890.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <TextField fx:id="phanThuongDacBiet" layoutX="286.0" prefHeight="44.0" prefWidth="595.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="317.0" prefHeight="44.0" prefWidth="1150.0">
+              <children>
+                  <Label layoutY="8.0" text="Phần quà học sinh giỏi:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <TextField fx:id="phanThuongGioi" layoutX="286.0" prefHeight="44.0" prefWidth="595.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+                  <TextField fx:id="tienGioi" layoutX="940.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+                  <Label layoutX="1100.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
+                      <font>
+                          <Font size="20.0" />
+                      </font>
+                  </Label>
+                  <Label layoutX="890.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="394.0" prefHeight="44.0" prefWidth="1150.0">
+              <children>
+                  <Label layoutY="8.0" text="Phần quà học sinh khá:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <TextField fx:id="phanThuongKha" layoutX="286.0" prefHeight="44.0" prefWidth="595.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+                  <TextField fx:id="tienKha" layoutX="940.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+                  <Label layoutX="1100.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
+                      <font>
+                          <Font size="20.0" />
+                      </font>
+                  </Label>
+                  <Label layoutX="890.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="466.0" prefHeight="44.0" prefWidth="1124.0">
+              <children>
+                  <Label layoutY="8.0" text="Mô tả:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+                  <TextField fx:id="moTa" layoutX="88.0" prefHeight="44.0" prefWidth="1003.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+              </children>
+          </Pane>
+          <Button layoutX="836.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận thay đổi">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+          <Button layoutX="1079.0" layoutY="552.0" mnemonicParsing="false" onMouseClicked="#huyClick" style="-fx-background-color: #F1D4A7;" text="Hủy">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+      <Label layoutX="56.0" layoutY="105.0" text="Điền đầy đủ các trường thông tin cần thiết:" textFill="#f7ff05">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      </children>
+  </Pane>

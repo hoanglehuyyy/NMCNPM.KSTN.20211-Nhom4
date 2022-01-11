@@ -79,6 +79,11 @@ public class ChinhSuaDipDacBietController {
                     alert.setHeaderText(Message.yeuCauDoiTenDip);
                     alert.show();
                 }
+                else if (Integer.parseInt(tien05.getText()) <= Integer.parseInt(tien614.getText()) || Integer.parseInt(tien614.getText()) <= Integer.parseInt(tien1517.getText())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(Message.yeuCauDoiTienThuong);
+                    alert.show();
+                }
                 else {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setHeaderText(Message.xacNhanThayDoiThongTinDip);

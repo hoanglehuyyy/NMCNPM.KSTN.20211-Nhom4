@@ -54,6 +54,8 @@ public class NguoiDungController {
 //                stage.setMaximized(true);
                 stage.setWidth(1400);
                 stage.setHeight(780);
+                stage.setX(10);
+                stage.setY(10);
                 stage.show();
             } else {
                 dangNhapThatBaiMessage.setText(Message.dangNhapThatBai);

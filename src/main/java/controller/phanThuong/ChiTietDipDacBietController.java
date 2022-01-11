@@ -50,24 +50,6 @@ public class ChiTietDipDacBietController {
         moTa.setText(dipDacBiet.getMoTa());
     }
 
-    @SneakyThrows
-    public void chinhSuaThongTin(MouseEvent mouseEvent) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/phanThuong/chinhSuaDipDacBiet.fxml"));
-        Parent p = loader.load();
-        ChinhSuaDipDacBietController c = loader.getController();
-        c.setThongTin(dipDacBiet);
-        Utility.setStage(p);
-    }
-
-    @SneakyThrows
-    public void xemDanhSach(MouseEvent mouseEvent) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/phanThuong/ddbDanhSachNhanThuong.fxml"));
-        Parent p = loader.load();
-        DdbDanhSachNhanThuongController d = loader.getController();
-        d.setDanhSach(dipDacBiet);
-        Utility.setStage(p);
-    }
-
     public void quayLaiClick(MouseEvent mouseEvent) {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.close();

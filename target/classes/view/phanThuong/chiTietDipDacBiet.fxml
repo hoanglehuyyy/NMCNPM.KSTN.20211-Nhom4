@@ -4,145 +4,131 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="791.0" prefWidth="1214.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChiTietDipDacBietController">
-    <content>
-        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
-            <children>
-                <Label fx:id="tieuDe" layoutX="217.0" layoutY="14.0" text="Chi tiết phần thưởng dịp " textFill="#f8f3f3">
-                    <font>
-                        <Font name="System Bold" size="30.0" />
-                    </font>
-                </Label>
-                <Pane layoutX="56.0" layoutY="175.0" prefHeight="44.0" prefWidth="300.0">
-                    <children>
-                        <Label layoutY="8.0" text="Năm học:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label fx:id="namHoc" layoutX="126.0" layoutY="6.0" text="Năm học" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1175.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChiTietDipDacBietController">
+      <children>
+          <Label fx:id="tieuDe" layoutX="217.0" layoutY="14.0" text="Chi tiết phần thưởng dịp " textFill="#f8f3f3">
+              <font>
+                  <Font name="System Bold" size="30.0" />
+              </font>
+          </Label>
+          <Pane layoutX="56.0" layoutY="175.0" prefHeight="44.0" prefWidth="300.0">
+              <children>
+                  <Label layoutY="8.0" text="Năm học:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="238.0" prefHeight="44.0" prefWidth="1100.0">
-                    <children>
-                        <Label layoutY="8.0" text="Độ tuổi từ 0 đến 5 tuổi:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="880.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label fx:id="phanThuong05" layoutX="272.0" layoutY="7.0" text="Phần thưởng" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+            <Label fx:id="namHoc" layoutX="126.0" layoutY="6.0" text="Năm học" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="238.0" prefHeight="44.0" prefWidth="1100.0">
+              <children>
+                  <Label layoutY="8.0" text="Độ tuổi từ 0 đến 5 tuổi:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                  <Label fx:id="tien05" layoutX="935.0" layoutY="7.0" text="Tiền" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <Label layoutX="880.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="317.0" prefHeight="44.0" prefWidth="1100.0">
-                    <children>
-                        <Label layoutY="8.0" text="Độ tuổi từ 6 đến 14 tuổi:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="880.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label fx:id="phanThuong614" layoutX="274.0" layoutY="7.0" text="Phần thưởng" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+            <Label fx:id="phanThuong05" layoutX="272.0" layoutY="7.0" text="Phần thưởng" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tien05" layoutX="935.0" layoutY="7.0" text="Tiền" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="317.0" prefHeight="44.0" prefWidth="1100.0">
+              <children>
+                  <Label layoutY="8.0" text="Độ tuổi từ 6 đến 14 tuổi:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                  <Label fx:id="tien614" layoutX="937.0" layoutY="7.0" text="Tiền" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <Label layoutX="880.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="394.0" prefHeight="44.0" prefWidth="1100.0">
-                    <children>
-                        <Label layoutY="8.0" text="Độ tuổi từ 15 đến 17 tuổi:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="880.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label fx:id="phanThuong1517" layoutX="271.0" layoutY="7.0" text="Phần thưởng" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+            <Label fx:id="phanThuong614" layoutX="274.0" layoutY="7.0" text="Phần thưởng" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tien614" layoutX="937.0" layoutY="7.0" text="Tiền" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="394.0" prefHeight="44.0" prefWidth="1100.0">
+              <children>
+                  <Label layoutY="8.0" text="Độ tuổi từ 15 đến 17 tuổi:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                  <Label fx:id="tien1517" layoutX="934.0" layoutY="7.0" text="Tiền" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <Label layoutX="880.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="466.0" prefHeight="44.0" prefWidth="853.0">
-                    <children>
-                        <Label layoutY="8.0" text="Mô tả:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label fx:id="moTa" layoutX="79.0" layoutY="8.0" text="Phần thưởng" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+            <Label fx:id="phanThuong1517" layoutX="271.0" layoutY="7.0" text="Phần thưởng" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tien1517" layoutX="934.0" layoutY="7.0" text="Tiền" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="466.0" prefHeight="44.0" prefWidth="853.0">
+              <children>
+                  <Label layoutY="8.0" text="Mô tả:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                    </children>
-                </Pane>
-                <Button layoutX="841.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#quayLaiClick" style="-fx-background-color: #F1D4A7;" text="Quay lại">
-                    <font>
-                        <Font name="System Bold" size="20.0" />
-                    </font>
-                </Button>
-            <Pane layoutX="56.0" layoutY="100.0" prefHeight="44.0" prefWidth="617.0">
-               <children>
-                  <Label layoutY="8.0" text="Tên dịp:" textFill="#f8f1f1">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="tenDip" layoutX="125.0" layoutY="8.0" text="Tên dịp" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Button layoutX="410.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#xemDanhSach" style="-fx-background-color: #F1D4A7;" text="Xem danh sách nhận thưởng">
+            <Label fx:id="moTa" layoutX="79.0" layoutY="8.0" text="Phần thưởng" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Button layoutX="841.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#quayLaiClick" style="-fx-background-color: #F1D4A7;" text="Quay lại">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+      <Pane layoutX="56.0" layoutY="100.0" prefHeight="44.0" prefWidth="617.0">
+         <children>
+            <Label layoutY="8.0" text="Tên dịp:" textFill="#f8f1f1">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
-            </Button>
-            <Button layoutX="56.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#chinhSuaThongTin" style="-fx-background-color: #F1D4A7;" text="Chỉnh sửa thông tin dịp">
+            </Label>
+            <Label fx:id="tenDip" layoutX="125.0" layoutY="8.0" text="Tên dịp" textFill="#f7ff05">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font size="20.0" />
                </font>
-            </Button>
-            </children>
-        </Pane>
-    </content>
-</ScrollPane>
+            </Label>
+         </children>
+      </Pane>
+      </children>
+  </Pane>

@@ -65,16 +65,18 @@ public class MinhChungNhanThuongController implements Initializable {
     public void taiAnhMinhChung(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog((Stage) ((Node) actionEvent.getSource()).getScene().getWindow());
-        String mimetype = Files.probeContentType(file.toPath());
-        if (mimetype != null && mimetype.split("/")[0].equals("image")) {
-            String url = file.getPath();
-            Image image = new Image(url);
-            anhMinhChung.setImage(image);
-        }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(Message.yeuCauDoiFileAnh);
-            alert.show();
+        if (file != null) {
+            String mimetype = Files.probeContentType(file.toPath());
+            if (mimetype != null && mimetype.split("/")[0].equals("image")) {
+                String url = file.getPath();
+                Image image = new Image(url);
+                anhMinhChung.setImage(image);
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(Message.yeuCauDoiFileAnh);
+                alert.show();
+            }
         }
     }
 
@@ -107,13 +109,5 @@ public class MinhChungNhanThuongController implements Initializable {
     public void huyClick(MouseEvent mouseEvent) {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.close();
-    }
-
-    @SneakyThrows
-    public void xemThongTinNhanKhau(MouseEvent mouseEvent) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/nhanKhau/chiTietNhanKhau.fxml"));
-        Parent p = loader.load();
-        ThongTinNhanKhauController t = loader.getController();
     }
 }

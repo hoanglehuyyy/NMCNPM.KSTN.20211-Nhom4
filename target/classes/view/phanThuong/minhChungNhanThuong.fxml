@@ -6,163 +6,151 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="878.0" prefWidth="1076.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.MinhChungNhanThuongController">
-    <content>
-        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="896.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
-            <children>
-                <Label layoutX="185.0" layoutY="7.0" text="Minh chứng nhận thưởng học sinh giỏi" textFill="#f8f3f3">
-                    <font>
-                        <Font name="System Bold" size="30.0" />
-                    </font>
-                </Label>
-                <Label layoutX="530.0" layoutY="234.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="#f7ff05">
-                    <font>
-                        <Font name="System Italic" size="20.0" />
-                    </font>
-                </Label>
-            <Pane layoutX="56.0" layoutY="76.0" prefHeight="44.0" prefWidth="260.0">
-               <children>
-                  <Label layoutY="8.0" text="Năm học:" textFill="#f8f1f1">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="975.0" prefWidth="1235.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.MinhChungNhanThuongController">
+      <children>
+          <Label layoutX="255.0" layoutY="14.0" text="Minh chứng nhận thưởng học sinh giỏi" textFill="#f8f3f3">
+              <font>
+                  <Font name="System Bold" size="30.0" />
+              </font>
+          </Label>
+          <Label layoutX="530.0" layoutY="234.0" text="Ghi chú: (*) là các trường bắt buộc phải nhập" textFill="#f7ff05">
+              <font>
+                  <Font name="System Italic" size="20.0" />
+              </font>
+          </Label>
+      <Pane layoutX="56.0" layoutY="76.0" prefHeight="44.0" prefWidth="260.0">
+         <children>
+            <Label layoutY="8.0" text="Năm học:" textFill="#f8f1f1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="namHoc" layoutX="153.0" layoutY="8.0" text="Năm học" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+          <Pane layoutX="56.0" layoutY="120.0" prefHeight="44.0" prefWidth="219.0">
+              <children>
+                  <Label layoutY="8.0" text="ID nhân khẩu:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                  <Label fx:id="namHoc" layoutX="153.0" layoutY="8.0" text="Năm học" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+            <Label fx:id="idNhanKhau" layoutX="157.0" layoutY="8.0" text="ID" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="301.0" prefHeight="44.0" prefWidth="897.0">
+              <children>
+                  <Label layoutY="8.0" text="Trường học:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-               </children>
-            </Pane>
-                <Pane layoutX="56.0" layoutY="120.0" prefHeight="44.0" prefWidth="219.0">
-                    <children>
-                        <Label layoutY="8.0" text="ID nhân khẩu:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label fx:id="idNhanKhau" layoutX="157.0" layoutY="8.0" text="ID" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <Label layoutX="550.0" layoutY="7.0" text="(*)" textFill="#f7ff05">
+                      <font>
+                          <Font size="20.0" />
+                      </font>
                   </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="301.0" prefHeight="44.0" prefWidth="897.0">
-                    <children>
-                        <Label layoutY="8.0" text="Trường học:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="550.0" layoutY="7.0" text="(*)" textFill="#f7ff05">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="truongHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="380.0" prefHeight="44.0" prefWidth="897.0">
-                    <children>
-                        <Label layoutY="8.0" text="Lớp học:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <TextField fx:id="lopHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
-                            <font>
-                                <Font size="16.0" />
-                            </font>
-                        </TextField>
-                        <Label layoutX="550.0" layoutY="7.0" text="(*)" textFill="#f7ff05">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="457.0" prefHeight="44.0" prefWidth="897.0">
-                    <children>
-                        <Label layoutY="8.0" text="Thành tích:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="550.0" layoutY="7.0" text="(*)" textFill="#f7ff05">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Label>
-                  <ChoiceBox fx:id="thanhTich" layoutX="169.0" prefHeight="44.0" prefWidth="218.0" style="-fx-font-size: 20; -fx-background-color: #FFFFC9 #FFFFC9;">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ChoiceBox>
-                    </children>
-                </Pane>
-                <Pane layoutX="56.0" layoutY="529.0" prefHeight="44.0" prefWidth="1006.0">
-                    <children>
-                        <Label layoutY="8.0" text="Minh chứng:" textFill="#f8f1f1">
-                            <font>
-                                <Font name="System Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <Label layoutX="959.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+                  <TextField fx:id="truongHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="380.0" prefHeight="44.0" prefWidth="897.0">
+              <children>
+                  <Label layoutY="8.0" text="Lớp học:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-                  <Button layoutX="169.0" layoutY="1.0" mnemonicParsing="false" onAction="#taiAnhMinhChung" style="-fx-background-color: #F1D4A7;" text="Tải ảnh minh chứng từ máy">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Button>
-                    </children>
-                </Pane>
-                <Button layoutX="56.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
-                    <font>
-                        <Font name="System Bold" size="20.0" />
-                    </font>
-                </Button>
-                <Button layoutX="262.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#huyClick" style="-fx-background-color: #F1D4A7;" text="Hủy">
-                    <font>
-                        <Font name="System Bold" size="20.0" />
-                    </font>
-                </Button>
-                <Label layoutX="56.0" layoutY="234.0" text="Nhập đầy đủ các trường thông tin cần thiết:" textFill="#f7ff05">
-                    <font>
-                        <Font name="System Bold Italic" size="20.0" />
-                    </font>
-                </Label>
-            <Pane layoutX="56.0" layoutY="171.0" prefHeight="44.0" prefWidth="219.0">
-               <children>
-                  <Label layoutY="8.0" text="Tên nhân khẩu:" textFill="#f8f1f1">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
+                  <TextField fx:id="lopHoc" layoutX="168.0" layoutY="4.0" prefHeight="37.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
+                      <font>
+                          <Font size="16.0" />
+                      </font>
+                  </TextField>
+                  <Label layoutX="550.0" layoutY="7.0" text="(*)" textFill="#f7ff05">
+                      <font>
+                          <Font size="20.0" />
+                      </font>
                   </Label>
-                  <Label fx:id="tenNhanKhau" layoutX="161.0" layoutY="8.0" text="Tên" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="457.0" prefHeight="44.0" prefWidth="897.0">
+              <children>
+                  <Label layoutY="8.0" text="Thành tích:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
                   </Label>
-               </children>
-            </Pane>
-            <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="310.0" layoutY="124.0" onMouseClicked="#xemThongTinNhanKhau" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/info_icon.png" />
-               </image>
+                  <Label layoutX="550.0" layoutY="7.0" text="(*)" textFill="#f7ff05">
+                      <font>
+                          <Font size="20.0" />
+                      </font>
+                  </Label>
+            <ChoiceBox fx:id="thanhTich" layoutX="169.0" prefHeight="44.0" prefWidth="218.0" style="-fx-font-size: 20; -fx-background-color: #FFFFC9 #FFFFC9;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </ImageView>
-            <ImageView fx:id="anhMinhChung" fitHeight="306.0" fitWidth="480.0" layoutX="529.0" layoutY="529.0" pickOnBounds="true" preserveRatio="true" />
-            </children>
-        </Pane>
-    </content>
-</ScrollPane>
+            </ChoiceBox>
+              </children>
+          </Pane>
+          <Pane layoutX="56.0" layoutY="529.0" prefHeight="44.0" prefWidth="1115.0">
+              <children>
+                  <Label layoutY="8.0" text="Minh chứng:" textFill="#f8f1f1">
+                      <font>
+                          <Font name="System Bold" size="20.0" />
+                      </font>
+                  </Label>
+            <Label layoutX="1080.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="169.0" layoutY="1.0" mnemonicParsing="false" onAction="#taiAnhMinhChung" style="-fx-background-color: #F1D4A7;" text="Tải ảnh minh chứng từ máy">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+              </children>
+          </Pane>
+          <Button layoutX="56.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+          <Button layoutX="262.0" layoutY="624.0" mnemonicParsing="false" onMouseClicked="#huyClick" style="-fx-background-color: #F1D4A7;" text="Hủy">
+              <font>
+                  <Font name="System Bold" size="20.0" />
+              </font>
+          </Button>
+          <Label layoutX="56.0" layoutY="234.0" text="Nhập đầy đủ các trường thông tin cần thiết:" textFill="#f7ff05">
+              <font>
+                  <Font name="System Bold Italic" size="20.0" />
+              </font>
+          </Label>
+      <Pane layoutX="56.0" layoutY="171.0" prefHeight="44.0" prefWidth="219.0">
+         <children>
+            <Label layoutY="8.0" text="Tên nhân khẩu:" textFill="#f8f1f1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tenNhanKhau" layoutX="161.0" layoutY="8.0" text="Tên" textFill="#f7ff05">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fx:id="anhMinhChung" fitHeight="419.0" fitWidth="595.0" layoutX="529.0" layoutY="529.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+  </Pane>
