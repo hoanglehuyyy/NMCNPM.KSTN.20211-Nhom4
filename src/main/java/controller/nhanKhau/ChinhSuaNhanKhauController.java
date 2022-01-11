@@ -211,7 +211,7 @@ public class ChinhSuaNhanKhauController  {
             }
 
             if (CMNDLabel.getText()=="" ){
-                preparedStatement.setString(12, null);
+                preparedStatement.setString(12, "");
             }else{
                 preparedStatement.setString(12, CMNDLabel.getText());
             }
