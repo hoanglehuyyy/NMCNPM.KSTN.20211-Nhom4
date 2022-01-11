@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static utility.SQLCommand.NHAN_KHAU_QUERY_INSERT_NHANKHAU;
+
 
 public class ThemNhanKhauController implements Initializable {
     @FXML
@@ -104,13 +106,10 @@ public class ThemNhanKhauController implements Initializable {
             alert.showAndWait();
 
         } else {
-            getQuery();
             insert();
             clean();
 
-            // do what you have to do
-
-            Alert alert_TC = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert_TC = new Alert(Alert.AlertType.INFORMATION);
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Thêm thành công");
             alert_TC.showAndWait();
@@ -152,51 +151,14 @@ public class ThemNhanKhauController implements Initializable {
     }
     @FXML
     private void huy(MouseEvent event) {
-        hoTenF.setText(null);
-        biDanhF.setText(null);
-        ngaySinhF.setValue(null);
-        noiSinhF.setText(null);
-        nguyenQuanF.setText(null);
-        danTocF.setText(null);
-        tonGiaoF.setText(null);
-        quocTichF.setText(null);
-        ngheNghiepF.setText(null);
-        noiLamViecF.setText(null);
-        CMNDF.setText(null);
-        ngayCapF.setValue(null);
-        chuyenDenNgayF.setValue(null);
-        noiThuongTruTruocF.setText(null);
+        final Node source = (Node) event.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
 
 
     }
 
-    private void getQuery() {
 
-
-
-            query = "INSERT INTO `nhan_khau`( `hoTen`, `biDanh`, `ngaySinh`, `noiSinh`, `gioiTinh`, `nguyenQuan`, `danToc`, `tonGiao`, `quocTich`, `ngheNghiep`, `noiLamViec`, `cmnd`, `ngayCap`, `chuyenDenNgay`, `noiThuongTruTruoc`, `trangThai`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-
-//            query = "UPDATE `nhan_khau` SET " +
-//                    "`hoTen`=?," +
-//                    "`biDanh`=?," +
-//                    "`ngaySinh`=?," +
-//                    "`noiSinh`=?," +
-//                    "`gioiTinh`=?," +
-//                    "`nguyenQuan`=?," +
-//                    "`danToc`=?," +
-//                    "`tonGiao`=?," +
-//                    "`quocTich`=?," +
-//                    "`ngheNghiep`=?," +
-//                    "`noiLamViec`=?," +
-//                    "`cmnd`=?," +
-//                    "`ngayCap`=?," +
-//                    "`chuyenDenNgay`=?," +
-//                    "`noiThuongTruTruoc`=?," +
-//                    "`trangThai`=?  WHERE idNhanKhau  = '"+nhanKhauId+"'";
-
-
-    }
 
     private void insert() {
 
@@ -205,7 +167,7 @@ public class ThemNhanKhauController implements Initializable {
 
         try {
 
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_INSERT_NHANKHAU);
             preparedStatement.setString(1, hoTenF.getText());
 
             if (biDanhF.getText()=="" ){
