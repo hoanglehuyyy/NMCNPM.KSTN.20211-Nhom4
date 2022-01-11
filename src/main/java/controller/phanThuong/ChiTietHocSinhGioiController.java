@@ -1,85 +1,81 @@
 package controller.phanThuong;
 
 import entity.DipHocSinhGioi;
-import entity.NhanKhau;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import utility.Variable;
+import lombok.SneakyThrows;
+import repository.HocSinhGioiRepositoryImpl;
+import repository.HocSinhGioiRepository;
+import utility.Utility;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class ChiTietHocSinhGioiController implements Initializable {
+public class ChiTietHocSinhGioiController {
 
     @FXML
     private Label tieuDe;
     @FXML
-    private TextField namHoc;
+    private Label namHoc;
     @FXML
-    private TextField tienDacBiet;
+    private Label tienDacBiet;
     @FXML
-    private TextField phanThuongDacBiet;
+    private Label phanThuongDacBiet;
     @FXML
-    private TextField phanThuongGioi;
+    private Label phanThuongGioi;
     @FXML
-    private TextField tienGioi;
+    private Label tienGioi;
     @FXML
-    private TextField phanThuongKha;
+    private Label phanThuongKha;
     @FXML
-    private TextField tienKha;
+    private Label tienKha;
     @FXML
-    private TextField moTa;
-    @FXML
-    private Button xacNhanButton;
-    @FXML
-    private Button huyButton;
-    @FXML
-    private TextField searchText;
-    @FXML
-    private ComboBox comboBox;
+    private Label moTa;
 
-    ObservableList<String> truongTraCuu = FXCollections.observableArrayList(Variable.ID_NHAN_KHAU, Variable.TEN_NHAN_KHAU, Variable.NAM_HOC);
 
     private DipHocSinhGioi dipHocSinhGioi = new DipHocSinhGioi();
+    private HocSinhGioiRepository hocSinhGioiImpl = new HocSinhGioiRepositoryImpl();
     public void setDipHocSinhGioi(DipHocSinhGioi dipHocSinhGioi) {
         this.dipHocSinhGioi = dipHocSinhGioi;
-        tieuDe.setText(tieuDe.getText() + " " + dipHocSinhGioi.getNam());
+        tieuDe.setText(tieuDe.getText() + dipHocSinhGioi.getNam());
         namHoc.setText(String.valueOf(dipHocSinhGioi.getNam()));
-        tienDacBiet.setText(String.valueOf(dipHocSinhGioi.getTienDacBiet()));
-        phanThuongDacBiet.setText(String.valueOf(dipHocSinhGioi.getPhanQuaDacBiet()));
-        phanThuongGioi.setText(String.valueOf(dipHocSinhGioi.getPhanQuaGioi()));
-        tienGioi.setText(String.valueOf(dipHocSinhGioi.getTienGioi()));
-        phanThuongKha.setText(String.valueOf(dipHocSinhGioi.getPhanQuaKha()));
-        tienKha.setText(String.valueOf(dipHocSinhGioi.getTienKha()));
+        tienDacBiet.setText(dipHocSinhGioi.getTienDacBiet() + " VND");
+        phanThuongDacBiet.setText(dipHocSinhGioi.getPhanQuaDacBiet());
+        phanThuongGioi.setText(dipHocSinhGioi.getPhanQuaGioi());
+        tienGioi.setText(dipHocSinhGioi.getTienGioi() + " VND");
+        phanThuongKha.setText(dipHocSinhGioi.getPhanQuaKha());
+        tienKha.setText(dipHocSinhGioi.getTienKha() + "VND");
+        moTa.setText(dipHocSinhGioi.getMoTa());
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        comboBox.setItems(truongTraCuu);
+    @SneakyThrows
+    public void chinhSuaThongTin(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/phanThuong/chinhSuaHocSinhGioi.fxml"));
+        Parent p = loader.load();
+        ChinhSuaHocSinhGioiController c = loader.getController();
+        c.setThongTin(dipHocSinhGioi);
+        Stage stage = Utility.setStage(p);
+        stage.setOnHidden(windowEvent -> {
+            ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
+        });
     }
 
-    public void searchClick(MouseEvent mouseEvent) {
+    @SneakyThrows
+    public void xemDanhSach(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/phanThuong/hsgDanhSachNhanThuong.fxml"));
+        Parent p = loader.load();
+        HsgDanhSachNhanThuongController h = loader.getController();
+        h.setDanhSach(dipHocSinhGioi);
+        Utility.setStage(p);
     }
 
-    public void xacNhanClick(MouseEvent mouseEvent) {
-    }
-
-    public void huyClick(MouseEvent mouseEvent) {
+    public void quayLaiClick(MouseEvent mouseEvent) {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.close();
     }
-
-    public void searchEnter(KeyEvent keyEvent) {
-    }
-
 }

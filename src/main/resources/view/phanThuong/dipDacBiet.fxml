@@ -30,12 +30,12 @@
                               <Image url="@../../image/search.png" />
                           </image>
                       </ImageView>
-                      <TextField fx:id="ddbSerachText" layoutX="24.0" onKeyPressed="#ddbSearchEnter" prefHeight="50.0" prefWidth="363.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
+                      <TextField fx:id="searchText" editable="false" layoutX="24.0" onKeyPressed="#ddbSearchEnter" prefHeight="50.0" prefWidth="363.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
                           <font>
                               <Font size="15.0" />
                           </font>
                       </TextField>
-                      <ComboBox fx:id="ddbComboBox" layoutX="397.0" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+                      <ComboBox fx:id="comboBox" layoutX="397.0" onAction="#truongTraCuu" prefHeight="49.0" prefWidth="196.0" promptText="Chọn trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
                   </children>
               </Pane>
               <AnchorPane layoutX="56.0" layoutY="223.0" prefHeight="410.0" prefWidth="760.0">
@@ -48,6 +48,16 @@
                               <TableColumn fx:id="ddbSoNguoiCol" editable="false" prefWidth="202.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Số người chưa trao thưởng" />
                               <TableColumn fx:id="ddbMoTaCol" editable="false" prefWidth="222.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
                           </columns>
+                          <contextMenu>
+                              <ContextMenu>
+                                  <items>
+                                      <MenuItem mnemonicParsing="false" onAction="#xemDip" text="Xem chi tiết dịp trao thưởng" />
+                                      <MenuItem mnemonicParsing="false" onAction="#xemDanhSach" text="Xem danh sách nhân khẩu được nhận thưởng" />
+                                      <MenuItem mnemonicParsing="false" onAction="#chinhSuaThongTin" text="Chỉnh sửa thông tin dịp trao thưởng" />
+                                      <MenuItem mnemonicParsing="false" onAction="#xoaDip" text="Xóa dịp trao thưởng" />
+                                  </items>
+                              </ContextMenu>
+                          </contextMenu>
                       </TableView>
                   </children>
               </AnchorPane>

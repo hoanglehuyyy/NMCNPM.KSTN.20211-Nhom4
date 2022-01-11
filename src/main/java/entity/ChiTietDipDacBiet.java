@@ -13,5 +13,5 @@ public class ChiTietDipDacBiet {
     private Integer idDip;
     private Integer idNhanKhau;
     private Integer nhom;
-    private Integer kiemTra;
+    private Boolean kiemTra;
 }

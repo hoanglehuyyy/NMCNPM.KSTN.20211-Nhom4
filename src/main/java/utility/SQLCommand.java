@@ -8,6 +8,7 @@ public class SQLCommand {
     public static String NHAN_KHAU_QUERY_TONG_THUONG_TRU = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'Thường trú'";
     public static String NHAN_KHAU_QUERY_TONG_DA_CHUYEN_DI = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'Đã chuyển đi'";
     public static String NHAN_KHAU_QUERY_TONG_DA_MAT = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N'Đã mất'";
+    public static String NHAN_KHAU_DUOI_18_TUOI = "SELECT idNhanKhau, DATEDIFF(CURRENT_DATE, ngaySinh)/365 as tuoi FROM nhan_khau WHERE DATEDIFF(CURRENT_DATE, ngaySinh)/365 < 18";
     public static String NHAN_KHAU_QUERY_TONG_KHONG_XAC_DINH = "SELECT COUNT(*) FROM nhan_khau WHERE trangThai = N''";
 //    public static String NHAN_KHAU_QUERY_TONG_TAM_TRU = "SELECT COUNT(*)\n" +
 //            "FROM nhan_khau nk, tam_tru tt\n" +
@@ -175,6 +176,36 @@ public class SQLCommand {
             "where nam = ?";
 
     // dip_dac_biet
+    public static String DIP_DAC_BIET_QUERY_BANG_DIP = "SELECT d.*, a.soNguoi \n" +
+            "FROM dip_dac_biet d,\n" +
+            "(SELECT d.idDip, COUNT(c.idNhanKhau) soNguoi FROM dip_dac_biet d LEFT JOIN chi_tiet_dip_dac_biet c\n" +
+            "ON (d.idDip = c.idDip and c.kiemtra = 0)\n" +
+            "GROUP BY d.idDip) a\n" +
+            "WHERE d.idDip = a.idDip";
+
+    public static String DIP_DAC_BIET_TRA_CUU_DIP = "SELECT d.*, a.soNguoi\n" +
+            "FROM dip_dac_biet d,\n" +
+            "(SELECT d.idDip, COUNT(c.idNhanKhau) soNguoi FROM dip_dac_biet d LEFT JOIN chi_tiet_dip_dac_biet c\n" +
+            "ON (d.idDip = c.idDip and c.kiemtra = 0)\n" +
+            "GROUP BY d.idDip) a\n" +
+            "WHERE d.idDip = a.idDip and ten LIKE ? and nam = ?";
+
+    public static String DIP_DAC_BIET_TAO_MOI_DIP = "INSERT INTO dip_dac_biet(ten, nam, moTa, phanQua05, phanQua614, phanQua1517, tien05, tien614, tien1517) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    public static String DIP_DAC_BIET_TRA_CUU_BY_TEN_NAM = "SELECT * FROM dip_dac_biet WHERE ten = ? and nam = ?";
+
+    public static String DIP_DAC_BIET_XOA_DIP_TRAO_THUONG = "DELETE FROM dip_dac_biet WHERE idDip = ?";
+
+    public static String DIP_DAC_BIET_CHINH_SUA = "UPDATE dip_dac_biet SET ten = ?,\n" +
+            " phanQua05 = ?,\n" +
+            " phanQua614 = ?,\n" +
+            " phanQua1517 = ?,\n" +
+            " tien05 = ?,\n" +
+            " tien614 = ?,\n" +
+            " tien1517 = ?,\n" +
+            " moTa = ?\n" +
+            " WHERE idDip = ?";
+
     public static String DIP_DAC_BIET_QUERY_NAM = "select *\n" +
             "from dip_dac_biet\n" +
             "where nam = ?";
@@ -193,16 +224,47 @@ public class SQLCommand {
             " ON (d.idDip = c.idDip and c.kiemtra = 0)\n" +
             " GROUP BY d.idDip) a\n" +
             "WHERE d.idDip = a.idDip";
+
+    public static String HOC_SINH_GIOI_TRA_CUU_DIP = "SELECT d.*, a.soNguoi \n" +
+            "FROM dip_hoc_sinh_gioi d,\n" +
+            "(SELECT d.idDip, COUNT(c.idNhanKhau) soNguoi FROM dip_hoc_sinh_gioi d LEFT JOIN chi_tiet_dip_hoc_sinh_gioi c\n" +
+            " ON (d.idDip = c.idDip and c.kiemtra = 0)\n" +
+            " GROUP BY d.idDip) a\n" +
+            "WHERE d.idDip = a.idDip and d.nam = ?";
+
+    public static String HOC_SINH_GIOI_XOA_DIP_TRAO_THUONG = "DELETE FROM dip_hoc_sinh_gioi WHERE idDip = ?";
+
+    public static String HOC_SINH_GIOI_TAO_MOI_DIP = "INSERT INTO dip_hoc_sinh_gioi(nam, moTa, phanQuaDacBiet, phanQuaGioi, phanQuaKha, tienDacBiet, tienGioi, tienKha) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ";
+
+    public static String HOC_SINH_GIOI_CHINH_SUA = "UPDATE dip_hoc_sinh_gioi SET\n" +
+            " phanQuaDacBiet = ?,\n" +
+            " phanQuaGioi = ?,\n" +
+            " phanQuaKha = ?,\n" +
+            " tienDacBiet = ?,\n" +
+            " tienGioi = ?,\n" +
+            " tienKha = ?,\n" +
+            " moTa = ?\n" +
+            " WHERE idDip = ?";
+    public static String HOC_SINH_GIOI_TRA_CUU_BY_NAM = "SELECT * FROM dip_hoc_sinh_gioi WHERE nam = ?";
+
     public static String HOC_SINH_GIOI_QUERY_TIM_NAM = "SELECT * FROM dip_hoc_sinh_gioi WHERE nam = ?";
 
 
     // chi_tiet_dip_dac_biet
-    public static String DIP_DAC_BIET_QUERY_BANG_DIP = "SELECT d.*, a.soNguoi \n" +
-            "FROM dip_dac_biet d,\n" +
-            "(SELECT d.idDip, COUNT(c.idNhanKhau) soNguoi FROM dip_dac_biet d LEFT JOIN chi_tiet_dip_dac_biet c\n" +
-            " ON (d.idDip = c.idDip and c.kiemtra = 0)\n" +
-            " GROUP BY d.idDip) a\n" +
-            "WHERE d.idDip = a.idDip";
+    public static String CHI_TIET_DIP_DAC_BIET_THEM_NHAN_KHAU = "INSERT INTO chi_tiet_dip_dac_biet(idDip, idNhanKhau, nhom, kiemtra) VALUES (?, ?, ?, ?)";
+
+    public static String CHI_TIET_DIP_DAC_BIET_BANG_NHAN_THUONG = "SELECT n.idNhanKhau, n.hoTen, c.*\n" +
+            "FROM nhan_khau n, chi_tiet_dip_dac_biet c\n" +
+            "WHERE n.idNhanKhau = c.idNhanKhau\n" +
+            "and c.idDip = ?";
+
+    public static String CHI_TIET_DIP_DAC_BIET_TRA_CUU = "SELECT n.idNhanKhau, n.hoTen, c.*\n" +
+            "FROM nhan_khau n, chi_tiet_dip_dac_biet c\n" +
+            "WHERE n.idNhanKhau = c.idNhanKhau\n" +
+            "and c.idDip = ? and n.hoTen LIKE ? and c.nhom = ?";
+
+    public static String CHI_TIET_DIP_DAC_BIET_KIEM_TRA = "UPDATE chi_tiet_dip_dac_biet SET kiemtra = ? WHERE idDip = ? and idNhanKhau = ?";
+
     public static String DIP_DAC_BIET_QUERY_T05_NGUOI = "select count(idNhanKhau) as t05Nguoi\n" +
             "from chi_tiet_dip_dac_biet\n" +
             "where nhom = 1\n" +
@@ -237,6 +299,29 @@ public class SQLCommand {
             "and ctddb.kiemtra = 0";
 
     // chi_tiet_dip_hoc_sinh_gioi
+    public static String CHI_TIET_HOC_SINH_GIOI_BANG_THEM_MINH_CHUNG = "SELECT n.idNhanKhau, n.hoTen, n.ngaySinh, h.diaChi\n" +
+            "FROM nhan_khau n, ho_khau h, ho_khau_nhan_khau nh\n" +
+            "WHERE n.idNhanKhau = nh.idNhanKhau and h.idHoKhau = nh.idHoKhau\n" +
+            "and n.idNhanKhau NOT IN (SELECT idNhanKhau FROM chi_tiet_dip_hoc_sinh_gioi WHERE idDip = ?)";
+
+    public static String CHI_TIET_HOC_SINH_GIOI_THEM_MINH_CHUNG = "INSERT INTO chi_tiet_dip_hoc_sinh_gioi(idDip, idNhanKhau, truong, lop, nhom, minhChung, kiemtra) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    public static String CHI_TIET_HOC_SINH_GIOI_SUA_MINH_CHUNG = "UPDATE chi_tiet_dip_hoc_sinh_gioi SET\n" +
+            "truong = ?,\n" +
+            "lop = ?,\n" +
+            "nhom = ?,\n" +
+            "minhChung = ?\n" +
+            "WHERE idDip = ? and idNhanKhau = ?";
+
+    public static String CHI_TIET_HOC_SINH_GIOI_XOA_MINH_CHUNG = "DELETE FROM chi_tiet_dip_hoc_sinh_gioi WHERE idDip = ? and idNhanKhau = ?";
+
+    public static String CHI_TIET_HOC_SINH_GIOI_BANG_NHAN_THUONG = "SELECT n.idNhanKhau, n.hoTen, c.*\n" +
+            "FROM nhan_khau n, chi_tiet_dip_hoc_sinh_gioi c\n" +
+            "WHERE n.idNhanKhau = c.idNhanKhau\n" +
+            "and c.idDip = ?";
+
+    public static String CHI_TIET_HOC_SINH_GIOI_KIEM_TRA = "UPDATE chi_tiet_dip_hoc_sinh_gioi SET kiemtra = ? WHERE idDip = ? and idNhanKhau = ?";
+
     public static String HOC_SINH_GIOI_QUERY_DAC_BIET_NGUOI = "select count(idNhanKhau) as dacBietNguoi\n" +
             "from chi_tiet_dip_hoc_sinh_gioi\n" +
             "where nhom = 1\n" +

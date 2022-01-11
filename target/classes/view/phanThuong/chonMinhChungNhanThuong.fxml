@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChonMinhChungNhanThuongController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChonMinhChungNhanThuongController">
    <content>
       <Pane prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
          <children>
@@ -41,18 +41,23 @@
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <ComboBox fx:id="comboBox" layoutX="346.0" prefHeight="49.0" prefWidth="153.0" promptText="Trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
+                  <ComboBox fx:id="comboBox" layoutX="346.0" onAction="#truongTraCuu" prefHeight="49.0" prefWidth="153.0" promptText="Trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
                </children>
             </Pane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-            <TableView layoutX="63.0" layoutY="308.0" prefHeight="281.0" prefWidth="723.0">
+            <TableView fx:id="nhanKhauTable" layoutX="63.0" layoutY="308.0" onMouseClicked="#themMinhChung" prefHeight="281.0" prefWidth="723.0">
               <columns>
-                <TableColumn prefWidth="96.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Nhân khẩu" />
-                <TableColumn prefWidth="132.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên nhân khẩu" />
-                  <TableColumn prefWidth="132.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
-                  <TableColumn prefWidth="362.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ" />
+                <TableColumn fx:id="idnhanKhaucol" prefWidth="96.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Nhân khẩu" />
+                <TableColumn fx:id="tenNhanKhauCol" prefWidth="132.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên nhân khẩu" />
+                  <TableColumn fx:id="ngaySinhCol" prefWidth="132.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
+                  <TableColumn fx:id="diaChiCol" prefWidth="362.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ" />
               </columns>
             </TableView>
+            <Button layoutX="681.0" layoutY="625.0" mnemonicParsing="false" onMouseClicked="#quayLaiClick" style="-fx-background-color: #F1D4A7;" text="Quay lại">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </content>

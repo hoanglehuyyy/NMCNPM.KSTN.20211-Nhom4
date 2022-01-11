@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane prefHeight="1076.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChiTietHocSinhGioiController">
+<ScrollPane prefHeight="616.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.ChiTietHocSinhGioiController">
    <content>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1075.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1400.0" style="-fx-background-color: #2F333D;">
          <children>
-            <Label fx:id="tieuDe" layoutX="185.0" layoutY="7.0" text="Chi tiết phần thưởng học sinh giỏi năm" textFill="#f8f3f3">
+            <Label fx:id="tieuDe" layoutX="185.0" layoutY="7.0" text="Chi tiết phần thưởng học sinh giỏi năm " textFill="#f8f3f3">
                <font>
                   <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
-            <Label layoutX="464.0" layoutY="102.0" text="Ghi chú: (*) là các trường bắt buộc" textFill="#e3d910">
-               <font>
-                  <Font name="System Italic" size="20.0" />
                </font>
             </Label>
             <Pane layoutX="56.0" layoutY="95.0" prefHeight="44.0" prefWidth="300.0">
@@ -26,101 +20,81 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="namHoc" editable="false" layoutX="130.0" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: #FFFFC9;">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="266.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
+                  <Label fx:id="namHoc" layoutX="139.0" layoutY="7.0" text="Năm học" textFill="#f7ff05">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="56.0" layoutY="158.0" prefHeight="44.0" prefWidth="897.0">
+            <Pane layoutX="56.0" layoutY="158.0" prefHeight="44.0" prefWidth="990.0">
                <children>
                   <Label layoutY="8.0" text="Phần quà học sinh đặc biệt:" textFill="#f8f1f1">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tienDacBiet" layoutX="701.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="873.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="640.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                  <Label layoutX="754.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="phanThuongDacBiet" layoutX="286.0" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
+                  <Label fx:id="phanThuongDacBiet" layoutX="285.0" layoutY="8.0" text="phần thưởng" textFill="#f7ff05">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
-                  </TextField>
+                  </Label>
+                  <Label fx:id="tienDacBiet" layoutX="810.0" layoutY="8.0" text="tiền" textFill="#f7ff05">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
-            <Pane layoutX="56.0" layoutY="237.0" prefHeight="44.0" prefWidth="897.0">
+            <Pane layoutX="56.0" layoutY="237.0" prefHeight="44.0" prefWidth="990.0">
                <children>
                   <Label layoutY="8.0" text="Phần quà học sinh giỏi:" textFill="#f8f1f1">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="phanThuongGioi" layoutX="286.0" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="tienGioi" layoutX="701.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="873.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="640.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                  <Label layoutX="754.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
+                  <Label fx:id="tienGioi" layoutX="810.0" layoutY="8.0" text="tiền" textFill="#f7ff05">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phanThuongGioi" layoutX="285.0" layoutY="8.0" text="phần thưởng" textFill="#f7ff05">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
-            <Pane layoutX="56.0" layoutY="314.0" prefHeight="44.0" prefWidth="897.0">
+            <Pane layoutX="56.0" layoutY="314.0" prefHeight="44.0" prefWidth="990.0">
                <children>
                   <Label layoutY="8.0" text="Phần quà học sinh khá:" textFill="#f8f1f1">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="phanThuongKha" layoutX="286.0" prefHeight="44.0" prefWidth="342.0" style="-fx-background-color: #FFFFC9;">
+                  <Label layoutX="754.0" layoutY="7.0" text="=&gt;&gt;" textFill="#f2e8e8">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
-                  </TextField>
-                  <TextField fx:id="tienKha" layoutX="701.0" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #FFFFC9;">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <Label layoutX="873.0" layoutY="8.0" text="(*)" textFill="#f7ff05">
+                  </Label>
+                  <Label fx:id="phanThuongKha" layoutX="285.0" layoutY="8.0" text="phần thưởng" textFill="#f7ff05">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="640.0" layoutY="8.0" text="=&gt;&gt;" textFill="#f2e8e8">
+                  <Label fx:id="tienKha" layoutX="810.0" layoutY="8.0" text="tiền" textFill="#f7ff05">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -132,59 +106,28 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="moTa" layoutX="88.0" prefHeight="44.0" prefWidth="765.0" style="-fx-background-color: #FFFFC9;">
+                  <Label fx:id="moTa" layoutX="74.0" layoutY="8.0" text="phần thưởng" textFill="#f7ff05">
                      <font>
-                        <Font size="16.0" />
+                        <Font size="20.0" />
                      </font>
-                  </TextField>
+                  </Label>
                </children>
             </Pane>
-            <Button layoutX="750.0" layoutY="981.0" mnemonicParsing="false" onMouseClicked="#xacNhanClick" style="-fx-background-color: #F1D4A7;" text="Xác nhận thay đổi" fx:id="xacNhanButton">
+            <Button layoutX="790.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#quayLaiClick" style="-fx-background-color: #F1D4A7;" text="Quay lại">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="huyButton" layoutX="980.0" layoutY="981.0" mnemonicParsing="false" onMouseClicked="#huyClick" style="-fx-background-color: #F1D4A7;" text="Hủy">
+            <Button layoutX="56.0" layoutY="467.0" mnemonicParsing="false" onAction="#chinhSuaThongTin" style="-fx-background-color: #F1D4A7;" text="Chỉnh sửa thông tin">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Label layoutX="56.0" layoutY="474.0" text="Danh sách học sinh được nhận thưởng:" textFill="#f8f1f1">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <Pane layoutX="112.0" layoutY="551.0" prefHeight="50.0" prefWidth="699.0" style="-fx-background-color: #FFFFC9; -fx-background-radius: 30;">
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="53.0" layoutX="650.0" onMouseClicked="#searchClick" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../image/search.png" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="searchText" layoutX="24.0" onKeyPressed="#searchEnter" prefHeight="50.0" prefWidth="441.0" promptText="Nhập dữ liệu cần tra cứu" style="-fx-background-color: 0;">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </TextField>
-                  <ComboBox fx:id="comboBox" layoutX="478.0" prefHeight="49.0" prefWidth="160.0" promptText="Trường tra cứu" style="-fx-font-size: 15; -fx-background-radius: 15; -fx-background-color: #F1D4A7;" />
-               </children>
-            </Pane>
-            <Button layoutX="51.0" layoutY="981.0" mnemonicParsing="false" style="-fx-background-color: #F1D4A7;" text="Thêm minh chứng nhận thưởng">
+            <Button layoutX="376.0" layoutY="467.0" mnemonicParsing="false" onAction="#xemDanhSach" style="-fx-background-color: #F1D4A7;" text="Xem danh sách nhận thưởng">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <TableView layoutX="51.0" layoutY="646.0" prefHeight="312.0" prefWidth="996.0">
-              <columns>
-                <TableColumn prefWidth="98.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Nhân khẩu" />
-                <TableColumn prefWidth="178.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên nhân khẩu" />
-                  <TableColumn prefWidth="142.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Thành tích đạt được" />
-                  <TableColumn prefWidth="259.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Trường " />
-                  <TableColumn prefWidth="64.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Lớp" />
-                  <TableColumn prefWidth="134.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Minh chứng" />
-                  <TableColumn prefWidth="120.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Kiểm tra" />
-              </columns>
-            </TableView>
          </children>
       </Pane>
    </content>

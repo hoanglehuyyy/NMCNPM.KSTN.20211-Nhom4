@@ -16,5 +16,5 @@ public class ChiTietDipHocSinhGioi {
     private String lop;
     private Integer nhom;
     private String minhChung;
-    private Integer kiemTra;
+    private Boolean kiemTra;
 }
