@@ -2,7 +2,7 @@ package controller.phanThuong;
 
 import entity.ChiTietDipHocSinhGioi;
 import entity.DipHocSinhGioi;
-import entity.lienKet.NhanKhauHocSinhGioi;
+import entity.NhanKhauHocSinhGioi;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,7 +1,7 @@
 package repository;
 
 import entity.DipDacBiet;
-import entity.lienKet.NhanKhauDipDacBiet;
+import entity.NhanKhauDipDacBiet;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.SneakyThrows;

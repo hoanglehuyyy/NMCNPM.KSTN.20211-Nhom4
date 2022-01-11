@@ -1,7 +1,7 @@
 package repository;
 
 import entity.DipDacBiet;
-import entity.lienKet.NhanKhauDipDacBiet;
+import entity.NhanKhauDipDacBiet;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

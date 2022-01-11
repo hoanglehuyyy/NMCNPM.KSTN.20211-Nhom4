@@ -3,7 +3,7 @@ package controller.phanThuong;
 import controller.nhanKhau.ThongTinNhanKhauController;
 import entity.ChiTietDipHocSinhGioi;
 import entity.DipHocSinhGioi;
-import entity.lienKet.NhanKhauHocSinhGioi;
+import entity.NhanKhauHocSinhGioi;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

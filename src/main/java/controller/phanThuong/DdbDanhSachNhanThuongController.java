@@ -1,7 +1,7 @@
 package controller.phanThuong;
 
 import entity.DipDacBiet;
-import entity.lienKet.NhanKhauDipDacBiet;
+import entity.NhanKhauDipDacBiet;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;

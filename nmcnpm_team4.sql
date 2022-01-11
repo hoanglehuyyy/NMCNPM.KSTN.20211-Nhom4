@@ -196,7 +196,7 @@ CREATE TABLE chi_tiet_dip_dac_biet(
                                       idDip INT NOT NULL,
                                       idNhanKhau INT NOT NULL,
                                       nhom INT NOT NULL,
-                                      kiemtra INT NOT NULL,
+                                      kiemtra BOOLEAN NOT NULL,
                                       CONSTRAINT PK_chi_tiet_dip_dac_biet PRIMARY KEY(idDip, idNhanKhau),
                                       CONSTRAINT FK_chi_tiet_dip_dac_biet_dip_dac_biet FOREIGN KEY(idDip) REFERENCES dip_dac_biet(idDip) ON DELETE CASCADE,
                                       CONSTRAINT FK_chi_tiet_dip_dac_biet FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
@@ -213,19 +213,19 @@ CREATE TABLE chi_tiet_dip_hoc_sinh_gioi(
                                            idDip INT NOT NULL,
                                            idNhanKhau INT NOT NULL,
                                            truong NVARCHAR(255) NOT NULL,
-                                           lop INT NOT NULL,
+                                           lop VARCHAR(255) NOT NULL,
                                            nhom INT NOT NULL,
                                            minhChung NVARCHAR(255) NOT NULL,
-                                           kiemtra INT NOT NULL,
+                                           kiemtra BOOLEAN NOT NULL,
                                            CONSTRAINT PK_chi_tiet_dip_hoc_sinh_gioi PRIMARY KEY(idDip, idNhanKhau),
                                            CONSTRAINT FK_chi_tiet_dip_hoc_sinh_gioi_dip_hoc_sinh_gioi FOREIGN KEY(idDip) REFERENCES dip_hoc_sinh_gioi(idDip) ON DELETE CASCADE,
                                            CONSTRAINT FK_chi_tiet_dip_hoc_sinh_gioi FOREIGN KEY(idNhanKhau) REFERENCES nhan_khau(idNhanKhau) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO chi_tiet_dip_hoc_sinh_gioi(idDip, idNhanKhau, truong, lop, nhom, minhChung, kiemtra) VALUES
-                                                                                                     (1, 1, N'Trường THCS Chu Văn An', 6, 1, '', 1),                                                                                              (1, 2, N'Trường tiểu học Chu Văn An', 2, 1, '', 1),
-                                                                                                     (2, 1, N'Trường THCS Chu Văn An', 7, 2, '', 1),
-                                                                                                     (2, 2, N'Trường tiểu học Chu Văn An', 2, 1, '', 1);
+                                                                                                     (1, 1, N'Trường THCS Chu Văn An', 6, 1, 'MC', 1),                                                                                              (1, 2, N'Trường tiểu học Chu Văn An', 2, 1, '', 1),
+                                                                                                     (2, 1, N'Trường THCS Chu Văn An', 7, 2, 'MC', 1),
+                                                                                                     (2, 2, N'Trường tiểu học Chu Văn An', 2, 1, 'MC', 1);
 -- 13. Khai tử
 CREATE TABLE khai_tu(
                         idNguoiMat INT NOT NULL,

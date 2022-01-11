@@ -1,4 +1,4 @@
-package entity.lienKet;
+package entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

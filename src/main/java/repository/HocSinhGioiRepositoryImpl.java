@@ -2,8 +2,8 @@ package repository;
 
 import entity.ChiTietDipHocSinhGioi;
 import entity.DipHocSinhGioi;
-import entity.lienKet.NhanKhauHocSinhGioi;
-import entity.lienKet.NhanKhauHokhau;
+import entity.NhanKhauHocSinhGioi;
+import entity.NhanKhauHokhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.SneakyThrows;

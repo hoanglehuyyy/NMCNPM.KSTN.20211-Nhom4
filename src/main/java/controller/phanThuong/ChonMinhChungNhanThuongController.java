@@ -1,7 +1,7 @@
 package controller.phanThuong;
 
 import entity.DipHocSinhGioi;
-import entity.lienKet.NhanKhauHokhau;
+import entity.NhanKhauHokhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
