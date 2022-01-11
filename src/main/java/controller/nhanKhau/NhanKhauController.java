@@ -332,14 +332,16 @@ public class NhanKhauController implements Initializable {
             m2.show();
             return;
 
-        }
-        controller.setChuyenNhanKhau(selected);
-        Stage stage = new Stage();
+        }else{
+            controller.setChuyenNhanKhau(selected);
+            Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("CHUYỂN NHÂN KHẨU");
-        Scene scene = new Scene(chinhSuaNKView);
-        stage.setScene(scene);
-        stage.show();
+            stage.setTitle("CHUYỂN NHÂN KHẨU");
+            Scene scene = new Scene(chinhSuaNKView);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
     public void tamVang() throws IOException {
@@ -365,14 +367,16 @@ public class NhanKhauController implements Initializable {
             m2.show();
             return;
 
-        }
-        controller.setTamVang(selected);
-        Stage stage = new Stage();
+        }else{
+            controller.setTamVang(selected);
+            Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("QUẢN LÝ TẠM VẮNG");
-        Scene scene = new Scene(tamVangNK);
-        stage.setScene(scene);
-        stage.show();
+            stage.setTitle("QUẢN LÝ TẠM VẮNG");
+            Scene scene = new Scene(tamVangNK);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
     public void khaiTu() throws IOException {
@@ -398,14 +402,16 @@ public class NhanKhauController implements Initializable {
             m2.show();
             return;
 
-        }
-        controller.setKhaiTu(selected);
-        Stage stage = new Stage();
+        }else{
+            controller.setKhaiTu(selected);
+            Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("KHAI TỬ");
-        Scene scene = new Scene(khaiTuNK, 1100, 700);
-        stage.setScene(scene);
-        stage.show();
+            stage.setTitle("KHAI TỬ");
+            Scene scene = new Scene(khaiTuNK, 1100, 700);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
     public void tamTru() throws IOException {
@@ -432,14 +438,16 @@ public class NhanKhauController implements Initializable {
             m2.show();
             return;
 
-        }
-        controller.setTamTru(selected);
-        Stage stage = new Stage();
+        }else{
+            controller.setTamTru(selected);
+            Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
-        stage.setTitle("QUẢN LÝ TẠM TRÚ");
-        Scene scene = new Scene(tamTruNK);
-        stage.setScene(scene);
-        stage.show();
+            stage.setTitle("QUẢN LÝ TẠM TRÚ");
+            Scene scene = new Scene(tamTruNK);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 }
 
