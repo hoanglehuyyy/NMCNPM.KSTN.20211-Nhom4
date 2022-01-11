@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static utility.SQLCommand.NHAN_KHAU_QUERY_LAY_THONG_TIN;
+import static utility.SQLCommand.NHAN_KHAU_QUERY_UPDATE;
 
 public class ChinhSuaNhanKhauController  {
     @FXML
@@ -57,13 +58,9 @@ public class ChinhSuaNhanKhauController  {
     private DatePicker chuyenDenNgayLabel;
     @FXML
     private TextField noiThuongTruTruocLabel;
-
-    String query = null;
     Connection connection = null;
     ResultSet resultSet = null;
     PreparedStatement preparedStatement;
-    NhanKhau nhanKhau = null;
-
     private int id_NK;
     String gioiTinhC=null;
 
@@ -73,7 +70,7 @@ public class ChinhSuaNhanKhauController  {
         id_NK=nk.getId();
         ObservableList<String> listGioiTinh2 = FXCollections.observableArrayList("Nam","Nữ");
         combGioiTinh.setItems(listGioiTinh2);
-        loadData();
+        loadData_ChinhSua();
 
 
     }
@@ -103,9 +100,9 @@ public class ChinhSuaNhanKhauController  {
 
         } else {
 
-            getQuery();
+
             update();
-            Alert alert_TC = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert_TC = new Alert(Alert.AlertType.INFORMATION);
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Chỉnh sửa thành công");
             alert_TC.showAndWait();
@@ -123,7 +120,7 @@ public class ChinhSuaNhanKhauController  {
     }
 
     @FXML
-    private void loadData() {
+    public void loadData_ChinhSua() {
         try {
 
 
@@ -160,13 +157,8 @@ public class ChinhSuaNhanKhauController  {
                     }
 
 
-
-
-
-
-
                     noiThuongTruTruocLabel.setText(resultSet.getString("noiThuongTruTruoc"));
-//                    trangThaiLabel.setText(resultSet.getString("trangThai"));
+
 
                 }
 
@@ -182,32 +174,7 @@ public class ChinhSuaNhanKhauController  {
 
 
     }
-    private void getQuery() {
 
-
-
-        //query = "INSERT INTO `nhan_khau`( `hoTen`, `biDanh`, `ngaySinh`, `noiSinh`, `gioiTinh`, `nguyenQuan`, `danToc`, `tonGiao`, `quocTich`, `ngheNghiep`, `noiLamViec`, `cmnd`, `ngayCap`, `chuyenDenNgay`, `noiThuongTruTruoc`, `trangThai`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-
-            query = "UPDATE `nhan_khau` SET " +
-                    "`hoTen`=?," +
-                    "`biDanh`=?," +
-                    "`ngaySinh`=?," +
-                    "`noiSinh`=?," +
-                    "`gioiTinh`=?," +
-                    "`nguyenQuan`=?," +
-                    "`danToc`=?," +
-                    "`tonGiao`=?," +
-                    "`quocTich`=?," +
-                    "`ngheNghiep`=?," +
-                    "`noiLamViec`=?," +
-                    "`cmnd`=?," +
-                    "`ngayCap`=?," +
-                    "`chuyenDenNgay`=?," +
-                    "`noiThuongTruTruoc`=?  WHERE idNhanKhau  = '"+id_NK+"'";
-
-
-    }
 
     private void update() {
 
@@ -216,7 +183,7 @@ public class ChinhSuaNhanKhauController  {
 
         try {
 
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(NHAN_KHAU_QUERY_UPDATE+id_NK);
             preparedStatement.setString(1, hoTenLabel.getText());
 
             if (biDanhLabel.getText()=="" ){
@@ -278,20 +245,9 @@ public class ChinhSuaNhanKhauController  {
 
 
 
-    public void goBack_chinhSuaNK(ActionEvent e) throws IOException {
-        hoTenLabel.setText(null);
-        biDanhLabel.setText(null);
-        ngaySinhLabel.setValue(null);
-        noiSinhLabel.setText(null);
-        nguyenQuanLabel.setText(null);
-        danTocLabel.setText(null);
-        tonGiaoLabel.setText(null);
-        quocTichLabel.setText(null);
-        ngheNghiepLabel.setText(null);
-        noiLamViecLabel.setText(null);
-        CMNDLabel.setText(null);
-        ngayCapLabel.setValue(null);
-        chuyenDenNgayLabel.setValue(null);
-        noiThuongTruTruocLabel.setText(null);
+    private void goBack_chinhSuaNK(ActionEvent e) throws IOException {
+        final Node source = (Node) e.getSource();
+        final Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }
