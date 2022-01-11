@@ -32,7 +32,34 @@ public class SQLCommand {
 
     public static String NHAN_KHAU_QUERY_NAM = "SELECT COUNT(*) FROM nhan_khau WHERE gioiTinh = N'Nam'";
     public static String NHAN_KHAU_QUERY_NU = "SELECT COUNT(*) FROM nhan_khau WHERE gioiTinh = N'Nữ'";
+    public static String NHAN_KHAU_QUERY_UPDATE =  "UPDATE `nhan_khau` SET " +
+            "`hoTen`=?," +
+            "`biDanh`=?," +
+            "`ngaySinh`=?," +
+            "`noiSinh`=?," +
+            "`gioiTinh`=?," +
+            "`nguyenQuan`=?," +
+            "`danToc`=?," +
+            "`tonGiao`=?," +
+            "`quocTich`=?," +
+            "`ngheNghiep`=?," +
+            "`noiLamViec`=?," +
+            "`cmnd`=?," +
+            "`ngayCap`=?," +
+            "`chuyenDenNgay`=?," +
+            "`noiThuongTruTruoc`=?  WHERE idNhanKhau  = ";
+    public static String NHAN_KHAU_QUERY_UPDATE_TRANGTHAI    ="UPDATE `nhan_khau` SET " +
 
+            "`trangThai`=?  WHERE idNhanKhau  =";
+    public static String NHAN_KHAU_QUERY_INSERT_CHUYENNHANKHAU="INSERT INTO `chuyen_nhan_khau`( `idNhanKhau`, `ngayChuyenDi`, `noiChuyenDen`, `ghiChu`) VALUES (?,?,?,?)";
+    public static String NHAN_KHAU_QUERY_HOTEN="SELECT * FROM `nhan_khau` WHERE hoTen like '%";
+    public static String NHAN_KHAU_QUERY_CMND="SELECT * FROM `nhan_khau` WHERE cmnd like '%";
+    public static String NHAN_KHAU_QUERY_TRANGTHAI="SELECT * FROM `nhan_khau` WHERE trangThai like '%";
+    public static String NHAN_KHAU_QUERY_NGAYSINH="SELECT * FROM `nhan_khau` WHERE ngaySinh like '%";
+    public static String NHAN_KHAU_QUERY_INSERT_KHAITU="INSERT INTO `khai_tu`(`idNguoiMat`, `idNguoiKhai`, `ngayKhai`, `ngayMat`, `liDoMat`) VALUES (?,?,?,?,?)";
+    public static String NHAN_KHAU_QUERY_INSERT_TAMVANG="INSERT INTO `tam_vang`( `idNhanKhau`, `noiTamTru`, `tuNgay`,`denNgay`, `lyDo`) VALUES (?,?,?,?,?)";
+    public static String NHAN_KHAU_QUERY_INSERT_TAMTRU="INSERT INTO `tam_tru`( `idNhanKhau`, `noiThuongTru`, `noiTamTru`, `tuNgay`,`denNgay`, `lyDo`) VALUES (?,?,?,?,?,?)";
+    public static String NHAN_KHAU_QUERY_INSERT_NHANKHAU="INSERT INTO `nhan_khau`( `hoTen`, `biDanh`, `ngaySinh`, `noiSinh`, `gioiTinh`, `nguyenQuan`, `danToc`, `tonGiao`, `quocTich`, `ngheNghiep`, `noiLamViec`, `cmnd`, `ngayCap`, `chuyenDenNgay`, `noiThuongTruTruoc`, `trangThai`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 //    public static String NHAN_KHAU_QUERY_MAM_NON = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) <= 5";
 //    public static String NHAN_KHAU_QUERY_CAP_1 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 6 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 10";
 //    public static String NHAN_KHAU_QUERY_CAP_2 = "SELECT COUNT(*) FROM nhan_khau WHERE YEAR(GETDATE()) - YEAR(ngaySinh) >= 11 AND YEAR(GETDATE()) - YEAR(ngaySinh) <= 14";
