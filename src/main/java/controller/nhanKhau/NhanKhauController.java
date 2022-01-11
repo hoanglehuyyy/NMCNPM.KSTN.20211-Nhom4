@@ -96,6 +96,11 @@ public class NhanKhauController implements Initializable {
                 preparedStatement = connection.prepareStatement(query_trangThai);
             }else if(truongTraCuu=="Ngày sinh"){
                 preparedStatement = connection.prepareStatement(query_nguyenQuan);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText(null);
+                alert.setContentText("Bạn cần chọn trường tra cứu");
+                alert.showAndWait();
             }
 
             resultSet = preparedStatement.executeQuery();
@@ -175,12 +180,8 @@ public class NhanKhauController implements Initializable {
 
     public void changScenceThemNhanKhau(ActionEvent e) throws IOException {
 
-//        Parent parent = load(getClass().getResource("/view/nhanKhau/themNhanKhau.fxml"));
-//        Scene scene = new Scene(parent);
-//        Stage stage = new Stage();
-//        stage.setScene(scene);
-//        stage.initStyle(StageStyle.UTILITY);
-//        stage.show();
+
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/nhanKhau/themNhanKhau.fxml"));
         Parent thongTinNK = loader.load();
@@ -203,6 +204,14 @@ public class NhanKhauController implements Initializable {
         Parent thongTinNK = loader.load();
         ThongTinNhanKhauController controller = loader.getController();
         NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Không nhân khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
         controller.setNhanKhau(selected);
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
@@ -220,6 +229,14 @@ public class NhanKhauController implements Initializable {
         Parent chinhSuaNKView = loader.load();
         ChinhSuaNhanKhauController controller = loader.getController();
         NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Không nhân khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
         controller.setChinhSuaNK(selected);
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
@@ -234,6 +251,14 @@ public class NhanKhauController implements Initializable {
         try {
             int flag=0;
             NhanKhau userlist = table.getSelectionModel().getSelectedItem();
+            if (userlist == null) {
+                Alert m = new Alert(Alert.AlertType.INFORMATION);
+                m.setTitle("Thông báo!");
+                m.setHeaderText("Không nhân khẩu nào được chọn.");
+                m.setContentText("Vui lòng chọn lại.");
+                m.show();
+                return;
+            }
             id_NK=userlist.getId();
 
 
@@ -290,6 +315,24 @@ public class NhanKhauController implements Initializable {
         Parent chinhSuaNKView = loader.load();
         ChuyenNhanKhauController controller = loader.getController();
         NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Không nhân khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        String trangthai_daMat=selected.getTrangThai();
+        if(trangthai_daMat.equals("Đã mất") ){
+            Alert m2 = new Alert(Alert.AlertType.INFORMATION);
+            m2.setTitle("Thông báo!");
+            m2.setHeaderText("Không thể thực hiện chức năng do người này đã qua đời.");
+
+            m2.show();
+            return;
+
+        }
         controller.setChuyenNhanKhau(selected);
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
@@ -305,6 +348,24 @@ public class NhanKhauController implements Initializable {
         Parent tamVangNK = loader.load();
         QuanLyTamVangController controller = loader.getController();
         NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Không nhân khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        String trangthai_daMat=selected.getTrangThai();
+        if(trangthai_daMat.equals("Đã mất") ){
+            Alert m2 = new Alert(Alert.AlertType.INFORMATION);
+            m2.setTitle("Thông báo!");
+            m2.setHeaderText("Không thể thực hiện chức năng do người này đã qua đời.");
+
+            m2.show();
+            return;
+
+        }
         controller.setTamVang(selected);
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
@@ -320,6 +381,24 @@ public class NhanKhauController implements Initializable {
         Parent khaiTuNK = loader.load();
         KhaiTuController controller = loader.getController();
         NhanKhau selected = table.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Không nhân khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        String trangthai_daMat=selected.getTrangThai();
+        if(trangthai_daMat.equals("Đã mất") ){
+            Alert m2 = new Alert(Alert.AlertType.INFORMATION);
+            m2.setTitle("Thông báo!");
+            m2.setHeaderText("Không thể thực hiện chức năng do người này đã qua đời.");
+
+            m2.show();
+            return;
+
+        }
         controller.setKhaiTu(selected);
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
@@ -335,6 +414,25 @@ public class NhanKhauController implements Initializable {
         Parent tamTruNK = loader.load();
         TamTruController controller = loader.getController();
         NhanKhau selected = table.getSelectionModel().getSelectedItem();
+
+        if (selected == null) {
+            Alert m = new Alert(Alert.AlertType.INFORMATION);
+            m.setTitle("Thông báo!");
+            m.setHeaderText("Không nhân khẩu nào được chọn.");
+            m.setContentText("Vui lòng chọn lại.");
+            m.show();
+            return;
+        }
+        String trangthai_daMat=selected.getTrangThai();
+        if(trangthai_daMat.equals("Đã mất") ){
+            Alert m2 = new Alert(Alert.AlertType.INFORMATION);
+            m2.setTitle("Thông báo!");
+            m2.setHeaderText("Không thể thực hiện chức năng do người này đã qua đời.");
+
+            m2.show();
+            return;
+
+        }
         controller.setTamTru(selected);
         Stage stage = new Stage();
 //        stage.initStyle(StageStyle.DECORATED);
