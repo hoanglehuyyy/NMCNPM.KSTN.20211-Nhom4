@@ -81,6 +81,15 @@ public class MinhChungNhanThuongController implements Initializable {
     }
 
     public void xacNhanClick(MouseEvent mouseEvent) {
+        try{
+            int test = Integer.valueOf(lopHoc.getText());
+        }catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Trường lớp phải là số nguyên");
+            alert.show();
+            return;
+        }
+
         if (truongHoc.getText().isEmpty() || lopHoc.getText().isEmpty() || thanhTich.getValue().isEmpty() || anhMinhChung.getImage() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(Message.yeuCauNhapDayDu);

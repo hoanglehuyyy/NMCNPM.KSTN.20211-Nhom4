@@ -311,6 +311,7 @@ public class TachHoKhauController implements Initializable {
         insert_all_nk_to_hk_moi(idHoKhauNew);
         update_new_ch(idHoKhauNew);
         update_new_nk(idHoKhauNew);
+        update_chuyen_ho_khau(idHoKhauNew);
 
         Alert m = new Alert(Alert.AlertType.INFORMATION);
         m.setTitle("Thông báo!");
@@ -393,6 +394,7 @@ public class TachHoKhauController implements Initializable {
     //B8: Tạo hộ khẩu mới:
     private void create_new_hk(){
         HoKhauRepo.create_new_hk(this.list_hk_moi,tinh_thanh_moi.getText(),quan_huyen_moi.getText(),phuong_xa_moi.getText(),dia_chi_moi.getText(),Date.valueOf(this.NTMgetText()));
+
     }
 
     //B9: Lấy idHoKhau của hộ khẩu mới:
@@ -412,6 +414,11 @@ public class TachHoKhauController implements Initializable {
     //B12: Thay đổi trạng thái nhân khẩu mới:
     private void update_new_nk(int a){
         HoKhauRepo.update_new_nk(a);
+
+    }
+
+    private void update_chuyen_ho_khau(int a){
+        HoKhauRepo.chuyen_ho_khau(a,Date.valueOf(this.NTMgetText()),dia_chi_moi.getText(),"Tạo hộ khẩu");
     }
 
     @Override

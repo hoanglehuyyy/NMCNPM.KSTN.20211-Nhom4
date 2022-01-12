@@ -96,7 +96,17 @@ public class ThemNhanKhauController implements Initializable {
         String tonGiao = tonGiaoF.getText();
         String quocTich = quocTichF.getText();
 
+        String cmnd = CMNDF.getText();
 
+        try{
+            int test_cmnd = Integer.parseInt(cmnd);
+        }catch (NumberFormatException ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Trường CMND không thoả mãn");
+            alert.showAndWait();
+            return;
+        }
 
         if (hoTen.isEmpty() || ngaySinh==null || quocTich.isEmpty() || tonGiao.isEmpty()||
                 danToc.isEmpty()||noiSinh.isEmpty()||nguyenQuan.isEmpty()||gioiTinhC==null||gioiTinhC=="") {
@@ -107,8 +117,6 @@ public class ThemNhanKhauController implements Initializable {
 
         } else {
             insert();
-            clean();
-
             Alert alert_TC = new Alert(Alert.AlertType.INFORMATION);
             alert_TC.setHeaderText(null);
             alert_TC.setContentText("Thêm thành công");
@@ -125,30 +133,8 @@ public class ThemNhanKhauController implements Initializable {
     @FXML
      private void Select(ActionEvent event) {
          gioiTinhC = comb.getSelectionModel().getSelectedItem().toString();
-
     }
 
-
-    @FXML
-    private void clean() {
-        hoTenF.setText(null);
-        biDanhF.setText(null);
-        ngaySinhF.setValue(null);
-        comb.setValue(null);
-        noiSinhF.setText(null);
-        nguyenQuanF.setText(null);
-        danTocF.setText(null);
-        tonGiaoF.setText(null);
-        quocTichF.setText(null);
-        ngheNghiepF.setText(null);
-        noiLamViecF.setText(null);
-        CMNDF.setText(null);
-        ngayCapF.setValue(null);
-        chuyenDenNgayF.setValue(null);
-        noiThuongTruTruocF.setText(null);
-
-
-    }
     @FXML
     private void huy(MouseEvent event) {
         final Node source = (Node) event.getSource();
