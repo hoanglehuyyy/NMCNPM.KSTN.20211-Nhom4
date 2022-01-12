@@ -162,7 +162,6 @@ public class HocSinhGioiController implements Initializable {
         stage.setOnHidden(windowEvent -> {
             hsgTable.setItems(hocSinhGioiImpl.bangDipHocSinhGioi());
         });
-        stage.initOwner(((MenuItem) actionEvent.getTarget()).getParentPopup().getOwnerWindow());
     }
 
     public void xoaDip(ActionEvent actionEvent) {
