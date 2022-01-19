@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="709.0" prefWidth="953.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.NhanKhauController">
+<AnchorPane prefHeight="709.0" prefWidth="953.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.NhanKhauController">
     <children>
       <Pane fx:id="mainPane" layoutY="5.0" prefHeight="700.0" prefWidth="1180.0">
          <children>
@@ -48,7 +48,7 @@
                       </ContextMenu>
                   </contextMenu>
               </TableView>
-            <Button fx:id="themNhanKhau" layoutX="948.0" layoutY="188.0" mnemonicParsing="false" onAction="#changScenceThemNhanKhau" style="-fx-background-color: #F1D4A7;" text="Thêm nhân khẩu">
+            <Button fx:id="themNhanKhau" layoutX="934.0" layoutY="188.0" mnemonicParsing="false" onAction="#changScenceThemNhanKhau" prefHeight="44.0" prefWidth="185.0" style="-fx-background-color: #F1D4A7;" text="Thêm nhân khẩu">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -73,7 +73,7 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Text>
-            <Button layoutX="948.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#refreshTable" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #F1D4A7;" text="Tải lại bảng">
+            <Button layoutX="934.0" layoutY="280.0" mnemonicParsing="false" onMouseClicked="#refreshTable" prefHeight="45.0" prefWidth="185.0" style="-fx-background-color: #F1D4A7;" text="Tải lại bảng">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></Button>

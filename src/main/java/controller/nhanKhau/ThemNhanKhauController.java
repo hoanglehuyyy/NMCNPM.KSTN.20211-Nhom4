@@ -98,14 +98,16 @@ public class ThemNhanKhauController implements Initializable {
 
         String cmnd = CMNDF.getText();
 
-        try{
-            int test_cmnd = Integer.parseInt(cmnd);
-        }catch (NumberFormatException ex){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Trường CMND không thoả mãn");
-            alert.showAndWait();
-            return;
+        if(!cmnd.isEmpty()){
+            try{
+                int test_cmnd = Integer.parseInt(cmnd);
+            }catch (NumberFormatException ex){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Trường CMND không thoả mãn");
+                alert.showAndWait();
+                return;
+            }
         }
 
         if (hoTen.isEmpty() || ngaySinh==null || quocTich.isEmpty() || tonGiao.isEmpty()||

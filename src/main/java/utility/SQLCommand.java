@@ -138,15 +138,6 @@ public class SQLCommand {
     public static String HO_KHAU_QUERY_UPDATE_TRANGTHAI_NHANKHAU = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idNhanKhau FROM `ho_khau_nhan_khau` WHERE idHoKhau = ?) ";
     public static String HO_KHAU_QUERY_UPDATE_TRANGTHAI_CHUHO = "UPDATE `nhan_khau` SET trangThai = ? WHERE idNhanKhau IN (SELECT idChuho FROM `ho_khau` WHERE idHoKhau = ?) ";
     public static String HO_KHAU_QUERY_LOADDATA = "SELECT * FROM `chuyen_ho_khau` WHERE idHoKhau = ?";
-    // ho_khau_nhan_khau
-
-    // chuyen_ho_khau
-
-    // chuyen_nhan_khau
-
-    // tam_tru
-
-    // tam_vang
 
     // phan thuong
     public static String PHAN_THUONG_NAM_SO_DIP = "select temp.nam, count(distinct ddb.idDip) + count(distinct dhsg.idDip) as soDip\n" +
