@@ -39,12 +39,12 @@
        </Pane>
       <TableView fx:id="table" layoutX="68.0" layoutY="193.0" prefHeight="433.0" prefWidth="822.0">
         <columns>
-          <TableColumn fx:id="id_ho_khauCol" prefWidth="78.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã hộ khẩu" />
-          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="82.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mã chủ hộ" />
-            <TableColumn fx:id="hoten_chu_hoCol" prefWidth="145.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên chủ hộ" />
-            <TableColumn fx:id="address_ho_khauCol" prefWidth="275.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Địa chỉ" />
-            <TableColumn fx:id="ngay_taoCol" prefWidth="122.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày tạo" />
-            <TableColumn fx:id="trang_thaiCol" prefWidth="119.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Trạng thái" />
+          <TableColumn fx:id="id_ho_khauCol" prefWidth="78.0" text="Mã hộ khẩu" />
+          <TableColumn fx:id="id_chu_ho_khauCol" prefWidth="82.0" text="Mã chủ hộ" />
+            <TableColumn fx:id="hoten_chu_hoCol" prefWidth="145.0" text="Tên chủ hộ" />
+            <TableColumn fx:id="address_ho_khauCol" prefWidth="275.0" text="Địa chỉ" />
+            <TableColumn fx:id="ngay_taoCol" prefWidth="122.0" text="Ngày tạo" />
+            <TableColumn fx:id="trang_thaiCol" prefWidth="119.0" text="Trạng thái" />
         </columns>
          <contextMenu>
             <ContextMenu>

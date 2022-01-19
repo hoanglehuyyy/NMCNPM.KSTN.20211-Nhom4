@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="dipDacBietMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeDipDacBietController">
+<Pane fx:id="dipDacBietMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.thongKe.ThongKeDipDacBietController">
     <children>
         <Pane prefHeight="66.0" prefWidth="1180.0" style="-fx-background-color: #FFFFC9;">
             <children>
@@ -29,10 +29,10 @@
         </Pane>
       <TableView fx:id="bangDB" layoutX="104.0" layoutY="230.0" onMouseClicked="#xemThongKe" prefHeight="440.0" prefWidth="412.0">
          <columns>
-            <TableColumn fx:id="idDip" editable="false" prefWidth="61.0" sortable="false" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Dịp" />
-            <TableColumn fx:id="nam" editable="false" prefWidth="97.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Năm" />
-            <TableColumn fx:id="ten" editable="false" prefWidth="141.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Tên dịp" />
-            <TableColumn fx:id="moTa" editable="false" prefWidth="113.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
+            <TableColumn fx:id="idDip" editable="false" prefWidth="61.0" sortable="false" text="ID Dịp" />
+            <TableColumn fx:id="nam" editable="false" prefWidth="97.0" sortType="DESCENDING" text="Năm" />
+            <TableColumn fx:id="ten" editable="false" prefWidth="141.0" sortType="DESCENDING" text="Tên dịp" />
+            <TableColumn fx:id="moTa" editable="false" prefWidth="113.0" sortType="DESCENDING" text="Mô tả" />
          </columns>
       </TableView>
       <TextField fx:id="namTimNoiDung" layoutX="103.0" layoutY="152.0" prefHeight="25.0" prefWidth="163.0" style="-fx-background-color: #FFFFC9;" />

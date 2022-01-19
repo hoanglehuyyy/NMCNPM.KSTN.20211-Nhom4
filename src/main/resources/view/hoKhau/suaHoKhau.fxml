@@ -54,9 +54,9 @@
       </Label>
       <TableView fx:id="nk_table" layoutX="806.0" layoutY="357.0" prefHeight="189.0" prefWidth="374.0">
         <columns>
-          <TableColumn fx:id="hotenNhanKhau" prefWidth="107.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
-          <TableColumn fx:id="ngaysinhNhanKhau" prefWidth="106.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
-            <TableColumn fx:id="quanheChuHo" prefWidth="160.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
+          <TableColumn fx:id="hotenNhanKhau" prefWidth="107.0" text="Họ và tên" />
+          <TableColumn fx:id="ngaysinhNhanKhau" prefWidth="106.0" text="Ngày sinh" />
+            <TableColumn fx:id="quanheChuHo" prefWidth="160.0" text="Quan hệ với chủ hộ" />
         </columns>
          <contextMenu>
             <ContextMenu>
@@ -84,9 +84,9 @@
       </Label>
       <TableView fx:id="nk_table_search" layoutX="67.0" layoutY="357.0" prefHeight="189.0" prefWidth="374.0">
         <columns>
-          <TableColumn fx:id="hotenNhanKhau_search" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
-          <TableColumn fx:id="ngaySinhNhanKhau_search" prefWidth="109.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
-            <TableColumn fx:id="CMNDNhanKhau_search" prefWidth="161.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
+          <TableColumn fx:id="hotenNhanKhau_search" prefWidth="103.0" text="Họ và tên" />
+          <TableColumn fx:id="ngaySinhNhanKhau_search" prefWidth="109.0" text="Ngày sinh" />
+            <TableColumn fx:id="CMNDNhanKhau_search" prefWidth="161.0" text="CMND" />
         </columns>
          <contextMenu>
             <ContextMenu>

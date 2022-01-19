@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="1134.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.HsgDanhSachNhanThuongController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="1134.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.HsgDanhSachNhanThuongController">
       <children>
           <Label fx:id="tieuDe" layoutX="88.0" layoutY="14.0" text="Danh sách học sinh nhận phần thưởng học sinh giỏi năm " textFill="#f8f3f3">
               <font>
@@ -39,12 +47,12 @@
           </Pane>
           <TableView fx:id="nhanKhauTable" editable="true" layoutX="53.0" layoutY="275.0" prefHeight="312.0" prefWidth="996.0">
               <columns>
-                  <TableColumn fx:id="idCol" prefWidth="98.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F; -fx-alignment: CENTER;" text="ID Nhân khẩu" />
-                  <TableColumn fx:id="tenCol" prefWidth="188.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F; -fx-alignment: CENTER;" text="Tên nhân khẩu" />
-                  <TableColumn fx:id="thanhTichCol" prefWidth="180.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F; -fx-alignment: CENTER;" text="Thành tích đạt được" />
-                  <TableColumn fx:id="truongCol" prefWidth="336.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F; -fx-alignment: CENTER;" text="Trường " />
-                  <TableColumn fx:id="lopCol" prefWidth="72.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F; -fx-alignment: CENTER;" text="Lớp" />
-                  <TableColumn fx:id="kiemTraCol" prefWidth="121.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F; -fx-alignment: CENTER;" text="Đã trao thưởng" />
+                  <TableColumn fx:id="idCol" prefWidth="98.0" style="-fx-alignment: CENTER;" text="ID Nhân khẩu" />
+                  <TableColumn fx:id="tenCol" prefWidth="188.0" style="-fx-alignment: CENTER;" text="Tên nhân khẩu" />
+                  <TableColumn fx:id="thanhTichCol" prefWidth="180.0" style="-fx-alignment: CENTER;" text="Thành tích đạt được" />
+                  <TableColumn fx:id="truongCol" prefWidth="336.0" style="-fx-alignment: CENTER;" text="Trường " />
+                  <TableColumn fx:id="lopCol" prefWidth="72.0" style="-fx-alignment: CENTER;" text="Lớp" />
+                  <TableColumn fx:id="kiemTraCol" prefWidth="121.0" style="-fx-alignment: CENTER;" text="Đã trao thưởng" />
               </columns>
               <contextMenu>
                   <ContextMenu>

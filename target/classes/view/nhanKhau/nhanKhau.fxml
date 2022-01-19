@@ -26,12 +26,12 @@
             </Label>
               <TableView fx:id="table" layoutX="70.0" layoutY="188.0" prefHeight="433.0" prefWidth="822.0">
                   <columns>
-                      <TableColumn fx:id="idColumn" prefWidth="107.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID nhân khẩu" />
-                      <TableColumn fx:id="hoTenColumn" prefWidth="198.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên" />
-                      <TableColumn fx:id="ngaySinhColumn" prefWidth="109.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh " />
-                      <TableColumn fx:id="gioiTinhColumn" prefWidth="122.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Giới tính" />
-                      <TableColumn fx:id="CMNDColumn" minWidth="0.0" prefWidth="149.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
-                  <TableColumn fx:id="trangThaiColumn" prefWidth="136.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Trạng thái" />
+                      <TableColumn fx:id="idColumn" prefWidth="107.0" text="ID nhân khẩu" />
+                      <TableColumn fx:id="hoTenColumn" prefWidth="198.0" text="Họ tên" />
+                      <TableColumn fx:id="ngaySinhColumn" prefWidth="109.0" text="Ngày sinh " />
+                      <TableColumn fx:id="gioiTinhColumn" prefWidth="122.0" text="Giới tính" />
+                      <TableColumn fx:id="CMNDColumn" minWidth="0.0" prefWidth="149.0" text="CMND" />
+                  <TableColumn fx:id="trangThaiColumn" prefWidth="136.0" text="Trạng thái" />
       
                         </columns>
                   <contextMenu>

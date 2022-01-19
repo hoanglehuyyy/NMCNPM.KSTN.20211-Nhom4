@@ -19,9 +19,9 @@
          </font></Label>
       <TableView fx:id="hk_hien_tai_tab" layoutX="79.0" layoutY="352.0" prefHeight="200.0" prefWidth="363.0">
         <columns>
-          <TableColumn fx:id="hoten_hien_tai_col" prefWidth="109.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên" />
-          <TableColumn fx:id="ngaysinh_hien_tai_col" prefWidth="97.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
-            <TableColumn fx:id="quanhe_hien_tai_col" prefWidth="156.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
+          <TableColumn fx:id="hoten_hien_tai_col" prefWidth="109.0" text="Họ tên" />
+          <TableColumn fx:id="ngaysinh_hien_tai_col" prefWidth="97.0" text="Ngày sinh" />
+            <TableColumn fx:id="quanhe_hien_tai_col" prefWidth="156.0" text="Quan hệ với chủ hộ" />
         </columns>
          <contextMenu>
             <ContextMenu>
@@ -50,9 +50,9 @@
          </font></Button>
       <TableView fx:id="hk_moi_tab" layoutX="539.0" layoutY="351.0" prefHeight="206.0" prefWidth="363.0">
         <columns>
-          <TableColumn fx:id="hoten_moi_col" prefWidth="107.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên " />
-            <TableColumn fx:id="ngaysinh_moi_col" prefWidth="92.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
-            <TableColumn fx:id="quanhe_moi_col" prefWidth="163.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
+          <TableColumn fx:id="hoten_moi_col" prefWidth="107.0" text="Họ tên " />
+            <TableColumn fx:id="ngaysinh_moi_col" prefWidth="92.0" text="Ngày sinh" />
+            <TableColumn fx:id="quanhe_moi_col" prefWidth="163.0" text="Quan hệ với chủ hộ" />
         </columns>
          <contextMenu>
             <ContextMenu>

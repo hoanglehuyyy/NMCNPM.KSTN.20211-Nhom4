@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane prefHeight="699.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.KhaiTuController">
+<ScrollPane prefHeight="699.0" prefWidth="1118.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhanKhau.KhaiTuController">
    <content>
       <AnchorPane prefHeight="687.0" prefWidth="1117.0" style="-fx-background-color: #2F333D;">
          <children>
@@ -84,10 +84,10 @@
             </Pane>
             <TableView fx:id="table" layoutX="45.0" layoutY="382.0" onMouseClicked="#handleClickTableView" prefHeight="270.0" prefWidth="528.0">
                <columns>
-                  <TableColumn fx:id="hoTenColumn" prefWidth="182.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ tên" />
-                  <TableColumn fx:id="ngaySinhColumn" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh " />
-                  <TableColumn fx:id="gioiTinhColumn" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Giới tính" />
-                  <TableColumn fx:id="CMNDColumn" minWidth="0.0" prefWidth="139.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
+                  <TableColumn fx:id="hoTenColumn" prefWidth="182.0" text="Họ tên" />
+                  <TableColumn fx:id="ngaySinhColumn" prefWidth="103.0" text="Ngày sinh " />
+                  <TableColumn fx:id="gioiTinhColumn" prefWidth="103.0" text="Giới tính" />
+                  <TableColumn fx:id="CMNDColumn" minWidth="0.0" prefWidth="139.0" text="CMND" />
                </columns>
             </TableView>
             <Label fx:id="nguoiKhaiBaoF" layoutX="786.0" layoutY="378.0" prefHeight="38.0" prefWidth="327.0" text="Label" textFill="#ffff8d">
@@ -128,7 +128,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <DatePicker fx:id="ngayKhaiBaoF" layoutX="238.0" layoutY="203.0" prefHeight="39.0" prefWidth="218.0" style="-fx-background-color: #FFFFC9;" />
+            <DatePicker fx:id="ngayKhaiBaoF" layoutX="238.0" layoutY="203.0" prefHeight="39.0" prefWidth="218.0" style="-fx-background-color: #FFFFC9; -fx-control-inner-background: #FFFFC9;" />
          </children>
       </AnchorPane>
    </content>

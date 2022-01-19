@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="632.0" prefWidth="838.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.XemHoKhauController">
+<AnchorPane prefHeight="632.0" prefWidth="838.0" style="-fx-background-color: #2F333D;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hoKhau.XemHoKhauController">
    <children>
       <Label layoutX="202.0" layoutY="14.0" text="Xem thông tin hộ khẩu" textFill="#f8f3f3">
          <font>
@@ -78,11 +78,11 @@
          </font></Label>
       <TableView fx:id="nk_table" layoutX="54.0" layoutY="406.0" prefHeight="192.0" prefWidth="499.0">
         <columns>
-            <TableColumn fx:id="idNhanKhau" prefWidth="86.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Id" />
-          <TableColumn fx:id="hotenNhanKhau" prefWidth="103.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Họ và tên" />
-          <TableColumn fx:id="ngaysinhNhanKhau" prefWidth="112.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Ngày sinh" />
-            <TableColumn fx:id="cmndNhanKhau" prefWidth="75.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="CMND" />
-            <TableColumn fx:id="quanheChuHo" prefWidth="122.0" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Quan hệ với chủ hộ" />
+            <TableColumn fx:id="idNhanKhau" prefWidth="86.0" text="Id" />
+          <TableColumn fx:id="hotenNhanKhau" prefWidth="103.0" text="Họ và tên" />
+          <TableColumn fx:id="ngaysinhNhanKhau" prefWidth="112.0" text="Ngày sinh" />
+            <TableColumn fx:id="cmndNhanKhau" prefWidth="75.0" text="CMND" />
+            <TableColumn fx:id="quanheChuHo" prefWidth="122.0" text="Quan hệ với chủ hộ" />
         </columns>
       </TableView>
       <Label layoutX="54.0" layoutY="345.0" text="Nhân khẩu trong hộ khẩu:" textFill="#f8f3f3">

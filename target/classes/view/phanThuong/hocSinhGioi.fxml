@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.HocSinhGioiController">
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.phanThuong.HocSinhGioiController">
     <content>
         <Pane fx:id="hsgMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1180.0" style="-fx-background-color: #2F333D;">
             <children>
@@ -42,10 +52,10 @@
                     <children>
                         <TableView fx:id="hsgTable" layoutX="-14.0" layoutY="188.0" prefHeight="410.0" prefWidth="639.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
-                                <TableColumn fx:id="hsgIDCol" editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="ID Dịp" />
-                                <TableColumn fx:id="hsgNamCol" editable="false" prefWidth="76.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Năm" />
-                                <TableColumn fx:id="hsgSoNguoiCol" editable="false" prefWidth="205.0" sortType="DESCENDING" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Số người chưa trao thưởng" />
-                                <TableColumn fx:id="hsgMoTaCol" prefWidth="376.0" sortable="false" style="-fx-background-color: #F1D4A7; -fx-border-color: #C0811F;" text="Mô tả" />
+                                <TableColumn fx:id="hsgIDCol" editable="false" prefWidth="75.0" sortable="false" text="ID Dịp" />
+                                <TableColumn fx:id="hsgNamCol" editable="false" prefWidth="76.0" sortType="DESCENDING" text="Năm" />
+                                <TableColumn fx:id="hsgSoNguoiCol" editable="false" prefWidth="205.0" sortType="DESCENDING" text="Số người chưa trao thưởng" />
+                                <TableColumn fx:id="hsgMoTaCol" prefWidth="376.0" sortable="false" text="Mô tả" />
                             </columns>
                             <contextMenu>
                                 <ContextMenu>
